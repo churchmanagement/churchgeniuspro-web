@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Church, Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { FaFacebookF, FaXTwitter, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa6';
 
 const columns = [
@@ -61,12 +61,9 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-6">
           {/* Brand + newsletter */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2" aria-label="ChurchGeniusPro home">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-                <Church className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <span className="text-lg font-bold text-white">
-                ChurchGenius<span className="gradient-text">Pro</span>
+            <Link to="/" className="inline-block" aria-label="ChurchGeniusPro home">
+              <span className="inline-block rounded-2xl bg-white px-4 py-2.5">
+                <img src="/logo.png" alt="ChurchGeniusPro" className="h-12 w-auto" />
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">

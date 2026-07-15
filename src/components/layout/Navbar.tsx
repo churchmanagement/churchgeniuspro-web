@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Church, LogIn } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import { navLinks } from '../../data/content';
 
 export default function Navbar() {
@@ -27,13 +27,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-page flex items-center justify-between" aria-label="Main navigation">
-        <Link to="/" className="flex items-center gap-2" aria-label="ChurchGeniusPro home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/25">
-            <Church className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <span className="text-lg font-bold tracking-tight text-slate-900">
-            ChurchGenius<span className="gradient-text">Pro</span>
-          </span>
+        <Link to="/" className="flex items-center" aria-label="ChurchGeniusPro home">
+          <img src="/logo.png" alt="ChurchGeniusPro" className="h-11 w-auto md:h-12" />
         </Link>
 
         {/* Desktop nav */}

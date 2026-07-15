@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.png', 'logo.png', 'robots.txt'],
       manifest: {
         name: 'ChurchGeniusPro — AI Church Management & Accounting',
         short_name: 'ChurchGeniusPro',
