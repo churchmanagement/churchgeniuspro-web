@@ -34,7 +34,21 @@ export default function PricingCards() {
               <p className={`mt-1 text-sm ${plan.highlighted ? 'text-blue-100' : 'text-slate-500'}`}>
                 {plan.description}
               </p>
-              <div className="mt-6 flex items-baseline gap-2">
+              {plan.dealValue && (
+                <div className="mt-5 flex items-center gap-2">
+                  <span className="inline-flex items-center rounded-full bg-amber-400 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-950">
+                    Limited Deal
+                  </span>
+                  <span
+                    className={`text-sm font-semibold line-through ${
+                      plan.highlighted ? 'text-blue-200' : 'text-slate-400'
+                    }`}
+                  >
+                    {plan.dealValue}/month value
+                  </span>
+                </div>
+              )}
+              <div className={`${plan.dealValue ? 'mt-2' : 'mt-6'} flex items-baseline gap-2`}>
                 <span className={`text-5xl font-extrabold ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>
                   {plan.price}
                 </span>

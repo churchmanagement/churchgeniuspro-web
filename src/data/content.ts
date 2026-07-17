@@ -4,6 +4,7 @@ export interface PricingPlan {
   period: string;
   description: string;
   badge?: string;
+  dealValue?: string;
   cta: string;
   highlighted: boolean;
   features: string[];
@@ -13,57 +14,137 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: 'Free',
     price: '$0',
-    period: 'forever',
-    description: 'Everything a small church needs to get organized.',
+    period: 'month',
+    description: 'Perfect for small churches getting started.',
+    dealValue: '$25',
     cta: 'Get Started',
     highlighted: false,
     features: [
-      'Core church management',
-      'Limited members',
-      'Member & family profiles',
-      'Basic reports',
-      'Shared church calendar',
-      'Community support',
+      'People management — up to 50 people',
+      'Online & text giving — 10 transactions/month',
+      '30 emails + 10 SMS per month',
+      'Up to 3 staff portals',
+      'Up to 2 meetings per month',
+      'Basic event management & group management',
+      'Membership management & prayer ministry',
+      'Limited public screens & favorites',
+      'Help Center',
     ],
   },
   {
     name: 'Standard',
     price: '$15',
-    period: 'per month',
-    description: 'The full church management toolkit for growing churches.',
+    period: 'month',
+    description: 'The full ministry toolkit for growing churches.',
     badge: 'Most Popular',
+    dealValue: '$50',
     cta: 'Start Free Trial',
     highlighted: true,
     features: [
-      'Everything in Free',
-      'Unlimited members & families',
-      'Online giving & text-to-give',
-      'Full accounting & financial reports',
-      'Events, attendance & volunteers',
-      'Email & SMS communication',
-      'Sunday School & kids check-in',
-      'Standard support',
+      'Everything in Free, plus:',
+      'People management — up to 200 people',
+      'Online & text giving — 30 transactions/month',
+      '3 staff, 3 kids & 3 child portals',
+      'Full event management, registration & calendar',
+      'Event check-in & kids check-in',
+      'Kids ministry & Sunday School registration',
+      'Worship planning & song book',
+      'Attendance tracking, follow-ups & volunteers',
+      'Member directory & in-app chat',
+      'Certificates, reminders & giving management',
+      '30 SMS per month',
     ],
   },
   {
-    name: 'Professional',
-    price: '$45',
-    period: 'per month',
-    description: 'AI-powered automation and unlimited everything.',
+    name: 'Pro',
+    price: '$25',
+    period: 'month',
+    description: 'Unlimited everything, powered by AI.',
     badge: 'Includes AI',
+    dealValue: '$75',
     cta: 'Start Free Trial',
     highlighted: false,
     features: [
-      'Everything in Standard',
-      'AI assistant, search & commands',
-      'Voice commands & conversational AI',
-      'OCR: checks, statements & forms',
-      'Payroll & employee records',
-      'QR / NFC login & private pages',
-      'Unlimited everything',
-      'Priority support',
+      'Everything in Standard, plus:',
+      'Unlimited people management',
+      'Unlimited online & text giving',
+      'Unlimited staff, kids & child portals',
+      'AI features',
+      '100 SMS/month included (more available)',
+      'NFC tag & barcode login',
+      'Private page access',
+      'Pledges & full public screens',
+      'Unlimited meetings & compose emails',
     ],
   },
+];
+
+export interface AddOn {
+  name: string;
+  price: string;
+  emoji: string;
+  description: string;
+  features: string[];
+}
+
+export const addOns: AddOn[] = [
+  {
+    name: 'Accounting Module',
+    price: '+$10/month',
+    emoji: '📊',
+    description: 'Proper church books, connected to your giving.',
+    features: ['Income management', 'Expense management', 'Financial reports'],
+  },
+  {
+    name: 'Advanced Accounting with AI',
+    price: '+$25/month',
+    emoji: '🤖',
+    description: 'Everything in the Accounting Module, plus AI that does the typing.',
+    features: [
+      'AI-assisted accounting',
+      'Check scanning',
+      'Payroll',
+      'Pledges',
+      'Bank statement import',
+      'Bank synchronization',
+      'Advanced financial reporting',
+    ],
+  },
+  {
+    name: 'Additional SMS',
+    price: '$1.50 / 100 SMS',
+    emoji: '📱',
+    description: 'Top up any plan with extra text messages.',
+    features: ['100 SMS for $1.50', 'Purchase additional packages as needed', 'No expiration'],
+  },
+];
+
+export interface PlanComparisonRow {
+  feature: string;
+  free: string;
+  standard: string;
+  pro: string;
+}
+
+export const planComparison: PlanComparisonRow[] = [
+  { feature: 'People Management', free: '50', standard: '200', pro: 'Unlimited' },
+  { feature: 'Staff Portals', free: '3', standard: '3', pro: 'Unlimited' },
+  { feature: 'Kids & Child Portals', free: '—', standard: '3 each', pro: 'Unlimited' },
+  { feature: 'Meetings', free: '2/month', standard: 'Unlimited', pro: 'Unlimited' },
+  { feature: 'Event Management', free: 'Basic', standard: 'Full', pro: 'Full' },
+  { feature: 'Event Registration', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Kids Ministry', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Sunday School', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Volunteer Management', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Worship Planning', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Attendance', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Event & Kids Check-in', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Member Directory', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'Song Book', free: '—', standard: '✓', pro: '✓' },
+  { feature: 'AI Features', free: '—', standard: '—', pro: '✓' },
+  { feature: 'Public Screens', free: 'Limited', standard: 'Limited', pro: 'Full' },
+  { feature: 'SMS Included', free: '10/month', standard: '30/month', pro: '100/month' },
+  { feature: 'Help Center', free: '✓', standard: '✓', pro: '✓' },
 ];
 
 export const pricingPerks = ['Free version available', '1-month free trial', 'Free migration support'];
@@ -153,7 +234,7 @@ export const faqs: FAQ[] = [
   {
     question: 'Does it replace our accounting software?',
     answer:
-      'Yes. ChurchGeniusPro includes a full fund-based accounting system with financial reports, recurring entries, payroll, and automatic tax statement generation — all connected to your giving records.',
+      'Yes. Add the Accounting Module (+$10/month) for income, expenses, and financial reports — or Advanced Accounting with AI (+$25/month) for check scanning, payroll, bank statement import, bank sync, and AI-assisted entry, all connected to your giving records.',
     category: 'Accounting',
   },
   {

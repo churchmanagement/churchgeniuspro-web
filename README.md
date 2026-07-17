@@ -20,7 +20,7 @@ A modern, production-ready marketing website for **ChurchGeniusPro**, the AI-pow
 |---|---|
 | `/` | Home — hero, animated dashboard mockup, AI highlights, benefits, feature cards, product tour carousel, testimonials, pricing preview, stats, FAQ |
 | `/features` | All 40+ features grouped into 9 categories with anchor navigation |
-| `/pricing` | Free / Standard ($15) / Professional ($45) plans + assurances + pricing FAQ |
+| `/pricing` | Free / Standard ($15) / Pro ($25) plans + add-ons + plan comparison + pricing FAQ |
 | `/compare` | Comparison table vs. Excel, QuickBooks, Breeze, Planning Center, Tithe.ly, and other ChMS |
 | `/support` | Searchable Help Center, FAQ, video tutorials, documentation, community, contact form |
 | `/signup` | Registration form with validation + Google/Microsoft sign-in buttons |

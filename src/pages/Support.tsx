@@ -44,7 +44,7 @@ const supportOptions = [
   {
     icon: MessagesSquare,
     title: 'Live Chat',
-    description: 'Chat with our support team from inside the app. Priority response on the Professional plan.',
+    description: 'Chat with our support team from inside the app. Priority response on the Pro plan.',
   },
   {
     icon: Mail,
