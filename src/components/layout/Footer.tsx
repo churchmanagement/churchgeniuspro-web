@@ -11,14 +11,14 @@ const columns = [
       { name: 'Features', to: '/features' },
       { name: 'Pricing', to: '/pricing' },
       { name: 'Compare', to: '/compare' },
-      { name: 'Sign Up', to: '/signup' },
+      { name: 'Contact Us', to: '/contact' },
     ],
   },
   {
     heading: 'Company',
     links: [
       { name: 'About Us', to: '/support' },
-      { name: 'Contact', to: '/support#contact' },
+      { name: 'Contact', to: '/contact' },
       { name: 'Careers', to: '/support' },
       { name: 'Partners', to: '/support' },
     ],
@@ -26,8 +26,8 @@ const columns = [
   {
     heading: 'Resources',
     links: [
-      { name: 'Help Center', to: '/support' },
-      { name: 'Documentation', to: '/support#docs' },
+      { name: 'Help Center', to: '/help' },
+      { name: 'Documentation', to: '/help' },
       { name: 'Video Tutorials', to: '/support#videos' },
       { name: 'Community', to: '/support#community' },
       { name: 'FAQ', to: '/support#faq' },
@@ -63,7 +63,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block" aria-label="ChurchGeniusPro home">
               <span className="inline-block rounded-2xl bg-white px-4 py-2.5">
-                <img src="/logo.png" alt="ChurchGeniusPro" className="h-12 w-auto" />
+                <img src="/logo.png" alt="ChurchGeniusPro" className="h-14 w-auto" />
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">

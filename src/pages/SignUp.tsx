@@ -1,24 +1,20 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Check, CheckCircle2, Eye, EyeOff, Sparkles } from 'lucide-react';
-import { useState } from 'react';
-import { FaGoogle, FaMicrosoft } from 'react-icons/fa6';
+import { Check, CheckCircle2, Mail, Send, Sparkles, Clock, HeartHandshake } from 'lucide-react';
+import { submitContactForm, type ContactMessage } from '../lib/contact';
 
-interface SignUpForm {
-  churchName: string;
-  pastorName: string;
-  contactPerson: string;
-  email: string;
+/**
+ * Contact Us page (served at both /contact and /signup).
+ * Replaces the previous self-service Sign Up form: new churches are onboarded
+ * personally. Submissions are emailed to info@churchgeniuspro.com and CC'd to
+ * churchgeniuspro@gmail.com via Web3Forms (see src/lib/contact.ts).
+ */
+
+interface ContactFormFields extends ContactMessage {
+  church: string;
   phone: string;
-  country: string;
-  state: string;
-  city: string;
-  churchSize: string;
-  password: string;
-  confirmPassword: string;
-  agreeTerms: boolean;
-  newsletter: boolean;
 }
 
 const perks = [
@@ -29,23 +25,31 @@ const perks = [
   'Secure role-based access from day one',
 ];
 
-const countries = [
-  'United States', 'Canada', 'United Kingdom', 'Australia', 'Ghana', 'Nigeria', 'Kenya',
-  'South Africa', 'India', 'Philippines', 'Brazil', 'Mexico', 'Germany', 'France', 'Other',
+const promises = [
+  { icon: Clock, text: 'We reply within one business day' },
+  { icon: HeartHandshake, text: 'A real person sets up your church with you' },
+  { icon: Mail, text: 'info@churchgeniuspro.com' },
 ];
 
-const churchSizes = ['1–50 members', '51–150 members', '151–500 members', '501–1,500 members', '1,500+ members'];
+export default function Contact() {
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
 
-export default function SignUp() {
-  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors, isSubmitSuccessful },
-  } = useForm<SignUpForm>();
+    formState: { errors },
+  } = useForm<ContactFormFields>();
 
-  const password = watch('password');
+  const onSubmit = handleSubmit(async (data) => {
+    setSending(true);
+    setServerError(null);
+    const result = await submitContactForm(data);
+    setSending(false);
+    if (result.ok) setSent(true);
+    else setServerError(result.error ?? 'Something went wrong. Please try again.');
+  });
 
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pt-40">
@@ -60,14 +64,14 @@ export default function SignUp() {
             className="lg:pt-10"
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Create your account
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Contact Us
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Your church, <span className="gradient-text">effortlessly organized</span>
+              Let's get your church <span className="gradient-text">up and running</span>
             </h1>
             <p className="mt-5 text-lg text-slate-600">
-              Set up your church in minutes. No technical background or church-software experience
-              needed.
+              Tell us a little about your church and what you need. Our team will reach out, answer
+              your questions, and set everything up with you — no technical background required.
             </p>
             <ul className="mt-8 space-y-4">
               {perks.map((p) => (
@@ -79,269 +83,133 @@ export default function SignUp() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-sm text-slate-500">
-              Already have an account?{' '}
-              <a href="https://app.churchgeniuspro.com/login" className="font-semibold text-blue-600 hover:text-blue-700">
-                Log in here
-              </a>
-            </p>
+            <ul className="mt-10 space-y-3 border-t border-slate-200 pt-8">
+              {promises.map((p) => (
+                <li key={p.text} className="flex items-center gap-3 text-sm text-slate-600">
+                  <p.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  {p.text === 'info@churchgeniuspro.com' ? (
+                    <a href="mailto:info@churchgeniuspro.com" className="font-semibold text-blue-600 hover:text-blue-700">
+                      info@churchgeniuspro.com
+                    </a>
+                  ) : (
+                    p.text
+                  )}
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
-          {/* Right: form */}
+          {/* Right: contact form */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            {isSubmitSuccessful ? (
+            {sent ? (
               <div className="glass rounded-3xl p-10 text-center">
                 <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-500" aria-hidden="true" />
-                <h2 className="mt-4 text-2xl font-bold text-slate-900">Welcome aboard! 🎉</h2>
+                <h2 className="mt-4 text-2xl font-bold text-slate-900">Message sent!</h2>
                 <p className="mt-3 text-slate-600">
-                  Your account is being created. Check your email to verify your address and start
-                  your free trial.
+                  Thanks for reaching out — our team will get back to you within one business day.
                 </p>
                 <Link to="/" className="btn-primary mt-8">
                   Back to Home
                 </Link>
               </div>
             ) : (
-              <form
-                className="glass space-y-4 rounded-3xl p-6 sm:p-8"
-                onSubmit={handleSubmit(() => {
-                  /* Wire to your registration API */
-                })}
-                noValidate
-              >
-                {/* Social sign in */}
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:bg-blue-50/50"
-                  >
-                    <FaGoogle className="h-4 w-4 text-[#4285F4]" aria-hidden="true" /> Sign up with Google
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:bg-blue-50/50"
-                  >
-                    <FaMicrosoft className="h-4 w-4 text-[#00A4EF]" aria-hidden="true" /> Sign up with Microsoft
-                  </button>
-                </div>
-                <div className="flex items-center gap-3 py-1">
-                  <span className="h-px flex-1 bg-slate-200" />
-                  <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                    or with email
-                  </span>
-                  <span className="h-px flex-1 bg-slate-200" />
-                </div>
-
-                <div>
-                  <label htmlFor="churchName" className="label">Church Name *</label>
-                  <input
-                    id="churchName"
-                    className="input"
-                    autoComplete="organization"
-                    aria-invalid={!!errors.churchName}
-                    {...register('churchName', { required: 'Church name is required' })}
-                  />
-                  {errors.churchName && <p className="mt-1 text-xs text-rose-600">{errors.churchName.message}</p>}
-                </div>
-
+              <form className="glass space-y-4 rounded-3xl p-6 sm:p-8" onSubmit={onSubmit} noValidate>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="pastorName" className="label">Pastor Name *</label>
+                    <label htmlFor="name" className="label">
+                      Your Name *
+                    </label>
                     <input
-                      id="pastorName"
-                      className="input"
-                      aria-invalid={!!errors.pastorName}
-                      {...register('pastorName', { required: 'Pastor name is required' })}
-                    />
-                    {errors.pastorName && <p className="mt-1 text-xs text-rose-600">{errors.pastorName.message}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="contactPerson" className="label">Contact Person *</label>
-                    <input
-                      id="contactPerson"
+                      id="name"
                       className="input"
                       autoComplete="name"
-                      aria-invalid={!!errors.contactPerson}
-                      {...register('contactPerson', { required: 'Contact person is required' })}
+                      aria-invalid={!!errors.name}
+                      {...register('name', { required: 'Please enter your name' })}
                     />
-                    {errors.contactPerson && (
-                      <p className="mt-1 text-xs text-rose-600">{errors.contactPerson.message}</p>
-                    )}
+                    {errors.name && <p className="mt-1 text-xs text-rose-600">{errors.name.message}</p>}
                   </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="signup-email" className="label">Email *</label>
+                    <label htmlFor="email" className="label">
+                      Email *
+                    </label>
                     <input
-                      id="signup-email"
+                      id="email"
                       type="email"
                       className="input"
                       autoComplete="email"
                       aria-invalid={!!errors.email}
                       {...register('email', {
-                        required: 'Email is required',
+                        required: 'Please enter your email',
                         pattern: { value: /^\S+@\S+\.\S+$/, message: 'Enter a valid email address' },
                       })}
                     />
                     {errors.email && <p className="mt-1 text-xs text-rose-600">{errors.email.message}</p>}
                   </div>
-                  <div>
-                    <label htmlFor="phone" className="label">Phone *</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      className="input"
-                      autoComplete="tel"
-                      aria-invalid={!!errors.phone}
-                      {...register('phone', { required: 'Phone number is required' })}
-                    />
-                    {errors.phone && <p className="mt-1 text-xs text-rose-600">{errors.phone.message}</p>}
-                  </div>
                 </div>
-
-                <div className="grid gap-4 sm:grid-cols-3">
-                  <div>
-                    <label htmlFor="country" className="label">Country *</label>
-                    <select
-                      id="country"
-                      className="input"
-                      autoComplete="country-name"
-                      aria-invalid={!!errors.country}
-                      {...register('country', { required: 'Required' })}
-                    >
-                      <option value="">Select…</option>
-                      {countries.map((c) => (
-                        <option key={c}>{c}</option>
-                      ))}
-                    </select>
-                    {errors.country && <p className="mt-1 text-xs text-rose-600">{errors.country.message}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="state" className="label">State / Region *</label>
-                    <input
-                      id="state"
-                      className="input"
-                      autoComplete="address-level1"
-                      aria-invalid={!!errors.state}
-                      {...register('state', { required: 'Required' })}
-                    />
-                    {errors.state && <p className="mt-1 text-xs text-rose-600">{errors.state.message}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="city" className="label">City *</label>
-                    <input
-                      id="city"
-                      className="input"
-                      autoComplete="address-level2"
-                      aria-invalid={!!errors.city}
-                      {...register('city', { required: 'Required' })}
-                    />
-                    {errors.city && <p className="mt-1 text-xs text-rose-600">{errors.city.message}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="churchSize" className="label">Church Size *</label>
-                  <select
-                    id="churchSize"
-                    className="input"
-                    aria-invalid={!!errors.churchSize}
-                    {...register('churchSize', { required: 'Please select your church size' })}
-                  >
-                    <option value="">Select your church size…</option>
-                    {churchSizes.map((s) => (
-                      <option key={s}>{s}</option>
-                    ))}
-                  </select>
-                  {errors.churchSize && <p className="mt-1 text-xs text-rose-600">{errors.churchSize.message}</p>}
-                </div>
-
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="password" className="label">Password *</label>
-                    <div className="relative">
-                      <input
-                        id="password"
-                        type={showPassword ? 'text' : 'password'}
-                        className="input pr-11"
-                        autoComplete="new-password"
-                        aria-invalid={!!errors.password}
-                        {...register('password', {
-                          required: 'Password is required',
-                          minLength: { value: 8, message: 'At least 8 characters' },
-                        })}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword((v) => !v)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                        aria-label={showPassword ? 'Hide password' : 'Show password'}
-                      >
-                        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                      </button>
-                    </div>
-                    {errors.password && <p className="mt-1 text-xs text-rose-600">{errors.password.message}</p>}
+                    <label htmlFor="church" className="label">
+                      Church Name
+                    </label>
+                    <input id="church" className="input" autoComplete="organization" {...register('church')} />
                   </div>
                   <div>
-                    <label htmlFor="confirmPassword" className="label">Confirm Password *</label>
-                    <input
-                      id="confirmPassword"
-                      type={showPassword ? 'text' : 'password'}
-                      className="input"
-                      autoComplete="new-password"
-                      aria-invalid={!!errors.confirmPassword}
-                      {...register('confirmPassword', {
-                        required: 'Please confirm your password',
-                        validate: (v) => v === password || 'Passwords do not match',
-                      })}
-                    />
-                    {errors.confirmPassword && (
-                      <p className="mt-1 text-xs text-rose-600">{errors.confirmPassword.message}</p>
-                    )}
+                    <label htmlFor="phone" className="label">
+                      Phone
+                    </label>
+                    <input id="phone" type="tel" className="input" autoComplete="tel" {...register('phone')} />
                   </div>
                 </div>
-
-                <div className="space-y-3 pt-1">
-                  <label className="flex items-start gap-3 text-sm text-slate-600">
-                    <input
-                      type="checkbox"
-                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                      aria-invalid={!!errors.agreeTerms}
-                      {...register('agreeTerms', { required: 'You must accept the terms to continue' })}
-                    />
-                    <span>
-                      I agree to the{' '}
-                      <Link to="/terms" className="font-semibold text-blue-600 hover:underline">
-                        Terms of Service
-                      </Link>{' '}
-                      and{' '}
-                      <Link to="/privacy" className="font-semibold text-blue-600 hover:underline">
-                        Privacy Policy
-                      </Link>{' '}
-                      *
-                    </span>
+                <div>
+                  <label htmlFor="subject" className="label">
+                    What can we help with? *
                   </label>
-                  {errors.agreeTerms && <p className="text-xs text-rose-600">{errors.agreeTerms.message}</p>}
-                  <label className="flex items-start gap-3 text-sm text-slate-600">
-                    <input
-                      type="checkbox"
-                      className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                      {...register('newsletter')}
-                    />
-                    <span>Send me product updates, tips, and church-management resources</span>
-                  </label>
+                  <select
+                    id="subject"
+                    className="input"
+                    aria-invalid={!!errors.subject}
+                    {...register('subject', { required: 'Please choose a subject' })}
+                  >
+                    <option value="">Choose a topic…</option>
+                    <option>Getting started with ChurchGeniusPro</option>
+                    <option>Pricing & plans</option>
+                    <option>Migration from another system</option>
+                    <option>Technical support</option>
+                    <option>Billing</option>
+                    <option>Something else</option>
+                  </select>
+                  {errors.subject && <p className="mt-1 text-xs text-rose-600">{errors.subject.message}</p>}
                 </div>
-
-                <button type="submit" className="btn-primary w-full !py-4 !text-base">
-                  Create Account
+                <div>
+                  <label htmlFor="message" className="label">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    className="input resize-y"
+                    aria-invalid={!!errors.message}
+                    {...register('message', {
+                      required: 'Please write a message',
+                      minLength: { value: 10, message: 'Tell us a little more (at least 10 characters)' },
+                    })}
+                  />
+                  {errors.message && <p className="mt-1 text-xs text-rose-600">{errors.message.message}</p>}
+                </div>
+                {serverError && (
+                  <p role="alert" className="rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                    {serverError}
+                  </p>
+                )}
+                <button type="submit" disabled={sending} className="btn-primary w-full !py-4 disabled:opacity-60">
+                  {sending ? 'Sending…' : 'Send Message'} <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
-                <p className="text-center text-xs text-slate-400">
-                  Free forever plan · 1-month free trial on paid plans · Cancel anytime
+                <p className="text-center text-xs text-slate-500">
+                  Your message goes straight to our team at info@churchgeniuspro.com.
                 </p>
               </form>
             )}

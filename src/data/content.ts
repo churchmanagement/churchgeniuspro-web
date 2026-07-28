@@ -357,5 +357,6 @@ export const navLinks = [
   { name: 'Features', path: '/features' },
   { name: 'Pricing', path: '/pricing' },
   { name: 'Compare', path: '/compare' },
-  { name: 'Help & Support', path: '/support' },
+  { name: 'Help Center', path: '/help' },
+  { name: 'Support', path: '/support' },
 ];

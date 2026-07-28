@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import {
   Search,
-  PlayCircle,
   BookOpen,
   MessagesSquare,
   Mail,
@@ -12,11 +11,15 @@ import {
   CheckCircle2,
   FileText,
   Send,
+  ArrowRight,
 } from 'lucide-react';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import FAQAccordion from '../components/ui/FAQAccordion';
 import CTASection from '../components/ui/CTASection';
+import VideoEmbed from '../components/ui/VideoEmbed';
 import { faqs } from '../data/content';
+import { shorts, youtubeChannelUrl } from '../data/videos';
+import { submitContactForm } from '../lib/contact';
 
 interface ContactForm {
   name: string;
@@ -25,15 +28,6 @@ interface ContactForm {
   subject: string;
   message: string;
 }
-
-const videos = [
-  { title: 'Getting Started in 10 Minutes', duration: '10:24', topic: 'Basics' },
-  { title: 'Setting Up Online Giving', duration: '7:12', topic: 'Giving' },
-  { title: 'AI Assistant: Voice & Photo Entry', duration: '8:45', topic: 'AI' },
-  { title: 'Kids Check-In on Sunday Morning', duration: '6:30', topic: 'Ministries' },
-  { title: 'Board-Ready Financial Reports', duration: '9:18', topic: 'Accounting' },
-  { title: 'Events, Worship & Volunteers', duration: '11:02', topic: 'Events' },
-];
 
 const supportOptions = [
   {
@@ -49,7 +43,7 @@ const supportOptions = [
   {
     icon: Mail,
     title: 'Email Support',
-    description: 'Write to support@churchgeniuspro.com — we respond within one business day.',
+    description: 'Write to info@churchgeniuspro.com — we respond within one business day.',
   },
   {
     icon: Users,
@@ -71,6 +65,7 @@ export default function Support() {
     );
   }, [query]);
 
+  const [serverError, setServerError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -161,33 +156,27 @@ export default function Support() {
           <SectionHeading
             eyebrow="Video Tutorials"
             title="Learn by watching"
-            subtitle="Short, friendly walkthroughs that turn first-time users into confident pros."
+            subtitle="The latest quick demos from our YouTube channel — short, friendly walkthroughs that turn first-time users into confident pros."
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {videos.map((v, i) => (
-              <Reveal key={v.title} delay={(i % 3) * 0.08}>
-                <button
-                  type="button"
-                  className="card group w-full text-left"
-                  aria-label={`Play video: ${v.title}`}
-                >
-                  <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-950">
-                    <PlayCircle
-                      className="h-14 w-14 text-white/80 transition-transform duration-300 group-hover:scale-110"
-                      aria-hidden="true"
-                    />
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/60 px-2 py-0.5 text-xs text-white">
-                      {v.duration}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-blue-600">
-                    {v.topic}
-                  </p>
-                  <h3 className="mt-1 font-bold text-slate-900">{v.title}</h3>
-                </button>
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {shorts.map((v, i) => (
+              <Reveal key={v.id} delay={(i % 6) * 0.06}>
+                <VideoEmbed videoId={v.id} title={v.title} vertical className="shadow-lg shadow-slate-900/10" />
+                <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-blue-600">{v.topic}</p>
+                <h3 className="text-center text-sm font-bold text-slate-900">{v.title}</h3>
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-10 text-center">
+            <a
+              href={youtubeChannelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+            >
+              See all tutorials on YouTube <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -205,7 +194,7 @@ export default function Support() {
                   The complete User Guide & Feature Overview — every feature explained in plain
                   language, with “How you'll use it” notes for everyday tasks.
                 </p>
-                <a href="#" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
+                <a href="/help" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
                   Browse the docs →
                 </a>
               </div>
@@ -251,8 +240,13 @@ export default function Support() {
             ) : (
               <form
                 className="card space-y-5 !p-8"
-                onSubmit={handleSubmit(() => {
-                  /* Wire to your support API or service like Azure Functions */
+                onSubmit={handleSubmit(async (data) => {
+                  setServerError(null);
+                  const result = await submitContactForm(data);
+                  if (!result.ok) {
+                    setServerError(result.error ?? 'Something went wrong. Please try again.');
+                    throw new Error(result.error);
+                  }
                 })}
                 noValidate
               >
@@ -335,6 +329,11 @@ export default function Support() {
                     <p className="mt-1 text-xs text-rose-600">{errors.message.message}</p>
                   )}
                 </div>
+                {serverError && (
+                  <p role="alert" className="rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                    {serverError}
+                  </p>
+                )}
                 <button type="submit" className="btn-primary w-full !py-4">
                   Send Message <Send className="h-4 w-4" aria-hidden="true" />
                 </button>

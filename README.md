@@ -22,9 +22,13 @@ A modern, production-ready marketing website for **ChurchGeniusPro**, the AI-pow
 | `/features` | All 40+ features grouped into 9 categories with anchor navigation |
 | `/pricing` | Free / Standard ($15) / Pro ($25) plans + add-ons + plan comparison + pricing FAQ |
 | `/compare` | Comparison table vs. Excel, QuickBooks, Breeze, Planning Center, Tithe.ly, and other ChMS |
-| `/support` | Searchable Help Center, FAQ, video tutorials, documentation, community, contact form |
-| `/signup` | Registration form with validation + Google/Microsoft sign-in buttons |
+| `/support` | Support hub — searchable FAQ, latest YouTube Shorts tutorials, documentation links, contact form |
+| `/help` | Help Center — full documentation generated from the official User Manual (13 guides, searchable) |
+| `/contact` (also `/signup`) | Contact Us form → emails info@churchgeniuspro.com, CC churchgeniuspro@gmail.com (via Web3Forms) |
+| `/admin` | **Admin-only** video engagement analytics (impressions, clicks, plays, watch time) |
 | `/privacy`, `/terms`, `/cookies` | Legal pages |
+
+The site also includes an **AI live chat assistant** (floating widget, powered by the Claude API via `/api/chat`) and a **Product Tour** on the homepage with demo videos embedded from the [ChurchGeniusPro YouTube channel](https://www.youtube.com/@ChurchGeniusPro).
 
 ## Local Development
 
@@ -65,7 +69,27 @@ npx @azure/static-web-apps-cli deploy ./dist --deployment-token <YOUR_TOKEN>
 
 ### SPA Routing
 
-`staticwebapp.config.json` configures the navigation fallback so React Router deep links (e.g. `/pricing`) resolve correctly, adds security headers, and sets long-lived caching for hashed assets.
+`staticwebapp.config.json` configures the navigation fallback so React Router deep links (e.g. `/pricing`) resolve correctly, adds security headers, sets long-lived caching for hashed assets, and restricts `/admin` + `/api/stats` to the `admin` role.
+
+## Required Configuration (one-time)
+
+The new features need three settings:
+
+| Setting | Where | Purpose |
+|---|---|---|
+| `WEB3FORMS_ACCESS_KEY` | GitHub repo → Settings → Secrets → Actions | Contact form delivery. Create a free access key at [web3forms.com](https://web3forms.com) using **info@churchgeniuspro.com** (submissions are CC'd to churchgeniuspro@gmail.com automatically). For local dev, put it in `.env` as `VITE_WEB3FORMS_KEY` (see `.env.example`). |
+| `ANTHROPIC_API_KEY` | Azure Portal → Static Web App → **Environment variables** | Powers the AI chat assistant (`/api/chat`). Create at [console.anthropic.com](https://console.anthropic.com). Optional: `ANTHROPIC_MODEL` to override the default model. |
+| `STORAGE_CONNECTION_STRING` | Azure Portal → Static Web App → **Environment variables** | Video analytics storage. Create a Storage account (Table service), copy its connection string. Without it, tracking events are accepted but dropped. |
+
+**Admin access to `/admin`:** Azure Portal → your Static Web App → **Role management** → *Invite* → enter the administrator's email and role `admin`. Only invited users can open the analytics dashboard or call `/api/stats`. (Official YouTube view counts & retention are also available to channel owners in YouTube Studio.)
+
+## API (`api/`)
+
+Azure Static Web Apps managed functions (Node 18, Functions v4 model):
+
+- `POST /api/chat` — Claude-powered assistant grounded in the User Manual + pricing (`api/src/kb.js`)
+- `POST /api/track` — records video engagement events to Azure Table Storage
+- `GET /api/stats` — aggregated analytics, **admin role required**
 
 ## SEO & Performance
 
@@ -88,11 +112,19 @@ src/
 │                      # ScreenshotCarousel, Stats, CTASection
 ├── data/
 │   ├── features.ts    # 9 feature categories (from the User Guide)
-│   └── content.ts     # pricing, testimonials, FAQs, stats, comparison table
-├── pages/             # Home, Features, Pricing, Compare, Support, SignUp, Legal, NotFound
-├── App.tsx            # routes (lazy-loaded) + layout
+│   ├── content.ts     # pricing, testimonials, FAQs, stats, comparison table
+│   ├── videos.ts      # YouTube demo videos & Shorts (Product Tour / Support)
+│   └── helpContent.ts # Help Center docs (generated from the User Manual .docx)
+├── lib/
+│   ├── contact.ts     # Web3Forms contact-form delivery (info@ + CC gmail)
+│   └── analytics.ts   # video engagement event tracking → /api/track
+├── pages/             # Home, Features, Pricing, Compare, Support, SignUp (Contact),
+│                      # HelpCenter, Admin, Legal, NotFound
+├── App.tsx            # routes (lazy-loaded) + layout + ChatWidget
 ├── main.tsx
 └── index.css          # Tailwind theme + design utilities
+
+api/                   # Azure Functions: chat (Claude AI), track, stats
 ```
 
 ## PWA Icons

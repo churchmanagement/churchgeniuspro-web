@@ -7,6 +7,10 @@
     ".webmanifest": "application/manifest+json"
   },
   "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/aad?post_login_redirect_uri=/admin",
+      "statusCode": 302
+    },
     "404": {
       "rewrite": "/index.html",
       "statusCode": 200
@@ -18,6 +22,14 @@
     "Referrer-Policy": "strict-origin-when-cross-origin"
   },
   "routes": [
+    {
+      "route": "/admin",
+      "allowedRoles": ["admin"]
+    },
+    {
+      "route": "/api/stats",
+      "allowedRoles": ["admin"]
+    },
     {
       "route": "/assets/*",
       "headers": {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, LogIn } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data/content';
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
     >
       <nav className="container-page flex items-center justify-between" aria-label="Main navigation">
         <Link to="/" className="flex items-center" aria-label="ChurchGeniusPro home">
-          <img src="/logo.png" alt="ChurchGeniusPro" className="h-11 w-auto md:h-12" />
+          <img src="/logo.png" alt="ChurchGeniusPro" className="h-14 w-auto md:h-16" />
         </Link>
 
         {/* Desktop nav */}
@@ -50,15 +50,8 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="https://app.churchgeniuspro.com/login"
-            className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:text-blue-600"
-          >
-            <LogIn className="h-4 w-4" aria-hidden="true" />
-            Login
-          </a>
-          <Link to="/signup" className="btn-primary !px-5 !py-2.5">
-            Sign Up Free
+          <Link to="/contact" className="btn-primary !px-5 !py-2.5">
+            Contact Us
           </Link>
         </div>
 
@@ -102,11 +95,8 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="mt-3 flex flex-col gap-2">
-                <a href="https://app.churchgeniuspro.com/login" className="btn-secondary w-full">
-                  <LogIn className="h-4 w-4" aria-hidden="true" /> Login
-                </a>
-                <Link to="/signup" className="btn-primary w-full">
-                  Sign Up Free
+                <Link to="/contact" className="btn-primary w-full">
+                  Contact Us
                 </Link>
               </li>
             </ul>

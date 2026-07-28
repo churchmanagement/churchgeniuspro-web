@@ -2,13 +2,16 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import ChatWidget from './components/ChatWidget';
 
 const Home = lazy(() => import('./pages/Home'));
 const Features = lazy(() => import('./pages/Features'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const Compare = lazy(() => import('./pages/Compare'));
 const Support = lazy(() => import('./pages/Support'));
-const SignUp = lazy(() => import('./pages/SignUp'));
+const Contact = lazy(() => import('./pages/SignUp'));
+const HelpCenter = lazy(() => import('./pages/HelpCenter'));
+const Admin = lazy(() => import('./pages/Admin'));
 const Legal = lazy(() => import('./pages/Legal'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -47,7 +50,11 @@ export default function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/support" element={<Support />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/signup" element={<Contact />} />
+            <Route path="/help" element={<HelpCenter />} />
+            <Route path="/help/:sectionId" element={<HelpCenter />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/privacy" element={<Legal page="privacy" />} />
             <Route path="/terms" element={<Legal page="terms" />} />
             <Route path="/cookies" element={<Legal page="cookies" />} />
@@ -56,6 +63,7 @@ export default function App() {
         </Suspense>
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

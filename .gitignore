@@ -6,3 +6,8 @@ dev-dist
 *.tsbuildinfo
 .vscode/*
 !.vscode/extensions.json
+
+# Local env (contains keys)
+.env
+.env.*
+!.env.example
