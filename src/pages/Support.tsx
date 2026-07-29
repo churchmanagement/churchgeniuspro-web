@@ -43,7 +43,7 @@ const supportOptions = [
   {
     icon: Mail,
     title: 'Email Support',
-    description: 'Write to info@churchgeniuspro.com — we respond within one business day.',
+    description: 'Write to support@churchgeniuspro.com — we respond within one business day.',
   },
   {
     icon: Users,

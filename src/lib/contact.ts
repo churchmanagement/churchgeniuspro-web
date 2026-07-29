@@ -3,7 +3,7 @@
  *
  * Setup (one time):
  * 1. Go to https://web3forms.com and create a free Access Key using
- *    info@churchgeniuspro.com — submissions are delivered to that inbox.
+ *    support@churchgeniuspro.com — submissions are delivered to that inbox.
  * 2. Add the key as a build-time variable: create a `.env` file (or a GitHub
  *    Actions secret exposed as an env var) with
  *      VITE_WEB3FORMS_KEY=your-access-key-here
@@ -17,7 +17,9 @@ const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 // The env var, when set at build time, overrides this default.
 const ACCESS_KEY =
   (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? '610387cd-198f-437e-8e27-f169516b8c44';
-const CC_EMAIL = 'churchgeniuspro@gmail.com';
+// NOTE: Web3Forms' `ccemail` field is Pro-only. The copy to
+// churchgeniuspro@gmail.com is instead handled by a forwarding rule in the
+// support@churchgeniuspro.com mailbox (or upgrade Web3Forms to use ccemail).
 
 export interface ContactMessage {
   name: string;
@@ -38,7 +40,6 @@ export async function submitContactForm(data: ContactMessage): Promise<{ ok: boo
         subject: `[ChurchGeniusPro] ${data.subject}`,
         from_name: data.name,
         email: data.email,
-        ccemail: CC_EMAIL,
         name: data.name,
         church: data.church ?? '',
         phone: data.phone ?? '',

@@ -58,7 +58,7 @@ export default function ChatWidget() {
           content:
             res.ok && data.reply
               ? data.reply
-              : 'Sorry — I could not reach the assistant just now. Please try again in a moment, or email info@churchgeniuspro.com.',
+              : 'Sorry — I could not reach the assistant just now. Please try again in a moment, or email support@churchgeniuspro.com.',
         },
       ]);
     } catch {
@@ -67,7 +67,7 @@ export default function ChatWidget() {
         {
           role: 'assistant',
           content:
-            'Sorry — I could not reach the assistant just now. Please try again in a moment, or email info@churchgeniuspro.com.',
+            'Sorry — I could not reach the assistant just now. Please try again in a moment, or email support@churchgeniuspro.com.',
         },
       ]);
     } finally {

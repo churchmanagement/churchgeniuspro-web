@@ -8,7 +8,7 @@ import { submitContactForm, type ContactMessage } from '../lib/contact';
 /**
  * Contact Us page (served at both /contact and /signup).
  * Replaces the previous self-service Sign Up form: new churches are onboarded
- * personally. Submissions are emailed to info@churchgeniuspro.com and CC'd to
+ * personally. Submissions are emailed to support@churchgeniuspro.com and CC'd to
  * churchgeniuspro@gmail.com via Web3Forms (see src/lib/contact.ts).
  */
 
@@ -28,7 +28,7 @@ const perks = [
 const promises = [
   { icon: Clock, text: 'We reply within one business day' },
   { icon: HeartHandshake, text: 'A real person sets up your church with you' },
-  { icon: Mail, text: 'info@churchgeniuspro.com' },
+  { icon: Mail, text: 'support@churchgeniuspro.com' },
 ];
 
 export default function Contact() {
@@ -87,9 +87,9 @@ export default function Contact() {
               {promises.map((p) => (
                 <li key={p.text} className="flex items-center gap-3 text-sm text-slate-600">
                   <p.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
-                  {p.text === 'info@churchgeniuspro.com' ? (
-                    <a href="mailto:info@churchgeniuspro.com" className="font-semibold text-blue-600 hover:text-blue-700">
-                      info@churchgeniuspro.com
+                  {p.text === 'support@churchgeniuspro.com' ? (
+                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-blue-600 hover:text-blue-700">
+                      support@churchgeniuspro.com
                     </a>
                   ) : (
                     p.text
@@ -209,7 +209,7 @@ export default function Contact() {
                   {sending ? 'Sending…' : 'Send Message'} <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
                 <p className="text-center text-xs text-slate-500">
-                  Your message goes straight to our team at info@churchgeniuspro.com.
+                  Your message goes straight to our team at support@churchgeniuspro.com.
                 </p>
               </form>
             )}

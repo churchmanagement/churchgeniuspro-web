@@ -24,7 +24,7 @@ A modern, production-ready marketing website for **ChurchGeniusPro**, the AI-pow
 | `/compare` | Comparison table vs. Excel, QuickBooks, Breeze, Planning Center, Tithe.ly, and other ChMS |
 | `/support` | Support hub — searchable FAQ, latest YouTube Shorts tutorials, documentation links, contact form |
 | `/help` | Help Center — full documentation generated from the official User Manual (13 guides, searchable) |
-| `/contact` (also `/signup`) | Contact Us form → emails info@churchgeniuspro.com, CC churchgeniuspro@gmail.com (via Web3Forms) |
+| `/contact` (also `/signup`) | Contact Us form → emails support@churchgeniuspro.com, CC churchgeniuspro@gmail.com (via Web3Forms) |
 | `/admin` | **Admin-only** video engagement analytics (impressions, clicks, plays, watch time) |
 | `/privacy`, `/terms`, `/cookies` | Legal pages |
 
@@ -77,7 +77,7 @@ The new features need three settings:
 
 | Setting | Where | Purpose |
 |---|---|---|
-| `WEB3FORMS_ACCESS_KEY` | GitHub repo → Settings → Secrets → Actions | Contact form delivery. Create a free access key at [web3forms.com](https://web3forms.com) using **info@churchgeniuspro.com** (submissions are CC'd to churchgeniuspro@gmail.com automatically). For local dev, put it in `.env` as `VITE_WEB3FORMS_KEY` (see `.env.example`). |
+| `WEB3FORMS_ACCESS_KEY` | GitHub repo → Settings → Secrets → Actions | Contact form delivery. Create a free access key at [web3forms.com](https://web3forms.com) using **support@churchgeniuspro.com** (submissions are CC'd to churchgeniuspro@gmail.com automatically). For local dev, put it in `.env` as `VITE_WEB3FORMS_KEY` (see `.env.example`). |
 | `ANTHROPIC_API_KEY` | Azure Portal → Static Web App → **Environment variables** | Powers the AI chat assistant (`/api/chat`). Create at [console.anthropic.com](https://console.anthropic.com). Optional: `ANTHROPIC_MODEL` to override the default model. |
 | `STORAGE_CONNECTION_STRING` | Azure Portal → Static Web App → **Environment variables** | Video analytics storage. Create a Storage account (Table service), copy its connection string. Without it, tracking events are accepted but dropped. |
 

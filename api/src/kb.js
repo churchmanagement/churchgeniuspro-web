@@ -590,7 +590,7 @@ Add-ons: Accounting Module +$10/mo (income, expenses, financial reports). Advanc
 Every paid plan: 1-month free trial, free migration support. Free plan needs no credit card.
 
 ## Contact
-Questions, sales, migration or support: info@churchgeniuspro.com (replies within one business day) or the Contact form at /contact. YouTube tutorials: https://www.youtube.com/@ChurchGeniusPro. Full documentation: /help on the website.
+Questions, sales, migration or support: support@churchgeniuspro.com (replies within one business day) or the Contact form at /contact. YouTube tutorials: https://www.youtube.com/@ChurchGeniusPro. Full documentation: /help on the website.
 `;
 
 module.exports = { KNOWLEDGE_BASE };
