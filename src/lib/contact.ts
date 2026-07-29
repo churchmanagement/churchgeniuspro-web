@@ -12,7 +12,11 @@
  */
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
-const ACCESS_KEY = (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? 'YOUR_WEB3FORMS_ACCESS_KEY';
+// Web3Forms access keys are public-by-design (they appear in page source on any
+// plain-HTML integration); they can only cause mail to be sent to your own inbox.
+// The env var, when set at build time, overrides this default.
+const ACCESS_KEY =
+  (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? '610387cd-198f-437e-8e27-f169516b8c44';
 const CC_EMAIL = 'churchgeniuspro@gmail.com';
 
 export interface ContactMessage {
