@@ -1,37 +1,14 @@
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, EffectCoverflow } from 'swiper/modules';
-import {
-  Users,
-  Landmark,
-  Sparkles,
-  CalendarDays,
-  Baby,
-  PieChart,
-  type LucideIcon,
-} from 'lucide-react';
+import { Autoplay, Pagination, Navigation, A11y } from 'swiper/modules';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeading } from './Section';
+import { screenshots, screenshotSrc, screenshotSrcSet, type Screenshot } from '../../data/screens';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
 
-interface Shot {
-  icon: LucideIcon;
-  title: string;
-  caption: string;
-  gradient: string;
-  bars: number[];
-}
-
-const shots: Shot[] = [
-  { icon: Users, title: 'Member Directory', caption: 'Every member and family in one living directory', gradient: 'from-blue-500 to-cyan-500', bars: [70, 45, 85, 60, 75] },
-  { icon: Landmark, title: 'Accounting Dashboard', caption: 'Fund-based books with board-ready reports', gradient: 'from-emerald-500 to-teal-500', bars: [55, 80, 40, 90, 65] },
-  { icon: Sparkles, title: 'AI Assistant', caption: 'Speak, scan, or type one word — the AI does the rest', gradient: 'from-purple-500 to-violet-500', bars: [65, 50, 90, 70, 55] },
-  { icon: CalendarDays, title: 'Events & Worship', caption: 'One shared calendar and full service planning', gradient: 'from-amber-500 to-orange-500', bars: [45, 75, 60, 85, 50] },
-  { icon: Baby, title: 'Kids Check-In', caption: 'Secure barcode check-in with automatic classrooms', gradient: 'from-rose-500 to-pink-500', bars: [80, 55, 70, 45, 85] },
-  { icon: PieChart, title: 'Giving Analytics', caption: 'Real-time donations, pledges, and campaigns', gradient: 'from-indigo-500 to-blue-500', bars: [60, 85, 50, 75, 90] },
-];
-
-function MockScreen({ shot }: { shot: Shot }) {
+function ScreenFrame({ shot, eager }: { shot: Screenshot; eager?: boolean }) {
+  const largest = shot.sizes[shot.sizes.length - 1];
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10">
       {/* Browser chrome */}
@@ -43,73 +20,71 @@ function MockScreen({ shot }: { shot: Shot }) {
           app.churchgeniuspro.com
         </span>
       </div>
-      {/* Mock UI */}
-      <div className="grid grid-cols-4 gap-3 p-4 sm:p-5">
-        <div className="col-span-1 hidden space-y-2 sm:block">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className={`h-6 rounded-lg ${i === 0 ? `bg-gradient-to-r ${shot.gradient} opacity-80` : 'bg-slate-100'}`} />
-          ))}
-        </div>
-        <div className="col-span-4 space-y-3 sm:col-span-3">
-          <div className="flex items-center gap-3">
-            <span className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${shot.gradient} text-white`}>
-              <shot.icon className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <div className="space-y-1.5">
-              <div className="h-3 w-32 rounded bg-slate-200" />
-              <div className="h-2 w-20 rounded bg-slate-100" />
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-2">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="rounded-xl bg-slate-50 p-3">
-                <div className={`h-2 w-8 rounded bg-gradient-to-r ${shot.gradient} opacity-60`} />
-                <div className="mt-2 h-3 w-12 rounded bg-slate-200" />
-              </div>
-            ))}
-          </div>
-          <div className="flex h-24 items-end gap-2 rounded-xl bg-slate-50 p-3">
-            {shot.bars.map((h, i) => (
-              <div
-                key={i}
-                className={`flex-1 rounded-t-md bg-gradient-to-t ${shot.gradient}`}
-                style={{ height: `${h}%`, opacity: i % 2 ? 0.7 : 0.9 }}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Real screenshot in a fixed 16:10 stage so mixed sizes align */}
+      <div className="flex aspect-[16/10] items-center justify-center bg-white">
+        <img
+          src={screenshotSrc(shot)}
+          srcSet={screenshotSrcSet(shot)}
+          sizes="(min-width: 1280px) 42vw, (min-width: 768px) 58vw, 88vw"
+          width={largest.w}
+          height={largest.h}
+          alt={`${shot.title} — ${shot.caption}`}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          className="max-h-full max-w-full object-contain"
+          draggable={false}
+        />
       </div>
     </div>
   );
 }
 
 export default function ScreenshotCarousel() {
+  // State (not refs) so Swiper re-binds navigation once the buttons mount.
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
+
+  const navBtn =
+    'absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full ' +
+    'border border-slate-200 bg-white/90 text-slate-700 shadow-lg shadow-slate-900/10 backdrop-blur ' +
+    'transition hover:bg-white hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500';
+
   return (
     <section className="section overflow-hidden bg-slate-50">
       <div className="container-page">
         <SectionHeading
           eyebrow="Product Tour"
           title="A beautiful home for every ministry"
-          subtitle="Explore the dashboards your team will use every day — clean, fast, and friendly for non-experts."
+          subtitle="Browse real screens from the app — giving, accounting, events, kids ministry, and more. Clean, fast, and friendly for non-experts."
         />
       </div>
-      <div className="mt-14">
+      <div className="relative mt-14">
+        <button ref={setPrevEl} type="button" aria-label="Previous screenshot" className={`${navBtn} left-3 sm:left-8`}>
+          <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+        </button>
+        <button ref={setNextEl} type="button" aria-label="Next screenshot" className={`${navBtn} right-3 sm:right-8`}>
+          <ChevronRight className="h-5 w-5" aria-hidden="true" />
+        </button>
         <Swiper
-          modules={[Autoplay, Pagination, EffectCoverflow]}
-          effect="coverflow"
+          modules={[Autoplay, Pagination, Navigation, A11y]}
           centeredSlides
-          slidesPerView={1.15}
-          breakpoints={{ 768: { slidesPerView: 1.8 }, 1280: { slidesPerView: 2.4 } }}
-          coverflowEffect={{ rotate: 0, stretch: 0, depth: 120, modifier: 1.6, slideShadows: false }}
-          autoplay={{ delay: 3800, disableOnInteraction: false }}
+          slidesPerView={1.08}
+          spaceBetween={16}
+          breakpoints={{
+            768: { slidesPerView: 1.7, spaceBetween: 24 },
+            1280: { slidesPerView: 2.3, spaceBetween: 32 },
+          }}
+          speed={700}
+          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
           pagination={{ clickable: true }}
+          navigation={{ prevEl, nextEl }}
           loop
           className="!pb-14"
           a11y={{ enabled: true }}
         >
-          {shots.map((shot) => (
-            <SwiperSlide key={shot.title}>
-              <MockScreen shot={shot} />
+          {screenshots.map((shot, i) => (
+            <SwiperSlide key={shot.slug}>
+              <ScreenFrame shot={shot} eager={i === 0} />
               <p className="mt-4 text-center">
                 <span className="font-semibold text-slate-900">{shot.title}</span>
                 <span className="hidden text-slate-500 sm:inline"> — {shot.caption}</span>
