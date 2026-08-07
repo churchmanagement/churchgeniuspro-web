@@ -1,19 +1,65 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, type ComponentType } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ChatWidget from './components/ChatWidget';
+import Seo from './components/Seo';
+import { getRouteMeta } from './data/seo';
 
-const Home = lazy(() => import('./pages/Home'));
-const Features = lazy(() => import('./pages/Features'));
-const Pricing = lazy(() => import('./pages/Pricing'));
-const Compare = lazy(() => import('./pages/Compare'));
-const Support = lazy(() => import('./pages/Support'));
-const Contact = lazy(() => import('./pages/SignUp'));
-const HelpCenter = lazy(() => import('./pages/HelpCenter'));
-const Admin = lazy(() => import('./pages/Admin'));
-const Legal = lazy(() => import('./pages/Legal'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+export interface PageComponents {
+  Home: ComponentType;
+  Features: ComponentType;
+  Pricing: ComponentType;
+  Compare: ComponentType;
+  Support: ComponentType;
+  Contact: ComponentType;
+  HelpCenter: ComponentType;
+  Admin: ComponentType;
+  Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' }>;
+  NotFound: ComponentType;
+}
+
+/**
+ * Code-split pages for the browser. The build-time prerender
+ * (src/entry-server.tsx) passes eager imports instead so every route renders
+ * to complete static HTML.
+ */
+const lazyPages: PageComponents = {
+  Home: lazy(() => import('./pages/Home')),
+  Features: lazy(() => import('./pages/Features')),
+  Pricing: lazy(() => import('./pages/Pricing')),
+  Compare: lazy(() => import('./pages/Compare')),
+  Support: lazy(() => import('./pages/Support')),
+  Contact: lazy(() => import('./pages/SignUp')),
+  HelpCenter: lazy(() => import('./pages/HelpCenter')),
+  Admin: lazy(() => import('./pages/Admin')),
+  Legal: lazy(() => import('./pages/Legal')),
+  NotFound: lazy(() => import('./pages/NotFound')),
+};
+
+/** Per-route <title>, meta description, canonical, and og/twitter tags. */
+function HeadManager() {
+  const { pathname } = useLocation();
+  const meta = getRouteMeta(pathname);
+  if (!meta) {
+    return (
+      <Seo
+        title="Page Not Found | ChurchGeniusPro"
+        description="The page you are looking for does not exist."
+        path={pathname}
+        noindex
+      />
+    );
+  }
+  return (
+    <Seo
+      title={meta.title}
+      description={meta.description}
+      path={meta.canonicalPath ?? meta.path}
+      noindex={meta.noindex}
+    />
+  );
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,7 +77,9 @@ function PageLoader() {
   );
 }
 
-export default function App() {
+export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
+  const { Home, Features, Pricing, Compare, Support, Contact, HelpCenter, Admin, Legal, NotFound } =
+    pages;
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -40,6 +88,7 @@ export default function App() {
       >
         Skip to main content
       </a>
+      <HeadManager />
       <ScrollToTop />
       <Navbar />
       <main id="main" className="flex-1">
