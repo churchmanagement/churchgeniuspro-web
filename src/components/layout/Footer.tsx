@@ -63,7 +63,19 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block" aria-label="ChurchGeniusPro home">
               <span className="inline-block rounded-2xl bg-white px-4 py-2.5">
-                <img src="/logo.png" alt="ChurchGeniusPro" className="h-14 w-auto" />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/logo-96.webp 1x, /logo-192.webp 2x, /logo-288.webp 3x"
+                  />
+                  <img
+                    src="/logo.png"
+                    alt="ChurchGeniusPro"
+                    width={84}
+                    height={56}
+                    className="h-14 w-auto"
+                  />
+                </picture>
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
@@ -161,8 +173,8 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()} ChurchGeniusPro. All rights reserved. Built with care for
-          churches everywhere.
+          © {new Date().getFullYear()} ChurchGenius LLC. All rights reserved. ChurchGeniusPro is a
+          product of ChurchGenius LLC. Built with care for churches everywhere.
         </p>
       </div>
     </footer>

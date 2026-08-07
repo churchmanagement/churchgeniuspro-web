@@ -143,8 +143,13 @@ export default function VideoEmbed({ videoId, title, vertical = false, className
         >
           <img
             src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+            srcSet={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg 320w, https://i.ytimg.com/vi/${videoId}/hqdefault.jpg 480w`}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             alt=""
+            width={480}
+            height={360}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover opacity-80 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
           />
           <span className="absolute inset-0 flex items-center justify-center bg-black/20 transition group-hover:bg-black/10">

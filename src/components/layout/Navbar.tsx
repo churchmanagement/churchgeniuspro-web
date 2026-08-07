@@ -28,7 +28,19 @@ export default function Navbar() {
     >
       <nav className="container-page flex items-center justify-between" aria-label="Main navigation">
         <Link to="/" className="flex items-center" aria-label="ChurchGeniusPro home">
-          <img src="/logo.png" alt="ChurchGeniusPro" className="h-14 w-auto md:h-16" />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/logo-96.webp 1x, /logo-192.webp 2x, /logo-288.webp 3x"
+            />
+            <img
+              src="/logo.png"
+              alt="ChurchGeniusPro"
+              width={96}
+              height={64}
+              className="h-14 w-auto md:h-16"
+            />
+          </picture>
         </Link>
 
         {/* Desktop nav */}
