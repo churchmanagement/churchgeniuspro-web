@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import ChatWidget from './components/ChatWidget';
 import Seo from './components/Seo';
 import { getRouteMeta } from './data/seo';
+import { landingPages, type LandingSlug } from './data/landing';
 
 export interface PageComponents {
   Home: ComponentType;
@@ -16,6 +17,7 @@ export interface PageComponents {
   HelpCenter: ComponentType;
   Admin: ComponentType;
   Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' }>;
+  Landing: ComponentType<{ slug: LandingSlug }>;
   NotFound: ComponentType;
 }
 
@@ -34,6 +36,7 @@ const lazyPages: PageComponents = {
   HelpCenter: lazy(() => import('./pages/HelpCenter')),
   Admin: lazy(() => import('./pages/Admin')),
   Legal: lazy(() => import('./pages/Legal')),
+  Landing: lazy(() => import('./pages/Landing')),
   NotFound: lazy(() => import('./pages/NotFound')),
 };
 
@@ -78,8 +81,19 @@ function PageLoader() {
 }
 
 export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
-  const { Home, Features, Pricing, Compare, Support, Contact, HelpCenter, Admin, Legal, NotFound } =
-    pages;
+  const {
+    Home,
+    Features,
+    Pricing,
+    Compare,
+    Support,
+    Contact,
+    HelpCenter,
+    Admin,
+    Legal,
+    Landing,
+    NotFound,
+  } = pages;
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -103,6 +117,9 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             <Route path="/signup" element={<Contact />} />
             <Route path="/help" element={<HelpCenter />} />
             <Route path="/help/:sectionId" element={<HelpCenter />} />
+            {landingPages.map((p) => (
+              <Route key={p.slug} path={`/${p.slug}`} element={<Landing slug={p.slug} />} />
+            ))}
             <Route path="/admin" element={<Admin />} />
             <Route path="/privacy" element={<Legal page="privacy" />} />
             <Route path="/terms" element={<Legal page="terms" />} />

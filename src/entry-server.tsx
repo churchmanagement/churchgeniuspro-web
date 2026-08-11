@@ -19,6 +19,7 @@ import Contact from './pages/SignUp';
 import HelpCenter from './pages/HelpCenter';
 import Admin from './pages/Admin';
 import Legal from './pages/Legal';
+import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
 
 export { SITE, prerenderRoutes } from './data/seo';
@@ -36,6 +37,7 @@ const eagerPages: PageComponents = {
   HelpCenter,
   Admin,
   Legal,
+  Landing,
   NotFound,
 };
 

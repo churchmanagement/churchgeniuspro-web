@@ -8,6 +8,7 @@
  *     sitemap.xml from `prerenderRoutes`.
  */
 import { helpSections } from './helpContent';
+import { landingPages } from './landing';
 
 export const SITE = 'https://www.churchgeniuspro.com';
 
@@ -105,8 +106,15 @@ const helpRoutes: RouteMeta[] = helpSections.map((s) => ({
   description: s.description,
 }));
 
+/** Dedicated SEO landing pages (src/data/landing.ts). */
+const landingRoutes: RouteMeta[] = landingPages.map((p) => ({
+  path: `/${p.slug}`,
+  title: p.title,
+  description: p.metaDescription,
+}));
+
 /** Routes baked to static HTML at build time (and listed in sitemap.xml unless excluded). */
-export const prerenderRoutes: RouteMeta[] = [...staticRoutes, ...helpRoutes];
+export const prerenderRoutes: RouteMeta[] = [...staticRoutes, ...landingRoutes, ...helpRoutes];
 
 const byPath = new Map(prerenderRoutes.map((m) => [m.path, m]));
 

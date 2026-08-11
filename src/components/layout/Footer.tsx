@@ -15,6 +15,17 @@ const columns = [
     ],
   },
   {
+    heading: 'Solutions',
+    links: [
+      { name: 'Church Management Software', to: '/church-management-software' },
+      { name: 'Free Church Software', to: '/free-church-management-software' },
+      { name: 'AI Church Software', to: '/ai-church-management-software' },
+      { name: 'Church Accounting', to: '/church-accounting-software' },
+      { name: 'For Small Churches', to: '/small-church-management-software' },
+      { name: 'Church App', to: '/church-app' },
+    ],
+  },
+  {
     heading: 'Company',
     links: [
       { name: 'About Us', to: '/support' },
@@ -58,7 +69,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-100 bg-slate-950 text-slate-300">
       <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-6">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-7">
           {/* Brand + newsletter */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block" aria-label="ChurchGeniusPro home">

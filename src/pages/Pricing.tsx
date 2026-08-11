@@ -6,6 +6,20 @@ import FAQAccordion from '../components/ui/FAQAccordion';
 import CTASection from '../components/ui/CTASection';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import { faqs, addOns, planComparison } from '../data/content';
+import { SITE } from '../data/seo';
+
+const pricingFaqs = faqs.filter((f) => ['Pricing', 'Getting Started'].includes(f.category));
+
+const pricingFaqJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${SITE}/pricing#faq`,
+  mainEntity: pricingFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+}).replace(/</g, '\\u003c');
 
 const assurances = [
   {
@@ -195,17 +209,21 @@ export default function Pricing() {
 
       {/* Pricing FAQ */}
       <section className="section">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: pricingFaqJsonLd }} />
         <div className="container-page">
           <SectionHeading eyebrow="Questions" title="Pricing questions, answered" />
           <div className="mt-12">
-            <FAQAccordion
-              items={faqs.filter((f) => ['Pricing', 'Getting Started'].includes(f.category))}
-            />
+            <FAQAccordion items={pricingFaqs} />
           </div>
           <Reveal className="mt-10 text-center">
-            <Link to="/compare" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
-              Compare us with other tools <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+              <Link to="/free-church-management-software" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+                Learn more about the Free plan <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link to="/compare" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+                Compare us with other tools <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
