@@ -65,9 +65,9 @@ export const landingPages: LandingPageData[] = [
   // ---------------------------------------------------------------- hub page
   {
     slug: 'church-management-software',
-    title: 'Church Management Software — All-in-One & AI-Powered | ChurchGeniusPro',
+    title: 'Church Management Software — AI-Powered | ChurchGeniusPro',
     metaDescription:
-      'ChurchGeniusPro is all-in-one church management software: members, giving, events, kids check-in, volunteers, worship planning, and built-in accounting — with an AI assistant that does the busywork.',
+      'All-in-one church management software: members, giving, events, kids check-in, volunteers, and built-in accounting — with an AI assistant. Start free.',
     eyebrow: 'Church Management Software',
     h1: 'One platform for your',
     h1Gradient: 'entire church.',
@@ -208,9 +208,9 @@ export const landingPages: LandingPageData[] = [
   // ---------------------------------------------------------- free plan page
   {
     slug: 'free-church-management-software',
-    title: 'Free Church Management Software — $0 Plan, Not a Trial | ChurchGeniusPro',
+    title: 'Free Church Management Software — $0 Plan | ChurchGeniusPro',
     metaDescription:
-      'ChurchGeniusPro offers genuinely free church management software: up to 50 people, online giving, events, groups, and membership tools at $0/month — free forever, no credit card required.',
+      'Genuinely free church management software: up to 50 people, online giving, events, and membership tools at $0/month — free forever, no credit card.',
     eyebrow: 'Free Plan',
     h1: 'Free church management software.',
     h1Gradient: 'Actually free.',
@@ -326,9 +326,9 @@ export const landingPages: LandingPageData[] = [
   // ------------------------------------------------------------ AI page
   {
     slug: 'ai-church-management-software',
-    title: 'AI Church Management Software — Assistant, OCR & Voice | ChurchGeniusPro',
+    title: 'AI Church Management Software | ChurchGeniusPro',
     metaDescription:
-      'ChurchGeniusPro is AI church management software: a conversational assistant, voice commands, and OCR that reads checks, bank statements, and forms — cutting manual data entry by up to 90%.',
+      'AI church management software: a conversational assistant, voice commands, and OCR that reads checks, statements, and forms — up to 90% less data entry.',
     eyebrow: 'AI-Powered',
     h1: 'Church management software',
     h1Gradient: 'with AI built in.',
@@ -438,9 +438,9 @@ export const landingPages: LandingPageData[] = [
   // ----------------------------------------------------- accounting hub page
   {
     slug: 'church-accounting-software',
-    title: 'Church Accounting Software — Funds, Payroll & Statements | ChurchGeniusPro',
+    title: 'Church Accounting Software with Payroll | ChurchGeniusPro',
     metaDescription:
-      'Church accounting software connected to your giving: fund-based income and expenses, payroll, pledges, bank import, and year-end giving statements — from $10/month on top of any ChurchGeniusPro plan.',
+      'Church accounting software connected to your giving: fund-based income and expenses, payroll, and year-end giving statements — from $10/month.',
     eyebrow: 'Accounting',
     h1: 'Church accounting software',
     h1Gradient: 'connected to your giving.',
@@ -557,9 +557,9 @@ export const landingPages: LandingPageData[] = [
   // ------------------------------------------------------ small church page
   {
     slug: 'small-church-management-software',
-    title: 'Church Management Software for Small Churches — Free to Start | ChurchGeniusPro',
+    title: 'Small Church Management Software | ChurchGeniusPro',
     metaDescription:
-      'Church management software for small churches: start free for up to 50 people, run giving, events, and membership without technical skills, and only pay ($15/mo) when your church grows.',
+      'Church management software for small churches: start free for up to 50 people, run giving and events without technical skills, upgrade from $15/mo.',
     eyebrow: 'Small Churches',
     h1: 'Small church?',
     h1Gradient: 'Start free. Grow when you do.',
@@ -665,9 +665,9 @@ export const landingPages: LandingPageData[] = [
   // ------------------------------------------------------------- church app
   {
     slug: 'church-app',
-    title: 'Church App — Mobile App for Giving, Check-In & Connection | ChurchGeniusPro',
+    title: 'Church App — Giving, Check-In & More | ChurchGeniusPro',
     metaDescription:
-      'ChurchGeniusPro\'s church app puts giving, kids check-in, events, the member directory, and chat in every pocket — as a mobile app and an installable web app, connected to your church database.',
+      'ChurchGeniusPro\'s church app puts giving, kids check-in, events, directory, and chat in every pocket — as a mobile app and installable web app.',
     eyebrow: 'Church App',
     h1: 'A church app your',
     h1Gradient: 'whole congregation will use.',

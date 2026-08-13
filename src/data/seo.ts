@@ -30,31 +30,31 @@ const staticRoutes: RouteMeta[] = [
     path: '/',
     title: 'ChurchGeniusPro — AI-Powered Church Management & Accounting',
     description:
-      'ChurchGeniusPro replaces a dozen disconnected tools with one AI-powered platform: member management, accounting, giving, events, Sunday School, kids check-in, and more.',
+      'ChurchGeniusPro replaces a dozen disconnected tools with one AI-powered platform: member management, accounting, giving, events, kids check-in, and more.',
   },
   {
     path: '/features',
     title: 'Church Management Software Features | ChurchGeniusPro',
     description:
-      'Explore every ChurchGeniusPro feature: member and family management, online giving, fund accounting, payroll, events, Sunday School, kids check-in, communication, and AI-powered analytics.',
+      'Explore every ChurchGeniusPro feature: member management, online giving, fund accounting, payroll, events, kids check-in, communication, and AI analytics.',
   },
   {
     path: '/pricing',
-    title: 'Pricing — Free, Standard $15/mo, Pro $25/mo | ChurchGeniusPro',
+    title: 'Pricing: Free, Standard $15/mo, Pro $25/mo | ChurchGeniusPro',
     description:
-      'Simple, transparent pricing for churches of every size. Start free, then upgrade to Standard ($15/mo) or Pro ($25/mo) when you are ready. No setup fees, cancel anytime.',
+      'Simple, transparent pricing for churches. Start free, then upgrade to Standard ($15/mo) or Pro ($25/mo) when ready. No setup fees, cancel anytime.',
   },
   {
     path: '/compare',
     title: 'Compare Church Management Software | ChurchGeniusPro',
     description:
-      'See how ChurchGeniusPro compares to other church management systems on membership tools, fund accounting, AI features, online giving, and total cost.',
+      'Feature-by-feature comparison of ChurchGeniusPro with spreadsheets, QuickBooks Online, Breeze, Planning Center, and Tithe.ly, verified from official sources.',
   },
   {
     path: '/support',
     title: 'Support, Tutorials & Video Guides | ChurchGeniusPro',
     description:
-      'Get help fast: video tutorials, step-by-step guides, and a support team that knows church workflows — attendance, follow-ups, certificates, giving, and accounting AI.',
+      'Get help fast: video tutorials, step-by-step guides, and a support team that knows church workflows — attendance, follow-ups, giving, and accounting AI.',
   },
   {
     path: '/contact',

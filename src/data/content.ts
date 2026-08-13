@@ -147,7 +147,11 @@ export const planComparison: PlanComparisonRow[] = [
   { feature: 'Help Center', free: '✓', standard: '✓', pro: '✓' },
 ];
 
-export const pricingPerks = ['Free version available', '1-month free trial', 'Free migration support'];
+export const pricingPerks = [
+  'Free version available',
+  '1-month free trial',
+  'Free migration support',
+];
 
 export interface Testimonial {
   quote: string;
@@ -168,7 +172,7 @@ export const testimonials: Testimonial[] = [
     quote:
       'Kids check-in used to be chaos on Sunday mornings. Now parents scan a code, children are placed in the right classroom automatically, and volunteers see medical notes instantly.',
     name: 'Sarah Okafor',
-    role: 'Children\'s Ministry Director',
+    role: "Children's Ministry Director",
     church: 'New Life Fellowship',
   },
   {
@@ -226,7 +230,7 @@ export const faqs: FAQ[] = [
     category: 'Getting Started',
   },
   {
-    question: 'Is our data safe? What about children\'s information?',
+    question: "Is our data safe? What about children's information?",
     answer:
       'Security is built in at every level: role-based access, separate staff/member/child portals, secure code and barcode kids check-in, and Wi-Fi-only private pages that only open on your church network.',
     category: 'Security',
@@ -279,76 +283,181 @@ export const stats: Stat[] = [
 export interface CompareRow {
   feature: string;
   cgp: boolean | string;
-  excel: boolean | string;
+  spreadsheets: boolean | string;
   quickbooks: boolean | string;
   breeze: boolean | string;
   planningCenter: boolean | string;
   tithely: boolean | string;
-  others: boolean | string;
 }
+
+/**
+ * IMPORTANT — legal/accuracy notes for maintaining this table:
+ * - Every non-ChurchGeniusPro cell must reflect the provider's OFFICIAL public
+ *   website/documentation. Re-verify before changing, and update
+ *   compareLastVerified whenever cells are re-checked.
+ * - `false` renders as "—" and means "not offered as a built-in feature per the
+ *   provider's official public materials as of the last-verified date" — never
+ *   an absolute claim that a capability is impossible.
+ * - String cells describe partial/add-on capability neutrally. No "Limited",
+ *   "worse", or other judgment words about competitors.
+ * Last verification: 2026-08-13 against quickbooks.intuit.com, breezechms.com,
+ * planningcenter.com, tithe.ly official pages and support docs.
+ */
+export const compareLastVerified = 'August 13, 2026';
 
 export const compareColumns = [
   'ChurchGeniusPro',
-  'Excel',
-  'QuickBooks',
-  'Breeze',
+  'Spreadsheets',
+  'QuickBooks Online',
+  'Breeze ChMS',
   'Planning Center',
   'Tithe.ly',
-  'Other ChMS',
 ];
 
 export const compareRows: CompareRow[] = [
   {
-    feature: 'AI Assistant (text, voice, conversational)',
-    cgp: true, excel: false, quickbooks: false, breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Member & family management',
+    cgp: true,
+    spreadsheets: 'Manual',
+    quickbooks: false,
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'Full Fund Accounting & Payroll',
-    cgp: true, excel: 'Manual', quickbooks: true, breeze: false, planningCenter: false, tithely: 'Limited', others: 'Limited',
+    feature: 'Online giving & text-to-give',
+    cgp: true,
+    spreadsheets: false,
+    quickbooks: 'Donations only',
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'OCR: Checks, Bank Statements, Forms',
-    cgp: true, excel: false, quickbooks: 'Limited', breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Events & church calendar',
+    cgp: true,
+    spreadsheets: 'Manual',
+    quickbooks: false,
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'Voice Commands & Hands-Free Entry',
-    cgp: true, excel: false, quickbooks: false, breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Worship & service planning',
+    cgp: true,
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: 'Add-on',
+    planningCenter: true,
+    tithely: 'Add-on',
   },
   {
-    feature: 'Member & Family Management',
-    cgp: true, excel: 'Manual', quickbooks: false, breeze: true, planningCenter: true, tithely: true, others: true,
+    feature: 'Classes, groups & attendance tracking',
+    cgp: true,
+    spreadsheets: 'Manual',
+    quickbooks: false,
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'Online Giving & Text-to-Give',
-    cgp: true, excel: false, quickbooks: false, breeze: true, planningCenter: true, tithely: true, others: 'Varies',
+    feature: 'Automatic Sunday School exams & grading',
+    cgp: true,
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
   },
   {
-    feature: 'Events, Calendar & Worship Planning',
-    cgp: true, excel: 'Manual', quickbooks: false, breeze: 'Limited', planningCenter: true, tithely: 'Limited', others: 'Varies',
+    feature: 'Kids check-in with medical & allergy notes',
+    cgp: true,
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'Sunday School + Auto Exams & Grading',
-    cgp: true, excel: false, quickbooks: false, breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Recurring giving, reminders & year-end statements',
+    cgp: true,
+    spreadsheets: 'Manual',
+    quickbooks: 'Partial',
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
   },
   {
-    feature: 'Kids Check-In with Medical Info',
-    cgp: true, excel: false, quickbooks: false, breeze: 'Limited', planningCenter: true, tithely: 'Limited', others: 'Varies',
+    feature: 'Church accounting: income, expenses & fund reports',
+    cgp: 'Add-on',
+    spreadsheets: 'Manual',
+    quickbooks: 'Via class tracking',
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
   },
   {
-    feature: 'Mobile App + PWA',
-    cgp: true, excel: false, quickbooks: true, breeze: 'Limited', planningCenter: true, tithely: true, others: 'Varies',
+    feature: 'Payroll',
+    cgp: 'Add-on',
+    spreadsheets: false,
+    quickbooks: 'Add-on',
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
   },
   {
-    feature: 'QR / NFC Login & Wi-Fi-Only Pages',
-    cgp: true, excel: false, quickbooks: false, breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Scanning & OCR (checks, bank statements, forms)',
+    cgp: 'Add-on',
+    spreadsheets: false,
+    quickbooks: 'Receipts',
+    breeze: 'Check reader',
+    planningCenter: 'Checks',
+    tithely: 'Checks (beta)',
   },
   {
-    feature: 'Automation (reminders, recurring, statements)',
-    cgp: true, excel: false, quickbooks: 'Limited', breeze: 'Limited', planningCenter: 'Limited', tithely: 'Limited', others: 'Varies',
+    feature: 'Built-in conversational AI assistant',
+    cgp: 'Pro plan',
+    spreadsheets: false,
+    quickbooks: 'Chat AI (beta)',
+    breeze: false,
+    planningCenter: 'Via integration',
+    tithely: 'Some AI tools',
   },
   {
-    feature: 'One Unified Platform (no add-ons needed)',
-    cgp: true, excel: false, quickbooks: false, breeze: false, planningCenter: false, tithely: false, others: false,
+    feature: 'Voice commands & hands-free entry',
+    cgp: 'Pro plan',
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
+  },
+  {
+    feature: 'Temporary barcode / NFC guest login',
+    cgp: 'Pro plan',
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
+  },
+  {
+    feature: 'Mobile app',
+    cgp: true,
+    spreadsheets: 'Varies',
+    quickbooks: true,
+    breeze: true,
+    planningCenter: true,
+    tithely: true,
+  },
+  {
+    feature: 'Church management & accounting in one platform',
+    cgp: 'With add-on',
+    spreadsheets: false,
+    quickbooks: false,
+    breeze: false,
+    planningCenter: false,
+    tithely: false,
   },
 ];
 

@@ -1,20 +1,24 @@
 import { motion } from 'framer-motion';
-import { Check, X, Sparkles, Trophy } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Check, Sparkles, Star } from 'lucide-react';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import CTASection from '../components/ui/CTASection';
-import { compareColumns, compareRows, type CompareRow } from '../data/content';
+import { compareColumns, compareRows, compareLastVerified, type CompareRow } from '../data/content';
 
 function Cell({ value }: { value: boolean | string }) {
   if (value === true)
     return (
       <span className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100">
-        <Check className="h-4 w-4 text-emerald-600" aria-label="Yes" />
+        <Check className="h-4 w-4 text-emerald-600" aria-label="Offered" />
       </span>
     );
   if (value === false)
     return (
-      <span className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-slate-100">
-        <X className="h-4 w-4 text-slate-400" aria-label="No" />
+      <span
+        className="text-slate-400"
+        aria-label="Not offered as a built-in feature per official public materials"
+      >
+        —
       </span>
     );
   return <span className="text-xs font-medium text-amber-600">{value}</span>;
@@ -22,28 +26,30 @@ function Cell({ value }: { value: boolean | string }) {
 
 const keys: (keyof Omit<CompareRow, 'feature'>)[] = [
   'cgp',
-  'excel',
+  'spreadsheets',
   'quickbooks',
   'breeze',
   'planningCenter',
   'tithely',
-  'others',
 ];
 
 const strengths = [
-  'Built-in AI assistant with voice, text & conversational commands',
-  'Full fund accounting, payroll & automatic tax statements',
-  'OCR that reads checks, bank statements & membership forms',
-  'Complete church management: members, events, Sunday School & kids',
-  'QR / NFC login, Wi-Fi-only pages & role-based security',
-  'One unified platform — no add-ons, no integrations to babysit',
+  'AI assistant on the Pro plan — type or speak everyday language to find records and complete tasks',
+  'Optional accounting module with payroll, check scanning, bank statement import & giving statements — connected to your member and giving records',
+  'Sunday School tools with automatic exams and grading',
+  'Members, events, worship planning, kids check-in & giving managed in one system with one login',
+  'Barcode & NFC temporary guest login and Wi-Fi-only private pages',
+  'Free plan, free migration support, and a 1-month free trial on paid plans',
 ];
 
 export default function Compare() {
   return (
     <>
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-50 via-white to-white" aria-hidden="true" />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-50 via-white to-white"
+          aria-hidden="true"
+        />
         <div className="container-page">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -58,8 +64,12 @@ export default function Compare() {
               One platform vs. <span className="gradient-text">a patchwork of tools</span>
             </h1>
             <p className="mt-5 text-lg text-slate-600">
-              See how ChurchGeniusPro stacks up against spreadsheets, accounting software, and
-              other church management systems.
+              An honest, feature-by-feature look at how ChurchGeniusPro compares with spreadsheets,
+              accounting software, and popular church management platforms — based on each
+              provider&rsquo;s official public information.
+            </p>
+            <p className="mt-3 text-sm text-slate-500">
+              Comparison information last verified: {compareLastVerified}
             </p>
           </motion.div>
         </div>
@@ -73,7 +83,8 @@ export default function Compare() {
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[900px] border-collapse text-sm">
                   <caption className="sr-only">
-                    Feature comparison between ChurchGeniusPro and other tools
+                    Feature comparison between ChurchGeniusPro and other tools, based on each
+                    provider&rsquo;s official public information as of {compareLastVerified}
                   </caption>
                   <thead>
                     <tr className="bg-slate-50">
@@ -122,10 +133,62 @@ export default function Compare() {
               </div>
             </div>
           </Reveal>
-          <p className="mt-4 text-center text-xs text-slate-400">
-            Comparison based on typical plans and publicly available feature lists. “Varies” means
-            capability differs by product or requires paid add-ons.
-          </p>
+
+          {/* Legend */}
+          <div className="mx-auto mt-6 max-w-4xl rounded-2xl border border-slate-100 bg-slate-50/60 p-5 text-left">
+            <h2 className="text-sm font-semibold text-slate-700">How to read this table</h2>
+            <ul className="mt-2 space-y-1.5 text-xs text-slate-500">
+              <li>
+                <span className="font-semibold text-emerald-600">✓</span> — offered as a built-in
+                feature. For ChurchGeniusPro, this means available on at least one plan; see our{' '}
+                <Link to="/pricing" className="font-medium text-blue-600 hover:underline">
+                  Pricing page
+                </Link>{' '}
+                for which plan includes each feature.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-500">—</span> — not offered as a built-in
+                feature according to the provider&rsquo;s official public website, pricing pages,
+                and documentation as of the &ldquo;last verified&rdquo; date above. Providers may
+                offer related capabilities through third-party integrations, and features may have
+                changed since our review.
+              </li>
+              <li>
+                <span className="font-semibold text-amber-600">Text notes</span> (for example
+                &ldquo;Add-on,&rdquo; &ldquo;Pro plan,&rdquo; &ldquo;Checks (beta)&rdquo;) — the
+                capability is available in a partial form, at extra cost, on a specific plan, or
+                with the scope described.
+              </li>
+            </ul>
+          </div>
+
+          {/* Methodology & disclaimer */}
+          <div className="mx-auto mt-6 max-w-4xl space-y-3 text-left text-xs leading-relaxed text-slate-400">
+            <p>
+              <span className="font-semibold text-slate-500">About this comparison.</span> This page
+              was prepared by ChurchGeniusPro and last verified on {compareLastVerified}, based on
+              information published on each provider&rsquo;s official website, pricing pages, and
+              public documentation as of that date. Products change frequently, and features, plans,
+              and prices may have been added, removed, or modified since our review. Please consult
+              each provider&rsquo;s own website for the most current information before making a
+              purchasing decision. If you believe anything on this page is inaccurate or out of
+              date, please{' '}
+              <Link to="/contact" className="font-medium text-blue-600 hover:underline">
+                contact us
+              </Link>{' '}
+              and we will review and correct it promptly.
+            </p>
+            <p>
+              <span className="font-semibold text-slate-500">Trademarks.</span> QuickBooks, Breeze,
+              Planning Center, Tithe.ly, and all other third-party product names, brands, and
+              trademarks referenced on this page are the property of their respective owners. They
+              are used here only to identify the products being compared. Their use does not imply —
+              and should not be interpreted as implying — any affiliation with, sponsorship of,
+              partnership with, or endorsement of ChurchGeniusPro by those companies, or of those
+              companies by ChurchGeniusPro. This page intentionally uses no third-party logos,
+              screenshots, or other content.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -133,8 +196,8 @@ export default function Compare() {
       <section className="section bg-slate-950">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Why ChurchGeniusPro wins"
-            title="Strengths no other tool combines"
+            eyebrow="Our approach"
+            title="What makes ChurchGeniusPro different"
             dark
           />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -142,7 +205,7 @@ export default function Compare() {
               <Reveal key={s} delay={(i % 3) * 0.08}>
                 <div className="flex h-full items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
                   <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-teal-500 text-white">
-                    <Trophy className="h-4 w-4" aria-hidden="true" />
+                    <Star className="h-4 w-4" aria-hidden="true" />
                   </span>
                   <p className="text-sm font-medium text-slate-200">{s}</p>
                 </div>
