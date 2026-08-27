@@ -11,7 +11,10 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-44">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white"
+        aria-hidden="true"
+      />
       <div
         className="absolute -top-40 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
         style={{
@@ -46,6 +49,15 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6 }}
+            className="mx-auto mt-5 text-xl font-bold tracking-tight md:text-2xl"
+          >
+            <span className="gradient-text">Be a leader, not just a worker</span>
+            <span className="text-slate-900"> — ChurchGeniusPro.</span>
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl"
           >
             Run your church effortlessly — members, giving, accounting, events, and ministries in
@@ -71,13 +83,16 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500"
           >
-            {['Free version available', '1-month free trial', 'Free migration support', 'No credit card required'].map(
-              (item) => (
-                <li key={item} className="flex items-center gap-1.5">
-                  <Check className="h-4 w-4 text-emerald-500" aria-hidden="true" /> {item}
-                </li>
-              )
-            )}
+            {[
+              'Free version available',
+              '1-month free trial',
+              'Free migration support',
+              'No credit card required',
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-1.5">
+                <Check className="h-4 w-4 text-emerald-500" aria-hidden="true" /> {item}
+              </li>
+            ))}
           </motion.ul>
         </motion.div>
 
@@ -102,9 +117,24 @@ export default function Hero() {
               {/* Dashboard body */}
               <div className="grid gap-4 p-4 sm:grid-cols-3 sm:p-6">
                 {[
-                  { label: 'Total Members', value: '1,248', delta: '+12 this week', color: 'from-blue-500 to-cyan-500' },
-                  { label: 'Giving This Month', value: '$42,850', delta: '+8.4%', color: 'from-emerald-500 to-teal-500' },
-                  { label: 'Sunday Attendance', value: '731', delta: '+5.2%', color: 'from-purple-500 to-violet-500' },
+                  {
+                    label: 'Total Members',
+                    value: '1,248',
+                    delta: '+12 this week',
+                    color: 'from-blue-500 to-cyan-500',
+                  },
+                  {
+                    label: 'Giving This Month',
+                    value: '$42,850',
+                    delta: '+8.4%',
+                    color: 'from-emerald-500 to-teal-500',
+                  },
+                  {
+                    label: 'Sunday Attendance',
+                    value: '731',
+                    delta: '+5.2%',
+                    color: 'from-purple-500 to-violet-500',
+                  },
                 ].map((kpi, i) => (
                   <motion.div
                     key={kpi.label}
