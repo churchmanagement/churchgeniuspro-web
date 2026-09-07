@@ -31,6 +31,10 @@ export default defineConfig(({ isSsrBuild }) => ({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest}'],
         navigateFallback: '/index.html',
+        // Standalone demo sites under /demo/ are plain static pages; the SPA
+        // shell must never be served in their place.
+        navigateFallbackDenylist: [/^\/demo\//],
+        globIgnores: ['demo/**'],
       },
     })]),
   ],
