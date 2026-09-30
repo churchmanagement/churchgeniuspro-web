@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, type ComponentType } from 'react';
+import { lazy, Suspense, useEffect, useRef, type ComponentType } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -6,6 +6,7 @@ import ChatWidget from './components/ChatWidget';
 import Seo from './components/Seo';
 import { getRouteMeta } from './data/seo';
 import { landingPages, type LandingSlug } from './data/landing';
+import { trackPageView } from './lib/gtag';
 
 export interface PageComponents {
   Home: ComponentType;
@@ -64,6 +65,24 @@ function HeadManager() {
   );
 }
 
+/**
+ * Reports client-side route changes to Google Ads. The gtag('config') call in
+ * index.html already counts the initial document load, so the first run is
+ * skipped to avoid double-counting the landing page.
+ */
+function PageViews() {
+  const { pathname, search } = useLocation();
+  const isInitialLoad = useRef(true);
+  useEffect(() => {
+    if (isInitialLoad.current) {
+      isInitialLoad.current = false;
+      return;
+    }
+    trackPageView(pathname + search);
+  }, [pathname, search]);
+  return null;
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -103,6 +122,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
         Skip to main content
       </a>
       <HeadManager />
+      <PageViews />
       <ScrollToTop />
       <Navbar />
       <main id="main" className="flex-1">

@@ -85,8 +85,8 @@ export default function Hero() {
           >
             {[
               'Free version available',
-              '1-month free trial',
-              'Free migration support',
+              '2-month free trial',
+              'Free application setup',
               'No credit card required',
             ].map((item) => (
               <li key={item} className="flex items-center gap-1.5">

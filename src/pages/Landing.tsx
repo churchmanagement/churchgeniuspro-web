@@ -98,7 +98,7 @@ function PricingTeaser() {
         <SectionHeading
           eyebrow="Simple pricing"
           title="Start free. Upgrade when you grow."
-          subtitle="Every paid plan includes a 1-month free trial and free migration support."
+          subtitle="Limited time offer: try every feature free for 2 months. Application setup is free."
           dark
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">

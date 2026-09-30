@@ -37,11 +37,11 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
       },
       {
         heading: '2. Subscriptions & Trials',
-        body: 'Paid plans are billed monthly and include a 1-month free trial. You may cancel at any time; access continues until the end of the billing period. The Free plan is free forever with the limits described on our Pricing page.',
+        body: 'Paid plans are billed monthly. Free trials, when offered (currently 2 months), are described on our Pricing page. You may cancel at any time; access continues until the end of the billing period. The Free plan is free forever with the limits described on our Pricing page.',
       },
       {
         heading: '3. Your Data',
-        body: 'Your church owns its data. We provide free migration support to help you import data, and export tools so you can take your data with you at any time.',
+        body: 'Your church owns its data. We provide free application setup, optional paid migration from an existing application (described on our Pricing page), and export tools so you can take your data with you at any time.',
       },
       {
         heading: '4. Acceptable Use',

@@ -40,9 +40,9 @@ const staticRoutes: RouteMeta[] = [
   },
   {
     path: '/pricing',
-    title: 'Pricing: Free, Standard $15/mo, Pro $25/mo | ChurchGeniusPro',
+    title: 'Pricing: Free, Standard $14.99, Pro $24.99 | ChurchGeniusPro',
     description:
-      'Simple, transparent pricing for churches. Start free, then upgrade to Standard ($15/mo) or Pro ($25/mo) when ready. No setup fees, cancel anytime.',
+      'Limited time: Free $0, Standard $14.99/month, Pro $24.99/month — with accounting included. Try every feature free for 2 months. Free setup.',
   },
   {
     path: '/compare',

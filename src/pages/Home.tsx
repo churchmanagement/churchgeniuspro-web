@@ -196,7 +196,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Pricing"
             title="Simple pricing that grows with you"
-            subtitle="Start free, upgrade when you're ready. Every paid plan includes a 1-month free trial and free migration support."
+            subtitle="Start free, upgrade when you're ready. For a limited time, try every feature free for 2 months — setup is free."
           />
           <div className="mt-16">
             <PricingCards />

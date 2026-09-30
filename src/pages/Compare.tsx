@@ -39,7 +39,7 @@ const strengths = [
   'Sunday School tools with automatic exams and grading',
   'Members, events, worship planning, kids check-in & giving managed in one system with one login',
   'Barcode & NFC temporary guest login and Wi-Fi-only private pages',
-  'Free plan, free migration support, and a 1-month free trial on paid plans',
+  'Free plan, free application setup, and a 2-month free trial',
 ];
 
 export default function Compare() {

@@ -19,8 +19,8 @@ interface ContactFormFields extends ContactMessage {
 
 const perks = [
   'Free version available — no credit card required',
-  '1-month free trial of every paid plan',
-  'Free migration support from your current system',
+  '2-month free trial with every feature',
+  'Free application setup',
   'AI assistant that does the typing for you',
   'Secure role-based access from day one',
 ];
