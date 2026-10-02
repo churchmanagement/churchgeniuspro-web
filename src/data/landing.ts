@@ -169,7 +169,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Is there a mobile app?',
         answer:
-          'Yes. ChurchGeniusPro has a mobile app and the website installs as a Progressive Web App, so giving, check-in, and everyday tools work from any phone or tablet.',
+          'Not in the app stores yet. ChurchGeniusPro is a web app that works in the browser on any phone or tablet, and on Android phones and desktops it installs from the browser as an app, with notifications where supported.',
       },
     ],
     related: [
@@ -196,7 +196,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'Church App',
         to: '/church-app',
-        description: 'Mobile app + web app for giving, check-in, and connection.',
+        description: 'Installable web app for giving, check-in, and connection.',
       },
       {
         name: 'Compare Systems',
@@ -284,7 +284,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: "What are the Free plan's limits?",
         answer:
-          'Up to 50 people, 20 gifts per month, 200 emails and 50 SMS per month, and 3 member portals, 3 kids portals, and 1 church user. Check-in, worship planning, volunteer scheduling, kids ministry, the mobile app, and accounting require a paid plan.',
+          'Up to 50 people, 20 gifts per month, 200 emails and 50 SMS per month, and 3 member portals, 3 kids portals, and 1 church user. Check-in, worship planning, volunteer scheduling, kids ministry, the installable web app with notifications, and accounting require a paid plan.',
       },
       {
         question: 'Do you take a percentage of donations on the Free plan?',
@@ -608,7 +608,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'When you grow',
         title: 'Growing past 50 people is a good problem',
         body: [
-          'When attendance grows, upgrade to Standard at $14.99/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the mobile app. Pro at $24.99/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
+          'When attendance grows, upgrade to Standard at $14.99/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the installable web app with notifications. Pro at $24.99/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
           'Need proper books? Accounting is included in Standard and Pro — so the treasurer retires the shoebox too.',
         ],
         screenshotSlug: 'kids-checkin',
@@ -671,12 +671,12 @@ export const landingPages: LandingPageData[] = [
     slug: 'church-app',
     title: 'Church App — Giving, Check-In & More | ChurchGeniusPro',
     metaDescription:
-      "ChurchGeniusPro's church app puts giving, kids check-in, events, directory, and chat in every pocket — as a mobile app and installable web app.",
+      "ChurchGeniusPro's church app puts giving, kids check-in, events, directory, and chat on every phone — as a web app you install right from the browser.",
     eyebrow: 'Church App',
     h1: 'A church app your',
     h1Gradient: 'whole congregation will use.',
     intro: [
-      'ChurchGeniusPro includes a church app for your members and staff: giving, event registration, kids check-in, the member directory, and chat, from any phone — available as a mobile app and as an installable Progressive Web App.',
+      'ChurchGeniusPro includes a church app for your members and staff: giving, event registration, kids check-in, the member directory, and chat, from any phone — as a web app that runs in the browser and installs as an app on Android phones and desktops.',
       'It is not a separate product to buy and sync. The app is a window into the same system your church already runs on, so everything members do in it lands in the right record instantly.',
     ],
     sections: [
@@ -685,7 +685,7 @@ export const landingPages: LandingPageData[] = [
         title: 'Give, register, and stay connected',
         body: [
           'Members give in seconds — online or by text — and the gift is matched to their record and fund automatically. They register for events, RSVP to gatherings, browse the member directory, and message their groups with in-app chat.',
-          'Because the website installs as a Progressive Web App, members on any device get an app-like experience without visiting an app store.',
+          'On Android phones and desktops, members can install ChurchGeniusPro straight from the browser for an app-like experience, with notifications where supported. Everyone else uses it in any modern browser — there is no app-store download to manage.',
         ],
         bullets: [
           {
@@ -725,7 +725,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Is the church app included, or does it cost extra?',
         answer:
-          'It is included. Every plan — including Free — comes with the mobile experience and the installable Progressive Web App. There is no separate per-app fee.',
+          'It is included — there is no separate per-app fee. Every plan works in the browser on a phone, and the installable web app with notifications is part of the Standard and Pro plans.',
       },
       {
         question: 'Do members need to create accounts?',
@@ -735,7 +735,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Does the app work on both iPhone and Android?',
         answer:
-          'Yes. The Progressive Web App installs from the browser on any modern phone, and the mobile app covers everyday tools like giving, check-in, and communication.',
+          'It runs in the browser on any modern iPhone or Android phone. On Android you can also install it from the browser as an app, with notifications where supported. There is no Google Play or Apple App Store app yet.',
       },
       {
         question: 'Can parents check kids in from their phones?',

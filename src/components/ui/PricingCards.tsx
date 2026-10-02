@@ -195,7 +195,7 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
                 </span>
               </div>
               <Link
-                to="/signup"
+                to={plan.ctaHref ?? '/signup'}
                 className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
                   plan.highlighted
                     ? 'bg-white text-blue-700 shadow-lg hover:shadow-xl'

@@ -15,6 +15,7 @@ export interface PageComponents {
   Compare: ComponentType;
   Support: ComponentType;
   Contact: ComponentType;
+  TrialRequest: ComponentType;
   HelpCenter: ComponentType;
   Admin: ComponentType;
   Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' }>;
@@ -34,6 +35,7 @@ const lazyPages: PageComponents = {
   Compare: lazy(() => import('./pages/Compare')),
   Support: lazy(() => import('./pages/Support')),
   Contact: lazy(() => import('./pages/SignUp')),
+  TrialRequest: lazy(() => import('./pages/TrialRequest')),
   HelpCenter: lazy(() => import('./pages/HelpCenter')),
   Admin: lazy(() => import('./pages/Admin')),
   Legal: lazy(() => import('./pages/Legal')),
@@ -107,6 +109,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
     Compare,
     Support,
     Contact,
+    TrialRequest,
     HelpCenter,
     Admin,
     Legal,
@@ -134,7 +137,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             <Route path="/compare" element={<Compare />} />
             <Route path="/support" element={<Support />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/signup" element={<Contact />} />
+            <Route path="/signup" element={<TrialRequest />} />
             <Route path="/help" element={<HelpCenter />} />
             <Route path="/help/:sectionId" element={<HelpCenter />} />
             {landingPages.map((p) => (

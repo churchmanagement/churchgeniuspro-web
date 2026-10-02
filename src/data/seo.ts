@@ -64,11 +64,9 @@ const staticRoutes: RouteMeta[] = [
   },
   {
     path: '/signup',
-    title: 'Contact Us — Ask a Question or Get Started | ChurchGeniusPro',
+    title: 'Request Your Free 2-Month Trial | ChurchGeniusPro',
     description:
-      'Talk to the ChurchGeniusPro team. Ask about features, pricing, or migrating from your current church management system, and get set up for your church.',
-    canonicalPath: '/contact',
-    excludeFromSitemap: true,
+      'Request the ChurchGeniusPro Trial Version: every feature free for 2 months, including accounting and AI. Free setup, and our team reviews every request.',
   },
   {
     path: '/help',

@@ -364,9 +364,9 @@ export const featureCategories: FeatureCategory[] = [
       },
       {
         icon: Smartphone,
-        title: 'Mobile App',
+        title: 'Installable Web App',
         description:
-          'Giving, check-in, communication, and everyday tools right in your pocket — in the lobby, at home, or on the go.',
+          'Install ChurchGeniusPro from the browser on Android phones and desktops for app-style access to giving, check-in, and communication — with notifications where supported.',
       },
       {
         icon: QrCode,

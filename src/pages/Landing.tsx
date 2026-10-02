@@ -174,7 +174,7 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
               </p>
             ))}
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link to="/signup" className="btn-primary">
+              <Link to="/contact" className="btn-primary">
                 Start Free <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link to="/pricing" className="btn-secondary">

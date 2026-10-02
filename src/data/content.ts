@@ -8,6 +8,8 @@ export interface PricingPlan {
   description: string;
   badge?: string;
   cta: string;
+  /** Where the CTA button links. Defaults to /signup (the trial request page). */
+  ctaHref?: string;
   highlighted: boolean;
   /** Short lead-in shown above the list, e.g. "Everything in Free, plus:" */
   includesFrom?: string;
@@ -28,6 +30,7 @@ export const pricingPlans: PricingPlan[] = [
     period: 'month',
     description: 'Perfect for small churches getting started.',
     cta: 'Get Started Free',
+    ctaHref: '/contact',
     highlighted: false,
     features: [
       'People: up to 50',
@@ -82,7 +85,7 @@ export const pricingPlans: PricingPlan[] = [
       'Volunteer Scheduling',
       'Worship Planning',
       'Kids Ministry',
-      'Mobile App',
+      'Installable Web App (Android & Desktop) with Notifications',
       'Customer Service',
       'Assistance',
     ],
@@ -282,7 +285,7 @@ export const planComparison: PlanComparisonGroup[] = [
       { feature: 'Volunteer Scheduling', ...paidPlans },
       { feature: 'Worship Planning', ...paidPlans },
       { feature: 'Kids Ministry', ...paidPlans },
-      { feature: 'Mobile App', ...paidPlans },
+      { feature: 'Installable Web App (Android & Desktop) with Notifications', ...paidPlans },
       { feature: 'Prayer Ministry', ...allPlans },
       { feature: 'Event Registration', ...allPlans },
       { feature: 'Attendance', ...allPlans },
@@ -424,7 +427,7 @@ export const faqs: FAQ[] = [
   {
     question: 'Is there a mobile app?',
     answer:
-      'Yes. The mobile app puts giving, check-in, communication, and your everyday tools in your pocket. The website itself also installs as a Progressive Web App.',
+      'Not in the app stores yet — there is currently no Google Play or Apple App Store app. ChurchGeniusPro is a web app that works in any modern browser on phones, tablets, and computers. On Android phones and desktop browsers you can install it from the browser as an app, with notifications where your device supports them.',
     category: 'Mobile',
   },
   {
@@ -623,7 +626,7 @@ export const compareRows: CompareRow[] = [
   },
   {
     feature: 'Mobile app',
-    cgp: true,
+    cgp: 'Installable web app',
     spreadsheets: 'Varies',
     quickbooks: true,
     breeze: true,
