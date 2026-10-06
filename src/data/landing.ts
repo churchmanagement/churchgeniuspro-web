@@ -154,7 +154,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'How much does ChurchGeniusPro cost?',
         answer:
-          'For a limited time: a Free plan for up to 50 people, a Standard plan at $14.99/month with accounting, and a Pro plan at $24.99/month with all accounting features and advanced AI. You can try every feature free for 2 months, and application setup is free.',
+          'For a limited time: a Free plan for up to 50 people, a Standard plan at $20/month with accounting, and a Pro plan at $40/month with all accounting features and advanced AI. You can try every feature free for 2 months, and application setup is free.',
       },
       {
         question: 'Can we switch from our current system without losing data?',
@@ -262,14 +262,14 @@ export const landingPages: LandingPageData[] = [
         title: '"Free trial" and "donation-fee" plans are not free',
         body: [
           'Most church software advertised as free is one of two things: a time-limited trial that starts billing after 30 days, or a plan that takes a percentage of every donation your members give. Both cost real money — the second one costs more the more generous your church is.',
-          "ChurchGeniusPro's Free plan is neither. It is a permanent tier with clear limits, so a small church can run indefinitely at $0. We are equally clear about what it does not include: kids check-in, worship planning, volunteer scheduling, kids ministry, and accounting live in the paid plans, which start at $14.99/month — and you can try every feature free for 2 months.",
+          "ChurchGeniusPro's Free plan is neither. It is a permanent tier with clear limits, so a small church can run indefinitely at $0. We are equally clear about what it does not include: kids check-in, worship planning, volunteer scheduling, kids ministry, and accounting live in the paid plans, which start at $20/month — and you can try every feature free for 2 months.",
         ],
       },
       {
         eyebrow: 'Growing?',
         title: 'An upgrade path that respects your data',
         body: [
-          'Churches outgrow the Free plan in predictable ways: more than 50 people, more than 20 gifts a month, or a need for check-in and accounting. When that happens, upgrading to Standard ($14.99/month) or Pro ($24.99/month) is one click — every member record, giving entry, and event you created stays exactly where it is.',
+          'Churches outgrow the Free plan in predictable ways: more than 50 people, more than 20 gifts a month, or a need for check-in and accounting. When that happens, upgrading to Standard ($20/month) or Pro ($40/month) is one click — every member record, giving entry, and event you created stays exactly where it is.',
           'Getting started is simple too: application setup is free, and if your records live in another application, migration is available for a $100 one-time fee.',
         ],
         screenshotSlug: 'events-calendar',
@@ -294,7 +294,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'What happens when we pass 50 people?',
         answer:
-          'Upgrade to Standard ($14.99/month, up to 100 people) or Pro ($24.99/month, unlimited) whenever you are ready. All your data stays in place.',
+          'Upgrade to Standard ($20/month, up to 100 people) or Pro ($40/month, unlimited) whenever you are ready. All your data stays in place.',
       },
       {
         question: 'Can you move our data in from another system for free?',
@@ -306,7 +306,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'View Full Pricing',
         to: '/pricing',
-        description: 'Free $0, Standard $14.99/month, Pro $24.99/month — and what each includes.',
+        description: 'Free $0, Standard $20/month, Pro $40/month — and what each includes.',
       },
       {
         name: 'For Small Churches',
@@ -385,7 +385,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'Where to find it',
         title: 'Which plans include AI?',
         body: [
-          'Advanced AI — type search, auto-filling screens by voice, conversation, scanning checks and documents, and file uploads — plus AI-assisted accounting are included in the Pro plan at $24.99/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
+          'Advanced AI — type search, auto-filling screens by voice, conversation, scanning checks and documents, and file uploads — plus AI-assisted accounting are included in the Pro plan at $40/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
         ],
       },
     ],
@@ -398,7 +398,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Which plan includes the AI features?',
         answer:
-          'The Pro plan ($24.99/month) includes advanced AI — type search, voice auto-fill, conversation, and check and document scanning — plus AI-assisted accounting.',
+          'The Pro plan ($40/month) includes advanced AI — type search, voice auto-fill, conversation, and check and document scanning — plus AI-assisted accounting.',
       },
       {
         question: 'Do we need technical skills to use the AI?',
@@ -430,7 +430,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'View Pricing',
         to: '/pricing',
-        description: 'Pro plan at $24.99/month includes AI. 2-month free trial.',
+        description: 'Pro plan at $40/month includes AI. 2-month free trial.',
       },
       {
         name: 'Watch It In Action',
@@ -445,7 +445,7 @@ export const landingPages: LandingPageData[] = [
     slug: 'church-accounting-software',
     title: 'Church Accounting Software with Payroll | ChurchGeniusPro',
     metaDescription:
-      'Church accounting software connected to your giving: fund-based income and expenses, payroll, and reports — included from $14.99/month.',
+      'Church accounting software connected to your giving: fund-based income and expenses, payroll, and reports — included from $20/month.',
     eyebrow: 'Accounting',
     h1: 'Church accounting software',
     h1Gradient: 'connected to your giving.',
@@ -499,7 +499,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'Pricing',
         title: 'Accounting included in your plan',
         body: [
-          'Standard ($14.99/month) includes accounting with bank imports, bank sync for up to 3 accounts, pledges, online giving, and reports. Pro ($24.99/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning. Compare that to standalone accounting software plus a giving platform plus the hours of re-entering data between them.',
+          'Standard ($20/month) includes accounting with bank imports, bank sync for up to 3 accounts, pledges, online giving, and reports. Pro ($40/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning. Compare that to standalone accounting software plus a giving platform plus the hours of re-entering data between them.',
         ],
       },
     ],
@@ -517,7 +517,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'How much does the accounting module cost?',
         answer:
-          'Accounting is included in the paid plans. Standard ($14.99/month) includes bank imports, bank sync (up to 3 accounts), pledges, online giving, and reports. Pro ($24.99/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning.',
+          'Accounting is included in the paid plans. Standard ($20/month) includes bank imports, bank sync (up to 3 accounts), pledges, online giving, and reports. Pro ($40/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning.',
       },
       {
         question: 'Does it handle payroll for clergy and staff?',
@@ -548,7 +548,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'View Pricing',
         to: '/pricing',
-        description: 'Free $0, Standard $14.99/month, Pro $24.99/month.',
+        description: 'Free $0, Standard $20/month, Pro $40/month.',
       },
       {
         name: 'Compare Systems',
@@ -563,7 +563,7 @@ export const landingPages: LandingPageData[] = [
     slug: 'small-church-management-software',
     title: 'Small Church Management Software | ChurchGeniusPro',
     metaDescription:
-      'Church management software for small churches: start free for up to 50 people, run giving and events without technical skills, upgrade from $14.99/mo.',
+      'Church management software for small churches: start free for up to 50 people, run giving and events without technical skills, upgrade from $20/mo.',
     eyebrow: 'Small Churches',
     h1: 'Small church?',
     h1Gradient: 'Start free. Grow when you do.',
@@ -608,7 +608,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'When you grow',
         title: 'Growing past 50 people is a good problem',
         body: [
-          'When attendance grows, upgrade to Standard at $14.99/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the installable web app with notifications. Pro at $24.99/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
+          'When attendance grows, upgrade to Standard at $20/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the installable web app with notifications. Pro at $40/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
           'Need proper books? Accounting is included in Standard and Pro — so the treasurer retires the shoebox too.',
         ],
         screenshotSlug: 'kids-checkin',
@@ -633,7 +633,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'What does it cost when we outgrow the Free plan?',
         answer:
-          'Standard is $14.99/month (up to 100 people) and Pro is $24.99/month (unlimited, with AI). For a limited time, you can try every feature free for 2 months, and your data stays in place when you upgrade.',
+          'Standard is $20/month (up to 100 people) and Pro is $40/month (unlimited, with AI). For a limited time, you can try every feature free for 2 months, and your data stays in place when you upgrade.',
       },
       {
         question: 'Can members give online even on the Free plan?',
@@ -650,7 +650,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'View Pricing',
         to: '/pricing',
-        description: 'Free $0, $14.99/month, and $24.99/month — simple pricing that scales.',
+        description: 'Free $0, $20/month, and $40/month — simple pricing that scales.',
       },
       {
         name: 'Church Management Software',

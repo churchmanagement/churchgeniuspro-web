@@ -20,7 +20,7 @@ export interface PricingPlan {
 export const pricingOffer = {
   label: 'Limited Time Offer',
   trialLength: '2 months',
-  summary: 'Free $0 · Standard $14.99/month · Pro $24.99/month',
+  summary: 'Free $0 · Standard $20/month · Pro $40/month',
 };
 
 export const pricingPlans: PricingPlan[] = [
@@ -57,7 +57,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Standard',
-    price: '$14.99',
+    price: '$20',
     period: 'month',
     description: 'The full ministry toolkit, with accounting, for growing churches.',
     badge: 'Most Popular',
@@ -92,7 +92,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Pro',
-    price: '$24.99',
+    price: '$40',
     period: 'month',
     description: 'Unlimited everything, all accounting features, and advanced AI.',
     badge: 'Includes AI',
@@ -421,7 +421,7 @@ export const faqs: FAQ[] = [
   {
     question: 'Does it replace our accounting software?',
     answer:
-      'Yes. Accounting is included in the paid plans. Standard ($14.99/month) includes bank imports, bank sync for up to 3 accounts, pledges, online giving, and reports. Pro ($24.99/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning — all connected to your giving records.',
+      'Yes. Accounting is included in the paid plans. Standard ($20/month) includes bank imports, bank sync for up to 3 accounts, pledges, online giving, and reports. Pro ($40/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning — all connected to your giving records.',
     category: 'Accounting',
   },
   {
