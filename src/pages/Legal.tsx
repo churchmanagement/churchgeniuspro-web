@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated: string; sections: { heading: string; body: string }[] }> = {
+const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated: string; sections: { heading: string; body: string; links?: { label: string; href: string }[] }[] }> = {
   privacy: {
     title: 'Privacy Policy',
     updated: 'July 1, 2026',
@@ -29,7 +29,7 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
   },
   terms: {
     title: 'Terms of Service',
-    updated: 'July 1, 2026',
+    updated: 'October 11, 2026',
     sections: [
       {
         heading: '1. Your Account',
@@ -49,25 +49,41 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
       },
       {
         heading: '5. Service Availability',
-        body: 'We target 99.9% uptime. Scheduled maintenance is announced in advance. The service is provided "as is" to the maximum extent permitted by law.',
+        body: 'We work to keep the service available at all times and announce scheduled maintenance in advance. The service is provided "as is" to the maximum extent permitted by law.',
       },
     ],
   },
   cookies: {
     title: 'Cookie Policy',
-    updated: 'July 1, 2026',
+    updated: 'October 11, 2026',
     sections: [
       {
         heading: '1. What Are Cookies',
-        body: 'Cookies are small text files stored on your device that help websites remember your preferences and understand how the site is used.',
+        body: 'Cookies are small text files stored on your device that help websites remember your preferences and understand how the site is used. Similar browser storage (such as session storage) works in a comparable way, so this policy covers it too.',
       },
       {
-        heading: '2. Cookies We Use',
-        body: 'Essential cookies keep you signed in and secure. Analytics cookies help us understand which pages are useful so we can improve the site. We do not use advertising cookies.',
+        heading: '2. Essential Cookies',
+        body: 'The ChurchGeniusPro application uses encrypted session cookies to keep you signed in and secure. They are required for login to work and expire when your session ends or times out.',
       },
       {
-        heading: '3. Managing Cookies',
-        body: 'You can control or delete cookies through your browser settings. Disabling essential cookies may prevent parts of the site (like login) from working properly.',
+        heading: '3. Advertising and Measurement Cookies (Google Ads)',
+        body: 'This website uses the Google tag for Google Ads. When you visit, Google may set or read cookies (for example, cookies whose names begin with _gcl_) that help us see whether people who click our ads go on to visit our pages or request a trial, and that Google uses to show and measure ads. Google processes this information under its own privacy policy. We do not sell your personal information.',
+        links: [
+          { label: 'How Google uses cookies', href: 'https://policies.google.com/technologies/cookies' },
+          { label: 'Manage your Google ad settings (My Ad Center)', href: 'https://myadcenter.google.com/' },
+        ],
+      },
+      {
+        heading: '4. Video Statistics',
+        body: 'To learn which product videos are helpful, the website records anonymous video events (such as a play) using a random identifier kept in your browser\'s session storage for the current tab only. It is not a cookie, contains no personal information, and is cleared when you close the tab.',
+      },
+      {
+        heading: '5. YouTube Videos',
+        body: 'Product videos are hosted on YouTube and load only when you click play. Once a video loads, YouTube may set its own cookies under Google\'s privacy policy.',
+      },
+      {
+        heading: '6. Managing Cookies',
+        body: 'You can control or delete cookies through your browser settings, and you can turn off personalized Google ads in My Ad Center. Disabling essential cookies may prevent parts of the application (like login) from working properly.',
       },
     ],
   },
@@ -91,6 +107,23 @@ export default function Legal({ page }: { page: 'privacy' | 'terms' | 'cookies' 
               <div key={s.heading}>
                 <h2 className="text-xl font-bold text-slate-900">{s.heading}</h2>
                 <p className="mt-3 leading-relaxed text-slate-600">{s.body}</p>
+                {s.links && (
+                  <ul className="mt-3 space-y-1.5">
+                    {s.links.map((l) => (
+                      <li key={l.href}>
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-blue-700 hover:text-blue-800"
+                        >
+                          {l.label}
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>

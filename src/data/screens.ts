@@ -45,7 +45,7 @@ export const screenshots: Screenshot[] = [
   {
     slug: 'payroll',
     title: 'Payroll',
-    caption: 'Pay staff and clergy with taxes handled',
+    caption: 'Payroll runs with a register and tax liability totals',
     sizes: [
       { w: 720, h: 522 },
       { w: 1280, h: 929 },
@@ -54,7 +54,7 @@ export const screenshots: Screenshot[] = [
   {
     slug: 'year-end-giving',
     title: 'Year-End Giving Statements',
-    caption: 'Compliant annual statements for every donor',
+    caption: 'Annual giving statements for every donor',
     sizes: [{ w: 720, h: 481 }],
   },
   {

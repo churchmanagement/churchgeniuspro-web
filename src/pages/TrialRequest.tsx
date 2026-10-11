@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Check, CheckCircle2, Mail, Send, Sparkles, Clock, HeartHandshake } from 'lucide-react';
 import { submitContactForm, type ContactMessage } from '../lib/contact';
 import { pricingOffer } from '../data/content';
+import { trackTrialConversion } from '../lib/gtag';
 
 /**
  * Trial Version request page (served at /signup).
@@ -65,8 +66,10 @@ export default function TrialRequest() {
     setServerError(null);
     const result = await submitContactForm({ ...data, subject: TRIAL_SUBJECT });
     setSending(false);
-    if (result.ok) setSent(true);
-    else setServerError(result.error ?? 'Something went wrong. Please try again.');
+    if (result.ok) {
+      setSent(true);
+      trackTrialConversion();
+    } else setServerError(result.error ?? 'Something went wrong. Please try again.');
   });
 
   return (

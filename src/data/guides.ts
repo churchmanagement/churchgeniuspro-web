@@ -40,7 +40,7 @@ export interface Guide {
   related: RelatedLink[];
 }
 
-export const guidesUpdatedLabel = 'October 10, 2026';
+export const guidesUpdatedLabel = 'October 11, 2026';
 
 export const guides: Guide[] = [
   // ------------------------------------------------ contribution statements
@@ -281,6 +281,253 @@ export const guides: Guide[] = [
         name: 'Church Payroll Software',
         to: '/church-payroll-software',
         description: 'Payroll in the same system as your funds.',
+      },
+    ],
+  },
+  // ------------------------------------------------------- minister taxes
+  {
+    slug: 'pastor-pay-minister-housing-allowance-taxes',
+    title: 'Pastor Pay & Housing Allowance Tax Rules | ChurchGeniusPro',
+    metaDescription:
+      'How churches handle a minister’s pay under IRS rules: dual tax status, no FICA withholding, the housing allowance, Form W-2, and how pastors cover SE tax.',
+    h1: 'Paying your pastor: minister tax rules for churches',
+    summary:
+      'Ministers have a dual tax status. For income tax a pastor is usually the church’s employee and gets a Form W-2, but for Social Security and Medicare they are treated as self-employed — so the church does not withhold or pay FICA on ministerial wages. A housing allowance designated in advance can be excluded from income tax, but not from self-employment tax. Here is how the pieces fit together.',
+    datePublished: '2026-10-11',
+    dateModified: '2026-10-11',
+    readingMinutes: 6,
+    sections: [
+      {
+        heading: 'Who counts as a minister',
+        paragraphs: [
+          'These rules apply to a minister who is duly ordained, commissioned, or licensed by a church, and only to pay for ministerial services — preaching, leading worship, performing sacraments, and similar duties. Church staff who are not ministers (an administrator, a custodian, a worship assistant without ministerial credentials) are ordinary employees, and normal payroll rules apply to them.',
+        ],
+      },
+      {
+        heading: 'Dual status: employee for income tax, self-employed for Social Security',
+        paragraphs: [
+          'IRS Publication 517 explains that a minister’s earnings from ministerial services are subject to self-employment (SE) tax, even when the minister is an employee for income tax purposes. In practice that means:',
+        ],
+        bullets: [
+          'The church does not withhold Social Security or Medicare (FICA) from ministerial wages and does not pay the employer share.',
+          'The church is not required to withhold federal income tax from ministerial wages either.',
+          'The minister pays SE tax on their own return. For 2025 the rate is 15.3% (12.4% Social Security plus 2.9% Medicare) on net SE earnings, with the Social Security part capped at an annual wage base.',
+        ],
+      },
+      {
+        heading: 'Covering the tax: estimated payments or voluntary withholding',
+        paragraphs: [
+          'Because nothing is withheld by default, a pastor who expects to owe $1,000 or more (including SE tax) generally needs to make quarterly estimated payments using Form 1040-ES to avoid an underpayment penalty.',
+          'Alternatively, a minister who is a common-law employee can make a voluntary withholding agreement with the church, so the church withholds extra federal income tax from each paycheck to cover both income tax and SE tax. Many churches find this simpler for everyone.',
+        ],
+      },
+      {
+        heading: 'The housing allowance',
+        paragraphs: [
+          'A church can designate part of a minister’s pay as a housing (parsonage) allowance. The church must officially designate the amount before it makes the payment — a board or council resolution recorded in the minutes is the common way to do this.',
+          'For income tax, the minister can exclude the allowance up to the smallest of these amounts:',
+        ],
+        bullets: [
+          'The amount the church officially designated.',
+          'The amount actually spent on housing (rent or mortgage, utilities, furnishings, repairs, and similar costs).',
+          'The fair rental value of the home, furnished, plus utilities.',
+        ],
+      },
+      {
+        heading: 'The housing allowance is still subject to SE tax',
+        paragraphs: [
+          'The exclusion applies to income tax only. Publication 517 is clear that the housing allowance — or the fair rental value of a church-provided parsonage — still counts toward the minister’s net earnings for self-employment tax.',
+        ],
+      },
+      {
+        heading: 'What the church reports on Form W-2',
+        paragraphs: [
+          'A pastor who is an employee for income tax receives a Form W-2 for their salary. Publication 517 notes the church may show the housing allowance (or the parsonage’s fair rental value plus utilities) in box 14 of Form W-2 so the minister has the figure for their return. Ask your tax professional which boxes apply to your pastor’s situation.',
+        ],
+      },
+      {
+        heading: 'Ministers who opt out of Social Security',
+        paragraphs: [
+          'A minister who is opposed, on religious grounds, to accepting public insurance for ministerial services can apply for an exemption from SE tax on Form 4361. The deadline is the due date (including extensions) of the tax return for the second year in which they had at least $400 of net SE earnings, part of it from ministerial services. The exemption must be approved by the IRS, and it covers ministerial earnings only.',
+        ],
+      },
+      {
+        heading: 'A checklist for your church',
+        paragraphs: [],
+        bullets: [
+          'Confirm in writing which staff are ministers performing ministerial services.',
+          'Set the housing allowance by board resolution before the year (or the pay period) it applies to, and record it in the minutes.',
+          'Make sure payroll does not withhold Social Security or Medicare on ministerial wages.',
+          'Offer a voluntary withholding agreement, or remind the pastor about quarterly estimated payments.',
+          'Report the housing allowance to the minister — box 14 of Form W-2 is one option.',
+        ],
+      },
+      {
+        heading: 'Using ChurchGeniusPro',
+        paragraphs: [
+          'ChurchGeniusPro’s Pro plan includes payroll with a payroll register and a year-end W-2 export. Because a minister’s pay follows the rules above, contact us before running your pastor’s pay so we can confirm how payroll fits your church’s setup.',
+        ],
+      },
+    ],
+    sources: [
+      {
+        name: 'IRS Publication 517 (2025): Social Security and Other Information for Members of the Clergy and Religious Workers',
+        url: 'https://www.irs.gov/publications/p517',
+      },
+      {
+        name: 'IRS Publication 1828: Tax Guide for Churches & Religious Organizations',
+        url: 'https://www.irs.gov/pub/irs-pdf/p1828.pdf',
+      },
+      {
+        name: 'IRS Form 1040-ES: Estimated Tax for Individuals',
+        url: 'https://www.irs.gov/forms-pubs/about-form-1040-es',
+      },
+      {
+        name: 'IRS Form 4361: Application for Exemption From Self-Employment Tax',
+        url: 'https://www.irs.gov/forms-pubs/about-form-4361',
+      },
+    ],
+    related: [
+      {
+        name: 'Church Payroll Software',
+        to: '/church-payroll-software',
+        description: 'Payroll runs, register, and W-2 export.',
+      },
+      {
+        name: 'Guide: Form 1099-NEC',
+        to: '/guides/form-1099-nec-for-churches',
+        description: 'Guest speakers and contractors.',
+      },
+      {
+        name: 'Church Accounting Software',
+        to: '/church-accounting-software',
+        description: 'Payroll in the same books as your funds.',
+      },
+    ],
+  },
+
+  // -------------------------------------------------------------- 1099-NEC
+  {
+    slug: 'form-1099-nec-for-churches',
+    title: 'Form 1099-NEC for Churches: 2026 Rules | ChurchGeniusPro',
+    metaDescription:
+      'When a church must file Form 1099-NEC for guest speakers and contractors: the new $2,000 threshold for 2026, the January 31 deadline, W-9s, and exceptions.',
+    h1: 'Form 1099-NEC for churches: guest speakers and contractors',
+    summary:
+      'Churches are not exempt from information reporting. If your church pays a person who is not its employee for services — a guest preacher, a musician, a contractor — and the year’s total reaches the reporting threshold, you file Form 1099-NEC. Starting with 2026 payments, that threshold rises from $600 to $2,000. The form goes to the payee and the IRS by January 31.',
+    datePublished: '2026-10-11',
+    dateModified: '2026-10-11',
+    readingMinutes: 5,
+    sections: [
+      {
+        heading: 'Yes, churches have to file',
+        paragraphs: [
+          'The reporting rule applies to payments made in the course of a trade or business. The IRS instructions for Form 1099-NEC state that nonprofit organizations are considered to be engaged in a trade or business for this purpose, so churches and ministries are subject to the same requirement.',
+        ],
+      },
+      {
+        heading: 'Who gets a 1099-NEC',
+        paragraphs: ['Under the IRS instructions, a payment is reportable on Form 1099-NEC when all of these are true:'],
+        bullets: [
+          'The person is not your employee.',
+          'The payment is for services performed for your church.',
+          'The payee is an individual, partnership, or estate (and, in a few cases, a corporation).',
+          'Your total payments to that payee for the year reach the threshold.',
+        ],
+      },
+      {
+        heading: 'The threshold: $600 before 2026, $2,000 from 2026',
+        paragraphs: [
+          'The One Big Beautiful Bill raised the reporting threshold. The IRS instructions now set it at $2,000 for tax years beginning after 2025, so payments made during 2026 (reported in January 2027) use the $2,000 threshold. Payments made in 2025 and reported in January 2026 still used the $600 threshold.',
+          'Count the year’s total per payee, not each check — three $800 honoraria to the same speaker in 2026 add up to $2,400 and are reportable.',
+        ],
+      },
+      {
+        heading: 'Common church examples',
+        paragraphs: [],
+        bullets: [
+          'A guest preacher or visiting evangelist who is not on your staff.',
+          'A pianist, organist, or sound technician paid per service as an independent contractor.',
+          'A cleaning, landscaping, or repair business run by an individual or partnership.',
+          'A bookkeeper or consultant you pay as a contractor rather than an employee.',
+        ],
+      },
+      {
+        heading: 'Common exceptions',
+        paragraphs: [],
+        bullets: [
+          'Your employees — their wages go on Form W-2, not a 1099-NEC. This includes a pastor who is the church’s employee for income tax.',
+          'Payments to most corporations (including an LLC taxed as a C or S corporation). Attorneys’ fees are an exception: they are reportable even when paid to a corporation.',
+          'Totals for the year below the threshold.',
+        ],
+      },
+      {
+        heading: 'Collect a Form W-9 before you pay',
+        paragraphs: [
+          'Ask every contractor for a Form W-9 before the first payment. It gives you their legal name, tax classification, and taxpayer identification number (TIN). If a payee does not provide a TIN, the payment is subject to backup withholding — currently 24% — and you must file a Form 1099-NEC for anyone you withheld from, regardless of the amount.',
+        ],
+      },
+      {
+        heading: 'Deadline: January 31',
+        paragraphs: [
+          'Form 1099-NEC must be given to the payee and filed with the IRS by January 31 of the year after the payments were made. If January 31 falls on a weekend or legal holiday, the deadline moves to the next business day.',
+        ],
+      },
+      {
+        heading: 'Year-end checklist',
+        paragraphs: [],
+        bullets: [
+          'Run a report of every non-employee payee and their total for the year.',
+          'Flag totals at or above the threshold ($2,000 for 2026 payments).',
+          'Remove payments to corporations (except attorneys) and to employees.',
+          'Check that you have a W-9 on file for each remaining payee.',
+          'Furnish and file Form 1099-NEC by January 31.',
+        ],
+      },
+      {
+        heading: 'Using ChurchGeniusPro',
+        paragraphs: [
+          'In ChurchGeniusPro, each expense is recorded with its date, amount, category, vendor name, and an attached receipt, so the records behind the checklist above — who you paid, how much, and when — are already in one place.',
+        ],
+      },
+    ],
+    sources: [
+      {
+        name: 'IRS: Instructions for Forms 1099-MISC and 1099-NEC',
+        url: 'https://www.irs.gov/instructions/i1099mec',
+      },
+      {
+        name: 'IRS: About Form 1099-NEC, Nonemployee Compensation',
+        url: 'https://www.irs.gov/forms-pubs/about-form-1099-nec',
+      },
+      {
+        name: 'IRS: About Form W-9, Request for Taxpayer Identification Number',
+        url: 'https://www.irs.gov/forms-pubs/about-form-w-9',
+      },
+      {
+        name: 'IRS: Backup withholding',
+        url: 'https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding',
+      },
+      {
+        name: 'IRS: One Big Beautiful Bill provisions',
+        url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions',
+      },
+    ],
+    related: [
+      {
+        name: 'Guide: Paying Your Pastor',
+        to: '/guides/pastor-pay-minister-housing-allowance-taxes',
+        description: 'Housing allowance and SE tax.',
+      },
+      {
+        name: 'Church Accounting Software',
+        to: '/church-accounting-software',
+        description: 'Expenses with vendor, category, and receipt.',
+      },
+      {
+        name: 'Church Payroll Software',
+        to: '/church-payroll-software',
+        description: 'W-2s for your employees.',
       },
     ],
   },

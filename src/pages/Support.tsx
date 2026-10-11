@@ -47,8 +47,8 @@ const supportOptions = [
   },
   {
     icon: Users,
-    title: 'Community',
-    description: 'Share tips, templates, and best practices with other church administrators.',
+    title: 'Video Tutorials',
+    description: 'Short walkthroughs of everyday tasks on our YouTube channel — free to watch anytime.',
   },
 ];
 
@@ -201,18 +201,18 @@ export default function Support() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div id="community" className="card flex h-full scroll-mt-24 items-start gap-4">
+            <div className="card flex h-full items-start gap-4">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-500 text-white">
                 <BookOpen className="h-6 w-6" aria-hidden="true" />
               </span>
               <div>
-                <h3 className="font-bold text-slate-900">Community</h3>
+                <h3 className="font-bold text-slate-900">Guides</h3>
                 <p className="mt-1 text-sm text-slate-600">
-                  Connect with other churches, share templates and workflows, and get answers from
-                  people who run ministries just like yours.
+                  Plain-English guides to church administration — giving statements, fund
+                  accounting, payroll taxes, and more — each linked to its official sources.
                 </p>
-                <a href="#" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
-                  Join the community →
+                <a href="/guides" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
+                  Read the guides →
                 </a>
               </div>
             </div>

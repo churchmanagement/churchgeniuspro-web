@@ -8,6 +8,18 @@
 
 export const GTAG_ID = 'AW-18428227347';
 
+/**
+ * Conversion label for the "Trial request" conversion action in Google Ads
+ * (Goals → Conversions → the action → Tag setup → "Use Google tag" → the part
+ * after the slash in send_to 'AW-18428227347/XXXXXXXX').
+ *
+ * Leave empty until the conversion action exists — trackTrialConversion() is a
+ * no-op while this is blank. Can also be set at build time with
+ * VITE_GADS_TRIAL_LABEL.
+ */
+export const TRIAL_CONVERSION_LABEL: string =
+  (import.meta.env.VITE_GADS_TRIAL_LABEL as string | undefined) ?? '';
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -28,5 +40,17 @@ export function trackPageView(path: string): void {
     page_path: path,
     page_location: window.location.href,
     page_title: document.title,
+  });
+}
+
+/**
+ * Reports a successful trial request to Google Ads as a conversion.
+ * Called once, after the form submission succeeds — never on page load.
+ */
+export function trackTrialConversion(): void {
+  if (!TRIAL_CONVERSION_LABEL) return;
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  window.gtag('event', 'conversion', {
+    send_to: `${GTAG_ID}/${TRIAL_CONVERSION_LABEL}`,
   });
 }

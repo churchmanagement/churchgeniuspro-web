@@ -401,7 +401,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'AI accounting',
         title: 'Books that keep themselves',
         body: [
-          'Bank imports and bank sync are included from the Standard plan; Pro adds AI-assisted accounting and check scanning, so income and expenses stay current with minimal typing. Board-ready financial reports and compliant year-end giving statements are one click.',
+          'Bank imports and bank sync are included from the Standard plan; Pro adds AI-assisted accounting and check scanning, so income and expenses stay current with minimal typing. Board-ready financial reports and year-end giving statements are one click.',
         ],
         screenshotSlug: 'payroll',
       },
@@ -489,10 +489,10 @@ export const landingPages: LandingPageData[] = [
       },
       {
         eyebrow: 'Reporting',
-        title: 'Board-ready reports and compliant statements',
+        title: 'Board-ready reports and year-end statements',
         body: [
           'Financial reports that used to take a spreadsheet weekend are one click: income and expense summaries, fund balances, and giving analyses formatted for a board meeting.',
-          'At year end, generate compliant giving statements for every donor in minutes — the task churches dread most in January becomes an afternoon, not a week.',
+          'At year end, generate giving statements for every donor in minutes — the task churches dread most in January becomes an afternoon, not a week.',
         ],
         bullets: [
           {
@@ -501,7 +501,7 @@ export const landingPages: LandingPageData[] = [
           },
           {
             title: 'Year-end giving statements',
-            description: 'Compliant annual statements for every donor, generated in minutes.',
+            description: 'Annual giving statements for every donor, generated in minutes.',
           },
           {
             title: 'Pledge tracking',
@@ -514,7 +514,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'Payroll & AI',
         title: 'Payroll, bank sync, and books that fill themselves in',
         body: [
-          'The Pro plan covers staff and clergy payroll, bank imports, and bank sync. Its AI reads checks and statements from a photo and posts the transactions — you review and approve instead of typing.',
+          'The Pro plan includes payroll, bank imports, and bank sync. Its AI reads checks and statements from a photo and posts the transactions — you review and approve instead of typing.',
           'Not an accountant? That is the point. Administrators without bookkeeping backgrounds keep clean, current books because the software does the double-entry thinking.',
         ],
         screenshotSlug: 'payroll',
@@ -544,8 +544,9 @@ export const landingPages: LandingPageData[] = [
           'Accounting is included in the paid plans. Standard ($20/month) includes bank imports, bank sync (up to 3 accounts), pledges, online giving, and reports. Pro ($40/month) includes all accounting features, adding AI-assisted accounting, payroll, and check scanning.',
       },
       {
-        question: 'Does it handle payroll for clergy and staff?',
-        answer: 'Yes — payroll is included in the Pro plan, covering both staff and clergy.',
+        question: 'Is payroll included?',
+        answer:
+          'Yes — payroll is included in the Pro plan. Ministers’ pay follows special IRS rules (such as the housing allowance and self-employment tax), so contact us to confirm how payroll fits your pastor’s situation.',
       },
       {
         question: 'Do we need an accountant on staff to use it?',
@@ -1170,9 +1171,9 @@ export const landingPages: LandingPageData[] = [
         description: 'Fund accounting, reports, bank sync, and pledges.',
       },
       {
-        name: 'Guide: Fund Accounting',
-        to: '/guides/church-fund-accounting-explained',
-        description: 'Restricted and unrestricted funds, in plain English.',
+        name: 'Guide: Paying Your Pastor',
+        to: '/guides/pastor-pay-minister-housing-allowance-taxes',
+        description: 'Minister tax rules: housing allowance and SE tax.',
       },
       {
         name: 'AI Church Software',

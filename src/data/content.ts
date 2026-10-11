@@ -429,7 +429,7 @@ export interface Stat {
 
 export const stats: Stat[] = [
   { value: 40, suffix: '+', label: 'Features in one platform' },
-  { value: 12, suffix: '', label: 'Tools replaced by one system' },
+  { value: 2, suffix: '', label: 'Months of free trial with every Pro feature' },
   { value: 9, suffix: '', label: 'Complete toolkits working together' },
   { value: 13, suffix: '', label: 'Step-by-step Help Center guides' },
 ];
