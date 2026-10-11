@@ -311,7 +311,8 @@ export const guides: Guide[] = [
         bullets: [
           'The church does not withhold Social Security or Medicare (FICA) from ministerial wages and does not pay the employer share.',
           'The church is not required to withhold federal income tax from ministerial wages either.',
-          'The minister pays SE tax on their own return. For 2025 the rate is 15.3% (12.4% Social Security plus 2.9% Medicare) on net SE earnings, with the Social Security part capped at an annual wage base.',
+          'The minister pays SE tax on their own return: 15.3% (12.4% Social Security plus 2.9% Medicare) on net SE earnings, with the Social Security part capped at an annual wage base ($176,100 for 2025).',
+          'Fees a member pays the pastor directly — for a wedding, baptism, or funeral, for example — are self-employment income, not W-2 wages.',
         ],
       },
       {
@@ -325,30 +326,36 @@ export const guides: Guide[] = [
         heading: 'The housing allowance',
         paragraphs: [
           'A church can designate part of a minister’s pay as a housing (parsonage) allowance. The church must officially designate the amount before it makes the payment — a board or council resolution recorded in the minutes is the common way to do this.',
-          'For income tax, the minister can exclude the allowance up to the smallest of these amounts:',
+          'For a minister who owns their home, Publication 517 limits the income-tax exclusion to the smallest of these amounts:',
         ],
         bullets: [
           'The amount the church officially designated.',
-          'The amount actually spent on housing (rent or mortgage, utilities, furnishings, repairs, and similar costs).',
-          'The fair rental value of the home, furnished, plus utilities.',
+          'The amount actually spent to provide the home (mortgage, utilities, furnishings, repairs, and similar costs).',
+          'The fair rental value of the home, including furnishings, plus utilities.',
+        ],
+      },
+      {
+        heading: 'Renters and the reasonable-pay limit',
+        paragraphs: [
+          'A minister who rents can exclude the allowance used to rent and furnish the home, up to its fair rental value including furnishings plus the cost of utilities. In every case the allowance cannot be more than reasonable pay for the minister’s services, and any amount above the limits is included in income.',
         ],
       },
       {
         heading: 'The housing allowance is still subject to SE tax',
         paragraphs: [
-          'The exclusion applies to income tax only. Publication 517 is clear that the housing allowance — or the fair rental value of a church-provided parsonage — still counts toward the minister’s net earnings for self-employment tax.',
+          'The exclusion applies to income tax only. Publication 517 is clear that the housing allowance — or the fair rental value of a church-provided parsonage — still counts toward the minister’s net earnings for self-employment tax. The exception is a retired minister: a parsonage allowance (or parsonage rental value) provided after retirement is not counted for SE tax.',
         ],
       },
       {
         heading: 'What the church reports on Form W-2',
         paragraphs: [
-          'A pastor who is an employee for income tax receives a Form W-2 for their salary. Publication 517 notes the church may show the housing allowance (or the parsonage’s fair rental value plus utilities) in box 14 of Form W-2 so the minister has the figure for their return. Ask your tax professional which boxes apply to your pastor’s situation.',
+          'A pastor who is an employee for income tax receives a Form W-2 for their salary. Because ministerial wages are not subject to Social Security and Medicare as employee wages, the IRS W-2 instructions say boxes 3 and 5 (Social Security and Medicare wages) are left blank. The church may show the housing allowance in box 14a of the current Form W-2 (box 14 on older forms) so the minister has the figure for their return.',
         ],
       },
       {
         heading: 'Ministers who opt out of Social Security',
         paragraphs: [
-          'A minister who is opposed, on religious grounds, to accepting public insurance for ministerial services can apply for an exemption from SE tax on Form 4361. The deadline is the due date (including extensions) of the tax return for the second year in which they had at least $400 of net SE earnings, part of it from ministerial services. The exemption must be approved by the IRS, and it covers ministerial earnings only.',
+          'A minister who is opposed, on religious grounds, to accepting public insurance for ministerial services can apply for an exemption from SE tax on Form 4361. The deadline is the due date (including extensions) of the tax return for the second year in which they had at least $400 of net SE earnings, part of it from ministerial services. The minister must also inform the ordaining, commissioning, or licensing body of their opposition. The exemption must be approved by the IRS, covers ministerial earnings only, and is irrevocable once approved.',
         ],
       },
       {
@@ -359,7 +366,7 @@ export const guides: Guide[] = [
           'Set the housing allowance by board resolution before the year (or the pay period) it applies to, and record it in the minutes.',
           'Make sure payroll does not withhold Social Security or Medicare on ministerial wages.',
           'Offer a voluntary withholding agreement, or remind the pastor about quarterly estimated payments.',
-          'Report the housing allowance to the minister — box 14 of Form W-2 is one option.',
+          'Leave W-2 boxes 3 and 5 blank for ministerial wages, and report the housing allowance to the minister — box 14a of Form W-2 is one option.',
         ],
       },
       {
@@ -381,6 +388,10 @@ export const guides: Guide[] = [
       {
         name: 'IRS Form 1040-ES: Estimated Tax for Individuals',
         url: 'https://www.irs.gov/forms-pubs/about-form-1040-es',
+      },
+      {
+        name: 'IRS: General Instructions for Forms W-2 and W-3',
+        url: 'https://www.irs.gov/instructions/iw2w3',
       },
       {
         name: 'IRS Form 4361: Application for Exemption From Self-Employment Tax',
@@ -438,13 +449,15 @@ export const guides: Guide[] = [
       {
         heading: 'The threshold: $600 before 2026, $2,000 from 2026',
         paragraphs: [
-          'The One Big Beautiful Bill raised the reporting threshold. The IRS instructions now set it at $2,000 for tax years beginning after 2025, so payments made during 2026 (reported in January 2027) use the $2,000 threshold. Payments made in 2025 and reported in January 2026 still used the $600 threshold.',
+          'A 2025 law (P.L. 119-21, commonly known as the One Big Beautiful Bill) raised the reporting threshold. The IRS instructions now set it at $2,000 for tax years beginning after 2025, so payments made during 2026 (reported in January 2027) use the $2,000 threshold. Payments made in 2025 and reported in January 2026 still used the $600 threshold. The $2,000 figure may be adjusted for inflation beginning in 2027.',
           'Count the year’s total per payee, not each check — three $800 honoraria to the same speaker in 2026 add up to $2,400 and are reportable.',
         ],
       },
       {
         heading: 'Common church examples',
-        paragraphs: [],
+        paragraphs: [
+          'Whether someone is a contractor or an employee depends on the working relationship, not the label you give it. A regular, scheduled worker may be an employee, whose pay goes on Form W-2.',
+        ],
         bullets: [
           'A guest preacher or visiting evangelist who is not on your staff.',
           'A pianist, organist, or sound technician paid per service as an independent contractor.',
@@ -457,7 +470,7 @@ export const guides: Guide[] = [
         paragraphs: [],
         bullets: [
           'Your employees — their wages go on Form W-2, not a 1099-NEC. This includes a pastor who is the church’s employee for income tax.',
-          'Payments to most corporations (including an LLC taxed as a C or S corporation). Attorneys’ fees are an exception: they are reportable even when paid to a corporation.',
+          'Payments to most corporations (including an LLC taxed as a C or S corporation) — for example, an honorarium paid to a guest speaker’s incorporated ministry rather than to the speaker. Attorneys’ fees are an exception: they are reportable even when paid to a corporation.',
           'Totals for the year below the threshold.',
         ],
       },
@@ -507,10 +520,6 @@ export const guides: Guide[] = [
       {
         name: 'IRS: Backup withholding',
         url: 'https://www.irs.gov/businesses/small-businesses-self-employed/backup-withholding',
-      },
-      {
-        name: 'IRS: One Big Beautiful Bill provisions',
-        url: 'https://www.irs.gov/newsroom/one-big-beautiful-bill-provisions',
       },
     ],
     related: [
