@@ -18,7 +18,11 @@ export type LandingSlug =
   | 'ai-church-management-software'
   | 'church-accounting-software'
   | 'small-church-management-software'
-  | 'church-app';
+  | 'church-app'
+  | 'church-membership-software'
+  | 'church-attendance-tracking'
+  | 'church-giving-software'
+  | 'church-payroll-software';
 
 export interface LandingSection {
   eyebrow?: string;
@@ -197,6 +201,26 @@ export const landingPages: LandingPageData[] = [
         name: 'Church App',
         to: '/church-app',
         description: 'Installable web app for giving, check-in, and connection.',
+      },
+      {
+        name: 'Church Membership Software',
+        to: '/church-membership-software',
+        description: 'Families, a private directory, membership requests, and follow-ups.',
+      },
+      {
+        name: 'Church Attendance Tracking',
+        to: '/church-attendance-tracking',
+        description: 'Services, groups, classes, events, and kids check-in.',
+      },
+      {
+        name: 'Church Giving Software',
+        to: '/church-giving-software',
+        description: 'Online and text giving, pledges, and year-end statements.',
+      },
+      {
+        name: 'Church Payroll Software',
+        to: '/church-payroll-software',
+        description: 'Payroll runs, register, and W-2 export on the Pro plan.',
       },
       {
         name: 'Compare Systems',
@@ -770,6 +794,398 @@ export const landingPages: LandingPageData[] = [
         description: 'The app is included on every plan, starting at $0.',
       },
     ],
+  },
+  // ------------------------------------------------------ membership page
+  {
+    slug: 'church-membership-software',
+    title: 'Church Membership Software for Families | ChurchGeniusPro',
+    metaDescription:
+      'Church membership software for families and households, a private member directory, membership requests, groups, and follow-ups. Free for up to 50 people.',
+    eyebrow: 'Membership',
+    h1: 'Church membership software',
+    h1Gradient: 'that keeps every family in view.',
+    intro: [
+      'ChurchGeniusPro is church membership software that organizes your congregation the way your church actually works: by families and households, with each person’s role, contact details, groups, and history in one record.',
+      'Members can keep their own details up to date through their portal, new people can apply for membership online, and your staff can see at a glance who needs a follow-up.',
+    ],
+    sections: [
+      {
+        eyebrow: 'Families first',
+        title: 'Households, not just names',
+        body: [
+          'Every person belongs to a family record — head of household, spouse, children, and other relatives, each with their own role. That lets you email a whole household at once, track contributions per family, and keep relationships clear.',
+          'Members marked inactive stay in your records but drop out of active member lists, so your directory stays accurate without losing history.',
+        ],
+        bullets: [
+          {
+            title: 'Family and member profiles',
+            description: 'Contact details, family roles, member type, and photos in one place.',
+          },
+          {
+            title: 'Membership requests',
+            description:
+              'People apply through your online form; approve or decline, and the family record is created for you.',
+          },
+          {
+            title: 'Member directory with privacy controls',
+            description:
+              'Members can find and message each other; anyone who opts out stays hidden.',
+          },
+        ],
+        screenshotSlug: 'certificates',
+      },
+      {
+        eyebrow: 'Connected',
+        title: 'Groups, ministries, and follow-ups on the same record',
+        body: [
+          'Organize small groups, ministries, teams, and age groups, then email or message any of them from inside the group. Ministries such as worship, outreach, and hospitality are managed the same way.',
+          'Follow-ups give each action item — a visitor to call, a hospital visit, a new-member check-in — an owner and a due date, so nobody falls through the cracks.',
+        ],
+        screenshotSlug: 'volunteer-management',
+      },
+      {
+        eyebrow: 'Self-service',
+        title: 'A member portal that saves the office time',
+        body: [
+          'Each member gets a private portal to update their phone, email, and address, see their family, view their giving history, and generate their own year-end giving statement. Built-in chat and group messaging keep people connected between Sundays.',
+          'On the Pro plan, the AI assistant can read a photographed membership form and fill in the member’s details for you to review.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is the membership software free?',
+        answer:
+          'Member and family management is included on every plan. The Free plan covers up to 50 people with 3 member portals; Standard ($20/month) covers up to 100 people with unlimited portals; Pro ($40/month) is unlimited.',
+      },
+      {
+        question: 'Can people apply for membership online?',
+        answer:
+          'Yes. Applications from your online form appear on the Membership Requests page. Approving one creates the family record automatically, and the applicant is emailed the outcome.',
+      },
+      {
+        question: 'Can members update their own information?',
+        answer:
+          'Yes. Members update their contact details and photo from their portal. Your administrator can lock fields that only the church office should change.',
+      },
+      {
+        question: 'Can we bring our existing member list over?',
+        answer:
+          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+      },
+    ],
+    related: [
+      {
+        name: 'Church Attendance Tracking',
+        to: '/church-attendance-tracking',
+        description: 'Attendance for services, groups, classes, and kids check-in.',
+      },
+      {
+        name: 'Church Giving Software',
+        to: '/church-giving-software',
+        description: 'Giving history and statements on every member record.',
+      },
+      {
+        name: 'Church Management Software',
+        to: '/church-management-software',
+        description: 'The full platform your membership records connect to.',
+      },
+      {
+        name: 'View Pricing',
+        to: '/pricing',
+        description: 'Free $0, Standard $20/month, Pro $40/month.',
+      },
+    ],
+    showPricingTeaser: true,
+  },
+
+  // ------------------------------------------------------ attendance page
+  {
+    slug: 'church-attendance-tracking',
+    title: 'Church Attendance Tracking Software | ChurchGeniusPro',
+    metaDescription:
+      'Church attendance tracking for services, classes, groups, and events, plus secure kids check-in with codes and barcodes. Attendance is on every plan.',
+    eyebrow: 'Attendance',
+    h1: 'Church attendance tracking',
+    h1Gradient: 'without the clipboard.',
+    intro: [
+      'ChurchGeniusPro includes church attendance tracking for services, classes, groups, meetings, and events, recorded on the same member records the rest of your church runs on.',
+      'Attendance is part of every plan, including Free. Standard and Pro add event check-ins and secure kids check-in, so arrival and attendance are captured in one step.',
+    ],
+    sections: [
+      {
+        eyebrow: 'Everywhere people gather',
+        title: 'One attendance record across your whole church',
+        body: [
+          'Track attendance for Sunday services, classes, small groups, and events, with trends over time so you can see where to focus care and outreach. Meetings can be scheduled with invitations and attendance tracked in the same place.',
+          'Kids Ministry teachers see their classroom roster and take attendance with a single tap.',
+        ],
+        screenshotSlug: 'meetings',
+      },
+      {
+        eyebrow: 'Kids check-in',
+        title: 'Check-in that doubles as attendance',
+        body: [
+          'Parents check children in at a tablet or kiosk, or by scanning a QR code on their phone, using the phone number the child is registered with. A security code prints or appears on the phone, and the child can only be picked up with it.',
+          'Children are placed in a classroom automatically by age or grade, and allergies and medical needs are on hand for volunteers.',
+        ],
+        bullets: [
+          {
+            title: 'Code and barcode check-in',
+            description: 'Fast, secure drop-off and pick-up, including mobile check-in.',
+          },
+          {
+            title: 'Automatic classroom placement',
+            description: 'By age or grade, adjustable by your kids ministry leader.',
+          },
+          {
+            title: 'Event check-in',
+            description:
+              'QR check-in for events on Standard and Pro; event registration on every plan.',
+          },
+        ],
+        screenshotSlug: 'kids-checkin',
+      },
+      {
+        eyebrow: 'Follow through',
+        title: 'Turn attendance into care',
+        body: [
+          'Attendance lives next to follow-ups, groups, and messaging. When someone stops coming, assign a follow-up with an owner and a due date, or message their group — without exporting a spreadsheet to another tool.',
+        ],
+        screenshotSlug: 'event-setup',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which plans include attendance tracking?',
+        answer:
+          'Attendance is included on every plan, including Free. Event check-ins and kids check-in are included in Standard ($20/month) and Pro ($40/month).',
+      },
+      {
+        question: 'How does kids check-in work?',
+        answer:
+          'Parents check in at a tablet or kiosk, or scan a QR code with their phone, then enter their registered phone number and tap each child. A security code is printed or shown on the phone and is needed at pick-up.',
+      },
+      {
+        question: 'Can volunteers take attendance in their classroom?',
+        answer:
+          'Yes. Kids Ministry teachers see their classroom roster and take attendance with a single tap, and can check children in and out using their security code.',
+      },
+      {
+        question: 'Can we try check-in before paying?',
+        answer:
+          'Yes. The 2-month free trial includes every feature in the Pro plan, including kids and event check-in. No credit card is required.',
+      },
+    ],
+    related: [
+      {
+        name: 'Church Membership Software',
+        to: '/church-membership-software',
+        description: 'Families, directory, groups, and follow-ups.',
+      },
+      {
+        name: 'Church App',
+        to: '/church-app',
+        description: 'Check-in, giving, and events from members’ phones.',
+      },
+      {
+        name: 'Small Church Software',
+        to: '/small-church-management-software',
+        description: 'Start free and grow when you do.',
+      },
+      {
+        name: 'View Pricing',
+        to: '/pricing',
+        description: 'Free $0, Standard $20/month, Pro $40/month.',
+      },
+    ],
+    showPricingTeaser: true,
+  },
+
+  // ------------------------------------------------------ giving page
+  {
+    slug: 'church-giving-software',
+    title: 'Church Giving & Donation Software | ChurchGeniusPro',
+    metaDescription:
+      'Church giving software: online and text-to-give, recurring gifts, pledge campaigns, automatic receipts, and year-end giving statements, tied to your books.',
+    eyebrow: 'Giving',
+    h1: 'Church giving software',
+    h1Gradient: 'that posts straight to your books.',
+    intro: [
+      'ChurchGeniusPro is church giving software and accounting in one system. Online gifts, text-to-give, recurring giving, and recorded cash and checks all land in the same income records, matched to the right donor and fund.',
+      'Donors get automatic emailed receipts, members can see their own giving history, and year-end giving statements take a few clicks instead of a week.',
+    ],
+    sections: [
+      {
+        eyebrow: 'Ways to give',
+        title: 'Online, by text, or every month automatically',
+        body: [
+          'Once your church connects its Stripe account, members and visitors can give through your public donation page, set up recurring monthly gifts, pay event fees, or text a code to give from their phone. Every online gift appears in your income list with a Stripe reference, and receipts are emailed automatically.',
+          'Cash and checks are recorded with the contributor, fund, date, transaction type, and check number — or, on the Pro plan, by photographing the check and letting the AI fill in the entry.',
+        ],
+        screenshotSlug: 'online-giving',
+      },
+      {
+        eyebrow: 'Campaigns',
+        title: 'Pledge campaigns that track themselves',
+        body: [
+          'Create a campaign for a building fund, missions trip, or capital project with a target amount and an optional end date. Gifts recorded to the campaign’s fund are applied to each member’s pledge automatically, so every campaign card shows pledged, collected, pending, and percent complete.',
+        ],
+        screenshotSlug: 'pledge-campaigns',
+      },
+      {
+        eyebrow: 'Year end',
+        title: 'Giving statements in minutes',
+        body: [
+          'Generate giving statements for every donor and email or print them, and let members generate their own statement from their portal for any tax year. The Donation Review page lets your treasurer match each Stripe payout to the gifts it covered and resend a lost receipt.',
+          'Not sure what a statement must include? Read our guide to church contribution statements and the IRS rules behind them.',
+        ],
+        screenshotSlug: 'year-end-giving',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does ChurchGeniusPro take a percentage of donations?',
+        answer:
+          'No. ChurchGeniusPro charges a flat monthly plan price. Online gifts are processed through your church’s own Stripe account, so Stripe’s standard processing fees apply to card and bank payments.',
+      },
+      {
+        question: 'Which plans include online giving?',
+        answer:
+          'The Free plan includes up to 20 gifts per month. Standard ($20/month) and Pro ($40/month) include unlimited giving, plus pledges and accounting; Pro adds check scanning.',
+      },
+      {
+        question: 'Can members set up recurring gifts?',
+        answer:
+          'Yes. Members choose a fund and an amount and select recurring monthly giving from their portal; gifts then run automatically.',
+      },
+      {
+        question: 'Can members download their own giving statement?',
+        answer:
+          'Yes. From the Contributions page in their portal, members choose a tax year and generate a statement they can print or save as a PDF.',
+      },
+    ],
+    related: [
+      {
+        name: 'Guide: Contribution Statements',
+        to: '/guides/church-contribution-statements-irs-requirements',
+        description: 'What the IRS requires in a donor acknowledgment.',
+      },
+      {
+        name: 'Church Accounting Software',
+        to: '/church-accounting-software',
+        description: 'Fund accounting connected to every gift.',
+      },
+      {
+        name: 'Free Church Software',
+        to: '/free-church-management-software',
+        description: '20 gifts a month on the $0 plan.',
+      },
+      {
+        name: 'View Pricing',
+        to: '/pricing',
+        description: 'Free $0, Standard $20/month, Pro $40/month.',
+      },
+    ],
+    showPricingTeaser: true,
+  },
+
+  // ------------------------------------------------------ payroll page
+  {
+    slug: 'church-payroll-software',
+    title: 'Church Payroll Software with Accounting | ChurchGeniusPro',
+    metaDescription:
+      'Church payroll software inside your accounting: employee records, payroll runs, a payroll register with tax liability, and year-end W-2 export. Pro plan.',
+    eyebrow: 'Payroll',
+    h1: 'Church payroll software',
+    h1Gradient: 'inside your accounting.',
+    intro: [
+      'ChurchGeniusPro includes church payroll software in the same system as your giving and fund accounting, so staff records, payroll runs, and reports sit next to the books they affect.',
+      'Payroll is part of the Pro plan ($40/month), and you can try it free for 2 months with every other Pro feature. No credit card is required.',
+    ],
+    sections: [
+      {
+        eyebrow: 'What it covers',
+        title: 'Employees, payroll runs, and the reports your treasurer needs',
+        body: [
+          'Keep employee records, create payroll runs on your pay schedule, and approve them. For each run, the payroll register shows gross pay, federal and state income tax, Social Security, Medicare, pre-tax and post-tax deductions, and net pay, with the employer tax liability totaled at the top.',
+        ],
+        bullets: [
+          {
+            title: 'Employee records',
+            description: 'Staff details kept in order, alongside the rest of your church data.',
+          },
+          {
+            title: 'Payroll runs',
+            description: 'Runs by pay schedule, each with its approval status.',
+          },
+          {
+            title: 'Payroll register & tax liability',
+            description:
+              'Per-run register plus employer federal, Social Security, Medicare, state, and local totals.',
+          },
+          {
+            title: 'Year-end W-2 export',
+            description: 'Download W-2 data for all employees as CSV, or a W-2 PDF per employee.',
+          },
+        ],
+        screenshotSlug: 'payroll',
+      },
+      {
+        eyebrow: 'One system',
+        title: 'Why payroll belongs next to your books',
+        body: [
+          'When payroll lives in a separate service, someone re-enters totals into the church’s books every pay period. Keeping payroll in the same system as income, expenses, funds, and financial reports means one place to look when the board asks where the money went.',
+          'Recurring entries such as salaries can also be set up once and entered on schedule.',
+        ],
+        screenshotSlug: 'financial-reports',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which plan includes payroll?',
+        answer:
+          'Payroll is included in the Pro plan ($40/month), together with AI-assisted accounting, check scanning, and the advanced AI assistant. The 2-month free trial includes it too.',
+      },
+      {
+        question: 'What payroll reports are included?',
+        answer:
+          'A payroll register for each run (gross, federal, Social Security, Medicare, state, deductions, and net), an employer tax liability summary, and a year-end W-2 export as CSV or per-employee PDF.',
+      },
+      {
+        question: 'Does ChurchGeniusPro file payroll taxes for us?',
+        answer:
+          'The payroll register and W-2 export give you the figures for your records and filings. Contact us to confirm whether ChurchGeniusPro covers tax deposits and filings for your church’s situation.',
+      },
+      {
+        question: 'Do we still need separate accounting software?',
+        answer:
+          'For most churches, no. Payroll, income, expenses, funds, and financial reports are in one system.',
+      },
+    ],
+    related: [
+      {
+        name: 'Church Accounting Software',
+        to: '/church-accounting-software',
+        description: 'Fund accounting, reports, bank sync, and pledges.',
+      },
+      {
+        name: 'Guide: Fund Accounting',
+        to: '/guides/church-fund-accounting-explained',
+        description: 'Restricted and unrestricted funds, in plain English.',
+      },
+      {
+        name: 'AI Church Software',
+        to: '/ai-church-management-software',
+        description: 'The Pro plan’s AI assistant and check scanning.',
+      },
+      {
+        name: 'View Pricing',
+        to: '/pricing',
+        description: 'Pro plan $40/month includes payroll.',
+      },
+    ],
+    showPricingTeaser: true,
   },
 ];
 

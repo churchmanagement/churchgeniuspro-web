@@ -457,7 +457,7 @@ export interface CompareRow {
  * Last verification: 2026-08-13 against quickbooks.intuit.com, breezechms.com,
  * planningcenter.com, tithe.ly official pages and support docs.
  */
-export const compareLastVerified = 'August 13, 2026';
+export const compareLastVerified = 'October 10, 2026';
 
 export const compareColumns = [
   'ChurchGeniusPro',
@@ -501,9 +501,9 @@ export const compareRows: CompareRow[] = [
     cgp: true,
     spreadsheets: false,
     quickbooks: false,
-    breeze: 'Add-on',
+    breeze: 'Worship tools add-on',
     planningCenter: true,
-    tithely: 'Add-on',
+    tithely: 'Worship tools add-on',
   },
   {
     feature: 'Classes, groups & attendance tracking',
@@ -528,7 +528,7 @@ export const compareRows: CompareRow[] = [
     cgp: true,
     spreadsheets: false,
     quickbooks: false,
-    breeze: true,
+    breeze: 'Via custom field',
     planningCenter: true,
     tithely: true,
   },
@@ -536,7 +536,7 @@ export const compareRows: CompareRow[] = [
     feature: 'Recurring giving, reminders & year-end statements',
     cgp: true,
     spreadsheets: 'Manual',
-    quickbooks: 'Partial',
+    quickbooks: true,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -572,9 +572,9 @@ export const compareRows: CompareRow[] = [
     feature: 'Built-in conversational AI assistant',
     cgp: 'Pro plan',
     spreadsheets: false,
-    quickbooks: 'Chat AI (beta)',
+    quickbooks: 'Intuit Intelligence (beta)',
     breeze: false,
-    planningCenter: 'Via integration',
+    planningCenter: 'AI tools + integration',
     tithely: 'Some AI tools',
   },
   {

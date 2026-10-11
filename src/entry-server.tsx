@@ -21,6 +21,8 @@ import HelpCenter from './pages/HelpCenter';
 import Admin from './pages/Admin';
 import Legal from './pages/Legal';
 import Landing from './pages/Landing';
+import Guides from './pages/Guides';
+import CompareVs from './pages/CompareVs';
 import NotFound from './pages/NotFound';
 
 export { SITE, prerenderRoutes, notFoundMeta, DEFAULT_OG_IMAGE } from './data/seo';
@@ -40,6 +42,8 @@ const eagerPages: PageComponents = {
   Admin,
   Legal,
   Landing,
+  Guides,
+  CompareVs,
   NotFound,
 };
 

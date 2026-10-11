@@ -4,6 +4,7 @@ import { Check, Sparkles, Star } from 'lucide-react';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import CTASection from '../components/ui/CTASection';
 import { compareColumns, compareRows, compareLastVerified, type CompareRow } from '../data/content';
+import { compareVsPages } from '../data/compareVs';
 
 function Cell({ value }: { value: boolean | string }) {
   if (value === true)
@@ -35,7 +36,7 @@ const keys: (keyof Omit<CompareRow, 'feature'>)[] = [
 
 const strengths = [
   'AI assistant on the Pro plan — type or speak everyday language to find records and complete tasks',
-  'Optional accounting module with payroll, check scanning, bank statement import & giving statements — connected to your member and giving records',
+  'Accounting included in Standard and Pro, with payroll and check scanning on Pro — connected to your member and giving records',
   'Sunday School tools with automatic exams and grading',
   'Members, events, worship planning, kids check-in & giving managed in one system with one login',
   'Barcode & NFC temporary guest login and Wi-Fi-only private pages',
@@ -188,6 +189,30 @@ export default function Compare() {
               companies by ChurchGeniusPro. This page intentionally uses no third-party logos,
               screenshots, or other content.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* One-on-one comparisons */}
+      <section className="pb-16">
+        <div className="container-page">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              One-on-one comparisons
+            </h2>
+            <p className="mt-2 text-slate-600">
+              Each page links every entry to the provider&rsquo;s official source, and says where
+              the other product is stronger.
+            </p>
+            <ul className="mt-6 flex flex-wrap justify-center gap-3">
+              {compareVsPages.map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/compare/${p.slug}`} className="btn-secondary !py-2">
+                    ChurchGeniusPro vs {p.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
