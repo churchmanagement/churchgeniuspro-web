@@ -48,7 +48,7 @@ const supportOptions = [
   {
     icon: Users,
     title: 'Community',
-    description: 'Join thousands of church administrators sharing tips, templates, and best practices.',
+    description: 'Share tips, templates, and best practices with other church administrators.',
   },
 ];
 

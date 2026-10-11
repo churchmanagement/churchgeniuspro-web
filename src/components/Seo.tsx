@@ -37,12 +37,17 @@ export default function Seo({ title, description, path, noindex }: SeoProps) {
     upsertMeta('name', 'twitter:description', description);
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
+    if (noindex) {
+      // A noindex page (e.g. "Page not found") must not point Google at a canonical URL.
+      canonical?.remove();
+    } else {
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+      }
+      canonical.href = url;
     }
-    canonical.href = url;
 
     const robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
     if (noindex) {

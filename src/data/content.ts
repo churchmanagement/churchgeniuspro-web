@@ -343,43 +343,14 @@ export interface Testimonial {
   church: string;
 }
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      'We replaced five different tools with ChurchGeniusPro. The AI assistant does our data entry now — I photograph a bank statement and every transaction is in the books in minutes.',
-    name: 'Pastor Michael Reynolds',
-    role: 'Senior Pastor',
-    church: 'Grace Community Church',
-  },
-  {
-    quote:
-      'Kids check-in used to be chaos on Sunday mornings. Now parents scan a code, children are placed in the right classroom automatically, and volunteers see medical notes instantly.',
-    name: 'Sarah Okafor',
-    role: "Children's Ministry Director",
-    church: 'New Life Fellowship',
-  },
-  {
-    quote:
-      'I am not an accountant, but our books have never been cleaner. Board-ready reports in one click, and tax statements that used to take a week now take minutes.',
-    name: 'David Chen',
-    role: 'Church Administrator',
-    church: 'Cornerstone Chapel',
-  },
-  {
-    quote:
-      'The voice commands feel like magic. I say "add a new family" while walking through the lobby and it is done before I reach my office.',
-    name: 'Rev. Angela Martinez',
-    role: 'Executive Pastor',
-    church: 'Hillside Church',
-  },
-  {
-    quote:
-      'Migration was completely free and painless — their team moved years of member and giving data for us. We were live in a week.',
-    name: 'James Whitfield',
-    role: 'Operations Director',
-    church: 'Redemption City Church',
-  },
-];
+/**
+ * Real customer quotes ONLY — each one must come from an actual ChurchGeniusPro
+ * customer who has given written permission to publish their name, role, and
+ * church. Never add invented or AI-generated testimonials (FTC 16 CFR Part 465).
+ * While this list is empty, the homepage shows the "Built for churches like
+ * yours" facts block instead (see components/ui/Testimonials.tsx).
+ */
+export const testimonials: Testimonial[] = [];
 
 export interface FAQ {
   question: string;
@@ -459,8 +430,8 @@ export interface Stat {
 export const stats: Stat[] = [
   { value: 40, suffix: '+', label: 'Features in one platform' },
   { value: 12, suffix: '', label: 'Tools replaced by one system' },
-  { value: 90, suffix: '%', label: 'Less manual data entry with AI' },
-  { value: 99.9, suffix: '%', label: 'Uptime you can rely on' },
+  { value: 9, suffix: '', label: 'Complete toolkits working together' },
+  { value: 13, suffix: '', label: 'Step-by-step Help Center guides' },
 ];
 
 export interface CompareRow {

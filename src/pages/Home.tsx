@@ -22,6 +22,9 @@ import FAQAccordion from '../components/ui/FAQAccordion';
 import CTASection from '../components/ui/CTASection';
 import { featureCategories } from '../data/features';
 import { faqs } from '../data/content';
+import { homeStructuredData, jsonLdString } from '../data/structuredData';
+
+const homeJsonLd = jsonLdString(homeStructuredData());
 
 const aiHighlights = [
   {
@@ -61,7 +64,7 @@ const benefits = [
     icon: Clock,
     title: 'AI that does the typing',
     description:
-      'Speak, scan, or use one-word commands to get things done in seconds. Up to 90% less manual data entry.',
+      'Speak, scan, or use one-word commands to get things done in seconds — instead of typing data into forms.',
   },
   {
     icon: Smile,
@@ -80,6 +83,7 @@ const benefits = [
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homeJsonLd }} />
       <Hero />
 
       {/* Benefits */}

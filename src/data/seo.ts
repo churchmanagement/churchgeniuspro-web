@@ -28,9 +28,9 @@ export interface RouteMeta {
 const staticRoutes: RouteMeta[] = [
   {
     path: '/',
-    title: 'ChurchGeniusPro — AI-Powered Church Management & Accounting',
+    title: 'Church Management Software with AI | ChurchGeniusPro',
     description:
-      'ChurchGeniusPro replaces a dozen disconnected tools with one AI-powered platform: member management, accounting, giving, events, kids check-in, and more.',
+      'All-in-one church management software: members, attendance, giving, accounting with payroll, and an AI assistant. Free plan and 2-month trial, no credit card.',
   },
   {
     path: '/features',
@@ -113,6 +113,18 @@ const landingRoutes: RouteMeta[] = landingPages.map((p) => ({
 
 /** Routes baked to static HTML at build time (and listed in sitemap.xml unless excluded). */
 export const prerenderRoutes: RouteMeta[] = [...staticRoutes, ...landingRoutes, ...helpRoutes];
+
+/**
+ * The branded "Page not found" page. Prerendered to dist/404.html (noindex, no
+ * canonical, never in the sitemap) and served by staticwebapp.config.json with a
+ * real HTTP 404 for any URL that has no file. The client uses the same title.
+ */
+export const notFoundMeta = {
+  path: '/404',
+  title: 'Page Not Found | ChurchGeniusPro',
+  description:
+    'This page does not exist or has moved. Explore ChurchGeniusPro church management software features, pricing, and step-by-step help guides.',
+} as const;
 
 const byPath = new Map(prerenderRoutes.map((m) => [m.path, m]));
 
