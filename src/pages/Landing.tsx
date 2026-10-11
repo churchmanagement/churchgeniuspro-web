@@ -157,7 +157,7 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
         />
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
@@ -181,6 +181,13 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
                 View Pricing
               </Link>
             </div>
+            <p className="mt-4 text-sm text-slate-600">
+              Or{' '}
+              <Link to="/signup" className="font-semibold text-blue-600 hover:text-blue-700">
+                try every feature free for 2 months
+              </Link>{' '}
+              — no credit card required.
+            </p>
           </motion.div>
         </div>
       </section>

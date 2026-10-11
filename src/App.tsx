@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ChatWidget from './components/ChatWidget';
 import Seo from './components/Seo';
-import { getRouteMeta } from './data/seo';
+import { getRouteMeta, notFoundMeta } from './data/seo';
 import { landingPages, type LandingSlug } from './data/landing';
 import { trackPageView } from './lib/gtag';
 
@@ -50,8 +50,8 @@ function HeadManager() {
   if (!meta) {
     return (
       <Seo
-        title="Page Not Found | ChurchGeniusPro"
-        description="The page you are looking for does not exist."
+        title={notFoundMeta.title}
+        description={notFoundMeta.description}
         path={pathname}
         noindex
       />
@@ -63,6 +63,7 @@ function HeadManager() {
       description={meta.description}
       path={meta.canonicalPath ?? meta.path}
       noindex={meta.noindex}
+      image={meta.ogImage}
     />
   );
 }

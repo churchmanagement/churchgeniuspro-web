@@ -23,14 +23,20 @@ export interface RouteMeta {
   excludeFromSitemap?: boolean;
   /** Not prerendered and marked noindex on the client. */
   noindex?: boolean;
+  /** Social share image (path under public/), 1200×630. Defaults to DEFAULT_OG_IMAGE. */
+  ogImage?: string;
 }
+
+/** Share image used by every page that does not set its own `ogImage`. */
+export const DEFAULT_OG_IMAGE = '/og-image.png';
 
 const staticRoutes: RouteMeta[] = [
   {
     path: '/',
-    title: 'ChurchGeniusPro — AI-Powered Church Management & Accounting',
+    title: 'Church Management Software with AI | ChurchGeniusPro',
     description:
-      'ChurchGeniusPro replaces a dozen disconnected tools with one AI-powered platform: member management, accounting, giving, events, kids check-in, and more.',
+      'All-in-one church management software: members, attendance, giving, accounting with payroll, and an AI assistant. Free plan and 2-month trial, no credit card.',
+    ogImage: '/og/home.jpg',
   },
   {
     path: '/features',
@@ -77,17 +83,20 @@ const staticRoutes: RouteMeta[] = [
   {
     path: '/privacy',
     title: 'Privacy Policy | ChurchGeniusPro',
-    description: 'How ChurchGeniusPro collects, uses, and protects your church’s data.',
+    description:
+      'How ChurchGeniusPro collects, uses, and protects your church’s data: what we collect, how it is used, children’s data, security, and your data rights.',
   },
   {
     path: '/terms',
     title: 'Terms of Service | ChurchGeniusPro',
-    description: 'The terms that govern your use of ChurchGeniusPro.',
+    description:
+      'The terms for using ChurchGeniusPro: your account, subscriptions and free trials, ownership of your church’s data, acceptable use, and service availability.',
   },
   {
     path: '/cookies',
     title: 'Cookie Policy | ChurchGeniusPro',
-    description: 'How ChurchGeniusPro uses cookies and similar technologies.',
+    description:
+      'What cookies are, the types of cookies the ChurchGeniusPro website uses, and how to manage or delete cookies through your browser settings.',
   },
   {
     path: '/admin',
@@ -98,10 +107,23 @@ const staticRoutes: RouteMeta[] = [
   },
 ];
 
+/**
+ * Search-result descriptions for help chapters whose in-app summary is shorter
+ * than 120 characters. Written from each chapter's own articles.
+ */
+const helpMetaDescriptions: Record<string, string> = {
+  'getting-started':
+    'Start here: what ChurchGeniusPro is, who uses it, how to log in for the first time, find your way around the app, and log out safely.',
+  'volunteer-guide':
+    'Volunteer guide for ChurchGeniusPro: find your assignments, accept or decline requests, update your volunteer profile, and learn about special roles.',
+  glossary:
+    'ChurchGeniusPro glossary: plain-English definitions of the terms used across the app, so administrators, volunteers, and members speak the same language.',
+};
+
 const helpRoutes: RouteMeta[] = helpSections.map((s) => ({
   path: `/help/${s.id}`,
   title: `${s.title} — Help Center | ChurchGeniusPro`,
-  description: s.description,
+  description: helpMetaDescriptions[s.id] ?? s.description,
 }));
 
 /** Dedicated SEO landing pages (src/data/landing.ts). */
@@ -109,10 +131,23 @@ const landingRoutes: RouteMeta[] = landingPages.map((p) => ({
   path: `/${p.slug}`,
   title: p.title,
   description: p.metaDescription,
+  ogImage: `/og/${p.slug}.jpg`,
 }));
 
 /** Routes baked to static HTML at build time (and listed in sitemap.xml unless excluded). */
 export const prerenderRoutes: RouteMeta[] = [...staticRoutes, ...landingRoutes, ...helpRoutes];
+
+/**
+ * The branded "Page not found" page. Prerendered to dist/404.html (noindex, no
+ * canonical, never in the sitemap) and served by staticwebapp.config.json with a
+ * real HTTP 404 for any URL that has no file. The client uses the same title.
+ */
+export const notFoundMeta = {
+  path: '/404',
+  title: 'Page Not Found | ChurchGeniusPro',
+  description:
+    'This page does not exist or has moved. Explore ChurchGeniusPro church management software features, pricing, and step-by-step help guides.',
+} as const;
 
 const byPath = new Map(prerenderRoutes.map((m) => [m.path, m]));
 

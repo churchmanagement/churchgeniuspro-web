@@ -1,12 +1,4 @@
 {
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": [
-      "/demo/*",
-      "/assets/*",
-      "/*.{css,js,ico,png,jpg,jpeg,svg,webp,webmanifest,xml,txt,json,woff,woff2}"
-    ]
-  },
   "mimeTypes": {
     ".webmanifest": "application/manifest+json"
   },
@@ -16,8 +8,8 @@
       "statusCode": 302
     },
     "404": {
-      "rewrite": "/index.html",
-      "statusCode": 200
+      "rewrite": "/404.html",
+      "statusCode": 404
     }
   },
   "globalHeaders": {
@@ -30,7 +22,8 @@
       "route": "/admin",
       "allowedRoles": [
         "admin"
-      ]
+      ],
+      "rewrite": "/index.html"
     },
     {
       "route": "/api/stats",

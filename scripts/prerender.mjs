@@ -14,7 +14,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8');
-const { render, prerenderRoutes, SITE } = await import(
+const { render, prerenderRoutes, notFoundMeta, SITE, DEFAULT_OG_IMAGE } = await import(
   pathToFileURL(resolve(root, 'dist-ssr', 'entry-server.js')).href
 );
 
@@ -26,7 +26,10 @@ function applyHead(html, meta) {
   const url = SITE + (canonicalPath === '/' ? '/' : canonicalPath);
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description);
+  const image = SITE + (meta.ogImage ?? DEFAULT_OG_IMAGE);
   return html
+    .replace(/<meta property="og:image"[^>]*\/>/, `<meta property="og:image" content="${image}" />`)
+    .replace(/<meta name="twitter:image"[^>]*\/>/, `<meta name="twitter:image" content="${image}" />`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`)
     .replace(/<link rel="canonical"[^>]*\/>/, `<link rel="canonical" href="${url}" />`)
@@ -60,6 +63,22 @@ for (const meta of prerenderRoutes) {
   ok += 1;
 }
 console.log(`[prerender] wrote ${ok} static pages`);
+
+// --- 404.html --------------------------------------------------------------
+// staticwebapp.config.json serves this file with a real HTTP 404 for any URL
+// that has no file (responseOverrides.404). It is noindex, has no canonical or
+// og:url, is not in the sitemap, and carries no __PRERENDERED_PATH, so the
+// client renders the "Page not found" route for whatever URL was requested.
+{
+  const appHtml = await render(notFoundMeta.path);
+  let html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+  html = applyHead(html, notFoundMeta)
+    .replace(/\s*<link rel="canonical"[^>]*\/>/, '')
+    .replace(/\s*<meta property="og:url"[^>]*\/>/, '')
+    .replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>');
+  writeFileSync(resolve(dist, '404.html'), html);
+  console.log('[prerender] wrote 404.html');
+}
 
 // --- sitemap.xml -----------------------------------------------------------
 const today = new Date().toISOString().slice(0, 10);

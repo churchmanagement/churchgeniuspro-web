@@ -69,8 +69,8 @@ export const landingPages: LandingPageData[] = [
     metaDescription:
       'All-in-one church management software: members, giving, events, kids check-in, volunteers, and built-in accounting — with an AI assistant. Start free.',
     eyebrow: 'Church Management Software',
-    h1: 'One platform for your',
-    h1Gradient: 'entire church.',
+    h1: 'Church management software',
+    h1Gradient: 'for your entire church.',
     intro: [
       'ChurchGeniusPro is church management software that brings members, families, attendance, events, online giving, volunteers, worship services, communication, and accounting into a single connected system — with AI-powered tools that save your staff hours every week.',
       'Instead of juggling a spreadsheet for members, a separate giving platform, a calendar app, and QuickBooks for the books, everything lives in one place and talks to everything else.',
@@ -332,7 +332,7 @@ export const landingPages: LandingPageData[] = [
     slug: 'ai-church-management-software',
     title: 'AI Church Management Software | ChurchGeniusPro',
     metaDescription:
-      'AI church management software: a conversational assistant, voice commands, and OCR that reads checks, statements, and forms — up to 90% less data entry.',
+      'AI church management software: a conversational assistant, voice commands, and OCR that reads checks, statements, and forms, so far less is typed by hand.',
     eyebrow: 'AI-Powered',
     h1: 'Church management software',
     h1Gradient: 'with AI built in.',
@@ -377,7 +377,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'AI accounting',
         title: 'Books that keep themselves',
         body: [
-          'On the Pro plan, AI-assisted accounting, check scanning, bank imports, and bank sync keep your income and expenses current with minimal typing. Board-ready financial reports and compliant year-end giving statements are one click — churches report up to 90% less manual data entry.',
+          'Bank imports and bank sync are included from the Standard plan; Pro adds AI-assisted accounting and check scanning, so income and expenses stay current with minimal typing. Board-ready financial reports and compliant year-end giving statements are one click.',
         ],
         screenshotSlug: 'payroll',
       },
@@ -565,7 +565,7 @@ export const landingPages: LandingPageData[] = [
     metaDescription:
       'Church management software for small churches: start free for up to 50 people, run giving and events without technical skills, upgrade from $20/mo.',
     eyebrow: 'Small Churches',
-    h1: 'Small church?',
+    h1: 'Small church management software.',
     h1Gradient: 'Start free. Grow when you do.',
     intro: [
       'ChurchGeniusPro is church management software for small churches first: the Free plan runs a congregation of up to 50 people at $0/month, and everything is designed to be run by a volunteer or a part-time administrator — not an IT department.',
@@ -673,8 +673,8 @@ export const landingPages: LandingPageData[] = [
     metaDescription:
       "ChurchGeniusPro's church app puts giving, kids check-in, events, directory, and chat on every phone — as a web app you install right from the browser.",
     eyebrow: 'Church App',
-    h1: 'A church app your',
-    h1Gradient: 'whole congregation will use.',
+    h1: 'The church app',
+    h1Gradient: 'your whole congregation will use.',
     intro: [
       'ChurchGeniusPro includes a church app for your members and staff: giving, event registration, kids check-in, the member directory, and chat, from any phone — as a web app that runs in the browser and installs as an app on Android phones and desktops.',
       'It is not a separate product to buy and sync. The app is a window into the same system your church already runs on, so everything members do in it lands in the right record instantly.',

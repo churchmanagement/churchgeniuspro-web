@@ -183,7 +183,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-slate-500">
+        <p className="mt-8 text-center text-xs text-slate-400">
           © {new Date().getFullYear()} ChurchGenius LLC. All rights reserved. ChurchGeniusPro is a
           product of ChurchGenius LLC. Built with care for churches everywhere.
         </p>

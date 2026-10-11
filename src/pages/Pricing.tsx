@@ -60,7 +60,7 @@ export default function Pricing() {
         />
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
@@ -76,7 +76,7 @@ export default function Pricing() {
               free for 2 months, with free application setup.
             </p>
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.25, duration: 0.5 }}
               className="mx-auto mt-8 inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3 shadow-lg shadow-orange-500/25"

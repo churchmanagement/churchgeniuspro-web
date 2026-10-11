@@ -23,7 +23,7 @@ import Legal from './pages/Legal';
 import Landing from './pages/Landing';
 import NotFound from './pages/NotFound';
 
-export { SITE, prerenderRoutes } from './data/seo';
+export { SITE, prerenderRoutes, notFoundMeta, DEFAULT_OG_IMAGE } from './data/seo';
 export type { RouteMeta } from './data/seo';
 
 // Eager imports: react-dom/static must be able to render every route to

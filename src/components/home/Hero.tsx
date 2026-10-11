@@ -26,7 +26,7 @@ export default function Hero() {
 
       <div className="container-page">
         <motion.div
-          initial="hidden"
+          initial={false}
           animate="show"
           transition={{ staggerChildren: 0.12 }}
           className="mx-auto max-w-4xl text-center"
@@ -43,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl"
           >
-            The All-in-One Platform for <span className="gradient-text">Modern Churches</span>
+            The All-in-One <span className="gradient-text">Church Management Software</span>
           </motion.h1>
 
           <motion.p
@@ -60,9 +60,9 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl"
           >
-            Run your church effortlessly — members, giving, accounting, events, and ministries in
-            one connected system, with built-in AI that lets you talk, snap a photo, or type a
-            single word instead of filling out forms.
+            ChurchGeniusPro brings membership, attendance, giving, accounting and payroll, events,
+            and ministries into one connected system — with a built-in AI assistant that lets you
+            talk, snap a photo, or type a single word instead of filling out forms.
           </motion.p>
 
           <motion.div
@@ -71,7 +71,7 @@ export default function Hero() {
             className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Link to="/signup" className="btn-primary !px-8 !py-4 !text-base">
-              Start Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <a href="#product-tour" className="btn-secondary !px-8 !py-4 !text-base">
               <PlayCircle className="h-5 w-5 text-blue-600" aria-hidden="true" /> Watch Demo
@@ -98,7 +98,7 @@ export default function Hero() {
 
         {/* Animated dashboard mockup */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="relative mx-auto mt-16 max-w-5xl"
@@ -146,7 +146,7 @@ export default function Hero() {
                     <div className={`h-1.5 w-10 rounded-full bg-gradient-to-r ${kpi.color}`} />
                     <p className="mt-3 text-xs font-medium text-slate-500">{kpi.label}</p>
                     <p className="mt-1 text-2xl font-bold text-slate-900">{kpi.value}</p>
-                    <p className="mt-1 text-xs font-medium text-emerald-600">{kpi.delta}</p>
+                    <p className="mt-1 text-xs font-medium text-emerald-700">{kpi.delta}</p>
                   </motion.div>
                 ))}
                 <motion.div

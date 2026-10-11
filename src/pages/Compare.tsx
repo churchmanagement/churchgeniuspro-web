@@ -52,7 +52,7 @@ export default function Compare() {
         />
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
