@@ -13,7 +13,7 @@ export default function Features() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-50 via-white to-white" aria-hidden="true" />
         <div className="container-page">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
@@ -33,7 +33,7 @@ export default function Features() {
 
           {/* Category quick nav */}
           <motion.nav
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mt-10 flex flex-wrap justify-center gap-2"
@@ -111,7 +111,7 @@ export default function Features() {
               to="/signup"
               className="btn-primary !px-8 !py-4 !text-base"
             >
-              Start Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Reveal>
         </div>

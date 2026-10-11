@@ -79,7 +79,7 @@ export default function Legal({ page }: { page: 'privacy' | 'terms' | 'cookies' 
     <section className="pb-24 pt-32 md:pt-40">
       <div className="container-page">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl"

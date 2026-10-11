@@ -19,7 +19,7 @@ export default function CTASection() {
             />
             <div className="relative">
               <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> 2-month free trial · Free setup
+                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> 2-month free trial · No credit card · Free setup
               </span>
               <h2 className="mx-auto max-w-2xl text-3xl font-bold text-white sm:text-4xl">
                 Ready to make church management effortless?
@@ -33,7 +33,7 @@ export default function CTASection() {
                   to="/signup"
                   className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                 >
-                  Start Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/pricing"

@@ -63,6 +63,7 @@ function HeadManager() {
       description={meta.description}
       path={meta.canonicalPath ?? meta.path}
       noindex={meta.noindex}
+      image={meta.ogImage}
     />
   );
 }

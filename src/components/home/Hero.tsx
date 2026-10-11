@@ -26,7 +26,7 @@ export default function Hero() {
 
       <div className="container-page">
         <motion.div
-          initial="hidden"
+          initial={false}
           animate="show"
           transition={{ staggerChildren: 0.12 }}
           className="mx-auto max-w-4xl text-center"
@@ -98,7 +98,7 @@ export default function Hero() {
 
         {/* Animated dashboard mockup */}
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="relative mx-auto mt-16 max-w-5xl"
@@ -146,7 +146,7 @@ export default function Hero() {
                     <div className={`h-1.5 w-10 rounded-full bg-gradient-to-r ${kpi.color}`} />
                     <p className="mt-3 text-xs font-medium text-slate-500">{kpi.label}</p>
                     <p className="mt-1 text-2xl font-bold text-slate-900">{kpi.value}</p>
-                    <p className="mt-1 text-xs font-medium text-emerald-600">{kpi.delta}</p>
+                    <p className="mt-1 text-xs font-medium text-emerald-700">{kpi.delta}</p>
                   </motion.div>
                 ))}
                 <motion.div

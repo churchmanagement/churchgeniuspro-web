@@ -62,6 +62,19 @@ body {
   background: #94a3b8;
   opacity: 1;
 }
+/* Touch targets (WCAG 2.5.8): 10px dots on 24px centres, so a 24px circle
+   around each dot never overlaps a neighbour. Uses Swiper's own variables. */
+:root {
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 7px;
+}
+/* On phones the 16 screenshot dots cannot fit at that spacing; the 44px
+   previous/next buttons (and autoplay) handle navigation there instead. */
+@media (max-width: 639px) {
+  .swiper .swiper-pagination.swiper-pagination-bullets {
+    display: none;
+  }
+}
 .swiper-pagination-bullet-active {
   background: linear-gradient(to right, #2563eb, #9333ea);
 }

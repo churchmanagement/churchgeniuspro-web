@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SITE } from '../data/seo';
+import { DEFAULT_OG_IMAGE, SITE } from '../data/seo';
 
 interface SeoProps {
   title: string;
@@ -7,6 +7,8 @@ interface SeoProps {
   /** Canonical path for this page (e.g. '/pricing'). */
   path: string;
   noindex?: boolean;
+  /** Share image path under public/ (defaults to DEFAULT_OG_IMAGE). */
+  image?: string;
 }
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -25,7 +27,7 @@ function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
  * so crawlers see them without running JavaScript; this component keeps the
  * SPA experience consistent after hydration.
  */
-export default function Seo({ title, description, path, noindex }: SeoProps) {
+export default function Seo({ title, description, path, noindex, image }: SeoProps) {
   useEffect(() => {
     const url = SITE + (path === '/' ? '/' : path);
     document.title = title;
@@ -35,6 +37,9 @@ export default function Seo({ title, description, path, noindex }: SeoProps) {
     upsertMeta('property', 'og:url', url);
     upsertMeta('name', 'twitter:title', title);
     upsertMeta('name', 'twitter:description', description);
+    const imageUrl = SITE + (image ?? DEFAULT_OG_IMAGE);
+    upsertMeta('property', 'og:image', imageUrl);
+    upsertMeta('name', 'twitter:image', imageUrl);
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (noindex) {
@@ -59,7 +64,7 @@ export default function Seo({ title, description, path, noindex }: SeoProps) {
     } else if (robots) {
       robots.remove();
     }
-  }, [title, description, path, noindex]);
+  }, [title, description, path, noindex, image]);
 
   return null;
 }

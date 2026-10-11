@@ -14,7 +14,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(root, 'dist');
 
 const template = readFileSync(resolve(dist, 'index.html'), 'utf8');
-const { render, prerenderRoutes, notFoundMeta, SITE } = await import(
+const { render, prerenderRoutes, notFoundMeta, SITE, DEFAULT_OG_IMAGE } = await import(
   pathToFileURL(resolve(root, 'dist-ssr', 'entry-server.js')).href
 );
 
@@ -26,7 +26,10 @@ function applyHead(html, meta) {
   const url = SITE + (canonicalPath === '/' ? '/' : canonicalPath);
   const title = escapeHtml(meta.title);
   const description = escapeHtml(meta.description);
+  const image = SITE + (meta.ogImage ?? DEFAULT_OG_IMAGE);
   return html
+    .replace(/<meta property="og:image"[^>]*\/>/, `<meta property="og:image" content="${image}" />`)
+    .replace(/<meta name="twitter:image"[^>]*\/>/, `<meta name="twitter:image" content="${image}" />`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${description}" />`)
     .replace(/<link rel="canonical"[^>]*\/>/, `<link rel="canonical" href="${url}" />`)

@@ -23,10 +23,24 @@ type TrialFormFields = Omit<ContactMessage, 'subject'> & {
 
 const perks = [
   '2-month free trial with every feature',
+  'No credit card required',
   'Accounting, giving, check-in and advanced AI included',
   'Free application setup',
   'AI assistant that does the typing for you',
   'Secure role-based access from day one',
+];
+
+/** What happens after the form is sent (matches the success message and promises below). */
+const nextSteps = [
+  { title: 'Send the form', text: 'Tell us your name, email, and a little about your church.' },
+  {
+    title: 'We review your request',
+    text: 'Our team reviews every request and emails you the trial version details.',
+  },
+  {
+    title: 'Set up together',
+    text: 'Application setup is free, and a real person sets up your church with you.',
+  },
 ];
 
 const promises = [
@@ -62,7 +76,7 @@ export default function TrialRequest() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: pitch */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="lg:pt-10"
@@ -106,7 +120,7 @@ export default function TrialRequest() {
 
           {/* Right: trial request form */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
@@ -211,6 +225,44 @@ export default function TrialRequest() {
               </form>
             )}
           </motion.div>
+        </div>
+
+        {/* What the trial includes and what happens next */}
+        <div className="mt-20 grid gap-10 border-t border-slate-200 pt-14 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              What the free trial includes
+            </h2>
+            <p className="mt-4 leading-relaxed text-slate-600">
+              For {pricingOffer.trialLength} you get every feature in the Pro plan: accounting with
+              payroll, bank sync, and check scanning; the advanced AI assistant, including voice
+              auto-fill, conversation, and document scanning; ministry tools such as kids check-in,
+              volunteer scheduling, and worship planning; and unlimited people, emails, giving, and
+              portals. No credit card is required to start.
+            </p>
+            <p className="mt-4 leading-relaxed text-slate-600">
+              Prefer to start small? The Free plan covers up to 50 people at $0, free forever.{' '}
+              <Link to="/pricing" className="font-semibold text-blue-600 hover:text-blue-700">
+                Compare plans
+              </Link>
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">What happens next</h2>
+            <ol className="mt-6 space-y-5">
+              {nextSteps.map((step, i) => (
+                <li key={step.title} className="flex gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-sm font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <span>
+                    <span className="block font-semibold text-slate-900">{step.title}</span>
+                    <span className="mt-1 block text-slate-600">{step.text}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
