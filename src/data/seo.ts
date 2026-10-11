@@ -56,7 +56,7 @@ const staticRoutes: RouteMeta[] = [
     path: '/compare',
     title: 'Compare Church Management Software | ChurchGeniusPro',
     description:
-      'Feature-by-feature comparison of ChurchGeniusPro with spreadsheets, QuickBooks Online, Breeze, Planning Center, and Tithe.ly, verified from official sources.',
+      'Feature-by-feature comparison of ChurchGeniusPro with Breeze, Planning Center, and Tithe.ly church management software, verified from official sources.',
   },
   {
     path: '/support',

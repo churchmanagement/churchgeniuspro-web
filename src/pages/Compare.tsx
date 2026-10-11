@@ -27,8 +27,6 @@ function Cell({ value }: { value: boolean | string }) {
 
 const keys: (keyof Omit<CompareRow, 'feature'>)[] = [
   'cgp',
-  'spreadsheets',
-  'quickbooks',
   'breeze',
   'planningCenter',
   'tithely',
@@ -65,8 +63,8 @@ export default function Compare() {
               One platform vs. <span className="gradient-text">a patchwork of tools</span>
             </h1>
             <p className="mt-5 text-lg text-slate-600">
-              An honest, feature-by-feature look at how ChurchGeniusPro compares with spreadsheets,
-              accounting software, and popular church management platforms — based on each
+              An honest, feature-by-feature look at how ChurchGeniusPro compares with
+              popular church management platforms — based on each
               provider&rsquo;s official public information.
             </p>
             <p className="mt-3 text-sm text-slate-500">
@@ -82,7 +80,7 @@ export default function Compare() {
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-slate-100 shadow-xl shadow-slate-900/5">
               <div className="overflow-x-auto">
-                <table className="w-full min-w-[900px] border-collapse text-sm">
+                <table className="w-full min-w-[720px] border-collapse text-sm">
                   <caption className="sr-only">
                     Feature comparison between ChurchGeniusPro and other tools, based on each
                     provider&rsquo;s official public information as of {compareLastVerified}
@@ -180,8 +178,8 @@ export default function Compare() {
               and we will review and correct it promptly.
             </p>
             <p>
-              <span className="font-semibold text-slate-500">Trademarks.</span> QuickBooks, Breeze,
-              Planning Center, Tithe.ly, and all other third-party product names, brands, and
+              <span className="font-semibold text-slate-500">Trademarks.</span> Breeze, Planning
+              Center, Tithe.ly, and all other third-party product names, brands, and
               trademarks referenced on this page are the property of their respective owners. They
               are used here only to identify the products being compared. Their use does not imply —
               and should not be interpreted as implying — any affiliation with, sponsorship of,

@@ -437,8 +437,6 @@ export const stats: Stat[] = [
 export interface CompareRow {
   feature: string;
   cgp: boolean | string;
-  spreadsheets: boolean | string;
-  quickbooks: boolean | string;
   breeze: boolean | string;
   planningCenter: boolean | string;
   tithely: boolean | string;
@@ -454,15 +452,13 @@ export interface CompareRow {
  *   an absolute claim that a capability is impossible.
  * - String cells describe partial/add-on capability neutrally. No "Limited",
  *   "worse", or other judgment words about competitors.
- * Last verification: 2026-08-13 against quickbooks.intuit.com, breezechms.com,
+ * Last verification: 2026-08-13 against breezechms.com,
  * planningcenter.com, tithe.ly official pages and support docs.
  */
 export const compareLastVerified = 'October 10, 2026';
 
 export const compareColumns = [
   'ChurchGeniusPro',
-  'Spreadsheets',
-  'QuickBooks Online',
   'Breeze ChMS',
   'Planning Center',
   'Tithe.ly',
@@ -472,8 +468,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Member & family management',
     cgp: true,
-    spreadsheets: 'Manual',
-    quickbooks: false,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -481,8 +475,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Online giving & text-to-give',
     cgp: true,
-    spreadsheets: false,
-    quickbooks: 'Donations only',
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -490,8 +482,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Events & church calendar',
     cgp: true,
-    spreadsheets: 'Manual',
-    quickbooks: false,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -499,8 +489,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Worship & service planning',
     cgp: true,
-    spreadsheets: false,
-    quickbooks: false,
     breeze: 'Worship tools add-on',
     planningCenter: true,
     tithely: 'Worship tools add-on',
@@ -508,8 +496,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Classes, groups & attendance tracking',
     cgp: true,
-    spreadsheets: 'Manual',
-    quickbooks: false,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -517,8 +503,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Automatic Sunday School exams & grading',
     cgp: true,
-    spreadsheets: false,
-    quickbooks: false,
     breeze: false,
     planningCenter: false,
     tithely: false,
@@ -526,8 +510,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Kids check-in with medical & allergy notes',
     cgp: true,
-    spreadsheets: false,
-    quickbooks: false,
     breeze: 'Via custom field',
     planningCenter: true,
     tithely: true,
@@ -535,8 +517,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Recurring giving, reminders & year-end statements',
     cgp: true,
-    spreadsheets: 'Manual',
-    quickbooks: true,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -544,8 +524,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Church accounting: income, expenses & fund reports',
     cgp: 'Standard & Pro',
-    spreadsheets: 'Manual',
-    quickbooks: 'Via class tracking',
     breeze: false,
     planningCenter: false,
     tithely: false,
@@ -553,8 +531,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Payroll',
     cgp: 'Pro plan',
-    spreadsheets: false,
-    quickbooks: 'Add-on',
     breeze: false,
     planningCenter: false,
     tithely: false,
@@ -562,8 +538,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Scanning & OCR (checks, bank statements, forms)',
     cgp: 'Pro plan',
-    spreadsheets: false,
-    quickbooks: 'Receipts',
     breeze: 'Check reader',
     planningCenter: 'Checks',
     tithely: 'Checks (beta)',
@@ -571,8 +545,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Built-in conversational AI assistant',
     cgp: 'Pro plan',
-    spreadsheets: false,
-    quickbooks: 'Intuit Intelligence (beta)',
     breeze: false,
     planningCenter: 'AI tools + integration',
     tithely: 'Some AI tools',
@@ -580,8 +552,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Voice commands & hands-free entry',
     cgp: 'Pro plan',
-    spreadsheets: false,
-    quickbooks: false,
     breeze: false,
     planningCenter: false,
     tithely: false,
@@ -589,8 +559,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Temporary barcode / NFC guest login',
     cgp: 'Pro plan',
-    spreadsheets: false,
-    quickbooks: false,
     breeze: false,
     planningCenter: false,
     tithely: false,
@@ -598,8 +566,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Mobile app',
     cgp: 'Installable web app',
-    spreadsheets: 'Varies',
-    quickbooks: true,
     breeze: true,
     planningCenter: true,
     tithely: true,
@@ -607,8 +573,6 @@ export const compareRows: CompareRow[] = [
   {
     feature: 'Church management & accounting in one platform',
     cgp: 'Standard & Pro',
-    spreadsheets: false,
-    quickbooks: false,
     breeze: false,
     planningCenter: false,
     tithely: false,

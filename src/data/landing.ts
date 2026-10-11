@@ -225,7 +225,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'Compare Systems',
         to: '/compare',
-        description: 'ChurchGeniusPro vs. spreadsheets, QuickBooks, and other ChMS.',
+        description: 'ChurchGeniusPro vs. Breeze, Planning Center, and Tithe.ly.',
       },
     ],
     showPricingTeaser: true,
@@ -578,7 +578,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'Compare Systems',
         to: '/compare',
-        description: 'ChurchGeniusPro vs. QuickBooks and other ChMS on accounting.',
+        description: 'ChurchGeniusPro vs. other church software on accounting.',
       },
     ],
   },
