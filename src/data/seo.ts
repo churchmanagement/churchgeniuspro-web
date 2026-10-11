@@ -9,6 +9,8 @@
  */
 import { helpSections } from './helpContent';
 import { landingPages } from './landing';
+import { guides } from './guides';
+import { compareVsPages } from './compareVs';
 
 export const SITE = 'https://www.churchgeniuspro.com';
 
@@ -134,8 +136,36 @@ const landingRoutes: RouteMeta[] = landingPages.map((p) => ({
   ogImage: `/og/${p.slug}.jpg`,
 }));
 
+/** Guides index + one page per guide (src/data/guides.ts). */
+const guideRoutes: RouteMeta[] = [
+  {
+    path: '/guides',
+    title: 'Guides for Church Administrators | ChurchGeniusPro',
+    description:
+      'Plain-English guides for church administrators: IRS contribution statement rules, fund accounting, and more, with every rule linked to its official source.',
+  },
+  ...guides.map((g) => ({
+    path: `/guides/${g.slug}`,
+    title: g.title,
+    description: g.metaDescription,
+  })),
+];
+
+/** One-on-one comparison pages (src/data/compareVs.ts). */
+const compareVsRoutes: RouteMeta[] = compareVsPages.map((p) => ({
+  path: `/compare/${p.slug}`,
+  title: p.title,
+  description: p.metaDescription,
+}));
+
 /** Routes baked to static HTML at build time (and listed in sitemap.xml unless excluded). */
-export const prerenderRoutes: RouteMeta[] = [...staticRoutes, ...landingRoutes, ...helpRoutes];
+export const prerenderRoutes: RouteMeta[] = [
+  ...staticRoutes,
+  ...landingRoutes,
+  ...helpRoutes,
+  ...guideRoutes,
+  ...compareVsRoutes,
+];
 
 /**
  * The branded "Page not found" page. Prerendered to dist/404.html (noindex, no

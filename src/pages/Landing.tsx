@@ -19,7 +19,7 @@ function ScreenshotFigure({ shot }: { shot: Screenshot }) {
         <span className="h-2.5 w-2.5 rounded-full bg-red-400" aria-hidden="true" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400" aria-hidden="true" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" aria-hidden="true" />
-        <span className="ml-3 truncate text-xs text-slate-400">{shot.title} — ChurchGeniusPro</span>
+        <span className="ml-3 min-w-0 truncate text-xs text-slate-400">{shot.title} — ChurchGeniusPro</span>
       </div>
       <img
         src={screenshotSrc(shot)}
@@ -45,7 +45,7 @@ function ContentSection({ section, index }: { section: LandingSection; index: nu
         <div
           className={
             shot
-              ? 'grid items-center gap-10 lg:grid-cols-2 lg:gap-16'
+              ? 'grid items-center gap-10 lg:grid-cols-2 lg:gap-16 [&>*]:min-w-0'
               : 'mx-auto max-w-3xl'
           }
         >

@@ -23,6 +23,10 @@ const columns = [
       { name: 'Church Accounting', to: '/church-accounting-software' },
       { name: 'For Small Churches', to: '/small-church-management-software' },
       { name: 'Church App', to: '/church-app' },
+      { name: 'Membership Software', to: '/church-membership-software' },
+      { name: 'Attendance Tracking', to: '/church-attendance-tracking' },
+      { name: 'Giving Software', to: '/church-giving-software' },
+      { name: 'Payroll Software', to: '/church-payroll-software' },
     ],
   },
   {
@@ -38,6 +42,7 @@ const columns = [
     heading: 'Resources',
     links: [
       { name: 'Help Center', to: '/help' },
+      { name: 'Guides', to: '/guides' },
       { name: 'Documentation', to: '/help' },
       { name: 'Video Tutorials', to: '/support#videos' },
       { name: 'Community', to: '/support#community' },

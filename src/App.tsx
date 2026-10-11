@@ -6,6 +6,8 @@ import ChatWidget from './components/ChatWidget';
 import Seo from './components/Seo';
 import { getRouteMeta, notFoundMeta } from './data/seo';
 import { landingPages, type LandingSlug } from './data/landing';
+import { guides } from './data/guides';
+import { compareVsPages, type CompareVsPage } from './data/compareVs';
 import { trackPageView } from './lib/gtag';
 
 export interface PageComponents {
@@ -20,6 +22,8 @@ export interface PageComponents {
   Admin: ComponentType;
   Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' }>;
   Landing: ComponentType<{ slug: LandingSlug }>;
+  Guides: ComponentType<{ slug?: string }>;
+  CompareVs: ComponentType<{ slug: CompareVsPage['slug'] }>;
   NotFound: ComponentType;
 }
 
@@ -40,6 +44,8 @@ const lazyPages: PageComponents = {
   Admin: lazy(() => import('./pages/Admin')),
   Legal: lazy(() => import('./pages/Legal')),
   Landing: lazy(() => import('./pages/Landing')),
+  Guides: lazy(() => import('./pages/Guides')),
+  CompareVs: lazy(() => import('./pages/CompareVs')),
   NotFound: lazy(() => import('./pages/NotFound')),
 };
 
@@ -115,6 +121,8 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
     Admin,
     Legal,
     Landing,
+    Guides,
+    CompareVs,
     NotFound,
   } = pages;
   return (
@@ -136,6 +144,9 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/compare" element={<Compare />} />
+            {compareVsPages.map((p) => (
+              <Route key={p.slug} path={`/compare/${p.slug}`} element={<CompareVs slug={p.slug} />} />
+            ))}
             <Route path="/support" element={<Support />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<TrialRequest />} />
@@ -143,6 +154,10 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             <Route path="/help/:sectionId" element={<HelpCenter />} />
             {landingPages.map((p) => (
               <Route key={p.slug} path={`/${p.slug}`} element={<Landing slug={p.slug} />} />
+            ))}
+            <Route path="/guides" element={<Guides />} />
+            {guides.map((g) => (
+              <Route key={g.slug} path={`/guides/${g.slug}`} element={<Guides slug={g.slug} />} />
             ))}
             <Route path="/admin" element={<Admin />} />
             <Route path="/privacy" element={<Legal page="privacy" />} />
