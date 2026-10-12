@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
-import { FaFacebookF, FaXTwitter, FaInstagram, FaYoutube, FaLinkedinIn } from 'react-icons/fa6';
+import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { FaYoutube } from 'react-icons/fa6';
+import { submitContactForm } from '../../lib/contact';
 
 const columns = [
   {
@@ -32,10 +33,9 @@ const columns = [
   {
     heading: 'Company',
     links: [
-      { name: 'About Us', to: '/support' },
+      { name: 'Support', to: '/support' },
+      { name: 'Request a Free Trial', to: '/signup' },
       { name: 'Contact', to: '/contact' },
-      { name: 'Careers', to: '/support' },
-      { name: 'Partners', to: '/support' },
     ],
   },
   {
@@ -43,9 +43,7 @@ const columns = [
     links: [
       { name: 'Help Center', to: '/help' },
       { name: 'Guides', to: '/guides' },
-      { name: 'Documentation', to: '/help' },
       { name: 'Video Tutorials', to: '/support#videos' },
-      { name: 'Community', to: '/support#community' },
       { name: 'FAQ', to: '/support#faq' },
     ],
   },
@@ -59,17 +57,17 @@ const columns = [
   },
 ];
 
+// Only accounts confirmed to exist. Add Facebook / X / Instagram / LinkedIn here
+// (and to sameAs in src/data/structuredData.ts) once their real URLs are confirmed.
 const socials = [
-  { icon: FaFacebookF, label: 'Facebook', href: 'https://facebook.com/churchgeniuspro' },
-  { icon: FaXTwitter, label: 'X (Twitter)', href: 'https://x.com/churchgeniuspro' },
-  { icon: FaInstagram, label: 'Instagram', href: 'https://instagram.com/churchgeniuspro' },
-  { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@churchgeniuspro' },
-  { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://linkedin.com/company/churchgeniuspro' },
+  { icon: FaYoutube, label: 'ChurchGeniusPro on YouTube', href: 'https://www.youtube.com/@ChurchGeniusPro' },
 ];
 
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   return (
     <footer className="border-t border-slate-100 bg-slate-950 text-slate-300">
@@ -107,9 +105,22 @@ export default function Footer() {
             ) : (
               <form
                 className="mt-3 flex max-w-sm gap-2"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  if (email.includes('@')) setSubscribed(true);
+                  if (!email.includes('@') || sending) return;
+                  setSending(true);
+                  setError('');
+                  // Delivered to the support inbox like the contact form; the
+                  // address is added to the mailing list by hand.
+                  const res = await submitContactForm({
+                    name: 'Newsletter subscriber',
+                    email,
+                    subject: 'Newsletter signup',
+                    message: `Please add ${email} to the ChurchGeniusPro newsletter.`,
+                  });
+                  setSending(false);
+                  if (res.ok) setSubscribed(true);
+                  else setError(res.error ?? 'Something went wrong. Please try again.');
                 }}
               >
                 <label htmlFor="newsletter-email" className="sr-only">
@@ -126,12 +137,18 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2.5 text-white transition hover:opacity-90"
+                  disabled={sending}
+                  className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2.5 text-white transition hover:opacity-90 disabled:opacity-60"
                   aria-label="Subscribe"
                 >
                   <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
               </form>
+            )}
+            {error && (
+              <p role="alert" className="mt-2 text-sm text-rose-300">
+                {error}
+              </p>
             )}
           </div>
 
@@ -159,12 +176,6 @@ export default function Footer() {
               <Mail className="h-4 w-4 text-blue-400" aria-hidden="true" />
               <a href="mailto:support@churchgeniuspro.com" className="hover:text-white">
                 support@churchgeniuspro.com
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-blue-400" aria-hidden="true" />
-              <a href="tel:+18005551234" className="hover:text-white">
-                +1 (800) 555-1234
               </a>
             </li>
             <li className="flex items-center gap-2">

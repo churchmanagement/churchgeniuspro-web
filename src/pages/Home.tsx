@@ -58,7 +58,7 @@ const benefits = [
     icon: Layers,
     title: 'One system instead of many',
     description:
-      'Replace a dozen disconnected tools. One login, one connected system — no more copying the same information between apps.',
+      'Replace disconnected tools. One login, one connected system — no more copying the same information between apps.',
   },
   {
     icon: Clock,
@@ -92,7 +92,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Why churches love it"
             title="Less time on admin. More time with people."
-            subtitle="Most churches run on a patchwork of spreadsheets, paper forms, and half a dozen disconnected apps. ChurchGeniusPro replaces all of it."
+            subtitle="Most churches run on a patchwork of spreadsheets, paper forms, and disconnected apps. ChurchGeniusPro brings it together in one place."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (

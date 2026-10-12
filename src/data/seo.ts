@@ -56,7 +56,7 @@ const staticRoutes: RouteMeta[] = [
     path: '/compare',
     title: 'Compare Church Management Software | ChurchGeniusPro',
     description:
-      'Feature-by-feature comparison of ChurchGeniusPro with spreadsheets, QuickBooks Online, Breeze, Planning Center, and Tithe.ly, verified from official sources.',
+      'Feature-by-feature comparison of ChurchGeniusPro with Breeze, Planning Center, and Tithe.ly church management software, verified from official sources.',
   },
   {
     path: '/support',
@@ -142,7 +142,7 @@ const guideRoutes: RouteMeta[] = [
     path: '/guides',
     title: 'Guides for Church Administrators | ChurchGeniusPro',
     description:
-      'Plain-English guides for church administrators: IRS contribution statement rules, fund accounting, and more, with every rule linked to its official source.',
+      'Plain-English guides for church administrators: contribution statements, fund accounting, pastor pay, and Form 1099-NEC, each linked to official sources.',
   },
   ...guides.map((g) => ({
     path: `/guides/${g.slug}`,
