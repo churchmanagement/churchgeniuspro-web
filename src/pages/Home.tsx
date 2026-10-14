@@ -12,7 +12,7 @@ import {
   Smile,
 } from 'lucide-react';
 import Hero from '../components/home/Hero';
-import ProductTour from '../components/home/ProductTour';
+import DemoSection from '../components/home/DemoSection';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import Stats from '../components/ui/Stats';
 import Testimonials from '../components/ui/Testimonials';
@@ -184,10 +184,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Product tour — demo videos */}
-      <div id="product-tour" className="scroll-mt-20">
-        <ProductTour />
-      </div>
+      {/* Watch Demo — gated 5-minute tour + demo library (/demo) */}
+      <DemoSection />
 
       {/* Screenshots carousel */}
       <ScreenshotCarousel />

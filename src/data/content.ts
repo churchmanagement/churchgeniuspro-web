@@ -581,6 +581,7 @@ export const compareRows: CompareRow[] = [
 
 export const navLinks = [
   { name: 'Home', path: '/' },
+  { name: 'Demo', path: '/demo' },
   { name: 'Features', path: '/features' },
   { name: 'Pricing', path: '/pricing' },
   { name: 'Compare', path: '/compare' },

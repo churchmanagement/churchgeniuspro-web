@@ -73,9 +73,9 @@ export default function Hero() {
             <Link to="/signup" className="btn-primary !px-8 !py-4 !text-base">
               Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <a href="#product-tour" className="btn-secondary !px-8 !py-4 !text-base">
+            <Link to="/demo" className="btn-secondary !px-8 !py-4 !text-base">
               <PlayCircle className="h-5 w-5 text-blue-600" aria-hidden="true" /> Watch Demo
-            </a>
+            </Link>
           </motion.div>
 
           <motion.ul

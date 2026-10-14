@@ -17,6 +17,7 @@ import Compare from './pages/Compare';
 import Support from './pages/Support';
 import Contact from './pages/SignUp';
 import TrialRequest from './pages/TrialRequest';
+import Demo from './pages/Demo';
 import HelpCenter from './pages/HelpCenter';
 import Admin from './pages/Admin';
 import Legal from './pages/Legal';
@@ -38,6 +39,7 @@ const eagerPages: PageComponents = {
   Support,
   Contact,
   TrialRequest,
+  Demo,
   HelpCenter,
   Admin,
   Legal,

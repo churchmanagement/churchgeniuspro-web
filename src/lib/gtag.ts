@@ -54,3 +54,15 @@ export function trackTrialConversion(): void {
     send_to: `${GTAG_ID}/${TRIAL_CONVERSION_LABEL}`,
   });
 }
+
+/**
+ * Reports that a visitor opened the demo (/demo) after signing in or
+ * registering. A plain event, not a conversion — useful in Google Ads reports.
+ */
+export function trackDemoAccess(firstTime: boolean, provider: string): void {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  window.gtag('event', firstTime ? 'demo_register' : 'demo_sign_in', {
+    send_to: GTAG_ID,
+    method: provider,
+  });
+}

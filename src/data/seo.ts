@@ -77,6 +77,12 @@ const staticRoutes: RouteMeta[] = [
       'Request the ChurchGeniusPro Trial Version: every feature free for 2 months, including accounting and AI. Free setup, and our team reviews every request.',
   },
   {
+    path: '/demo',
+    title: 'Watch the Demo | ChurchGeniusPro Church Management Software',
+    description:
+      'Watch a 5-minute tour of ChurchGeniusPro and short demos of members, giving, accounting, events, check-in and the AI assistant. Sign in with Google or register with your email.',
+  },
+  {
     path: '/help',
     title: 'Help Center — Guides for Every Role | ChurchGeniusPro',
     description:

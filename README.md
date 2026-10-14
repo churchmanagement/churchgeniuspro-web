@@ -24,6 +24,7 @@ A modern, production-ready marketing website for **ChurchGeniusPro**, the AI-pow
 | `/compare` | Comparison table vs. Excel, QuickBooks, Breeze, Planning Center, Tithe.ly, and other ChMS |
 | `/support` | Support hub — searchable FAQ, latest YouTube Shorts tutorials, documentation links, contact form |
 | `/help` | Help Center — full documentation generated from the official User Manual (13 guides, searchable) |
+| `/demo` | **Watch Demo** — visitors sign in with Google or register with name + email (no password), then see a welcome message (first-time vs returning), the 5-minute application tour and every other demo video grouped by category, all playing in place |
 | `/contact` (also `/signup`) | Contact Us form → emails support@churchgeniuspro.com, CC churchgeniuspro@gmail.com (via Web3Forms) |
 | `/admin` | **Admin-only** video engagement analytics (impressions, clicks, plays, watch time) |
 | `/privacy`, `/terms`, `/cookies` | Legal pages |
@@ -81,6 +82,18 @@ The new features need three settings:
 | `ANTHROPIC_API_KEY` | Azure Portal → Static Web App → **Environment variables** | Powers the AI chat assistant (`/api/chat`). Create at [console.anthropic.com](https://console.anthropic.com). Optional: `ANTHROPIC_MODEL` to override the default model. |
 | `STORAGE_CONNECTION_STRING` | Azure Portal → Static Web App → **Environment variables** | Video analytics storage. Create a Storage account (Table service), copy its connection string. Without it, tracking events are accepted but dropped. |
 
+### Demo access gate (`/demo`)
+
+| Setting | Where | Purpose |
+|---|---|---|
+| `DEMO_SESSION_SECRET` | Azure Portal → Static Web App → **Environment variables** | **Required.** Random string (32+ bytes, e.g. `openssl rand -base64 32`) that signs the `cgp_demo` HttpOnly session cookie. Without it `/api/demo/*` answers 503. |
+| `GOOGLE_CLIENT_ID` | Static Web App → Environment variables | OAuth **Web client ID** from Google Cloud Console (see below). Used by `/api/demo/google` to verify Google ID tokens. No client secret is needed or used. |
+| `VITE_GOOGLE_CLIENT_ID` | GitHub repo → Settings → Secrets → Actions, as `GOOGLE_CLIENT_ID` (the workflow maps it); `.env` locally | The same client ID, baked into the "Continue with Google" button at build time. Leave unset to hide the Google button (email registration still works). |
+| `STORAGE_CONNECTION_STRING` | Static Web App → Environment variables (already used by `/api/track`) | Stores demo viewers in the `DemoViewers` table (email, name, church, provider, first/last seen, sign-in count). Without it every sign-in is treated as first-time and nothing is stored. |
+| `BREVO_API_KEY`, `BREVO_SENDER` | Static Web App → Environment variables | Optional welcome email to first-time registrants via Brevo's transactional API. `BREVO_SENDER` must be a sender already verified in Brevo, e.g. `ChurchGeniusPro <support@churchgeniuspro.com>` (`info@churchgeniuspro.com` does not exist on the domain). Inert until both are set — test with your own address first. |
+
+**Creating the Google OAuth Web client ID** (one time, ~10 minutes): Google Cloud Console → create/select project *ChurchGeniusPro* → **APIs & Services → OAuth consent screen**: External, app name ChurchGeniusPro, support email, authorized domain `churchgeniuspro.com`, privacy/terms URLs, scopes `openid`, `email`, `profile`, then **Publish** (in Testing mode only listed test users can sign in) → **Credentials → Create credentials → OAuth client ID** → type *Web application*, name *ChurchGeniusPro Website* → **Authorized JavaScript origins**: `https://www.churchgeniuspro.com`, `https://churchgeniuspro.com`, `http://localhost:5173` → no redirect URI is needed (Google Identity Services popup flow) → Create → copy the **Client ID** (ends in `.apps.googleusercontent.com`). The client secret is not used anywhere; do not put it in the repo or the app settings.
+
 **Admin access to `/admin`:** Azure Portal → your Static Web App → **Role management** → *Invite* → enter the administrator's email and role `admin`. Only invited users can open the analytics dashboard or call `/api/stats`. (Official YouTube view counts & retention are also available to channel owners in YouTube Studio.)
 
 ## API (`api/`)
@@ -90,6 +103,7 @@ Azure Static Web Apps managed functions (Node 18, Functions v4 model):
 - `POST /api/chat` — Claude-powered assistant grounded in the User Manual + pricing (`api/src/kb.js`)
 - `POST /api/track` — records video engagement events to Azure Table Storage
 - `GET /api/stats` — aggregated analytics, **admin role required**
+- `POST /api/demo/google`, `POST /api/demo/register`, `GET /api/demo/me`, `POST /api/demo/logout` — demo access gate (`api/src/functions/demo.js`, session cookie in `api/src/demoSession.js`, welcome email in `api/src/demoEmail.js`). Unit tests: `cd api && node --test test/`
 
 ## SEO & Performance
 
@@ -107,16 +121,18 @@ Azure Static Web Apps managed functions (Node 18, Functions v4 model):
 src/
 ├── components/
 │   ├── layout/        # Navbar, Footer
-│   ├── home/          # Hero (animated dashboard mockup)
+│   ├── home/          # Hero (animated dashboard mockup), DemoSection (Watch Demo teaser)
+│   ├── demo/          # DemoGate (Google / email), DemoWelcome, DemoTheater (stage + library)
 │   └── ui/            # Section, PricingCards, Testimonials, FAQAccordion,
 │                      # ScreenshotCarousel, Stats, CTASection
 ├── data/
 │   ├── features.ts    # 9 feature categories (from the User Guide)
 │   ├── content.ts     # pricing, testimonials, FAQs, stats, comparison table
-│   ├── videos.ts      # YouTube demo videos & Shorts (Product Tour / Support)
+│   ├── videos.ts      # YouTube demo videos & Shorts (Support) + the /demo tour & library
 │   └── helpContent.ts # Help Center docs (generated from the User Manual .docx)
 ├── lib/
 │   ├── contact.ts     # Web3Forms contact-form delivery (info@ + CC gmail)
+│   ├── demoAuth.ts    # /api/demo client + Google Identity Services loader
 │   └── analytics.ts   # video engagement event tracking → /api/track
 ├── pages/             # Home, Features, Pricing, Compare, Support, SignUp (Contact),
 │                      # HelpCenter, Admin, Legal, NotFound
@@ -124,7 +140,7 @@ src/
 ├── main.tsx
 └── index.css          # Tailwind theme + design utilities
 
-api/                   # Azure Functions: chat (Claude AI), track, stats
+api/                   # Azure Functions: chat (Claude AI), track, stats, demo (access gate)
 ```
 
 ## PWA Icons

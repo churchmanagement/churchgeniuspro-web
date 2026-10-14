@@ -11,3 +11,6 @@ dev-dist
 .env
 .env.*
 !.env.example
+
+# Local working notes, backups and verification artifacts (never deployed)
+Claude outputs/

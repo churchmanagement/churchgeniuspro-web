@@ -54,6 +54,8 @@ interface VideoEmbedProps {
   /** Shorts are portrait (9:16); regular videos are 16:9. */
   vertical?: boolean;
   className?: string;
+  /** Start loading the player at once (used by the /demo stage when a visitor picks a video). */
+  autoActivate?: boolean;
 }
 
 /**
@@ -61,8 +63,14 @@ interface VideoEmbedProps {
  * Shows a lightweight thumbnail first (fast page load); on click it loads the
  * IFrame API so plays, pauses, and watch time can be measured and reported.
  */
-export default function VideoEmbed({ videoId, title, vertical = false, className = '' }: VideoEmbedProps) {
-  const [activated, setActivated] = useState(false);
+export default function VideoEmbed({
+  videoId,
+  title,
+  vertical = false,
+  className = '',
+  autoActivate = false,
+}: VideoEmbedProps) {
+  const [activated, setActivated] = useState(autoActivate);
   const hostRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
   const watchTimer = useRef<ReturnType<typeof setInterval> | null>(null);
