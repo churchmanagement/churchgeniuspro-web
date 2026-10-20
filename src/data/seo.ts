@@ -92,13 +92,19 @@ const staticRoutes: RouteMeta[] = [
     path: '/privacy',
     title: 'Privacy Policy | ChurchGeniusPro',
     description:
-      'How ChurchGeniusPro collects, uses, and protects your church’s data: what we collect, how it is used, children’s data, security, and your data rights.',
+      'How ChurchGeniusPro collects, uses, and protects your church’s data: what we collect, how it is used, children’s data, text messages (SMS), security, and your data rights.',
   },
   {
     path: '/terms',
     title: 'Terms of Service | ChurchGeniusPro',
     description:
-      'The terms for using ChurchGeniusPro: your account, subscriptions and free trials, ownership of your church’s data, acceptable use, and service availability.',
+      'The terms for using ChurchGeniusPro: your account, subscriptions and free trials, ownership of your church’s data, acceptable use, service availability, and the SMS messaging program.',
+  },
+  {
+    path: '/sms',
+    title: 'SMS Messaging & Opt-In | ChurchGeniusPro',
+    description:
+      'How churches using ChurchGeniusPro collect consent for text messages, what they send, message frequency, and how to opt out (STOP) or get help (HELP).',
   },
   {
     path: '/cookies',

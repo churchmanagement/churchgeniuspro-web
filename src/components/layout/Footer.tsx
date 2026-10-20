@@ -53,6 +53,7 @@ const columns = [
       { name: 'Privacy Policy', to: '/privacy' },
       { name: 'Terms of Service', to: '/terms' },
       { name: 'Cookie Policy', to: '/cookies' },
+      { name: 'SMS Terms', to: '/sms' },
     ],
   },
 ];

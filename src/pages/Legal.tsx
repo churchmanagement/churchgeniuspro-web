@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion';
 
-const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated: string; sections: { heading: string; body: string; links?: { label: string; href: string }[] }[] }> = {
+type LegalPage = 'privacy' | 'terms' | 'cookies' | 'sms';
+
+const SMS_LINKS = [
+  { label: 'SMS Messaging & Opt-In (program details and sign-up form)', href: '/sms' },
+];
+
+const content: Record<LegalPage, { title: string; updated: string; sections: { heading: string; body: string; links?: { label: string; href: string }[] }[] }> = {
   privacy: {
     title: 'Privacy Policy',
-    updated: 'July 1, 2026',
+    updated: 'October 19, 2026',
     sections: [
       {
         heading: '1. Information We Collect',
@@ -22,14 +28,19 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
         body: 'We use industry-standard encryption in transit and at rest, role-based access controls, and optional network-restricted (Wi-Fi-only) pages for sensitive functions like check-in and temporary logins.',
       },
       {
-        heading: '5. Your Rights',
+        heading: '5. Text Messages (SMS)',
+        body: 'Churches that use ChurchGeniusPro can send text messages, such as event and service reminders, RSVP confirmations, volunteer schedules and children\'s ministry pickup alerts, to people who have agreed to receive them. We collect a mobile phone number and the person\'s SMS consent only to deliver those messages. Mobile phone numbers and SMS opt-in consent are never sold, rented, or shared with third parties or affiliates for their marketing or promotional purposes. Text-messaging opt-in data and consent are not shared with any third party, except the service providers (such as our SMS delivery provider) that send messages on our behalf. Reply STOP to any message to stop receiving texts, or HELP for help. Message and data rates may apply.',
+        links: SMS_LINKS,
+      },
+      {
+        heading: '6. Your Rights',
         body: 'You may access, correct, export, or delete your data at any time. Contact privacy@churchgeniuspro.com for data requests, and we will respond within 30 days.',
       },
     ],
   },
   terms: {
     title: 'Terms of Service',
-    updated: 'October 11, 2026',
+    updated: 'October 19, 2026',
     sections: [
       {
         heading: '1. Your Account',
@@ -50,6 +61,41 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
       {
         heading: '5. Service Availability',
         body: 'We work to keep the service available at all times and announce scheduled maintenance in advance. The service is provided "as is" to the maximum extent permitted by law.',
+      },
+      {
+        heading: '6. SMS Messaging Program',
+        body: 'ChurchGeniusPro lets churches send informational text messages (event and service reminders, RSVP confirmations, volunteer scheduling, children\'s ministry pickup alerts and prayer updates) to people who opt in on their church\'s SMS sign-up form and confirm by replying YES. Messages begin with the church\'s name. Message frequency varies. Message and data rates may apply. Reply STOP to cancel at any time; you will receive one confirmation and no further messages. Reply HELP for help, or email support@churchgeniuspro.com. Carriers are not liable for delayed or undelivered messages. Consent to receive texts is not a condition of membership or of any purchase. Churches using ChurchGeniusPro must send texts only to people who have given consent.',
+        links: SMS_LINKS,
+      },
+    ],
+  },
+  sms: {
+    title: 'SMS Messaging & Opt-In',
+    updated: 'October 19, 2026',
+    sections: [
+      {
+        heading: '1. About This Program',
+        body: 'ChurchGeniusPro, operated by ChurchGenius LLC, is church-management software. Churches that use it send informational text messages to their own members, guests and volunteers who have opted in: event and service reminders, RSVP confirmations, volunteer schedules, children\'s ministry pickup alerts and prayer-request updates. We do not send marketing or promotional text messages, and we never use purchased or shared phone lists.',
+      },
+      {
+        heading: '2. How People Opt In',
+        body: 'Each church shares its own SMS sign-up page. A person enters their name and mobile number and ticks a consent checkbox, which is never pre-checked (see the example below). We then send one text asking them to reply YES to confirm (double opt-in); no other messages are sent until they confirm. Consent is not a condition of membership or of any purchase.',
+      },
+      {
+        heading: '3. Message Frequency and Cost',
+        body: 'Message frequency varies with the church\'s activities. Message and data rates may apply.',
+      },
+      {
+        heading: '4. Opting Out and Getting Help',
+        body: 'Reply STOP to any message to stop receiving texts; you will receive one confirmation and no further messages. Reply START to sign up again. Reply HELP for help, or email support@churchgeniuspro.com. Carriers are not liable for delayed or undelivered messages.',
+      },
+      {
+        heading: '5. Privacy',
+        body: 'Mobile phone numbers and SMS opt-in consent are never sold, rented, or shared with third parties or affiliates for their marketing purposes. Read our Privacy Policy and Terms of Service for details.',
+        links: [
+          { label: 'Privacy Policy', href: '/privacy' },
+          { label: 'Terms of Service', href: '/terms' },
+        ],
       },
     ],
   },
@@ -89,7 +135,73 @@ const content: Record<'privacy' | 'terms' | 'cookies', { title: string; updated:
   },
 };
 
-export default function Legal({ page }: { page: 'privacy' | 'terms' | 'cookies' }) {
+/**
+ * A faithful, non-functional copy of the sign-up form each church shares
+ * (ChurchGeniusPro app: smsOptIn.html), shown so carriers and reviewers can see
+ * exactly how consent is collected. Same fields, same unchecked checkbox, same wording.
+ */
+function SmsOptInExample() {
+  return (
+    <div className="mt-12">
+      <h2 className="text-xl font-bold text-slate-900">Example: a church&apos;s SMS sign-up form</h2>
+      <p className="mt-3 leading-relaxed text-slate-600">
+        This is what a person sees on their church&apos;s sign-up page. &ldquo;Grace Community Church&rdquo; is an
+        example name; each church&apos;s page shows its own name.
+      </p>
+      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 shadow-sm" aria-label="Example SMS sign-up form">
+        <div className="bg-slate-800 px-6 py-5 text-center text-white">
+          <p className="text-lg font-bold">Grace Community Church</p>
+          <p className="text-sm text-slate-300">SMS Notifications</p>
+        </div>
+        <form className="space-y-4 bg-white p-6" onSubmit={(e) => e.preventDefault()}>
+          {[
+            { id: 'ex-first', label: 'First Name', placeholder: 'Enter your first name', type: 'text' },
+            { id: 'ex-last', label: 'Last Name', placeholder: 'Enter your last name', type: 'text' },
+            { id: 'ex-phone', label: 'Phone Number', placeholder: '(555) 555-5555', type: 'tel' },
+          ].map((f) => (
+            <div key={f.id}>
+              <label htmlFor={f.id} className="block text-sm font-semibold text-slate-700">
+                {f.label} <span className="text-red-600">*</span>
+              </label>
+              <input
+                id={f.id}
+                type={f.type}
+                placeholder={f.placeholder}
+                disabled
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-slate-500"
+              />
+            </div>
+          ))}
+          <div className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <input id="ex-consent" type="checkbox" disabled className="mt-1 h-4 w-4" />
+            <label htmlFor="ex-consent" className="text-sm leading-relaxed text-slate-600">
+              I agree to receive SMS text messages from <strong>Grace Community Church</strong>. Message &amp; data
+              rates may apply. Message frequency varies. Reply <strong>STOP</strong> to opt out at any time. Reply{' '}
+              <strong>HELP</strong> for help.
+            </label>
+          </div>
+          <button
+            type="submit"
+            disabled
+            className="w-full rounded-lg bg-slate-400 px-4 py-3 font-semibold text-white"
+          >
+            Sign Up for SMS
+          </button>
+          <p className="text-xs leading-relaxed text-slate-500">
+            By submitting, you consent to receive automated text messages from Grace Community Church. Consent is not a
+            condition of membership. Standard messaging rates apply.
+          </p>
+        </form>
+      </div>
+      <p className="mt-4 text-sm leading-relaxed text-slate-600">
+        After submitting, the person receives: &ldquo;Grace Community Church: You have requested to receive SMS
+        messages from us. Reply YES to confirm. Reply STOP to cancel. Msg &amp; data rates may apply.&rdquo;
+      </p>
+    </div>
+  );
+}
+
+export default function Legal({ page }: { page: LegalPage }) {
   const doc = content[page];
   return (
     <section className="pb-24 pt-32 md:pt-40">
@@ -127,6 +239,7 @@ export default function Legal({ page }: { page: 'privacy' | 'terms' | 'cookies' 
               </div>
             ))}
           </div>
+          {page === 'sms' && <SmsOptInExample />}
           <p className="mt-12 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
             Questions about this policy? Contact us at{' '}
             <a href="mailto:legal@churchgeniuspro.com" className="font-semibold text-blue-600">

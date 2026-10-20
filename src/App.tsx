@@ -21,7 +21,7 @@ export interface PageComponents {
   Demo: ComponentType;
   HelpCenter: ComponentType;
   Admin: ComponentType;
-  Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' }>;
+  Legal: ComponentType<{ page: 'privacy' | 'terms' | 'cookies' | 'sms' }>;
   Landing: ComponentType<{ slug: LandingSlug }>;
   Guides: ComponentType<{ slug?: string }>;
   CompareVs: ComponentType<{ slug: CompareVsPage['slug'] }>;
@@ -167,6 +167,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             <Route path="/privacy" element={<Legal page="privacy" />} />
             <Route path="/terms" element={<Legal page="terms" />} />
             <Route path="/cookies" element={<Legal page="cookies" />} />
+            <Route path="/sms" element={<Legal page="sms" />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
