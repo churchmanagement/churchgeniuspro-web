@@ -14,3 +14,6 @@ dev-dist
 
 # Local working notes, backups and verification artifacts (never deployed)
 Claude outputs/
+
+# Marketplace listing screenshots (Crozdesk etc.) — kept locally, not part of the website
+listing-assets/
