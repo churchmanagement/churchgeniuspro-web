@@ -80,6 +80,14 @@ export const demoTour: DemoVideo = {
 export const demoLibrary: DemoVideo[] = [
   // Overview
   {
+    id: 'f2n94IqKA9U',
+    title: 'AI Search',
+    topic: 'AI',
+    category: 'Overview',
+    isShort: false,
+    description: 'Ask in plain words and the AI finds the right people, records or page for you.',
+  },
+  {
     id: 'DSp_YUROchY',
     title: 'Full Product Overview',
     topic: 'Overview',
