@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import CTASection from '../components/ui/CTASection';
+import GooglePlayBadge from '../components/ui/GooglePlayBadge';
 import { featureCategories } from '../data/features';
 
 export default function Features() {
@@ -89,6 +90,7 @@ export default function Features() {
                     </span>
                     <h3 className="mt-4 font-bold text-slate-900">{f.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600">{f.description}</p>
+                    {f.googlePlay && <GooglePlayBadge size="sm" className="mt-4" />}
                   </div>
                 </Reveal>
               ))}

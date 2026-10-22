@@ -44,7 +44,7 @@ export function homeStructuredData() {
         name: 'ChurchGeniusPro',
         applicationCategory: 'BusinessApplication',
         applicationSubCategory: 'Church management software',
-        operatingSystem: 'Web',
+        operatingSystem: 'Web, Android',
         description:
           'All-in-one church management software with a built-in AI assistant: membership, attendance, giving, accounting and payroll, events, Sunday School, kids check-in, and communication.',
         url: `${SITE}/`,

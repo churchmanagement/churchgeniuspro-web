@@ -734,7 +734,7 @@ export const helpSections: HelpSection[] = [
         id: 'push-notifications',
         title: 'Push notifications',
         body: [
-          'If a member has installed Church Genius Pro on their phone (via the "Add to Home Screen" prompt), they\'ll receive push notifications for reminders, event check-ins, and prayer assignments. Members can manage their own notification preferences in My Profile → Settings.',
+          'If a member has installed Church Genius Pro on their phone (the Android app from Google Play, or the browser\'s "Add to Home Screen" prompt), they\'ll receive push notifications for reminders, event check-ins, and prayer assignments. Members can manage their own notification preferences in My Profile → Settings.',
         ],
       },
       {
@@ -918,8 +918,8 @@ export const helpSections: HelpSection[] = [
         title: 'Frontend',
         body: [
           '• Modern HTML, CSS, and JavaScript with progressive enhancement.',
-          '• Responsive design — works on phones, tablets, and desktops without a separate app.',
-          '• Optional native-feel installation through "Add to Home Screen" (PWA).',
+          '• Responsive design — works in the browser on phones, tablets, and desktops.',
+          '• Official Android app on Google Play; optional "Add to Home Screen" (PWA) installation from desktop browsers.',
         ],
       },
       {

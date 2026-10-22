@@ -1,6 +1,6 @@
 import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, ChevronDown, Clock, Sparkles } from 'lucide-react';
+import { Check, ChevronDown, Clock, ExternalLink, Sparkles } from 'lucide-react';
 import {
   pricingPlans,
   pricingPerks,
@@ -28,13 +28,30 @@ function FeatureList({ features, highlighted }: { features: PlanFeature[]; highl
               />
             </span>
             <div className="min-w-0">
-              <span
-                className={`break-words ${highlighted ? 'text-blue-50' : 'text-slate-600'} ${typeof f === 'string' ? '' : 'font-semibold'}`}
-              >
-                {label}
-                {typeof f === 'string' ? '' : ':'}
-              </span>
-              {typeof f !== 'string' && (
+              {typeof f !== 'string' && 'href' in f ? (
+                <a
+                  href={f.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`break-words underline decoration-1 underline-offset-2 transition ${
+                    highlighted
+                      ? 'text-blue-50 decoration-blue-200/60 hover:text-white'
+                      : 'text-slate-600 decoration-slate-300 hover:text-blue-600 hover:decoration-blue-400'
+                  }`}
+                >
+                  {label}
+                  <ExternalLink className="ml-1 inline h-3 w-3 align-[-1px]" aria-hidden="true" />
+                  <span className="sr-only"> (opens Google Play in a new tab)</span>
+                </a>
+              ) : (
+                <span
+                  className={`break-words ${highlighted ? 'text-blue-50' : 'text-slate-600'} ${typeof f === 'string' ? '' : 'font-semibold'}`}
+                >
+                  {label}
+                  {typeof f === 'string' ? '' : ':'}
+                </span>
+              )}
+              {typeof f !== 'string' && 'items' in f && (
                 <ul className="mt-1.5 space-y-1">
                   {f.items.map((item) => (
                     <li
@@ -63,7 +80,7 @@ function TrialPanel({ defaultOpen }: { defaultOpen: boolean }) {
   const panelId = useId();
   const highlights = trialFeatures.filter((f): f is string => typeof f === 'string');
   const groups = trialFeatures.filter(
-    (f): f is Exclude<PlanFeature, string> => typeof f !== 'string'
+    (f): f is Extract<PlanFeature, { items: string[] }> => typeof f !== 'string' && 'items' in f
   );
 
   return (

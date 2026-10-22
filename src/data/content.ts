@@ -1,5 +1,13 @@
-/** A plan feature: plain text, or a heading with sub-items (e.g. Accounting, Advanced AI). */
-export type PlanFeature = string | { label: string; items: string[] };
+import { googlePlayUrl } from './apps';
+
+/**
+ * A plan feature: plain text, a heading with sub-items (e.g. Accounting, Advanced AI),
+ * or a text item that links out (e.g. the Google Play listing).
+ */
+export type PlanFeature =
+  | string
+  | { label: string; items: string[] }
+  | { label: string; href: string };
 
 export interface PricingPlan {
   name: string;
@@ -85,7 +93,7 @@ export const pricingPlans: PricingPlan[] = [
       'Volunteer Scheduling',
       'Worship Planning',
       'Kids Ministry',
-      'Installable Web App (Android & Desktop) with Notifications',
+      { label: 'Android App (Google Play) & Desktop Web App with Notifications', href: googlePlayUrl },
       'Customer Service',
       'Assistance',
     ],
@@ -285,7 +293,7 @@ export const planComparison: PlanComparisonGroup[] = [
       { feature: 'Volunteer Scheduling', ...paidPlans },
       { feature: 'Worship Planning', ...paidPlans },
       { feature: 'Kids Ministry', ...paidPlans },
-      { feature: 'Installable Web App (Android & Desktop) with Notifications', ...paidPlans },
+      { feature: 'Android App (Google Play) & Desktop Web App with Notifications', ...paidPlans },
       { feature: 'Prayer Ministry', ...allPlans },
       { feature: 'Event Registration', ...allPlans },
       { feature: 'Attendance', ...allPlans },
@@ -398,7 +406,7 @@ export const faqs: FAQ[] = [
   {
     question: 'Is there a mobile app?',
     answer:
-      'Not in the app stores yet — there is currently no Google Play or Apple App Store app. ChurchGeniusPro is a web app that works in any modern browser on phones, tablets, and computers. On Android phones and desktop browsers you can install it from the browser as an app, with notifications where your device supports them.',
+      'Yes — the official ChurchGeniusPro Android app is available on Google Play, with push notifications for reminders, follow-ups, and announcements. It uses the same account and the same data as the web app. On desktop, ChurchGeniusPro runs in any modern browser and can be installed from the browser as a web app. There is no Apple App Store app yet, so iPhone and iPad users use ChurchGeniusPro in the browser.',
     category: 'Mobile',
   },
   {
@@ -565,7 +573,7 @@ export const compareRows: CompareRow[] = [
   },
   {
     feature: 'Mobile app',
-    cgp: 'Installable web app',
+    cgp: 'Android app (Google Play)',
     breeze: true,
     planningCenter: true,
     tithely: true,

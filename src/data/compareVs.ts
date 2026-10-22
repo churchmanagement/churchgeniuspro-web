@@ -146,7 +146,7 @@ export const compareVsPages: CompareVsPage[] = [
       },
       {
         feature: 'Mobile apps',
-        cgp: 'Installable web app',
+        cgp: 'Android app (Google Play) + web app',
         them: 'App Store & Google Play apps',
         src: 'https://www.planningcenter.com/apps',
       },
@@ -182,7 +182,7 @@ export const compareVsPages: CompareVsPage[] = [
       'On Pro, a built-in assistant takes typed or spoken requests and reads photographed checks and documents into entries.',
     ],
     chooseThem:
-      'You want to start with a free database and add individual products over time, you rely on native store apps, or your worship team wants a dedicated service-planning product.',
+      'You want to start with a free database and add individual products over time, you rely on native iPhone and Android apps, or your worship team wants a dedicated service-planning product.',
     chooseUs:
       'You want church management, giving, and accounting — including payroll on Pro — in one system and one monthly price, with an AI assistant that does data entry.',
     faqs: [
@@ -294,7 +294,7 @@ export const compareVsPages: CompareVsPage[] = [
       },
       {
         feature: 'Mobile apps',
-        cgp: 'Installable web app',
+        cgp: 'Android app (Google Play) + web app',
         them: 'App Store & Google Play apps',
         src: 'https://support.breezechms.com/hc/en-us/articles/360002329954-Breeze-ChMS-Mobile-App-Guide',
       },
@@ -326,7 +326,7 @@ export const compareVsPages: CompareVsPage[] = [
       'On Pro, the check-scanning AI reads the check image into an entry, and a built-in assistant takes typed or spoken requests.',
     ],
     chooseThem:
-      'You want unlimited people and users at one flat price today, native store apps, and you are happy to keep accounting in a separate system.',
+      'You want unlimited people and users at one flat price today, native iPhone and Android apps, and you are happy to keep accounting in a separate system.',
     chooseUs:
       'You want your church management and accounting in one system, payroll on Pro, or a free plan while your church is under 50 people.',
     faqs: [
@@ -438,7 +438,7 @@ export const compareVsPages: CompareVsPage[] = [
       },
       {
         feature: 'Mobile apps',
-        cgp: 'Installable web app',
+        cgp: 'Android app (Google Play) + web app',
         them: 'Giving app; custom app $89/mo',
         src: 'https://get.tithe.ly/product/church-app',
       },
@@ -592,7 +592,7 @@ export const compareVsPages: CompareVsPage[] = [
       },
       {
         feature: 'Mobile apps',
-        cgp: 'Installable web app',
+        cgp: 'Android app (Google Play) + web app',
         them: 'App Store & Google Play apps',
         src: 'https://www.churchtrac.com/features/church-app-builder',
       },
@@ -623,7 +623,7 @@ export const compareVsPages: CompareVsPage[] = [
       'On Pro, AI reads photographed checks and bank statements into entries, and a built-in assistant takes typed or spoken requests. We found only a help-center support assistant in ChurchTrac’s official materials.',
     ],
     chooseThem:
-      'You want every feature at every size, the published reconciliation and check-printing tools, or native store apps.',
+      'You want every feature at every size, the published reconciliation and check-printing tools, or native iPhone and Android apps.',
     chooseUs:
       'You want payroll in the same system as your books, a free plan while you are small, or an AI assistant that does data entry for you.',
     faqs: [

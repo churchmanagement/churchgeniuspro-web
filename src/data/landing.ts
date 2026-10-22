@@ -33,6 +33,8 @@ export interface LandingSection {
   bullets?: { title: string; description: string }[];
   /** Optional screenshot slug from src/data/screens.ts. */
   screenshotSlug?: string;
+  /** Show the "Get it on Google Play" badge under the prose. */
+  googlePlayBadge?: boolean;
 }
 
 export interface LandingFAQ {
@@ -63,6 +65,8 @@ export interface LandingPageData {
   related: RelatedLink[];
   /** Render the compact 3-plan pricing strip. */
   showPricingTeaser?: boolean;
+  /** Show the "Get it on Google Play" badge in the hero. */
+  googlePlayBadge?: boolean;
 }
 
 export const landingPages: LandingPageData[] = [
@@ -173,7 +177,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Is there a mobile app?',
         answer:
-          'Not in the app stores yet. ChurchGeniusPro is a web app that works in the browser on any phone or tablet, and on Android phones and desktops it installs from the browser as an app, with notifications where supported.',
+          'Yes. The official ChurchGeniusPro Android app is on Google Play, with push notifications. On iPhone, iPad, and desktop, ChurchGeniusPro works in any modern browser, and desktop browsers can install it as a web app.',
       },
     ],
     related: [
@@ -200,7 +204,7 @@ export const landingPages: LandingPageData[] = [
       {
         name: 'Church App',
         to: '/church-app',
-        description: 'Installable web app for giving, check-in, and connection.',
+        description: 'Android app on Google Play for giving, check-in, and connection.',
       },
       {
         name: 'Church Membership Software',
@@ -308,7 +312,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: "What are the Free plan's limits?",
         answer:
-          'Up to 50 people, 20 gifts per month, 200 emails and 50 SMS per month, and 3 member portals, 3 kids portals, and 1 church user. Check-in, worship planning, volunteer scheduling, kids ministry, the installable web app with notifications, and accounting require a paid plan.',
+          'Up to 50 people, 20 gifts per month, 200 emails and 50 SMS per month, and 3 member portals, 3 kids portals, and 1 church user. Check-in, worship planning, volunteer scheduling, kids ministry, the Android app with notifications, and accounting require a paid plan.',
       },
       {
         question: 'Do you take a percentage of donations on the Free plan?',
@@ -633,7 +637,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'When you grow',
         title: 'Growing past 50 people is a good problem',
         body: [
-          'When attendance grows, upgrade to Standard at $20/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the installable web app with notifications. Pro at $40/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
+          'When attendance grows, upgrade to Standard at $20/month for up to 100 people plus accounting, kids check-in, worship planning, volunteer scheduling, and the Android app with notifications. Pro at $40/month removes the limits and adds advanced AI. Your data never moves, and you can try every feature free for 2 months.',
           'Need proper books? Accounting is included in Standard and Pro — so the treasurer retires the shoebox too.',
         ],
         screenshotSlug: 'kids-checkin',
@@ -696,12 +700,13 @@ export const landingPages: LandingPageData[] = [
     slug: 'church-app',
     title: 'Church App — Giving, Check-In & More | ChurchGeniusPro',
     metaDescription:
-      "ChurchGeniusPro's church app puts giving, kids check-in, events, directory, and chat on every phone — as a web app you install right from the browser.",
+      "ChurchGeniusPro's church app puts giving, kids check-in, events, directory, and chat on every phone. Get the Android app on Google Play or use any browser.",
     eyebrow: 'Church App',
+    googlePlayBadge: true,
     h1: 'The church app',
     h1Gradient: 'your whole congregation will use.',
     intro: [
-      'ChurchGeniusPro includes a church app for your members and staff: giving, event registration, kids check-in, the member directory, and chat, from any phone — as a web app that runs in the browser and installs as an app on Android phones and desktops.',
+      'ChurchGeniusPro includes a church app for your members and staff: giving, event registration, kids check-in, the member directory, and chat, from any phone — with the official Android app on Google Play, and in the browser on iPhone and desktop.',
       'It is not a separate product to buy and sync. The app is a window into the same system your church already runs on, so everything members do in it lands in the right record instantly.',
     ],
     sections: [
@@ -710,7 +715,7 @@ export const landingPages: LandingPageData[] = [
         title: 'Give, register, and stay connected',
         body: [
           'Members give in seconds — online or by text — and the gift is matched to their record and fund automatically. They register for events, RSVP to gatherings, browse the member directory, and message their groups with in-app chat.',
-          'On Android phones and desktops, members can install ChurchGeniusPro straight from the browser for an app-like experience, with notifications where supported. Everyone else uses it in any modern browser — there is no app-store download to manage.',
+          'Android users download the official ChurchGeniusPro app from Google Play and get push notifications for reminders, follow-ups, and announcements. On iPhone and desktop, members use it in any modern browser, and desktop browsers can install it as a web app. It is the same account and the same data everywhere.',
         ],
         bullets: [
           {
@@ -727,6 +732,7 @@ export const landingPages: LandingPageData[] = [
           },
         ],
         screenshotSlug: 'online-giving',
+        googlePlayBadge: true,
       },
       {
         eyebrow: 'For families',
@@ -750,7 +756,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Is the church app included, or does it cost extra?',
         answer:
-          'It is included — there is no separate per-app fee. Every plan works in the browser on a phone, and the installable web app with notifications is part of the Standard and Pro plans.',
+          'It is included — there is no separate per-app fee. Every plan works in the browser on a phone, and the Android app with push notifications is part of the Standard and Pro plans.',
       },
       {
         question: 'Do members need to create accounts?',
@@ -760,7 +766,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Does the app work on both iPhone and Android?',
         answer:
-          'It runs in the browser on any modern iPhone or Android phone. On Android you can also install it from the browser as an app, with notifications where supported. There is no Google Play or Apple App Store app yet.',
+          'On Android, download the official ChurchGeniusPro app from Google Play, with push notifications. On iPhone, it runs in any modern browser — there is no Apple App Store app yet. Either way it is the same account and the same data.',
       },
       {
         question: 'Can parents check kids in from their phones?',

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { FaYoutube } from 'react-icons/fa6';
 import { submitContactForm } from '../../lib/contact';
+import GooglePlayBadge from '../ui/GooglePlayBadge';
 
 const columns = [
   {
@@ -97,6 +98,9 @@ export default function Footer() {
               One platform for every part of church life — people, giving, accounting, events,
               ministries, and communication, all powered by AI.
             </p>
+
+            <h3 className="mt-8 text-sm font-semibold text-white">Get the Android app</h3>
+            <GooglePlayBadge size="sm" className="mt-3" />
 
             <h3 className="mt-8 text-sm font-semibold text-white">Subscribe to our newsletter</h3>
             {subscribed ? (

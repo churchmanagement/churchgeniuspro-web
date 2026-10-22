@@ -4,6 +4,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import CTASection from '../components/ui/CTASection';
 import FAQAccordion from '../components/ui/FAQAccordion';
+import GooglePlayBadge from '../components/ui/GooglePlayBadge';
 import { getLandingPage, type LandingSlug, type LandingSection } from '../data/landing';
 import { screenshots, screenshotSrc, screenshotSrcSet, type Screenshot } from '../data/screens';
 import { pricingPlans } from '../data/content';
@@ -63,6 +64,7 @@ function ContentSection({ section, index }: { section: LandingSection; index: nu
                 {p}
               </p>
             ))}
+            {section.googlePlayBadge && <GooglePlayBadge className="mt-6" />}
           </Reveal>
           {shot && (
             <Reveal delay={0.1} className={flip ? 'lg:order-1' : undefined}>
@@ -188,6 +190,14 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
               </Link>{' '}
               — no credit card required.
             </p>
+            {page.googlePlayBadge && (
+              <div className="mt-8 flex flex-col items-center gap-2">
+                <p className="text-sm font-medium text-slate-600">
+                  On Android? Get the official app:
+                </p>
+                <GooglePlayBadge />
+              </div>
+            )}
           </motion.div>
         </div>
       </section>

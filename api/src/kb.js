@@ -448,7 +448,7 @@ Schedule a single reminder for a specific date and time — for example, a speci
 • Save.
 
 ### Push notifications
-If a member has installed Church Genius Pro on their phone (via the "Add to Home Screen" prompt), they'll receive push notifications for reminders, event check-ins, and prayer assignments. Members can manage their own notification preferences in My Profile → Settings.
+If a member has installed Church Genius Pro on their phone (the Android app from Google Play, or the browser's "Add to Home Screen" prompt), they'll receive push notifications for reminders, event check-ins, and prayer assignments. Members can manage their own notification preferences in My Profile → Settings.
 
 ### Event Calendar
 Open Event Calendar from the General menu to see everything happening at your church, in three views:
@@ -548,9 +548,9 @@ This appendix is for IT-minded readers. Most users can safely skip it. Church Ge
 
 ### Frontend
 • Modern HTML, CSS, and JavaScript with progressive enhancement.
-• Responsive design — works on phones, tablets, and desktops without a separate app.
-• Optional native-feel installation through "Add to Home Screen" (PWA).
-• There is currently NO app in the Google Play Store or Apple App Store. On Android phones and desktop browsers, ChurchGeniusPro can be installed from the browser as a web app, with notifications where supported. Never tell visitors a store app is available.
+• Responsive design — works in the browser on phones, tablets, and desktops.
+• Optional "Add to Home Screen" (PWA) installation from desktop browsers.
+• The official ChurchGeniusPro Android app is available on Google Play: https://play.google.com/store/apps/details?id=com.churchgeniuspro.app — same account and data as the web app, with push notifications. There is NO Apple App Store app yet: iPhone and iPad users use ChurchGeniusPro in the browser. Desktop users use the web app in the browser and can install it from the browser. Never tell visitors an iPhone/App Store app is available.
 
 ### Integrations
 • Stripe — for online donations, event payments, and recurring giving.
@@ -586,7 +586,7 @@ For technical problems your administrator can't solve — bugs, login failures, 
 Thank you for using Church Genius Pro!
 We hope this platform helps your church flourish.
 ## Pricing (as of 2026)
-Limited Time Offer. Plans (monthly, per church): Free $0 — up to 50 people, 200 emails/mo, 50 SMS/mo, 20 giving/mo, 3 member portals + 3 kids portals + 1 church user, prayer ministry, event registration, attendance, groups, private page access, customize NTag, compose emails, reminders, certificates, public screens, follow-ups, song books, advanced help documents, limited customer service and assistance. Standard $20/mo ("Most Popular") — everything in Free plus up to 100 people, 500 emails/mo, 100 SMS/mo, unlimited giving, unlimited portals, accounting (bank imports, bank sync up to 3 accounts, pledges, online giving, reports), event & kids check-in, volunteer scheduling, worship planning, kids ministry, installable web app (Android & desktop) with notifications, customer service and assistance. Pro $40/mo ("Includes AI") — everything in Standard plus unlimited people, unlimited emails, 100 SMS/mo, unlimited giving, unlimited member & kids portals, all accounting features (AI-assisted accounting, bank imports, payroll, bank sync, pledges, online giving, reports, check scanning), advanced AI (type search, auto-fill screens using voice, converse, scan checks and documents, file uploads), priority customer service, priority application setup and assistance.
+Limited Time Offer. Plans (monthly, per church): Free $0 — up to 50 people, 200 emails/mo, 50 SMS/mo, 20 giving/mo, 3 member portals + 3 kids portals + 1 church user, prayer ministry, event registration, attendance, groups, private page access, customize NTag, compose emails, reminders, certificates, public screens, follow-ups, song books, advanced help documents, limited customer service and assistance. Standard $20/mo ("Most Popular") — everything in Free plus up to 100 people, 500 emails/mo, 100 SMS/mo, unlimited giving, unlimited portals, accounting (bank imports, bank sync up to 3 accounts, pledges, online giving, reports), event & kids check-in, volunteer scheduling, worship planning, kids ministry, Android app (Google Play) & desktop web app with notifications, customer service and assistance. Pro $40/mo ("Includes AI") — everything in Standard plus unlimited people, unlimited emails, 100 SMS/mo, unlimited giving, unlimited member & kids portals, all accounting features (AI-assisted accounting, bank imports, payroll, bank sync, pledges, online giving, reports, check scanning), advanced AI (type search, auto-fill screens using voice, converse, scan checks and documents, file uploads), priority customer service, priority application setup and assistance.
 Free trial: 2 months with every feature (Pro-level: unlimited people/emails/giving/portals, 100 SMS/mo, all accounting, advanced AI, all ministry tools, customer service).
 Extras: Application setup is free. Migration from an existing application: $100 one-time fee — not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro. Additional SMS: $1.99 per 100. Free plan needs no credit card.
 

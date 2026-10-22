@@ -47,6 +47,8 @@ export interface Feature {
   icon: LucideIcon;
   title: string;
   description: string;
+  /** Show the "Get it on Google Play" badge under the description. */
+  googlePlay?: boolean;
 }
 
 export interface FeatureCategory {
@@ -364,9 +366,10 @@ export const featureCategories: FeatureCategory[] = [
       },
       {
         icon: Smartphone,
-        title: 'Installable Web App',
+        title: 'Android App on Google Play',
         description:
-          'Install ChurchGeniusPro from the browser on Android phones and desktops for app-style access to giving, check-in, and communication — with notifications where supported.',
+          'Download the official ChurchGeniusPro app from Google Play for giving, events, check-in, and the member portal on Android — with push notifications. On desktop, use it in the browser or install it as a web app.',
+        googlePlay: true,
       },
       {
         icon: QrCode,
