@@ -199,7 +199,7 @@ export const compareVsPages: CompareVsPage[] = [
       {
         question: 'Can we move from Planning Center to ChurchGeniusPro?',
         answer:
-          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
   },
@@ -343,7 +343,7 @@ export const compareVsPages: CompareVsPage[] = [
       {
         question: 'Can we move from Breeze to ChurchGeniusPro?',
         answer:
-          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
   },
@@ -491,7 +491,7 @@ export const compareVsPages: CompareVsPage[] = [
       {
         question: 'Can we move from Tithely to ChurchGeniusPro?',
         answer:
-          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
   },
@@ -640,7 +640,7 @@ export const compareVsPages: CompareVsPage[] = [
       {
         question: 'Can we move from ChurchTrac to ChurchGeniusPro?',
         answer:
-          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
   },

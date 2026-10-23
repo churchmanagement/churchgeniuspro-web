@@ -40,7 +40,7 @@ const content: Record<LegalPage, { title: string; updated: string; sections: { h
   },
   terms: {
     title: 'Terms of Service',
-    updated: 'October 19, 2026',
+    updated: 'October 22, 2026',
     sections: [
       {
         heading: '1. Your Account',
@@ -48,11 +48,11 @@ const content: Record<LegalPage, { title: string; updated: string; sections: { h
       },
       {
         heading: '2. Subscriptions & Trials',
-        body: 'Paid plans are billed monthly. Free trials, when offered (currently 2 months), are described on our Pricing page. You may cancel at any time; access continues until the end of the billing period. The Free plan is free forever with the limits described on our Pricing page.',
+        body: 'Paid plans are billed monthly. Free trials, when offered (currently 2 months), are described on our Pricing page. You may cancel at any time; access continues until the end of the billing period. Standard and Pro come with a 30-day money-back guarantee: if you cancel within 30 days of your first paid charge, we will refund that charge in full on request to support@churchgeniuspro.com. The Free plan is free forever with the limits described on our Pricing page.',
       },
       {
         heading: '3. Your Data',
-        body: 'Your church owns its data. We provide free application setup, optional paid migration from an existing application (described on our Pricing page), and export tools so you can take your data with you at any time.',
+        body: 'Your church owns its data. We provide free application setup, free migration from an existing application (described on our Pricing page), and export tools so you can take your data with you at any time.',
       },
       {
         heading: '4. Acceptable Use',

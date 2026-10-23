@@ -50,7 +50,7 @@ const staticRoutes: RouteMeta[] = [
     path: '/pricing',
     title: 'Pricing: Free, Standard $20, Pro $40 | ChurchGeniusPro',
     description:
-      'Limited time: Free $0, Standard $20/month, Pro $40/month — with accounting included. Try every feature free for 2 months. Free setup.',
+      'Limited time: Free $0, Standard $20/month, Pro $40/month — with accounting included. Try every feature free for 2 months. Free setup & migration.',
   },
   {
     path: '/compare',

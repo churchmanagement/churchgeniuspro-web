@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import {
   ArrowRight,
   ShieldCheck,
+  BadgeCheck,
   RefreshCcw,
   HeartHandshake,
   Check,
@@ -14,7 +15,14 @@ import PricingCards from '../components/ui/PricingCards';
 import FAQAccordion from '../components/ui/FAQAccordion';
 import CTASection from '../components/ui/CTASection';
 import { SectionHeading, Reveal } from '../components/ui/Section';
-import { faqs, addOns, planComparison, pricingPlans, pricingOffer } from '../data/content';
+import {
+  faqs,
+  addOns,
+  planComparison,
+  pricingPlans,
+  pricingOffer,
+  moneyBackGuarantee,
+} from '../data/content';
 import { SITE } from '../data/seo';
 
 const pricingFaqs = faqs.filter((f) => ['Pricing', 'Getting Started'].includes(f.category));
@@ -38,9 +46,14 @@ const assurances = [
   },
   {
     icon: HeartHandshake,
-    title: 'Free application setup',
+    title: 'Free setup, migration & onboarding',
     description:
-      'We set up your application for free. Migration from an existing application is available for a $100 one-time fee.',
+      'We set up your application, migrate your data from your current application, and help your team get started — all free.',
+  },
+  {
+    icon: BadgeCheck,
+    title: moneyBackGuarantee.title,
+    description: moneyBackGuarantee.detail,
   },
   {
     icon: ShieldCheck,
@@ -73,7 +86,8 @@ export default function Pricing() {
             </h1>
             <p className="mt-5 text-lg text-slate-600">
               Start free forever. Upgrade when you're ready — for a limited time, try every feature
-              free for 2 months, with free application setup.
+              free for 2 months, with free setup, free migration, and a 30-day money-back guarantee
+              on paid plans.
             </p>
             <motion.div
               initial={false}
@@ -99,6 +113,17 @@ export default function Pricing() {
       <section className="pb-20">
         <div className="container-page">
           <PricingCards trialOpen />
+          <Reveal className="mx-auto mt-10 max-w-3xl">
+            <div className="flex flex-col items-center gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-5 text-center sm:flex-row sm:text-left">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white">
+                <BadgeCheck className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="font-bold text-emerald-900">{moneyBackGuarantee.title}</p>
+                <p className="mt-1 text-sm text-emerald-800">{moneyBackGuarantee.detail}</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -107,8 +132,8 @@ export default function Pricing() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Extras"
-            title="Setup, migration, and more SMS"
-            subtitle="Setup is on us. Add migration or extra text messages whenever you need them."
+            title="Free setup, free migration, and more SMS"
+            subtitle="Setup, onboarding help, and migration are on us. Add extra text messages whenever you need them."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {addOns.map((addon, i) => (
@@ -260,7 +285,7 @@ export default function Pricing() {
       {/* Assurances */}
       <section className="section bg-slate-50">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {assurances.map((a, i) => (
               <Reveal key={a.title} delay={i * 0.1}>
                 <div className="card h-full text-center">

@@ -162,12 +162,12 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'How much does ChurchGeniusPro cost?',
         answer:
-          'For a limited time: a Free plan for up to 50 people, a Standard plan at $20/month with accounting, and a Pro plan at $40/month with all accounting features and advanced AI. You can try every feature free for 2 months, and application setup is free.',
+          'For a limited time: a Free plan for up to 50 people, a Standard plan at $20/month with accounting, and a Pro plan at $40/month with all accounting features and advanced AI. You can try every feature free for 2 months, setup and migration are free, and paid plans come with a 30-day money-back guarantee.',
       },
       {
         question: 'Can we switch from our current system without losing data?',
         answer:
-          'Yes — migration from an existing application is available for a $100 one-time fee, and application setup is free. Migration is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Yes — migration from an existing application is free, and so are application setup and onboarding help. Migration is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
       {
         question: 'Does it work for churches of any size?',
@@ -298,7 +298,7 @@ export const landingPages: LandingPageData[] = [
         title: 'An upgrade path that respects your data',
         body: [
           'Churches outgrow the Free plan in predictable ways: more than 50 people, more than 20 gifts a month, or a need for check-in and accounting. When that happens, upgrading to Standard ($20/month) or Pro ($40/month) is one click — every member record, giving entry, and event you created stays exactly where it is.',
-          'Getting started is simple too: application setup is free, and if your records live in another application, migration is available for a $100 one-time fee.',
+          'Getting started is simple too: application setup is free, and if your records live in another application, migration is free as well. Paid plans come with a 30-day money-back guarantee.',
         ],
         screenshotSlug: 'events-calendar',
       },
@@ -327,7 +327,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Can you move our data in from another system for free?',
         answer:
-          'Application setup is free on every plan, including Free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Yes. Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
     related: [
@@ -560,7 +560,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Can we import our existing financial data?',
         answer:
-          'Migration from an existing application is available for a $100 one-time fee. It is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Yes — migration from an existing application is free. It is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
     related: [
@@ -652,7 +652,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'We run everything from spreadsheets. How hard is switching?',
         answer:
-          'Application setup is free, and migration from an existing application is available for a $100 one-time fee (not guaranteed for complex databases or applications with different functionality).',
+          'Application setup and migration from an existing application are both free, and we help your team get started (migration is not guaranteed for complex databases or applications with different functionality).',
       },
       {
         question: 'Our administrator is a volunteer. Will they manage?',
@@ -878,7 +878,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Can we bring our existing member list over?',
         answer:
-          'Application setup is free. Migration from an existing application is available for a $100 one-time fee; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+          'Application setup and migration from an existing application are both free; it is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
       },
     ],
     related: [

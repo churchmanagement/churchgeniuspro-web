@@ -26,9 +26,9 @@ const facts = [
   },
   {
     icon: Wrench,
-    title: 'Free application setup',
+    title: 'Free setup, migration & onboarding',
     description:
-      'We help you get your church set up at no cost, so you are not left figuring it out alone.',
+      'We set up your application, help move your data from your current system, and get your team started — at no cost.',
   },
   {
     icon: Calculator,

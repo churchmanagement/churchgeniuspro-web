@@ -31,6 +31,13 @@ export const pricingOffer = {
   summary: 'Free $0 · Standard $20/month · Pro $40/month',
 };
 
+/** Money-back guarantee — single source for the Pricing page banner and assurances. */
+export const moneyBackGuarantee = {
+  title: '30-day money-back guarantee',
+  detail:
+    'Not satisfied with Standard or Pro? Cancel within 30 days of your first paid charge and we will refund that charge in full.',
+};
+
 export const pricingPlans: PricingPlan[] = [
   {
     name: 'Free',
@@ -218,18 +225,22 @@ export interface AddOn {
 /** "Extras" shown under the plans on the Pricing page. */
 export const addOns: AddOn[] = [
   {
-    name: 'Application Setup',
+    name: 'Setup & Onboarding Assistance',
     price: 'Free',
     emoji: '🛠️',
-    description: 'We help you get your church set up and running.',
-    features: ['Application setup is free', 'Available on every plan'],
+    description: 'We set up your application and help your team get started.',
+    features: [
+      'Application setup is free',
+      'Free onboarding help for your team',
+      'Available on every plan',
+    ],
   },
   {
     name: 'Migration from an Existing Application',
-    price: '$100 one-time',
+    price: 'Free',
     emoji: '🔄',
     description: 'Move your data over from the application you use today.',
-    features: ['One-time fee of $100', 'Members, families, and giving history'],
+    features: ['Free migration — no fee', 'Members, families, and giving history'],
     note: 'Migration is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
   },
   {
@@ -388,8 +399,14 @@ export const faqs: FAQ[] = [
   {
     question: 'Can you migrate our data from another system?',
     answer:
-      'Yes. Application setup is free, and migration from an existing application is available for a $100 one-time fee. We help you move members, families, and giving history. Migration is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
+      'Yes — migration from an existing application is free, and so are application setup and onboarding help for your team. We help you move members, families, and giving history. Migration is not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro.',
     category: 'Getting Started',
+  },
+  {
+    question: 'Do you offer a money-back guarantee?',
+    answer:
+      "Yes. Standard and Pro come with a 30-day money-back guarantee: if ChurchGeniusPro isn't right for your church, cancel within 30 days of your first paid charge and we will refund that charge in full — just email support@churchgeniuspro.com. The Free plan and the 2-month free trial never charge you anything.",
+    category: 'Pricing',
   },
   {
     question: "Is our data safe? What about children's information?",
