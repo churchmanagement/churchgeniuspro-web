@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Hero from '../components/home/Hero';
 import DemoSection from '../components/home/DemoSection';
+import AISearchShowcase from '../components/home/AISearchShowcase';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import Stats from '../components/ui/Stats';
 import Testimonials from '../components/ui/Testimonials';
@@ -85,6 +86,9 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homeJsonLd }} />
       <Hero />
+
+      {/* AI Search — key differentiator, right under the hero */}
+      <AISearchShowcase />
 
       {/* Benefits */}
       <section className="section">

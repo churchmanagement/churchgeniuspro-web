@@ -32,10 +32,16 @@ export default function Hero() {
           className="mx-auto max-w-4xl text-center"
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.6 }}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-1.5 text-xs font-semibold text-blue-700 shadow-sm backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-purple-600" aria-hidden="true" />
-              AI-Powered Church Management & Accounting
-            </span>
+            <a
+              href="#ai-search"
+              className="group inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 py-1.5 pl-1.5 pr-4 text-xs font-semibold text-blue-700 shadow-sm backdrop-blur transition hover:border-purple-200 hover:text-purple-700"
+            >
+              <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
+                <Sparkles className="h-3 w-3" aria-hidden="true" /> New
+              </span>
+              AI Search — Just Ask. It Understands.
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </a>
           </motion.div>
 
           <motion.h1
