@@ -23,6 +23,11 @@ import {
   Zap,
   BellRing,
   Mic,
+  UsersRound,
+  HeartHandshake,
+  CalendarX,
+  TrendingDown,
+  UserSearch,
 } from 'lucide-react';
 import { Reveal } from '../ui/Section';
 
@@ -31,7 +36,7 @@ import { Reveal } from '../ui/Section';
 /* Names and figures are SAMPLE data for illustration only.            */
 /* ------------------------------------------------------------------ */
 
-type Kind = 'Find' | 'Do' | 'Go' | 'Help';
+type Kind = 'Care' | 'Find' | 'Do' | 'Go' | 'Help';
 
 interface Example {
   id: string;
@@ -43,6 +48,7 @@ interface Example {
 }
 
 const kindStyle: Record<Kind, { text: string; chip: string; verb: string }> = {
+  Care: { text: 'text-rose-700', chip: 'bg-rose-50 text-rose-700 ring-rose-100', verb: 'Insight' },
   Find: { text: 'text-blue-700', chip: 'bg-blue-50 text-blue-700 ring-blue-100', verb: 'Answer' },
   Do: { text: 'text-purple-700', chip: 'bg-purple-50 text-purple-700 ring-purple-100', verb: 'Done' },
   Go: { text: 'text-emerald-700', chip: 'bg-emerald-50 text-emerald-700 ring-emerald-100', verb: 'Navigating' },
@@ -61,8 +67,9 @@ function Row({ left, right, sub }: { left: string; right?: ReactNode; sub?: stri
   );
 }
 
-function Pill({ children, tone = 'slate' }: { children: ReactNode; tone?: 'slate' | 'amber' | 'emerald' | 'blue' }) {
+function Pill({ children, tone = 'slate' }: { children: ReactNode; tone?: 'slate' | 'amber' | 'emerald' | 'blue' | 'rose' }) {
   const tones = {
+    rose: 'bg-rose-100 text-rose-800',
     slate: 'bg-slate-100 text-slate-600',
     amber: 'bg-amber-100 text-amber-800',
     emerald: 'bg-emerald-100 text-emerald-800',
@@ -83,6 +90,104 @@ function ActionDone({ title, children }: { title: string; children?: ReactNode }
 }
 
 const examples: Example[] = [
+  {
+    id: 'not-in-group',
+    label: 'Group Connection',
+    kind: 'Care',
+    icon: UsersRound,
+    question: 'Who attends regularly but isn’t in a group?',
+    response: () => (
+      <div>
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">4 regular attenders</strong> aren&apos;t in any group yet
+        </p>
+        <ul className="mt-2 divide-y divide-slate-100">
+          <Row left="Michael Brown" sub="Attended 7 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
+          <Row left="Priya Nair" sub="Attended 6 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
+          <Row left="Kevin & Lisa Park" sub="Attended 6 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
+        </ul>
+        <p className="mt-2 text-xs text-slate-500">Tip: add &ldquo;by campus&rdquo; to group this list by campus.</p>
+      </div>
+    ),
+  },
+  {
+    id: 'not-serving',
+    label: 'Serving',
+    kind: 'Care',
+    icon: HeartHandshake,
+    question: 'Regular attenders who aren’t serving',
+    response: () => (
+      <div>
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">6 regular attenders</strong> aren&apos;t on a serving team
+        </p>
+        <ul className="mt-2 divide-y divide-slate-100">
+          <Row left="Emily Carter" sub="Regular attender · in Women’s Bible Study" right={<Pill>Not serving</Pill>} />
+          <Row left="James Okafor" sub="Regular attender · no group" right={<Pill>Not serving</Pill>} />
+          <Row left="Rachel Kim" sub="Regular attender · in Young Adults" right={<Pill>Not serving</Pill>} />
+        </ul>
+      </div>
+    ),
+  },
+  {
+    id: 'lapsed-attendance',
+    label: 'Attendance Gaps',
+    kind: 'Care',
+    icon: CalendarX,
+    question: 'Who came last Easter but hasn’t attended since February?',
+    response: () => (
+      <div>
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">5 people</strong> attended last Easter but not since February
+        </p>
+        <ul className="mt-2 divide-y divide-slate-100">
+          <Row left="Daniel Ruiz" sub="Last attended Feb 2" right={<Pill tone="amber">Missing</Pill>} />
+          <Row left="Hannah Scott" sub="Last attended Jan 26" right={<Pill tone="amber">Missing</Pill>} />
+          <Row left="The Patel family" sub="Last attended Jan 19" right={<Pill tone="amber">Missing</Pill>} />
+        </ul>
+        <p className="mt-2 text-xs text-slate-500">Also try: &ldquo;Who hasn&apos;t attended in the last 4 weeks?&rdquo;</p>
+      </div>
+    ),
+  },
+  {
+    id: 'lapsed-givers',
+    label: 'Giving Trends',
+    kind: 'Care',
+    icon: TrendingDown,
+    question: 'Who gave last year but not this year?',
+    response: () => (
+      <div>
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">7 givers</strong> gave last year but haven&apos;t given this year
+        </p>
+        <ul className="mt-2 divide-y divide-slate-100">
+          <Row left="Thomas Reed" sub="Last gift: Dec, last year" right={<Pill tone="amber">Lapsed</Pill>} />
+          <Row left="Maria Gonzalez" sub="Last gift: Nov, last year" right={<Pill tone="amber">Lapsed</Pill>} />
+          <Row left="Chris & Dana White" sub="Last gift: Oct, last year" right={<Pill tone="amber">Lapsed</Pill>} />
+        </ul>
+        <p className="mt-2 text-xs text-slate-500">Works for quarters and months too.</p>
+      </div>
+    ),
+  },
+  {
+    id: 'visitor-follow-up',
+    label: 'Visitor Follow-Up',
+    kind: 'Care',
+    icon: UserSearch,
+    question: 'Visitors with no follow-up',
+    response: () => (
+      <div>
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">3 visitors</strong> haven&apos;t received a follow-up yet
+        </p>
+        <ul className="mt-2 divide-y divide-slate-100">
+          <Row left="Angela Brooks" sub="First visit 2 weeks ago" right={<Pill tone="rose">No follow-up</Pill>} />
+          <Row left="Mark & Jenny Liu" sub="First visit last Sunday" right={<Pill tone="rose">No follow-up</Pill>} />
+          <Row left="Samuel Ortiz" sub="First visit 3 weeks ago" right={<Pill tone="rose">No follow-up</Pill>} />
+        </ul>
+      </div>
+    ),
+  },
   {
     id: 'contributors',
     label: 'Contributors',
@@ -268,7 +373,7 @@ const pillars = [
   {
     icon: Search,
     title: 'Ask for answers',
-    text: 'Givers, spending, meetings, prayer requests — answered in seconds.',
+    text: 'Who’s drifting, who needs follow-up, giving trends, spending, meetings — answered in seconds.',
     gradient: 'from-blue-600 to-cyan-500',
   },
   {
@@ -376,7 +481,7 @@ export default function AISearchShowcase() {
           onMouseLeave={() => setHovered(false)}
         >
           {/* App window */}
-          <Reveal>
+          <Reveal className="lg:sticky lg:top-24">
             <div ref={windowRef} className="glass scroll-mt-24 rounded-3xl p-2 sm:p-3">
               <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white">
                 <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50/80 px-4 py-3">
