@@ -99,12 +99,12 @@ const examples: Example[] = [
     response: () => (
       <div>
         <p className="text-sm text-slate-600">
-          <strong className="text-slate-900">4 regular attenders</strong> aren&apos;t in any group yet
+          <strong className="text-slate-900">3 regular attenders</strong> aren&apos;t in any group yet
         </p>
         <ul className="mt-2 divide-y divide-slate-100">
-          <Row left="Michael Brown" sub="Attended 7 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
-          <Row left="Priya Nair" sub="Attended 6 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
-          <Row left="Kevin & Lisa Park" sub="Attended 6 of the last 8 weeks" right={<Pill tone="rose">No group</Pill>} />
+          <Row left="Michael Brown" sub="Attended 9 times in the last 12 weeks" right={<Pill tone="rose">No group</Pill>} />
+          <Row left="Priya Nair" sub="Attended 7 times in the last 12 weeks" right={<Pill tone="rose">No group</Pill>} />
+          <Row left="Kevin Park" sub="Attended 5 times in the last 12 weeks" right={<Pill tone="rose">No group</Pill>} />
         </ul>
         <p className="mt-2 text-xs text-slate-500">Tip: add &ldquo;by campus&rdquo; to group this list by campus.</p>
       </div>
@@ -119,7 +119,7 @@ const examples: Example[] = [
     response: () => (
       <div>
         <p className="text-sm text-slate-600">
-          <strong className="text-slate-900">6 regular attenders</strong> aren&apos;t on a serving team
+          <strong className="text-slate-900">3 regular attenders</strong> aren&apos;t on a serving team
         </p>
         <ul className="mt-2 divide-y divide-slate-100">
           <Row left="Emily Carter" sub="Regular attender · in Women’s Bible Study" right={<Pill>Not serving</Pill>} />
@@ -138,12 +138,12 @@ const examples: Example[] = [
     response: () => (
       <div>
         <p className="text-sm text-slate-600">
-          <strong className="text-slate-900">5 people</strong> attended last Easter but not since February
+          <strong className="text-slate-900">3 people</strong> attended last Easter but not since February
         </p>
         <ul className="mt-2 divide-y divide-slate-100">
-          <Row left="Daniel Ruiz" sub="Last attended Feb 2" right={<Pill tone="amber">Missing</Pill>} />
-          <Row left="Hannah Scott" sub="Last attended Jan 26" right={<Pill tone="amber">Missing</Pill>} />
-          <Row left="The Patel family" sub="Last attended Jan 19" right={<Pill tone="amber">Missing</Pill>} />
+          <Row left="Daniel Ruiz" sub="Last attended Jan 25" right={<Pill tone="amber">Missing</Pill>} />
+          <Row left="Hannah Scott" sub="Last attended Jan 18" right={<Pill tone="amber">Missing</Pill>} />
+          <Row left="Anita Patel" sub="Last attended Jan 11" right={<Pill tone="amber">Missing</Pill>} />
         </ul>
         <p className="mt-2 text-xs text-slate-500">Also try: &ldquo;Who hasn&apos;t attended in the last 4 weeks?&rdquo;</p>
       </div>
@@ -158,12 +158,12 @@ const examples: Example[] = [
     response: () => (
       <div>
         <p className="text-sm text-slate-600">
-          <strong className="text-slate-900">7 givers</strong> gave last year but haven&apos;t given this year
+          <strong className="text-slate-900">3 givers</strong> gave last year but haven&apos;t given this year
         </p>
         <ul className="mt-2 divide-y divide-slate-100">
           <Row left="Thomas Reed" sub="Last gift: Dec, last year" right={<Pill tone="amber">Lapsed</Pill>} />
           <Row left="Maria Gonzalez" sub="Last gift: Nov, last year" right={<Pill tone="amber">Lapsed</Pill>} />
-          <Row left="Chris & Dana White" sub="Last gift: Oct, last year" right={<Pill tone="amber">Lapsed</Pill>} />
+          <Row left="Dana White" sub="Last gift: Oct, last year" right={<Pill tone="amber">Lapsed</Pill>} />
         </ul>
         <p className="mt-2 text-xs text-slate-500">Works for quarters and months too.</p>
       </div>
@@ -182,7 +182,7 @@ const examples: Example[] = [
         </p>
         <ul className="mt-2 divide-y divide-slate-100">
           <Row left="Angela Brooks" sub="First visit 2 weeks ago" right={<Pill tone="rose">No follow-up</Pill>} />
-          <Row left="Mark & Jenny Liu" sub="First visit last Sunday" right={<Pill tone="rose">No follow-up</Pill>} />
+          <Row left="Jenny Liu" sub="First visit last Sunday" right={<Pill tone="rose">No follow-up</Pill>} />
           <Row left="Samuel Ortiz" sub="First visit 3 weeks ago" right={<Pill tone="rose">No follow-up</Pill>} />
         </ul>
       </div>
@@ -404,6 +404,7 @@ export default function AISearchShowcase() {
   const [typed, setTyped] = useState(examples[0].question.length);
   const [phase, setPhase] = useState<Phase>('answer');
   const [playing, setPlaying] = useState(true);
+  // Hover pauses auto-rotation only for a real mouse; touch taps never count as hovering.
   const [hovered, setHovered] = useState(false);
   const windowRef = useRef<HTMLDivElement>(null);
 
@@ -439,6 +440,18 @@ export default function AISearchShowcase() {
       setTyped(0);
       setPhase('typing');
     }
+  }
+
+  // Play is an explicit request: resume now and show the next example straight away, even though
+  // the pointer is over the demo (hover-pause applies again only after the pointer leaves and returns).
+  function togglePlay() {
+    if (playing) {
+      setPlaying(false);
+      return;
+    }
+    setPlaying(true);
+    setHovered(false);
+    select((index + 1) % examples.length);
   }
 
   const style = kindStyle[current.kind];
@@ -477,8 +490,10 @@ export default function AISearchShowcase() {
         {/* Demo */}
         <div
           className="mt-14 grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:items-start lg:gap-10"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
+          onPointerEnter={(e) => {
+            if (e.pointerType === 'mouse') setHovered(true);
+          }}
+          onPointerLeave={() => setHovered(false)}
         >
           {/* App window */}
           <Reveal className="lg:sticky lg:top-24">
@@ -488,12 +503,9 @@ export default function AISearchShowcase() {
                   <span className="h-3 w-3 rounded-full bg-rose-400" />
                   <span className="h-3 w-3 rounded-full bg-amber-400" />
                   <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                  <span className="ml-4 hidden rounded-lg bg-white px-3 py-1 text-xs text-slate-400 shadow-sm sm:block">
-                    app.churchgeniuspro.com
-                  </span>
                   <button
                     type="button"
-                    onClick={() => setPlaying((p) => !p)}
+                    onClick={togglePlay}
                     className="ml-auto inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-xs font-semibold text-slate-500 transition hover:bg-white hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label={playing ? 'Pause the AI Search demo' : 'Play the AI Search demo'}
                   >

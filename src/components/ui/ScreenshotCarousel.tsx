@@ -16,9 +16,6 @@ function ScreenFrame({ shot, eager }: { shot: Screenshot; eager?: boolean }) {
         <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-        <span className="ml-3 hidden flex-1 rounded-md bg-white px-3 py-1 text-[10px] text-slate-400 sm:block">
-          app.churchgeniuspro.com
-        </span>
       </div>
       {/* Real screenshot in a fixed 16:10 stage so mixed sizes align */}
       <div className="flex aspect-[16/10] items-center justify-center bg-white">

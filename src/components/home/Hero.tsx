@@ -117,9 +117,6 @@ export default function Hero() {
                 <span className="h-3 w-3 rounded-full bg-rose-400" />
                 <span className="h-3 w-3 rounded-full bg-amber-400" />
                 <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                <span className="ml-4 hidden rounded-lg bg-white px-3 py-1 text-xs text-slate-400 shadow-sm sm:block">
-                  app.churchgeniuspro.com/dashboard
-                </span>
               </div>
               {/* Dashboard body */}
               <div className="grid gap-4 p-4 sm:grid-cols-3 sm:p-6">
