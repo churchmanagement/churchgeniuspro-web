@@ -26,6 +26,7 @@ const content: Record<LegalPage, { title: string; updated: string; sections: { h
       {
         heading: '4. Security',
         body: 'We use industry-standard encryption in transit and at rest, role-based access controls, and optional network-restricted (Wi-Fi-only) pages for sensitive functions like check-in and temporary logins.',
+        links: [{ label: 'Security & Technology — how ChurchGeniusPro protects your church', href: '/security' }],
       },
       {
         heading: '5. Text Messages (SMS)',

@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
 import Compare from './pages/Compare';
+import Security from './pages/Security';
 import Support from './pages/Support';
 import Contact from './pages/SignUp';
 import TrialRequest from './pages/TrialRequest';
@@ -36,6 +37,7 @@ const eagerPages: PageComponents = {
   Features,
   Pricing,
   Compare,
+  Security,
   Support,
   Contact,
   TrialRequest,

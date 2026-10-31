@@ -60,6 +60,7 @@ const assurances = [
     title: 'Secure by design',
     description:
       'Role-based access, tailored portals, and private pages protect your church data at every level.',
+    link: { to: '/security', label: 'Security & technology' },
   },
 ];
 
@@ -294,6 +295,14 @@ export default function Pricing() {
                   </span>
                   <h3 className="mt-4 font-bold text-slate-900">{a.title}</h3>
                   <p className="mt-2 text-sm text-slate-600">{a.description}</p>
+                  {'link' in a && a.link && (
+                    <Link
+                      to={a.link.to}
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:gap-2 hover:text-blue-700"
+                    >
+                      {a.link.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  )}
                 </div>
               </Reveal>
             ))}

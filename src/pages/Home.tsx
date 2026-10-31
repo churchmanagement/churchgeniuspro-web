@@ -78,6 +78,7 @@ const benefits = [
     title: 'Safe and private',
     description:
       'Role-based access, Wi-Fi-only private pages, and secure code & barcode check-in for children.',
+    link: { to: '/security', label: 'How we protect your church' },
   },
 ];
 
@@ -107,6 +108,14 @@ export default function Home() {
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-slate-900">{b.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{b.description}</p>
+                  {'link' in b && b.link && (
+                    <Link
+                      to={b.link.to}
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:gap-2 hover:text-blue-700"
+                    >
+                      {b.link.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  )}
                 </div>
               </Reveal>
             ))}

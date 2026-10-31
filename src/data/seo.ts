@@ -59,6 +59,12 @@ const staticRoutes: RouteMeta[] = [
       'Feature-by-feature comparison of ChurchGeniusPro with Breeze, Planning Center, and Tithe.ly church management software, verified from official sources.',
   },
   {
+    path: '/security',
+    title: 'Security & Technology — Built in the USA | ChurchGeniusPro',
+    description:
+      'How ChurchGeniusPro protects your church: enterprise-grade technology, role-based access, encrypted data, and software developed in the USA.',
+  },
+  {
     path: '/support',
     title: 'Support, Tutorials & Video Guides | ChurchGeniusPro',
     description:

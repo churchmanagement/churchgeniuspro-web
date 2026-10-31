@@ -15,6 +15,7 @@ export interface PageComponents {
   Features: ComponentType;
   Pricing: ComponentType;
   Compare: ComponentType;
+  Security: ComponentType;
   Support: ComponentType;
   Contact: ComponentType;
   TrialRequest: ComponentType;
@@ -38,6 +39,7 @@ const lazyPages: PageComponents = {
   Features: lazy(() => import('./pages/Features')),
   Pricing: lazy(() => import('./pages/Pricing')),
   Compare: lazy(() => import('./pages/Compare')),
+  Security: lazy(() => import('./pages/Security')),
   Support: lazy(() => import('./pages/Support')),
   Contact: lazy(() => import('./pages/SignUp')),
   TrialRequest: lazy(() => import('./pages/TrialRequest')),
@@ -116,6 +118,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
     Features,
     Pricing,
     Compare,
+    Security,
     Support,
     Contact,
     TrialRequest,
@@ -150,6 +153,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
             {compareVsPages.map((p) => (
               <Route key={p.slug} path={`/compare/${p.slug}`} element={<CompareVs slug={p.slug} />} />
             ))}
+            <Route path="/security" element={<Security />} />
             <Route path="/support" element={<Support />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<TrialRequest />} />

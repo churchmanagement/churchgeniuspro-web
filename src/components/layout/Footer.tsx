@@ -34,6 +34,7 @@ const columns = [
   {
     heading: 'Company',
     links: [
+      { name: 'Security & Technology', to: '/security' },
       { name: 'Support', to: '/support' },
       { name: 'Request a Free Trial', to: '/signup' },
       { name: 'Contact', to: '/contact' },

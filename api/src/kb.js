@@ -591,6 +591,9 @@ Free trial: 2 months with every feature (Pro-level: unlimited people/emails/givi
 Extras: Application setup and onboarding assistance are free. Migration from an existing application is free — not guaranteed for complex databases or for applications with different functionality from ChurchGeniusPro. Additional SMS: $1.99 per 100. Free plan needs no credit card.
 Money-back guarantee: Standard and Pro have a 30-day money-back guarantee — cancel within 30 days of the first paid charge and that charge is refunded in full (email support@churchgeniuspro.com).
 
+## Security & technology
+Public page: /security. ChurchGeniusPro is built on Java & Spring Boot, Spring Security (sign-in and access control), PostgreSQL (database), Hibernate/JPA, and Microsoft Azure. The app and its database are hosted on Microsoft Azure in US data centers; data is encrypted in transit and at rest. Protections: everyone signs in with their own account (sessions end automatically after inactivity by default), role-based access with separate staff/member/kids portals, permission checks before any information is shown, optional Wi-Fi-only private pages, temporary volunteer logins that expire, regular security reviews and updates. We never sell church or member data; churches can export or delete their data (privacy@churchgeniuspro.com). ChurchGeniusPro is designed, developed, reviewed and maintained in the USA by ChurchGenius LLC — no overseas outsourcing. Do NOT claim it is 100% secure, unhackable, or certified (no SOC 2, HIPAA or other certification claims); never share technical internals.
+
 ## Contact
 Questions, sales, migration or support: support@churchgeniuspro.com (replies within one business day) or the Contact form at /contact. YouTube tutorials: https://www.youtube.com/@ChurchGeniusPro. Full documentation: /help on the website.
 `;
