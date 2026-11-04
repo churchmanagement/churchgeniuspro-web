@@ -397,6 +397,13 @@ const HOLD_TIME = 5200;
 
 type Phase = 'typing' | 'thinking' | 'answer';
 
+/* "Try asking…" ticker: 5 examples visible, scrolls vertically in step with the demo. */
+const N = examples.length;
+const VISIBLE = 5;
+// Two full copies + a few extra so the loop can keep scrolling forward and then snap back
+// invisibly (copies are identical, so pos and pos - N look the same).
+const tickerItems = [...examples, ...examples, ...examples.slice(0, VISIBLE)];
+
 export default function AISearchShowcase() {
   const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
@@ -406,7 +413,12 @@ export default function AISearchShowcase() {
   const [playing, setPlaying] = useState(true);
   // Hover pauses auto-rotation only for a real mouse; touch taps never count as hovering.
   const [hovered, setHovered] = useState(false);
+  // Keyboard focus inside the list also pauses rotation so the focused item doesn't scroll away.
+  const [listFocused, setListFocused] = useState(false);
   const windowRef = useRef<HTMLDivElement>(null);
+  // Ticker scroll position (index of the item in the top slot) and whether to animate the move.
+  const [pos, setPos] = useState(0);
+  const [animateTicker, setAnimateTicker] = useState(true);
 
   const current = examples[index];
 
@@ -424,12 +436,41 @@ export default function AISearchShowcase() {
       }
     } else if (phase === 'thinking') {
       t = setTimeout(() => setPhase('answer'), THINK_TIME);
-    } else if (playing && !hovered) {
-      t = setTimeout(() => select((index + 1) % examples.length), HOLD_TIME);
+    } else if (playing && !hovered && !listFocused) {
+      t = setTimeout(advance, HOLD_TIME);
     }
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [phase, typed, playing, hovered, index]);
+  }, [phase, typed, playing, hovered, listFocused, index]);
+
+  // After an invisible snap-back (transition disabled), re-enable the smooth transition.
+  useEffect(() => {
+    if (animateTicker) return;
+    let r2 = 0;
+    const r1 = requestAnimationFrame(() => {
+      r2 = requestAnimationFrame(() => setAnimateTicker(true));
+    });
+    return () => {
+      cancelAnimationFrame(r1);
+      cancelAnimationFrame(r2);
+    };
+  }, [animateTicker]);
+
+  // Scroll the ticker forward so example n sits in the top slot.
+  function scrollTickerTo(n: number) {
+    setPos((p) => {
+      let target = n;
+      while (target < p) target += N;
+      if (target > 2 * N) target -= N;
+      return reduceMotion ? target % N : target;
+    });
+  }
+
+  function advance() {
+    const next = (index + 1) % N;
+    select(next);
+    scrollTickerTo(next);
+  }
 
   function select(i: number) {
     setIndex(i);
@@ -451,7 +492,7 @@ export default function AISearchShowcase() {
     }
     setPlaying(true);
     setHovered(false);
-    select((index + 1) % examples.length);
+    advance();
   }
 
   const style = kindStyle[current.kind];
@@ -489,7 +530,7 @@ export default function AISearchShowcase() {
 
         {/* Demo */}
         <div
-          className="mt-14 grid gap-8 lg:grid-cols-[1.35fr_1fr] lg:items-start lg:gap-10"
+          className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:items-start lg:gap-10"
           onPointerEnter={(e) => {
             if (e.pointerType === 'mouse') setHovered(true);
           }}
@@ -518,8 +559,16 @@ export default function AISearchShowcase() {
                   {/* Search bar */}
                   <div className="flex items-center gap-3 rounded-2xl border-2 border-transparent bg-[linear-gradient(white,white),linear-gradient(90deg,#2563eb,#9333ea,#10b981)] px-4 py-3.5 shadow-lg shadow-blue-600/10 [background-clip:padding-box,border-box] [background-origin:border-box]">
                     <Sparkles className="h-5 w-5 shrink-0 text-purple-600" aria-hidden="true" />
-                    <p className="min-h-[1.5rem] min-w-0 flex-1 text-[15px] font-medium text-slate-800 sm:text-base" aria-label={`Example question: ${current.question}`}>
-                      <span aria-hidden="true">
+                    <p className="grid min-h-[1.5rem] min-w-0 flex-1 grid-cols-[minmax(0,1fr)] text-[15px] font-medium text-slate-800 sm:text-base" aria-label={`Example question: ${current.question}`}>
+                      {/* Invisible copies of every question reserve the tallest one's height, so the
+                          window (and the content below it) never changes size as examples rotate. */}
+                      {examples.map((ex) => (
+                        <span key={ex.id} className="invisible [grid-area:1/1]" aria-hidden="true">
+                          {ex.question}
+                          <span className="ml-0.5 inline-block h-5 w-0.5" />
+                        </span>
+                      ))}
+                      <span className="self-center [grid-area:1/1]" aria-hidden="true">
                         {current.question.slice(0, typed)}
                         {phase === 'typing' && (
                           <span className="ml-0.5 inline-block h-5 w-0.5 translate-y-1 animate-pulse bg-blue-600" />
@@ -538,10 +587,26 @@ export default function AISearchShowcase() {
                         <Sparkles className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <span className="text-sm font-bold text-slate-900">AI Search</span>
-                      <span className={`ml-auto rounded-full px-2.5 py-0.5 text-[11px] font-semibold ring-1 ${style.chip}`}>
-                        {current.label}
+                      {/* Badge slot sized to the widest label so the header never changes height. */}
+                      <span className="ml-auto grid items-center justify-items-end">
+                        {examples.map((ex) => (
+                          <span key={ex.id} className="invisible rounded-full px-2.5 py-0.5 text-[11px] font-semibold [grid-area:1/1]" aria-hidden="true">
+                            {ex.label}
+                          </span>
+                        ))}
+                        <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ring-1 [grid-area:1/1] ${style.chip}`}>
+                          {current.label}
+                        </span>
                       </span>
                     </div>
+                    <div className="grid grid-cols-[minmax(0,1fr)]">
+                    {/* Same idea for the answers: reserve the height of the tallest one. */}
+                    {examples.map((ex) => (
+                      <div key={ex.id} className="pointer-events-none invisible [grid-area:1/1]" aria-hidden="true">
+                        {ex.response()}
+                      </div>
+                    ))}
+                    <div className="[grid-area:1/1]">
                     <AnimatePresence mode="wait">
                       {phase === 'answer' ? (
                         <motion.div
@@ -581,6 +646,8 @@ export default function AISearchShowcase() {
                         </motion.div>
                       )}
                     </AnimatePresence>
+                    </div>
+                    </div>
                   </div>
                   <p className="mt-3 text-center text-[11px] text-slate-400">Illustration with sample data</p>
                 </div>
@@ -591,46 +658,84 @@ export default function AISearchShowcase() {
           {/* Example chooser */}
           <Reveal delay={0.1}>
             <p className="text-sm font-semibold uppercase tracking-wider text-slate-500">Try asking…</p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-              {examples.map((ex, i) => {
-                const active = i === index;
-                const ks = kindStyle[ex.kind];
-                return (
-                  <li key={ex.id}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        select(i);
-                        setPlaying(false);
-                        // On stacked (mobile/tablet) layouts, bring the answer into view.
-                        const el = windowRef.current;
-                        if (el && window.innerWidth < 1024 && el.getBoundingClientRect().top < 0) {
-                          el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-                        }
-                      }}
-                      aria-pressed={active}
-                      className={`group flex w-full items-start gap-3 rounded-xl border px-3.5 py-2.5 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
-                        active
-                          ? 'border-transparent bg-white shadow-lg shadow-purple-600/10 ring-2 ring-purple-500/60'
-                          : 'border-slate-200/80 bg-white/70 hover:border-blue-300 hover:bg-white'
-                      }`}
-                    >
-                      <span
-                        className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${
-                          active ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white' : `${ks.chip} ring-1`
+            {/* Fixed-height window showing 5 examples; the track inside slides vertically. */}
+            <div
+              className="relative mt-4 overflow-hidden p-1 [--slot:100px] sm:[--slot:84px]"
+              // overflow: clip (not hidden) so focusing an item can't scroll the box behind the animation.
+              style={{ height: `calc(var(--slot) * ${VISIBLE})`, overflow: 'clip' }}
+              onScroll={(e) => {
+                // Fallback for browsers without overflow: clip.
+                e.currentTarget.scrollTop = 0;
+              }}
+            >
+              <ul
+                style={{
+                  transform: `translateY(calc(var(--slot) * ${-pos}))`,
+                  transition: animateTicker && !reduceMotion ? 'transform 700ms cubic-bezier(0.65, 0, 0.35, 1)' : 'none',
+                }}
+                onTransitionEnd={(e) => {
+                  if (e.target !== e.currentTarget || e.propertyName !== 'transform') return;
+                  if (pos >= N) {
+                    setAnimateTicker(false);
+                    setPos(pos % N);
+                  }
+                }}
+                onFocus={() => setListFocused(true)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setListFocused(false);
+                }}
+              >
+                {tickerItems.map((ex, k) => {
+                  const i = k % N;
+                  const copy = k >= N;
+                  const active = i === index;
+                  const ks = kindStyle[ex.kind];
+                  return (
+                    <li key={`${ex.id}-${k}`} style={{ height: 'var(--slot)' }} aria-hidden={copy || undefined}>
+                      <button
+                        type="button"
+                        tabIndex={copy ? -1 : undefined}
+                        onFocus={() => {
+                          // Keyboard users: keep the focused example inside the visible window.
+                          if (copy) return;
+                          const p = pos % N;
+                          if (k < p) setPos(k);
+                          else if (k > p + VISIBLE - 1) setPos(k - VISIBLE + 1);
+                        }}
+                        onClick={() => {
+                          select(i);
+                          setPlaying(false);
+                          // On stacked (mobile/tablet) layouts, bring the answer into view.
+                          const el = windowRef.current;
+                          if (el && window.innerWidth < 1024 && el.getBoundingClientRect().top < 0) {
+                            el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+                          }
+                        }}
+                        aria-pressed={active}
+                        style={{ height: 'calc(var(--slot) - 8px)' }}
+                        className={`group flex w-full items-center gap-3 overflow-hidden rounded-xl border px-3.5 py-2 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                          active
+                            ? 'border-transparent bg-white shadow-md shadow-purple-600/10 ring-2 ring-purple-500/60'
+                            : 'border-slate-200/80 bg-white/70 hover:border-blue-300 hover:bg-white'
                         }`}
                       >
-                        <ex.icon className="h-4 w-4" aria-hidden="true" />
-                      </span>
-                      <span className="min-w-0">
-                        <span className={`block text-[11px] font-bold uppercase tracking-wide ${ks.text}`}>{ex.label}</span>
-                        <span className="block text-sm font-medium leading-snug text-slate-700">“{ex.question}”</span>
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+                        <span
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${
+                            active ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white' : `${ks.chip} ring-1`
+                          }`}
+                        >
+                          <ex.icon className="h-4 w-4" aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className={`block text-[11px] font-bold uppercase tracking-wide ${ks.text}`}>{ex.label}</span>
+                          <span className="block text-sm font-medium leading-snug text-slate-700">“{ex.question}”</span>
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </Reveal>
         </div>
 
