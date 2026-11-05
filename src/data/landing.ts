@@ -413,7 +413,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'Where to find it',
         title: 'Which plans include AI?',
         body: [
-          'Advanced AI — type search, auto-filling screens by voice, conversation, scanning checks and documents, and file uploads — plus AI-assisted accounting are included in the Pro plan at $40/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
+          'Advanced AI — type search, auto-filling screens by voice, conversation, scanning checks and documents, file uploads, AI people filters, member insights and Ministry Report, AI writing, form builder, action agent, automations, and MCP connections — plus AI-assisted accounting are included in the Pro plan at $40/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
         ],
       },
     ],

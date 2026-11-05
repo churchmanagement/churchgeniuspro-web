@@ -14,6 +14,7 @@ import {
 import Hero from '../components/home/Hero';
 import DemoSection from '../components/home/DemoSection';
 import AISearchShowcase from '../components/home/AISearchShowcase';
+import NewAIFeatures from '../components/home/NewAIFeatures';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import Stats from '../components/ui/Stats';
 import Testimonials from '../components/ui/Testimonials';
@@ -90,6 +91,9 @@ export default function Home() {
 
       {/* AI Search — key differentiator, right under the hero */}
       <AISearchShowcase />
+
+      {/* Advanced AI features (Pro / trial) — highlighted */}
+      <NewAIFeatures />
 
       {/* Benefits */}
       <section className="section">
