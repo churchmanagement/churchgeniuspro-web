@@ -67,7 +67,7 @@ export interface DemoVideo extends SiteVideo {
 
 /** The primary demo: the 5-minute application tour. */
 export const demoTour: DemoVideo = {
-  id: 'BrvHZXAd880',
+  id: 'biqCsHI3Bx0',
   title: 'Take a 5-minute tour of the ChurchGeniusPro application',
   topic: 'Overview',
   category: 'Overview',
