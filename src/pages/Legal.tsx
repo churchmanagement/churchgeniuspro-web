@@ -9,39 +9,53 @@ const SMS_LINKS = [
 const content: Record<LegalPage, { title: string; updated: string; sections: { heading: string; body: string; links?: { label: string; href: string }[] }[] }> = {
   privacy: {
     title: 'Privacy Policy',
-    updated: 'October 19, 2026',
+    updated: 'November 6, 2026',
     sections: [
       {
         heading: '1. Information We Collect',
-        body: 'We collect information you provide when creating an account (church name, contact details, email) and information generated through your use of the platform, such as member records your church enters. Your church remains the owner of its data at all times.',
+        body: 'We collect information you provide when creating an account (church name, contact details, email) and information generated through your use of the platform, such as member records your church enters. Your church remains the owner of its data at all times. ChurchGeniusPro does not collect or store Social Security numbers, and its payroll feature does not collect bank account or routing numbers.',
       },
       {
         heading: '2. How We Use Information',
-        body: 'We use your information to operate and improve ChurchGeniusPro, provide support, process payments, and send service communications. We never sell your data or your members\' data to third parties.',
+        body: 'We use your information to operate and improve ChurchGeniusPro, provide support, process payments, and send service communications. We never sell your data or your members\' data to third parties, and we do not use it for advertising.',
       },
       {
-        heading: '3. Children\'s Data',
-        body: 'Children\'s profiles (including medical notes used for check-in) are protected with role-based access and are visible only to authorized staff and guardians your church designates. We process children\'s data solely on behalf of your church.',
+        heading: '3. Service Providers and AI',
+        body: 'We use a small number of service providers to run ChurchGeniusPro, each only for its part of the service: OpenAI, L.L.C. for the optional AI features described below; Stripe for online giving and subscription payments (card details are entered with Stripe and are not stored by ChurchGeniusPro); Plaid for Bank Sync, when a church chooses to connect a bank account (we store an encrypted connection token, never bank sign-in details); Twilio for text messages; Microsoft Azure for hosting; Google reCAPTCHA to protect public forms from spam; and our email delivery provider for account and church emails.\n\nAI features and OpenAI. Some optional features use OpenAI as our service provider: voice entry and Converse, the AI Assistant and Help assistant, AI drafting, and reading scanned checks, bank statements and forms. When you use one of these features, we send OpenAI only what that feature needs — your voice recording (with a short list of your church\'s fund, expense category and payment method names to improve recognition), the text you type and your recent messages in a conversation, or the photo or file you choose to scan. These may contain names, financial information or other personal details. In the ChurchGeniusPro mobile app we ask for your permission before any of this is sent, and you can stop sharing at any time under AI Data Sharing. Bank files in CSV, OFX or QFX format are read by ChurchGeniusPro only and are never sent to OpenAI.\n\nOpenAI processes this data on our behalf to provide the feature. Under OpenAI\'s API terms, data sent through its API is not used to train OpenAI\'s models. OpenAI may keep it for up to 30 days to monitor for abuse, unless a longer period is required by law, and then deletes it. Stopping sharing prevents future sending; it does not recall information already sent.',
+        links: [{ label: 'OpenAI: how API data is handled', href: 'https://openai.com/enterprise-privacy/' }],
       },
       {
-        heading: '4. Security',
+        heading: '4. The ChurchGeniusPro Mobile App',
+        body: 'The iOS and Android apps open your church\'s ChurchGeniusPro account. The app asks for device permissions only when you use the feature that needs them: the camera or photo library to scan checks, forms and pictures; the microphone for voice entry; notifications for reminders and assignments; and Face ID, Touch ID or fingerprint sign-in, which is handled by your device — ChurchGeniusPro never receives biometric data. Before an AI feature sends anything to OpenAI, the app shows a notice and asks for your agreement. The app contains no advertising and does not track you across other companies\' apps or websites.',
+      },
+      {
+        heading: '5. Children\'s Data',
+        body: 'Children\'s profiles (including medical notes used for check-in) are protected with role-based access and are visible only to authorized staff and guardians your church designates. We process children\'s data solely on behalf of your church. The Kids Portal sign-in is available only to children aged 13 or older according to the church\'s records.',
+      },
+      {
+        heading: '6. Security',
         body: 'We use industry-standard encryption in transit and at rest, role-based access controls, and optional network-restricted (Wi-Fi-only) pages for sensitive functions like check-in and temporary logins.',
         links: [{ label: 'Security & Technology — how ChurchGeniusPro protects your church', href: '/security' }],
       },
       {
-        heading: '5. Text Messages (SMS)',
+        heading: '7. Text Messages (SMS)',
         body: 'Churches that use ChurchGeniusPro can send text messages, such as event and service reminders, RSVP confirmations, volunteer schedules and children\'s ministry pickup alerts, to people who have agreed to receive them. We collect a mobile phone number and the person\'s SMS consent only to deliver those messages. Mobile phone numbers and SMS opt-in consent are never sold, rented, or shared with third parties or affiliates for their marketing or promotional purposes. Text-messaging opt-in data and consent are not shared with any third party, except the service providers (such as our SMS delivery provider) that send messages on our behalf. Reply STOP to any message to stop receiving texts, or HELP for help. Message and data rates may apply.',
         links: SMS_LINKS,
       },
       {
-        heading: '6. Your Rights',
+        heading: '8. Deleting Your Account',
+        body: 'Member Portal: open Settings and choose Delete my account. Your login is deleted immediately; your church keeps its own membership and giving records, which it needs for its accounts. Staff: open Account & Privacy and choose Delete my login. Your login and your contact details on it are deleted immediately; records you entered for the church keep your name. Whole church: the church login or a SuperAdmin opens Account & Privacy and requests deletion; after the request is confirmed from the church\'s registered email, every record of the church is deleted within 30 days. ChurchGenius LLC keeps its own invoices and payment records for the church\'s subscription as tax records. Copies in database backups are removed as those backups expire. Stripe and Plaid keep their own records under their terms.',
+        links: [{ label: 'Account deletion — step by step', href: 'https://churchgeniuspro.net/account-deletion' }],
+      },
+      {
+        heading: '9. Your Rights',
         body: 'You may access, correct, export, or delete your data at any time. Contact privacy@churchgeniuspro.com for data requests, and we will respond within 30 days.',
       },
     ],
   },
   terms: {
     title: 'Terms of Service',
-    updated: 'October 22, 2026',
+    updated: 'November 6, 2026',
     sections: [
       {
         heading: '1. Your Account',
@@ -57,14 +71,18 @@ const content: Record<LegalPage, { title: string; updated: string; sections: { h
       },
       {
         heading: '4. Acceptable Use',
-        body: 'You agree not to misuse the platform, attempt unauthorized access, or use it to send unlawful communications. We may suspend accounts that violate these terms.',
+        body: 'You agree not to misuse the platform, attempt unauthorized access, or use it to send unlawful communications. There is no tolerance for objectionable content or abusive behavior: you may not post or send content that is offensive, harassing, hateful, sexually explicit or threatening, for example in Members Chat or prayer requests. Members can report messages and block other members, and churches review reports. We may remove content and suspend accounts or users that violate these terms.',
       },
       {
-        heading: '5. Service Availability',
+        heading: '5. Content You Upload',
+        body: 'Your church is responsible for the content it uploads or publishes with ChurchGeniusPro — for example song lyrics and music, images, documents and sponsor pages — and for holding every licence that content needs (such as a CCLI licence for song lyrics). We may remove content after a valid complaint that it infringes someone else\'s rights; send complaints to support@churchgeniuspro.com.',
+      },
+      {
+        heading: '6. Service Availability',
         body: 'We work to keep the service available at all times and announce scheduled maintenance in advance. The service is provided "as is" to the maximum extent permitted by law.',
       },
       {
-        heading: '6. SMS Messaging Program',
+        heading: '7. SMS Messaging Program',
         body: 'ChurchGeniusPro lets churches send informational text messages (event and service reminders, RSVP confirmations, volunteer scheduling, children\'s ministry pickup alerts and prayer updates) to people who opt in on their church\'s SMS sign-up form and confirm by replying YES. Messages begin with the church\'s name. Message frequency varies. Message and data rates may apply. Reply STOP to cancel at any time; you will receive one confirmation and no further messages. Reply HELP for help, or email support@churchgeniuspro.com. Carriers are not liable for delayed or undelivered messages. Consent to receive texts is not a condition of membership or of any purchase. Churches using ChurchGeniusPro must send texts only to people who have given consent.',
         links: SMS_LINKS,
       },
@@ -219,7 +237,9 @@ export default function Legal({ page }: { page: LegalPage }) {
             {doc.sections.map((s) => (
               <div key={s.heading}>
                 <h2 className="text-xl font-bold text-slate-900">{s.heading}</h2>
-                <p className="mt-3 leading-relaxed text-slate-600">{s.body}</p>
+                {s.body.split('\n\n').map((para, i) => (
+                  <p key={i} className="mt-3 leading-relaxed text-slate-600">{para}</p>
+                ))}
                 {s.links && (
                   <ul className="mt-3 space-y-1.5">
                     {s.links.map((l) => (
