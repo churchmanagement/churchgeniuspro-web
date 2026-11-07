@@ -15,6 +15,7 @@ import Hero from '../components/home/Hero';
 import DemoSection from '../components/home/DemoSection';
 import AISearchShowcase from '../components/home/AISearchShowcase';
 import NewAIFeatures from '../components/home/NewAIFeatures';
+import CustomizationCommitment from '../components/home/CustomizationCommitment';
 import { SectionHeading, Reveal } from '../components/ui/Section';
 import Stats from '../components/ui/Stats';
 import Testimonials from '../components/ui/Testimonials';
@@ -200,6 +201,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Your Church. Your Needs. Our Commitment. — custom features & enhancements */}
+      <CustomizationCommitment />
 
       {/* Watch Demo — gated 5-minute tour + demo library (/demo) */}
       <DemoSection />
