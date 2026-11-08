@@ -28,6 +28,10 @@ export interface ContactMessage {
   phone?: string;
   subject: string;
   message: string;
+  /** Trial request: "How did you hear about ChurchGeniusPro?" (required on /signup). */
+  heardAbout?: string;
+  /** Optional detail: friend's name, which social network, or where (Others). */
+  heardAboutDetail?: string;
 }
 
 export async function submitContactForm(data: ContactMessage): Promise<{ ok: boolean; error?: string }> {
@@ -44,6 +48,13 @@ export async function submitContactForm(data: ContactMessage): Promise<{ ok: boo
         church: data.church ?? '',
         phone: data.phone ?? '',
         message: data.message,
+        ...(data.heardAbout
+          ? {
+              how_did_you_hear: data.heardAboutDetail?.trim()
+                ? `${data.heardAbout} — ${data.heardAboutDetail.trim()}`
+                : data.heardAbout,
+            }
+          : {}),
         botcheck: '',
       }),
     });

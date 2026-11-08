@@ -17,10 +17,18 @@ import { trackTrialConversion } from '../lib/gtag';
 
 const TRIAL_SUBJECT = 'Trial Version Request';
 
-type TrialFormFields = Omit<ContactMessage, 'subject'> & {
+type TrialFormFields = Omit<ContactMessage, 'subject' | 'heardAbout' | 'heardAboutDetail'> & {
   church: string;
   phone: string;
+  heardAbout: string;
+  friendName: string;
+  socialNetwork: string;
+  otherSource: string;
 };
+
+/** "How did you hear about ChurchGeniusPro?" — required; Friend / Social network / Others ask an optional detail. */
+const HEARD_ABOUT_OPTIONS = ['Google', 'Friend', 'Lead pastor', 'Social network', 'Others'];
+const SOCIAL_NETWORKS = ['Facebook', 'Instagram', 'LinkedIn', 'X (Twitter)', 'YouTube', 'WhatsApp', 'Other'];
 
 const perks = [
   '2-month free trial with every feature',
@@ -58,13 +66,24 @@ export default function TrialRequest() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<TrialFormFields>();
+  const heardAbout = watch('heardAbout');
 
   const onSubmit = handleSubmit(async (data) => {
     setSending(true);
     setServerError(null);
-    const result = await submitContactForm({ ...data, subject: TRIAL_SUBJECT });
+    const { friendName, socialNetwork, otherSource, ...rest } = data;
+    const heardAboutDetail =
+      data.heardAbout === 'Friend'
+        ? friendName
+        : data.heardAbout === 'Social network'
+          ? socialNetwork
+          : data.heardAbout === 'Others'
+            ? otherSource
+            : '';
+    const result = await submitContactForm({ ...rest, heardAboutDetail, subject: TRIAL_SUBJECT });
     setSending(false);
     if (result.ok) {
       setSent(true);
@@ -191,6 +210,61 @@ export default function TrialRequest() {
                     </label>
                     <input id="phone" type="tel" className="input" autoComplete="tel" {...register('phone')} />
                   </div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="heardAbout" className="label">
+                      How did you hear about ChurchGeniusPro? *
+                    </label>
+                    <select
+                      id="heardAbout"
+                      className="input"
+                      defaultValue=""
+                      aria-invalid={!!errors.heardAbout}
+                      {...register('heardAbout', { required: 'Please tell us how you heard about us' })}
+                    >
+                      <option value="" disabled>
+                        Select an option
+                      </option>
+                      {HEARD_ABOUT_OPTIONS.map((o) => (
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.heardAbout && <p className="mt-1 text-xs text-rose-600">{errors.heardAbout.message}</p>}
+                  </div>
+                  {heardAbout === 'Friend' && (
+                    <div>
+                      <label htmlFor="friendName" className="label">
+                        Friend's name (optional)
+                      </label>
+                      <input id="friendName" className="input" maxLength={100} {...register('friendName')} />
+                    </div>
+                  )}
+                  {heardAbout === 'Social network' && (
+                    <div>
+                      <label htmlFor="socialNetwork" className="label">
+                        Which one? (optional)
+                      </label>
+                      <select id="socialNetwork" className="input" defaultValue="" {...register('socialNetwork')}>
+                        <option value="">Select a network</option>
+                        {SOCIAL_NETWORKS.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                  {heardAbout === 'Others' && (
+                    <div>
+                      <label htmlFor="otherSource" className="label">
+                        Where? (optional)
+                      </label>
+                      <input id="otherSource" className="input" maxLength={100} {...register('otherSource')} />
+                    </div>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="message" className="label">
