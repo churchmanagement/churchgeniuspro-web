@@ -101,7 +101,7 @@ export default function DemoTheater() {
         </div>
         {current.id !== demoTour.id && (
           <p className="mt-3 text-center text-sm text-slate-500">
-            <button type="button" onClick={() => play(demoTour)} className="font-semibold text-blue-600 hover:underline">
+            <button type="button" onClick={() => play(demoTour)} className="font-semibold text-brand-600 hover:underline">
               ← Back to the 5-minute tour
             </button>
           </p>
@@ -134,8 +134,8 @@ export default function DemoTheater() {
                 onClick={() => setFilter(f)}
                 className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
                   active
-                    ? 'border-transparent bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md shadow-blue-600/20'
-                    : 'border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600'
+                    ? 'border-transparent bg-gradient-to-r from-brand-600 to-plum-600 text-white shadow-md shadow-brand-600/20'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-brand-300 hover:text-brand-600'
                 }`}
               >
                 {f}
@@ -147,7 +147,7 @@ export default function DemoTheater() {
 
         {grouped.map((g) => (
           <div key={g.category} className="mt-10">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600">{g.category}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-600">{g.category}</h3>
             <ul className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {g.videos.map((v) => {
                 const active = v.id === current.id;
@@ -157,8 +157,8 @@ export default function DemoTheater() {
                       type="button"
                       onClick={() => play(v)}
                       aria-current={active ? 'true' : undefined}
-                      className={`group block w-full overflow-hidden rounded-2xl border bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${
-                        active ? 'border-blue-500 ring-2 ring-blue-500/30' : 'border-slate-100'
+                      className={`group block w-full overflow-hidden rounded-2xl border bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 ${
+                        active ? 'border-brand-500 ring-2 ring-brand-500/30' : 'border-slate-100'
                       }`}
                     >
                       <div className="relative aspect-video overflow-hidden bg-slate-900">
@@ -203,20 +203,20 @@ export default function DemoTheater() {
           </div>
         ))}
 
-        <div className="mt-14 rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-emerald-500 px-6 py-10 text-center text-white shadow-xl shadow-purple-600/20 sm:px-12">
+        <div className="mt-14 rounded-3xl bg-gradient-to-br from-brand-600 via-plum-600 to-gold-500 px-6 py-10 text-center text-white shadow-xl shadow-plum-600/20 sm:px-12">
           <h3 className="text-2xl font-bold">Ready to see it with your own church?</h3>
-          <p className="mx-auto mt-2 max-w-xl text-blue-50">
+          <p className="mx-auto mt-2 max-w-xl text-brand-50">
             Start a 2-month free trial — every feature, no credit card, and a real person sets it up with you.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/signup" className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
+            <Link to="/signup" className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-brand-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl">
               Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/40 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10">
               Ask us a question
             </Link>
           </div>
-          <p className="mt-6 text-xs text-blue-100">
+          <p className="mt-6 text-xs text-brand-100">
             New videos are published on{' '}
             <a href={youtubeChannelUrl} target="_blank" rel="noopener noreferrer" className="underline">
               our YouTube channel

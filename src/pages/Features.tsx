@@ -11,7 +11,7 @@ export default function Features() {
     <>
       {/* Page hero */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-plum-50 via-white to-white" aria-hidden="true" />
         <div className="container-page">
           <motion.div
             initial={false}
@@ -19,7 +19,7 @@ export default function Features() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Features
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -44,7 +44,7 @@ export default function Features() {
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-blue-300 hover:text-blue-600"
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-brand-300 hover:text-brand-600"
               >
                 <cat.icon className="h-3.5 w-3.5" aria-hidden="true" />
                 {cat.name}
@@ -69,7 +69,7 @@ export default function Features() {
                 >
                   <cat.icon className="h-7 w-7" aria-hidden="true" />
                 </span>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-600">
                   {cat.tagline}
                 </p>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">

@@ -52,7 +52,7 @@ function ContentSection({ section, index }: { section: LandingSection; index: nu
         >
           <Reveal className={shot && flip ? 'lg:order-2' : undefined}>
             {section.eyebrow && (
-              <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+              <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
                 {section.eyebrow}
               </span>
             )}
@@ -78,7 +78,7 @@ function ContentSection({ section, index }: { section: LandingSection; index: nu
             {section.bullets.map((b, i) => (
               <Reveal key={b.title} delay={(i % 3) * 0.08}>
                 <div className="card h-full">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white">
                     <Check className="h-4 w-4" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-bold text-slate-900">{b.title}</h3>
@@ -109,7 +109,7 @@ function PricingTeaser() {
               <div
                 className={`h-full rounded-2xl border p-6 ${
                   plan.highlighted
-                    ? 'border-blue-500/60 bg-slate-900 shadow-lg shadow-blue-600/20'
+                    ? 'border-brand-500/60 bg-slate-900 shadow-lg shadow-brand-600/20'
                     : 'border-slate-800 bg-slate-900/60'
                 }`}
               >
@@ -154,7 +154,7 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
       {/* Page hero */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
           aria-hidden="true"
         />
         <div className="container-page">
@@ -164,7 +164,7 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               {page.eyebrow}
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -185,7 +185,7 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
             </div>
             <p className="mt-4 text-sm text-slate-600">
               Or{' '}
-              <Link to="/signup" className="font-semibold text-blue-600 hover:text-blue-700">
+              <Link to="/signup" className="font-semibold text-brand-600 hover:text-brand-700">
                 try every feature free for 2 months
               </Link>{' '}
               — no credit card required.
@@ -234,11 +234,11 @@ export default function Landing({ slug }: { slug: LandingSlug }) {
             {page.related.map((r, i) => (
               <Reveal key={r.to + r.name} delay={(i % 4) * 0.06}>
                 <Link to={r.to} className="card group block h-full">
-                  <h3 className="font-bold text-slate-900 transition group-hover:text-blue-600">
+                  <h3 className="font-bold text-slate-900 transition group-hover:text-brand-600">
                     {r.name}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{r.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
                     Learn more{' '}
                     <ArrowRight
                       className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"

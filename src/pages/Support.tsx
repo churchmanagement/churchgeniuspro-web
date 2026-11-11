@@ -76,7 +76,7 @@ export default function Support() {
     <>
       {/* Hero with search */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
         <div className="container-page">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -84,7 +84,7 @@ export default function Support() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Help & Support
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -119,7 +119,7 @@ export default function Support() {
             {supportOptions.map((o, i) => (
               <Reveal key={o.title} delay={i * 0.08}>
                 <div className="card h-full text-center">
-                  <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                  <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white">
                     <o.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-bold text-slate-900">{o.title}</h3>
@@ -162,7 +162,7 @@ export default function Support() {
             {shorts.map((v, i) => (
               <Reveal key={v.id} delay={(i % 6) * 0.06}>
                 <VideoEmbed videoId={v.id} title={v.title} vertical className="shadow-lg shadow-slate-900/10" />
-                <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-blue-600">{v.topic}</p>
+                <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-brand-600">{v.topic}</p>
                 <h3 className="text-center text-sm font-bold text-slate-900">{v.title}</h3>
               </Reveal>
             ))}
@@ -172,7 +172,7 @@ export default function Support() {
               href={youtubeChannelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700"
             >
               See all tutorials on YouTube <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
@@ -194,7 +194,7 @@ export default function Support() {
                   The complete User Guide & Feature Overview — every feature explained in plain
                   language, with “How you'll use it” notes for everyday tasks.
                 </p>
-                <a href="/help" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
+                <a href="/help" className="mt-3 inline-block text-sm font-semibold text-brand-600 hover:text-brand-700">
                   Browse the docs →
                 </a>
               </div>
@@ -202,7 +202,7 @@ export default function Support() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="card flex h-full items-start gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-violet-500 text-white">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-plum-500 to-plum-500 text-white">
                 <BookOpen className="h-6 w-6" aria-hidden="true" />
               </span>
               <div>
@@ -211,7 +211,7 @@ export default function Support() {
                   Plain-English guides to church administration — giving statements, fund
                   accounting, payroll taxes, and more — each linked to its official sources.
                 </p>
-                <a href="/guides" className="mt-3 inline-block text-sm font-semibold text-blue-600 hover:text-blue-700">
+                <a href="/guides" className="mt-3 inline-block text-sm font-semibold text-brand-600 hover:text-brand-700">
                   Read the guides →
                 </a>
               </div>

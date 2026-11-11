@@ -23,7 +23,7 @@ export default function GooglePlayBadge({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Get the ChurchGeniusPro Android app on Google Play (opens in a new tab)"
-      className={`inline-block rounded-lg transition duration-300 hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${className}`}
+      className={`inline-block rounded-lg transition duration-300 hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${className}`}
     >
       <img
         src="/google-play-badge.svg"

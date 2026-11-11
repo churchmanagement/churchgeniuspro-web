@@ -111,13 +111,13 @@ function SectionView({ section }: { section: HelpSection }) {
   return (
     <>
       <section className="relative overflow-hidden pb-10 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
         <div className="container-page">
-          <Link to="/help" className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700">
+          <Link to="/help" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Help Center
           </Link>
           <div className="mt-6 flex items-start gap-4">
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/20">
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/20">
               <Icon className="h-7 w-7" aria-hidden="true" />
             </span>
             <div>
@@ -138,7 +138,7 @@ function SectionView({ section }: { section: HelpSection }) {
                 <li key={a.id}>
                   <a
                     href={`#${a.id}`}
-                    className="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-sm text-slate-600 transition hover:border-blue-600 hover:text-blue-600"
+                    className="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-sm text-slate-600 transition hover:border-brand-600 hover:text-brand-600"
                   >
                     {a.title}
                   </a>
@@ -190,7 +190,7 @@ export default function HelpCenter() {
     <>
       {/* Hero + search */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
         <div className="container-page">
           <motion.div
             initial={false}
@@ -198,7 +198,7 @@ export default function HelpCenter() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Help Center
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -230,9 +230,9 @@ export default function HelpCenter() {
                     <li key={`${h.section.id}-${h.articleId}`}>
                       <Link
                         to={`/help/${h.section.id}#${h.articleId}`}
-                        className="card block !p-5 transition hover:border-blue-300"
+                        className="card block !p-5 transition hover:border-brand-300"
                       >
-                        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">{h.section.title}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">{h.section.title}</p>
                         <h3 className="mt-1 font-bold text-slate-900">{h.articleTitle}</h3>
                         <p className="mt-1 text-sm text-slate-500">{h.snippet}</p>
                       </Link>
@@ -242,7 +242,7 @@ export default function HelpCenter() {
               ) : (
                 <p className="text-center text-slate-500">
                   No results for “{query}”. Try a different term, or{' '}
-                  <Link to="/contact" className="font-semibold text-blue-600 hover:text-blue-700">
+                  <Link to="/contact" className="font-semibold text-brand-600 hover:text-brand-700">
                     contact us
                   </Link>
                   .
@@ -263,12 +263,12 @@ export default function HelpCenter() {
               return (
                 <Reveal key={s.id} delay={(i % 3) * 0.08}>
                   <Link to={`/help/${s.id}`} className="card group block h-full">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/20 transition-transform duration-300 group-hover:scale-110">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/20 transition-transform duration-300 group-hover:scale-110">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
                     <h3 className="mt-5 text-lg font-bold text-slate-900">{s.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.description}</p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
                       {s.articles.length} article{s.articles.length === 1 ? '' : 's'}
                       <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                     </span>

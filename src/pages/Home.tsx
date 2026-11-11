@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Hero from '../components/home/Hero';
 import DemoSection from '../components/home/DemoSection';
+import GeniusAssistant from '../components/home/GeniusAssistant';
 import AISearchShowcase from '../components/home/AISearchShowcase';
 import NewAIFeatures from '../components/home/NewAIFeatures';
 import CustomizationCommitment from '../components/home/CustomizationCommitment';
@@ -90,6 +91,50 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homeJsonLd }} />
       <Hero />
 
+      {/* Genius Assistant — new, right under the hero */}
+      <GeniusAssistant />
+
+      {/* AI Highlights */}
+      <section className="section relative overflow-hidden bg-slate-950">
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background:
+              'radial-gradient(circle at 20% 30%, rgba(164,85,124,0.25), transparent 45%), radial-gradient(circle at 80% 70%, rgba(233,162,59,0.16), transparent 45%)',
+          }}
+          aria-hidden="true"
+        />
+        <div className="container-page relative">
+          <SectionHeading
+            eyebrow="Built-In AI Assistant"
+            title="Like a staff member living inside your software"
+            subtitle="Instead of hunting through menus and filling out forms, simply talk, snap a photo, or type a single word — the assistant does the work."
+            dark
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {aiHighlights.map((h, i) => (
+              <Reveal key={h.title} delay={i * 0.1}>
+                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-plum-400/40 hover:bg-white/10">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-plum-500 to-brand-500 text-white">
+                    <h.icon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 text-lg font-bold text-white">{h.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{h.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.3} className="mt-12 text-center">
+            <Link
+              to="/features"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-400 transition hover:text-brand-300"
+            >
+              Explore the AI assistant in depth <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* AI Search — key differentiator, right under the hero */}
       <AISearchShowcase />
 
@@ -108,7 +153,7 @@ export default function Home() {
             {benefits.map((b, i) => (
               <Reveal key={b.title} delay={i * 0.1}>
                 <div className="card h-full">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/20">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/20">
                     <b.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-slate-900">{b.title}</h3>
@@ -116,7 +161,7 @@ export default function Home() {
                   {'link' in b && b.link && (
                     <Link
                       to={b.link.to}
-                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:gap-2 hover:text-blue-700"
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition hover:gap-2 hover:text-brand-700"
                     >
                       {b.link.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
@@ -128,49 +173,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Highlights */}
-      <section className="section relative overflow-hidden bg-slate-950">
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            background:
-              'radial-gradient(circle at 20% 30%, rgba(59,130,246,0.25), transparent 45%), radial-gradient(circle at 80% 70%, rgba(147,51,234,0.25), transparent 45%)',
-          }}
-          aria-hidden="true"
-        />
-        <div className="container-page relative">
-          <SectionHeading
-            eyebrow="Built-In AI Assistant"
-            title="Like a staff member living inside your software"
-            subtitle="Instead of hunting through menus and filling out forms, simply talk, snap a photo, or type a single word — the assistant does the work."
-            dark
-          />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {aiHighlights.map((h, i) => (
-              <Reveal key={h.title} delay={i * 0.1}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-400/40 hover:bg-white/10">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 text-white">
-                    <h.icon className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold text-white">{h.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{h.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={0.3} className="mt-12 text-center">
-            <Link
-              to="/features"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 transition hover:text-blue-300"
-            >
-              Explore the AI assistant in depth <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
       {/* Feature category cards */}
-      <section className="section">
+      <section className="section section-tint">
         <div className="container-page">
           <SectionHeading
             eyebrow="Everything included"
@@ -188,7 +192,7 @@ export default function Home() {
                   </span>
                   <h3 className="mt-5 text-lg font-bold text-slate-900">{cat.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{cat.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600">
                     {cat.features.length} features{' '}
                     <ArrowRight
                       className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -225,7 +229,7 @@ export default function Home() {
             <PricingCards />
           </div>
           <Reveal className="mt-10 text-center">
-            <Link to="/compare" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700">
+            <Link to="/compare" className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700">
               See how we compare to other tools <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Reveal>
@@ -252,7 +256,7 @@ export default function Home() {
             <FAQAccordion items={faqs.slice(0, 6)} />
           </motion.div>
           <Reveal className="mt-8 text-center">
-            <Link to="/support" className="text-sm font-semibold text-blue-600 hover:text-blue-700">
+            <Link to="/support" className="text-sm font-semibold text-brand-600 hover:text-brand-700">
               Visit the Help Center for more →
             </Link>
           </Reveal>

@@ -1,14 +1,73 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('/fonts/plus-jakarta-sans-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+/* ChurchGeniusPro design system (Nov 2026 redesign).
+   brand = the app's burgundy/plum, plum = its deeper wine companion (used as the
+   second stop of gradients), gold = the accent from the app icon. The slate scale
+   is re-tuned to warm, plum-tinted neutrals so text and dark sections sit with
+   the brand colour. */
 @theme {
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
     Arial, sans-serif;
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
+  --font-display:
+    'Plus Jakarta Sans Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --color-brand-50: #fbf5f8;
+  --color-brand-100: #f6e9ef;
+  --color-brand-200: #ecd3df;
+  --color-brand-300: #dbadc3;
+  --color-brand-400: #c27d9e;
+  --color-brand-500: #a4557c;
+  --color-brand-600: #7c3a57;
+  --color-brand-700: #692f49;
+  --color-brand-800: #57273d;
+  --color-brand-900: #4b1f33;
+  --color-brand-950: #2b101d;
+
+  --color-plum-50: #faf4f6;
+  --color-plum-100: #f3e4ea;
+  --color-plum-200: #e6c8d4;
+  --color-plum-300: #d19fb3;
+  --color-plum-400: #b46d8a;
+  --color-plum-500: #93486a;
+  --color-plum-600: #5c2540;
+  --color-plum-700: #4b1f33;
+  --color-plum-800: #3d1829;
+  --color-plum-900: #30121f;
+  --color-plum-950: #1f0b14;
+
+  --color-gold-50: #fef9ee;
+  --color-gold-100: #fcefd3;
+  --color-gold-200: #f9dca5;
+  --color-gold-300: #f5c56f;
+  --color-gold-400: #f2b54f;
+  --color-gold-500: #e9a23b;
+  --color-gold-600: #c98522;
+  --color-gold-700: #a0661a;
+
+  --color-slate-50: #faf8f9;
+  --color-slate-100: #f4f1f2;
+  --color-slate-200: #e8e3e5;
+  --color-slate-300: #d5cdd1;
+  --color-slate-400: #a79ca2;
+  --color-slate-500: #776b72;
+  --color-slate-600: #584d54;
+  --color-slate-700: #43393f;
+  --color-slate-800: #2e252a;
+  --color-slate-900: #21171d;
+  --color-slate-950: #1c0c15;
 }
 
 html {
@@ -20,25 +79,43 @@ body {
   font-family: var(--font-sans);
 }
 
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #ecd3df;
+  color: #2b101d;
+}
+
 /* Reusable design utilities */
 .glass {
-  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg shadow-slate-900/5;
+  @apply bg-white/80 backdrop-blur-xl border border-white/50 shadow-lg shadow-brand-950/5;
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-brand-700 via-brand-500 to-gold-600 bg-clip-text text-transparent;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:shadow-xl hover:shadow-purple-600/30 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-brand-600 to-plum-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/20 transition-all duration-300 hover:shadow-xl hover:shadow-brand-900/30 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:border-blue-300 hover:text-blue-600 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3 text-sm font-semibold text-brand-800 shadow-sm transition-all duration-300 hover:border-brand-400 hover:bg-brand-50 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
 }
 
 .section {
   @apply py-20 md:py-28;
+}
+
+/* Soft tinted band for alternating sections */
+.section-tint {
+  background: linear-gradient(180deg, #fbf5f8 0%, #ffffff 100%);
 }
 
 .container-page {
@@ -46,15 +123,31 @@ body {
 }
 
 .card {
-  @apply rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-slate-900/5 hover:-translate-y-1;
+  @apply rounded-3xl border border-brand-100/80 bg-white p-6 shadow-sm shadow-brand-950/[0.03] transition-all duration-300 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-950/[0.07] hover:-translate-y-1;
+}
+
+/* Small uppercase label above section headings */
+.eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-700;
+}
+
+/* Frame for real app screenshots and recordings */
+.shot-frame {
+  @apply overflow-hidden rounded-2xl border border-brand-100 bg-white shadow-2xl shadow-brand-950/15;
 }
 
 .input {
-  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20;
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 placeholder-slate-400 transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
 }
 
 .label {
   @apply mb-1.5 block text-sm font-medium text-slate-700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Swiper pagination theming */
@@ -76,5 +169,5 @@ body {
   }
 }
 .swiper-pagination-bullet-active {
-  background: linear-gradient(to right, #2563eb, #9333ea);
+  background: linear-gradient(to right, #7c3a57, #a4557c);
 }

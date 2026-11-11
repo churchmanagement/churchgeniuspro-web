@@ -69,7 +69,7 @@ export default function Pricing() {
     <>
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
           aria-hidden="true"
         />
         <div className="container-page">
@@ -79,7 +79,7 @@ export default function Pricing() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Pricing
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -144,7 +144,7 @@ export default function Pricing() {
                     <span className="text-3xl" aria-hidden="true">
                       {addon.emoji}
                     </span>
-                    <span className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-3 py-1 text-right text-sm font-bold text-white">
+                    <span className="rounded-full bg-gradient-to-r from-brand-600 to-plum-600 px-3 py-1 text-right text-sm font-bold text-white">
                       {addon.price}
                     </span>
                   </div>
@@ -210,10 +210,10 @@ export default function Pricing() {
                       </th>
                       <th
                         scope="col"
-                        className="bg-gradient-to-b from-blue-600 to-purple-600 px-4 py-4 text-center font-semibold text-white"
+                        className="bg-gradient-to-b from-brand-600 to-plum-600 px-4 py-4 text-center font-semibold text-white"
                       >
                         Standard
-                        <span className="block text-xs font-normal text-blue-100">
+                        <span className="block text-xs font-normal text-brand-100">
                           {pricingPlans[1].price}/month
                         </span>
                       </th>
@@ -251,7 +251,7 @@ export default function Pricing() {
                             {[row.free, row.standard, row.pro].map((v, vi) => (
                               <td
                                 key={vi}
-                                className={`px-4 py-3.5 text-center ${vi === 1 ? 'bg-blue-50/70' : ''} ${
+                                className={`px-4 py-3.5 text-center ${vi === 1 ? 'bg-brand-50/70' : ''} ${
                                   v === '—'
                                     ? 'text-slate-300'
                                     : v === '✓'
@@ -290,7 +290,7 @@ export default function Pricing() {
             {assurances.map((a, i) => (
               <Reveal key={a.title} delay={i * 0.1}>
                 <div className="card h-full text-center">
-                  <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                  <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white">
                     <a.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-bold text-slate-900">{a.title}</h3>
@@ -298,7 +298,7 @@ export default function Pricing() {
                   {'link' in a && a.link && (
                     <Link
                       to={a.link.to}
-                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:gap-2 hover:text-blue-700"
+                      className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 transition hover:gap-2 hover:text-brand-700"
                     >
                       {a.link.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
@@ -322,13 +322,13 @@ export default function Pricing() {
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
               <Link
                 to="/free-church-management-software"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700"
               >
                 Learn more about the Free plan <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
                 to="/compare"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700"
               >
                 Compare us with other tools <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>

@@ -44,7 +44,7 @@ function CustomerQuotes() {
       {testimonials.map((t, i) => (
         <Reveal key={t.name} delay={i * 0.08}>
           <figure className="card flex h-full flex-col">
-            <Quote className="h-8 w-8 text-blue-600/20" aria-hidden="true" />
+            <Quote className="h-8 w-8 text-brand-600/20" aria-hidden="true" />
             <blockquote className="mt-4 flex-1 text-slate-600">“{t.quote}”</blockquote>
             <figcaption className="mt-6 border-t border-slate-100 pt-4">
               <p className="font-semibold text-slate-900">{t.name}</p>
@@ -66,8 +66,8 @@ function OfferFacts() {
         {facts.map((f, i) => (
           <Reveal key={f.title} delay={i * 0.08}>
             <div className="card h-full">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-purple-600/10">
-                <f.icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/10 to-plum-600/10">
+                <f.icon className="h-5 w-5 text-brand-600" aria-hidden="true" />
               </div>
               <h3 className="mt-4 font-semibold text-slate-900">{f.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{f.description}</p>
@@ -85,7 +85,7 @@ function OfferFacts() {
       </Reveal>
       <p className="mt-6 text-center text-sm text-slate-600">
         Already using ChurchGeniusPro?{' '}
-        <Link to="/contact" className="font-semibold text-blue-700 hover:text-blue-800">
+        <Link to="/contact" className="font-semibold text-brand-700 hover:text-brand-800">
           We would love to hear your story.
         </Link>
       </p>

@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data/content';
+import BrandMark from '../ui/BrandMark';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,24 +24,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open ? 'glass py-2' : 'bg-transparent py-4'
+        scrolled || open ? 'glass py-2.5' : 'bg-transparent py-4'
       }`}
     >
       <nav className="container-page flex items-center justify-between" aria-label="Main navigation">
         <Link to="/" className="flex items-center" aria-label="ChurchGeniusPro home">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet="/logo-96.webp 1x, /logo-192.webp 2x, /logo-288.webp 3x"
-            />
-            <img
-              src="/logo.png"
-              alt="ChurchGeniusPro"
-              width={96}
-              height={64}
-              className="h-14 w-auto md:h-16"
-            />
-          </picture>
+          <BrandMark />
         </Link>
 
         {/* Desktop nav */}
@@ -50,8 +39,8 @@ export default function Navbar() {
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
+                  `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:text-brand-800'
                   }`
                 }
               >
@@ -98,7 +87,7 @@ export default function Navbar() {
                     to={link.path}
                     className={({ isActive }) =>
                       `block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                        isActive ? 'bg-blue-50 text-blue-600' : 'text-slate-700 hover:bg-slate-50'
+                        isActive ? 'bg-brand-50 text-brand-600' : 'text-slate-700 hover:bg-slate-50'
                       }`
                     }
                   >

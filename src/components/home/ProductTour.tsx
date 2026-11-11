@@ -31,7 +31,7 @@ export default function ProductTour() {
           {shorts.map((v, i) => (
             <Reveal key={v.id} delay={(i % 6) * 0.06}>
               <VideoEmbed videoId={v.id} title={v.title} vertical className="shadow-lg shadow-slate-900/10" />
-              <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-blue-600">{v.topic}</p>
+              <p className="mt-2 text-center text-xs font-semibold uppercase tracking-wide text-brand-600">{v.topic}</p>
               <p className="text-center text-sm font-semibold text-slate-900">{v.title}</p>
             </Reveal>
           ))}
@@ -42,7 +42,7 @@ export default function ProductTour() {
             href={youtubeChannelUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-700"
           >
             Watch more on our YouTube channel <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>

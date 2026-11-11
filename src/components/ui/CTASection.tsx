@@ -7,7 +7,7 @@ export default function CTASection() {
     <section className="section">
       <div className="container-page">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-emerald-500 px-6 py-16 text-center shadow-2xl shadow-purple-600/25 sm:px-16 md:py-20">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-plum-600 to-gold-500 px-6 py-16 text-center shadow-2xl shadow-plum-600/25 sm:px-16 md:py-20">
             <div
               className="pointer-events-none absolute inset-0 opacity-20"
               style={{
@@ -24,14 +24,14 @@ export default function CTASection() {
               <h2 className="mx-auto max-w-2xl text-3xl font-bold text-white sm:text-4xl">
                 Ready to make church management effortless?
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-blue-50">
+              <p className="mx-auto mt-4 max-w-xl text-lg text-brand-50">
                 Let your software do the busywork — so you can spend less time on admin and more
                 time with people.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   to="/signup"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-brand-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>

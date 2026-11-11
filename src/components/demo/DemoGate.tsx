@@ -110,7 +110,7 @@ export default function DemoGate({ onAccess }: DemoGateProps) {
     <div className="glass rounded-3xl p-2 sm:p-3">
       <div className="rounded-2xl border border-slate-100 bg-white px-6 py-8 sm:px-10 sm:py-10">
         <div className="flex items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/25">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/25">
             <PlayCircle className="h-6 w-6" aria-hidden="true" />
           </span>
           <div>
@@ -224,7 +224,7 @@ export default function DemoGate({ onAccess }: DemoGateProps) {
           <li className="flex items-start gap-2">
             <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" aria-hidden="true" />
             By continuing you agree to our{' '}
-            <Link to="/privacy" className="font-medium text-blue-600 hover:underline">
+            <Link to="/privacy" className="font-medium text-brand-600 hover:underline">
               Privacy Policy
             </Link>
             .

@@ -72,11 +72,11 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
         <div className="container-page">
           <div className="mx-auto max-w-3xl text-center">
             <nav aria-label="Breadcrumb" className="text-sm text-slate-600">
-              <Link to="/" className="hover:text-blue-700">
+              <Link to="/" className="hover:text-brand-700">
                 Home
               </Link>{' '}
               /{' '}
-              <Link to="/compare" className="hover:text-blue-700">
+              <Link to="/compare" className="hover:text-brand-700">
                 Compare
               </Link>{' '}
               / <span aria-current="page">{page.name}</span>
@@ -124,7 +124,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
                   href={r.src}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-700"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-brand-700"
                 >
                   {page.name} official page <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   <span className="sr-only">(opens in a new tab)</span>
@@ -171,7 +171,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
                         href={r.src}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 hover:text-blue-800"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-brand-700 hover:text-brand-800"
                       >
                         Official page <ExternalLink className="h-3 w-3" aria-hidden="true" />
                         <span className="sr-only">
@@ -189,7 +189,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
             <p>
               <span className="font-semibold text-emerald-700">✓</span> offered as a built-in
               feature (for ChurchGeniusPro, on at least one plan — see{' '}
-              <Link to="/pricing" className="font-medium text-blue-600 hover:underline">
+              <Link to="/pricing" className="font-medium text-brand-600 hover:underline">
                 Pricing
               </Link>
               ). <span className="font-semibold">—</span> not found as a built-in feature in the
@@ -212,7 +212,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{cgpPricingSummary}</p>
               <Link
                 to="/pricing"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-600"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600"
               >
                 See full pricing <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
@@ -224,7 +224,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
                 href={page.pricing.src}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-700"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-700"
               >
                 Official pricing page <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 <span className="sr-only">(opens in a new tab)</span>
@@ -250,7 +250,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
                       href={s.src}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="whitespace-nowrap text-sm font-medium text-blue-700 hover:text-blue-800"
+                      className="whitespace-nowrap text-sm font-medium text-brand-700 hover:text-brand-800"
                     >
                       Source<span className="sr-only"> (opens in a new tab)</span>
                     </a>
@@ -325,7 +325,7 @@ export default function CompareVs({ slug }: { slug: CompareVsPage['slug'] }) {
                 review. Please consult each provider&rsquo;s own website for the most current
                 information before making a purchasing decision. If you believe anything on this
                 page is inaccurate or out of date, please{' '}
-                <Link to="/contact" className="font-medium text-blue-600 hover:underline">
+                <Link to="/contact" className="font-medium text-brand-600 hover:underline">
                   contact us
                 </Link>{' '}
                 and we will review and correct it promptly.

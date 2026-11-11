@@ -49,11 +49,11 @@ export default function NotFound() {
           {destinations.map((d) => (
             <li key={d.to}>
               <Link to={d.to} className="card group flex h-full items-start gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-purple-600/10">
-                  <d.icon className="h-5 w-5 text-blue-600" aria-hidden="true" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/10 to-plum-600/10">
+                  <d.icon className="h-5 w-5 text-brand-600" aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="flex items-center gap-1.5 font-semibold text-slate-900 group-hover:text-blue-700">
+                  <span className="flex items-center gap-1.5 font-semibold text-slate-900 group-hover:text-brand-700">
                     {d.label}
                     <ArrowRight
                       className="h-4 w-4 transition group-hover:translate-x-0.5"

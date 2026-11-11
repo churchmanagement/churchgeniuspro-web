@@ -44,7 +44,7 @@ export default function ScreenshotCarousel() {
   const navBtn =
     'absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full ' +
     'border border-slate-200 bg-white/90 text-slate-700 shadow-lg shadow-slate-900/10 backdrop-blur ' +
-    'transition hover:bg-white hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500';
+    'transition hover:bg-white hover:text-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500';
 
   return (
     <section className="section overflow-hidden bg-slate-50">

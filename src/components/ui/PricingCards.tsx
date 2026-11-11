@@ -35,8 +35,8 @@ function FeatureList({ features, highlighted }: { features: PlanFeature[]; highl
                   rel="noopener noreferrer"
                   className={`break-words underline decoration-1 underline-offset-2 transition ${
                     highlighted
-                      ? 'text-blue-50 decoration-blue-200/60 hover:text-white'
-                      : 'text-slate-600 decoration-slate-300 hover:text-blue-600 hover:decoration-blue-400'
+                      ? 'text-brand-50 decoration-brand-200/60 hover:text-white'
+                      : 'text-slate-600 decoration-slate-300 hover:text-brand-600 hover:decoration-brand-400'
                   }`}
                 >
                   {label}
@@ -45,7 +45,7 @@ function FeatureList({ features, highlighted }: { features: PlanFeature[]; highl
                 </a>
               ) : (
                 <span
-                  className={`break-words ${highlighted ? 'text-blue-50' : 'text-slate-600'} ${typeof f === 'string' ? '' : 'font-semibold'}`}
+                  className={`break-words ${highlighted ? 'text-brand-50' : 'text-slate-600'} ${typeof f === 'string' ? '' : 'font-semibold'}`}
                 >
                   {label}
                   {typeof f === 'string' ? '' : ':'}
@@ -56,10 +56,10 @@ function FeatureList({ features, highlighted }: { features: PlanFeature[]; highl
                   {f.items.map((item) => (
                     <li
                       key={item}
-                      className={`flex items-start gap-2 text-[13px] ${highlighted ? 'text-blue-100' : 'text-slate-500'}`}
+                      className={`flex items-start gap-2 text-[13px] ${highlighted ? 'text-brand-100' : 'text-slate-500'}`}
                     >
                       <span
-                        className={`mt-[7px] h-1 w-1 shrink-0 rounded-full ${highlighted ? 'bg-blue-200' : 'bg-slate-400'}`}
+                        className={`mt-[7px] h-1 w-1 shrink-0 rounded-full ${highlighted ? 'bg-brand-200' : 'bg-slate-400'}`}
                         aria-hidden="true"
                       />
                       {item}
@@ -84,7 +84,7 @@ function TrialPanel({ defaultOpen }: { defaultOpen: boolean }) {
   );
 
   return (
-    <div className="rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-purple-600 p-[2px] shadow-xl shadow-orange-500/15">
+    <div className="rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-plum-600 p-[2px] shadow-xl shadow-orange-500/15">
       <div className="rounded-[calc(1.5rem-2px)] bg-white p-6 sm:p-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
@@ -123,7 +123,7 @@ function TrialPanel({ defaultOpen }: { defaultOpen: boolean }) {
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
           aria-controls={panelId}
-          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700"
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700"
         >
           {open ? 'Hide' : 'See'} everything included in the trial
           <ChevronDown
@@ -168,7 +168,7 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
             <div
               className={`relative flex h-full flex-col rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1.5 sm:p-8 ${
                 plan.highlighted
-                  ? 'bg-gradient-to-b from-blue-600 to-purple-700 text-white shadow-2xl shadow-purple-600/30 ring-4 ring-purple-500/20'
+                  ? 'bg-gradient-to-b from-brand-600 to-plum-700 text-white shadow-2xl shadow-plum-600/30 ring-4 ring-plum-500/20'
                   : 'border border-slate-100 bg-white shadow-lg shadow-slate-900/5'
               }`}
             >
@@ -176,8 +176,8 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
                 <span
                   className={`absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 whitespace-nowrap rounded-full px-4 py-1.5 text-xs font-bold ${
                     plan.highlighted
-                      ? 'bg-emerald-400 text-emerald-950'
-                      : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                      ? 'bg-gold-400 text-plum-950'
+                      : 'bg-gradient-to-r from-plum-600 to-brand-600 text-white'
                   }`}
                 >
                   {plan.badge === 'Includes AI' && (
@@ -192,7 +192,7 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
                 {plan.name}
               </h3>
               <p
-                className={`mt-1 text-sm ${plan.highlighted ? 'text-blue-100' : 'text-slate-500'}`}
+                className={`mt-1 text-sm ${plan.highlighted ? 'text-brand-100' : 'text-slate-500'}`}
               >
                 {plan.description}
               </p>
@@ -206,7 +206,7 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
                   {plan.price}
                 </span>
                 <span
-                  className={`text-sm ${plan.highlighted ? 'text-blue-100' : 'text-slate-500'}`}
+                  className={`text-sm ${plan.highlighted ? 'text-brand-100' : 'text-slate-500'}`}
                 >
                   / {plan.period}
                 </span>
@@ -215,8 +215,8 @@ export default function PricingCards({ trialOpen = false }: { trialOpen?: boolea
                 to={plan.ctaHref ?? '/signup'}
                 className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
                   plan.highlighted
-                    ? 'bg-white text-blue-700 shadow-lg hover:shadow-xl'
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/25 hover:shadow-xl'
+                    ? 'bg-white text-brand-700 shadow-lg hover:shadow-xl'
+                    : 'bg-gradient-to-r from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/25 hover:shadow-xl'
                 }`}
               >
                 {plan.cta}

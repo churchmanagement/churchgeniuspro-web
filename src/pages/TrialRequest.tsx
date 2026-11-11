@@ -93,7 +93,7 @@ export default function TrialRequest() {
 
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pt-40">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-50 via-white to-white" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-plum-50 via-white to-white" aria-hidden="true" />
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: pitch */}
@@ -103,7 +103,7 @@ export default function TrialRequest() {
             transition={{ duration: 0.6 }}
             className="lg:pt-10"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Free Trial
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -127,9 +127,9 @@ export default function TrialRequest() {
             <ul className="mt-10 space-y-3 border-t border-slate-200 pt-8">
               {promises.map((p) => (
                 <li key={p.text} className="flex items-center gap-3 text-sm text-slate-600">
-                  <p.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  <p.icon className="h-4 w-4 text-brand-600" aria-hidden="true" />
                   {p.text === 'support@churchgeniuspro.com' ? (
-                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-blue-600 hover:text-blue-700">
+                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-brand-600 hover:text-brand-700">
                       support@churchgeniuspro.com
                     </a>
                   ) : (
@@ -295,7 +295,7 @@ export default function TrialRequest() {
                 </p>
                 <p className="text-center text-xs text-slate-500">
                   Have a general question instead?{' '}
-                  <Link to="/contact" className="font-semibold text-blue-600 hover:text-blue-700">
+                  <Link to="/contact" className="font-semibold text-brand-600 hover:text-brand-700">
                     Contact us
                   </Link>
                 </p>
@@ -319,7 +319,7 @@ export default function TrialRequest() {
             </p>
             <p className="mt-4 leading-relaxed text-slate-600">
               Prefer to start small? The Free plan covers up to 50 people at $0, free forever.{' '}
-              <Link to="/pricing" className="font-semibold text-blue-600 hover:text-blue-700">
+              <Link to="/pricing" className="font-semibold text-brand-600 hover:text-brand-700">
                 Compare plans
               </Link>
             </p>
@@ -329,7 +329,7 @@ export default function TrialRequest() {
             <ol className="mt-6 space-y-5">
               {nextSteps.map((step, i) => (
                 <li key={step.title} className="flex gap-4">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-sm font-bold text-white">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-plum-600 text-sm font-bold text-white">
                     {i + 1}
                   </span>
                   <span>

@@ -53,7 +53,7 @@ export default function Contact() {
 
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pt-40">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-purple-50 via-white to-white" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-plum-50 via-white to-white" aria-hidden="true" />
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: pitch */}
@@ -63,7 +63,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:pt-10"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> Contact Us
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -86,9 +86,9 @@ export default function Contact() {
             <ul className="mt-10 space-y-3 border-t border-slate-200 pt-8">
               {promises.map((p) => (
                 <li key={p.text} className="flex items-center gap-3 text-sm text-slate-600">
-                  <p.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  <p.icon className="h-4 w-4 text-brand-600" aria-hidden="true" />
                   {p.text === 'support@churchgeniuspro.com' ? (
-                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-blue-600 hover:text-blue-700">
+                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-brand-600 hover:text-brand-700">
                       support@churchgeniuspro.com
                     </a>
                   ) : (

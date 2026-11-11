@@ -197,10 +197,10 @@ export default function Security() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
         <div
           className="absolute -right-32 top-24 -z-10 h-[420px] w-[420px] rounded-full opacity-25 blur-3xl"
-          style={{ background: 'radial-gradient(closest-side, rgba(147,51,234,0.55), transparent)' }}
+          style={{ background: 'radial-gradient(closest-side, rgba(233,162,59,0.16), transparent)' }}
           aria-hidden="true"
         />
         <div className="container-page">
@@ -210,7 +210,7 @@ export default function Security() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Security, Technology &amp; Our Commitment to Your Church
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:leading-[1.1]">
@@ -228,7 +228,7 @@ export default function Security() {
                   key={b.label}
                   className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm"
                 >
-                  <b.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  <b.icon className="h-4 w-4 text-brand-600" aria-hidden="true" />
                   {b.label}
                 </li>
               ))}
@@ -257,17 +257,17 @@ export default function Security() {
             {technologies.map((t, i) => (
               <Reveal key={t.title} delay={i * 0.08}>
                 <div className="card h-full">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/20">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/20">
                     <t.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-purple-600">{t.tag}</p>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-plum-600">{t.tag}</p>
                   <h3 className="mt-1 text-lg font-bold text-slate-900">{t.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{t.description}</p>
                 </div>
               </Reveal>
             ))}
             <Reveal delay={0.4}>
-              <div className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-blue-200 bg-blue-50/60 p-6">
+              <div className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-brand-200 bg-brand-50/60 p-6">
                 <p className="text-lg font-bold text-slate-900">What this means for you</p>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   You don’t need to know any of these names. They simply mean your church management
@@ -286,7 +286,7 @@ export default function Security() {
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
             background:
-              'radial-gradient(45% 55% at 10% 15%, rgba(37,99,235,0.45), transparent 60%), radial-gradient(45% 55% at 90% 85%, rgba(147,51,234,0.45), transparent 60%)',
+              'radial-gradient(45% 55% at 10% 15%, rgba(164,85,124,0.45), transparent 60%), radial-gradient(45% 55% at 90% 85%, rgba(233,162,59,0.16), transparent 60%)',
           }}
           aria-hidden="true"
         />
@@ -301,7 +301,7 @@ export default function Security() {
             {protections.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.08}>
                 <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 text-white">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-gold-500 text-white">
                     <p.icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 text-lg font-bold text-white">{p.title}</h3>
@@ -312,7 +312,7 @@ export default function Security() {
           </div>
           <p className="mt-10 text-center text-sm text-slate-400">
             Read the details in our{' '}
-            <Link to="/privacy" className="font-semibold text-blue-300 underline-offset-4 hover:text-white hover:underline">
+            <Link to="/privacy" className="font-semibold text-brand-300 underline-offset-4 hover:text-white hover:underline">
               Privacy Policy
             </Link>
             .
@@ -324,17 +324,17 @@ export default function Security() {
       <section className="section">
         <div className="container-page">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-xl shadow-blue-600/5 sm:p-12">
+            <div className="relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-xl shadow-brand-600/5 sm:p-12">
               <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-red-500 via-white to-blue-600"
+                className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-red-500 via-white to-brand-600"
                 aria-hidden="true"
               />
               <div className="grid items-center gap-8 md:grid-cols-[auto_1fr]">
-                <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-700 to-red-600 text-white shadow-lg md:mx-0">
+                <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-700 to-red-600 text-white shadow-lg md:mx-0">
                   <Flag className="h-10 w-10" aria-hidden="true" />
                 </span>
                 <div className="text-center md:text-left">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
                     US-based development
                   </p>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -344,7 +344,7 @@ export default function Security() {
                     ChurchGeniusPro is designed, developed, reviewed, and maintained in the United States by
                     ChurchGenius LLC. We don’t outsource development overseas. The people who build the
                     software stand behind it — and when you email{' '}
-                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-blue-700 hover:text-blue-800">
+                    <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-brand-700 hover:text-brand-800">
                       support@churchgeniuspro.com
                     </a>
                     , you reach the team that builds the product.
@@ -398,7 +398,7 @@ export default function Security() {
           </div>
           <p className="mt-8 text-center text-sm text-slate-500">
             Get the Android app on{' '}
-            <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 hover:text-blue-800">
+            <a href={googlePlayUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:text-brand-800">
               Google Play
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
@@ -411,17 +411,17 @@ export default function Security() {
       <section className="section">
         <div className="container-page">
           <Reveal>
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-purple-600 to-emerald-500 px-6 py-14 text-center shadow-2xl shadow-purple-600/25 sm:px-16">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-plum-600 to-gold-500 px-6 py-14 text-center shadow-2xl shadow-plum-600/25 sm:px-16">
               <h2 className="mx-auto max-w-2xl text-3xl font-bold text-white sm:text-4xl">
                 See what ChurchGeniusPro can do for your church
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-blue-50">
+              <p className="mx-auto mt-4 max-w-xl text-lg text-brand-50">
                 Modern tools, built securely, with a 2-month free trial of every feature.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   to="/features"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-blue-700 shadow-lg transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-brand-700 shadow-lg transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   Explore ChurchGeniusPro <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -432,7 +432,7 @@ export default function Security() {
                   <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to Home
                 </Link>
               </div>
-              <p className="mt-6 flex flex-wrap items-center justify-center gap-1.5 text-sm text-blue-50">
+              <p className="mt-6 flex flex-wrap items-center justify-center gap-1.5 text-sm text-brand-50">
                 <Mail className="h-4 w-4" aria-hidden="true" /> Security questions? Email{' '}
                 <a href="mailto:support@churchgeniuspro.com" className="font-semibold text-white underline underline-offset-4">
                   support@churchgeniuspro.com

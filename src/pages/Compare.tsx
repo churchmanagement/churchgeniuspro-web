@@ -46,7 +46,7 @@ export default function Compare() {
     <>
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-50 via-white to-white"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
           aria-hidden="true"
         />
         <div className="container-page">
@@ -56,7 +56,7 @@ export default function Compare() {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-center"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-block rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               Compare
             </span>
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
@@ -96,7 +96,7 @@ export default function Compare() {
                           scope="col"
                           className={`px-4 py-4 text-center font-semibold ${
                             i === 0
-                              ? 'bg-gradient-to-b from-blue-600 to-purple-600 text-white'
+                              ? 'bg-gradient-to-b from-brand-600 to-plum-600 text-white'
                               : 'text-slate-700'
                           }`}
                         >
@@ -120,7 +120,7 @@ export default function Compare() {
                         {keys.map((k, ki) => (
                           <td
                             key={k}
-                            className={`px-4 py-4 text-center ${ki === 0 ? 'bg-blue-50/70' : ''}`}
+                            className={`px-4 py-4 text-center ${ki === 0 ? 'bg-brand-50/70' : ''}`}
                           >
                             <Cell value={row[k]} />
                           </td>
@@ -140,7 +140,7 @@ export default function Compare() {
               <li>
                 <span className="font-semibold text-emerald-600">✓</span> — offered as a built-in
                 feature. For ChurchGeniusPro, this means available on at least one plan; see our{' '}
-                <Link to="/pricing" className="font-medium text-blue-600 hover:underline">
+                <Link to="/pricing" className="font-medium text-brand-600 hover:underline">
                   Pricing page
                 </Link>{' '}
                 for which plan includes each feature.
@@ -172,7 +172,7 @@ export default function Compare() {
               each provider&rsquo;s own website for the most current information before making a
               purchasing decision. If you believe anything on this page is inaccurate or out of
               date, please{' '}
-              <Link to="/contact" className="font-medium text-blue-600 hover:underline">
+              <Link to="/contact" className="font-medium text-brand-600 hover:underline">
                 contact us
               </Link>{' '}
               and we will review and correct it promptly.

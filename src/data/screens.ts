@@ -19,6 +19,51 @@ export interface Screenshot {
 
 export const screenshots: Screenshot[] = [
   {
+    slug: 'dashboard',
+    title: 'Dashboard',
+    caption: 'Members, growth, calendar, and finances at a glance',
+    sizes: [
+      { w: 720, h: 383 },
+      { w: 1280, h: 681 },
+    ],
+  },
+  {
+    slug: 'families',
+    title: 'Families',
+    caption: 'Family records with members, groups, and alerts',
+    sizes: [
+      { w: 720, h: 280 },
+      { w: 1280, h: 498 },
+    ],
+  },
+  {
+    slug: 'groups',
+    title: 'Groups',
+    caption: 'Define and manage church groups and their members',
+    sizes: [
+      { w: 720, h: 323 },
+      { w: 1280, h: 574 },
+    ],
+  },
+  {
+    slug: 'attendance',
+    title: 'Attendance',
+    caption: 'Track check-ins, visitors, and attendance trends',
+    sizes: [
+      { w: 720, h: 460 },
+      { w: 1096, h: 700 },
+    ],
+  },
+  {
+    slug: 'kids-checkin-kiosk',
+    title: 'Kids Check-In',
+    caption: 'Find children by parent or guardian phone number',
+    sizes: [
+      { w: 720, h: 230 },
+      { w: 1096, h: 350 },
+    ],
+  },
+  {
     slug: 'online-giving',
     title: 'Online Giving',
     caption: 'Record and track donations, with receipts in seconds',
@@ -148,6 +193,29 @@ export const screenshots: Screenshot[] = [
     ],
   },
 ];
+
+/** Real screenshots of the AI writing tools, shown in the Advanced AI section. */
+export const aiEmailDraftShot: Screenshot = {
+  slug: 'ai-email-draft',
+  title: 'Draft with AI in Compose Email',
+  caption: 'Describe the email, pick tone, length and language, then draft, rewrite or translate',
+  sizes: [
+    { w: 720, h: 361 },
+    { w: 1096, h: 550 },
+  ],
+};
+
+export const aiEventBuilderShot: Screenshot = {
+  slug: 'ai-event-builder',
+  title: 'Describe your event',
+  caption: 'One sentence fills the event form for you to review',
+  sizes: [
+    { w: 720, h: 533 },
+    { w: 1096, h: 812 },
+  ],
+};
+
+export const dashboardShot: Screenshot = screenshots[0];
 
 export function screenshotSrc(s: Screenshot): string {
   const smallest = s.sizes[0];

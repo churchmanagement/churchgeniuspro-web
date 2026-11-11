@@ -12,6 +12,13 @@ import {
   Workflow,
 } from 'lucide-react';
 import { Reveal } from '../ui/Section';
+import {
+  aiEmailDraftShot,
+  aiEventBuilderShot,
+  screenshotSrc,
+  screenshotSrcSet,
+  type Screenshot,
+} from '../../data/screens';
 
 /**
  * Advanced AI capabilities — highlighted homepage section for the
@@ -26,7 +33,7 @@ const newFeatures = [
     description:
       'Describe the people you need and get a filtered list you can refine with one click, save, re-run, export to CSV, or email.',
     example: '“Women 18–30 who attended twice in the last 60 days”',
-    gradient: 'from-blue-600 to-cyan-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
   {
     icon: HeartPulse,
@@ -34,7 +41,7 @@ const newFeatures = [
     description:
       'Nightly engagement insights show who is new, growing, or drifting away — plus a monthly Ministry Report with tiles, a written summary, CSV, and print.',
     example: '“Who is at risk?” · “Show new attenders”',
-    gradient: 'from-rose-500 to-orange-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
   {
     icon: PenLine,
@@ -42,7 +49,7 @@ const newFeatures = [
     description:
       'Draft emails and SMS in the tone you choose, then rewrite, shorten, or translate. Describe an event in a sentence and the form fills itself — you review and save.',
     example: '“Youth lock-in Friday 7 pm to 7 am, $15, max 40”',
-    gradient: 'from-purple-600 to-fuchsia-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
   {
     icon: Bot,
@@ -50,7 +57,7 @@ const newFeatures = [
     description:
       'Ask it to do the work — add someone to a group or set a follow-up reminder. It shows a confirmation card first and nothing changes until you press Confirm.',
     example: '“Add Mary to the Welcome Team” · “Remind me to call John by Friday”',
-    gradient: 'from-emerald-500 to-teal-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
   {
     icon: Workflow,
@@ -58,7 +65,7 @@ const newFeatures = [
     description:
       'Start from a template or describe a rule in plain English. Test-run it first, switch it on, and see every run in the history.',
     example: '“First-time visitor → follow-up call in 2 days”',
-    gradient: 'from-amber-500 to-yellow-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
   {
     icon: Plug,
@@ -66,7 +73,7 @@ const newFeatures = [
     description:
       'Securely connect Claude and other MCP-compatible AI assistants to your church data with tokens you control — limit contact details, and revoke access anytime.',
     example: '“Which regular attenders are not in a group?”',
-    gradient: 'from-indigo-600 to-blue-500',
+    gradient: 'from-brand-500 to-brand-700',
   },
 ];
 
@@ -76,6 +83,32 @@ const safeguards = [
   'Admins can review all AI requests and actions in AI Activity',
 ];
 
+/** Real screenshots of the AI writing tools named in the third card. */
+const writingShots: { shot: Screenshot; title: string; where: string; points: string[]; note: string }[] = [
+  {
+    shot: aiEmailDraftShot,
+    title: 'Draft with AI',
+    where: 'In Compose Email',
+    points: [
+      'Describe the email you need in a sentence',
+      'Choose the tone, length, and language',
+      'Draft, Rewrite, Shorten, Expand, Fix grammar, or Translate',
+    ],
+    note: 'A draft for you to review; nothing is sent from here.',
+  },
+  {
+    shot: aiEventBuilderShot,
+    title: 'Describe your event',
+    where: 'In Add / Edit Event',
+    points: [
+      'Describe the event or sign-up form in plain words',
+      'Review the drafted name, date, times, and options',
+      'Fill the form with one click, then adjust anything',
+    ],
+    note: 'Fills the form for you to review; nothing is saved until you click Save.',
+  },
+];
+
 export default function NewAIFeatures() {
   return (
     <section id="advanced-ai" className="section relative scroll-mt-20 overflow-hidden bg-slate-950">
@@ -83,18 +116,18 @@ export default function NewAIFeatures() {
         className="absolute inset-0 opacity-50"
         style={{
           background:
-            'radial-gradient(circle at 15% 20%, rgba(59,130,246,0.28), transparent 45%), radial-gradient(circle at 85% 75%, rgba(147,51,234,0.3), transparent 45%)',
+            'radial-gradient(circle at 15% 20%, rgba(164,85,124,0.28), transparent 45%), radial-gradient(circle at 85% 75%, rgba(233,162,59,0.16), transparent 45%)',
         }}
         aria-hidden="true"
       />
       <div className="container-page relative">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-pink-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-slate-950 shadow-lg shadow-pink-500/25">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-plum-950 shadow-lg shadow-gold-500/20">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> ChurchGeniusPro Advanced AI
           </span>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl md:leading-[1.1]">
             Your AI assistant can now{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-brand-300 bg-clip-text text-transparent">
               find, write, act, and automate.
             </span>
           </h2>
@@ -107,7 +140,7 @@ export default function NewAIFeatures() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {newFeatures.map((f, i) => (
             <Reveal key={f.title} delay={(i % 3) * 0.1}>
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-400/40 hover:bg-white/10">
+              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-plum-400/40 hover:bg-white/10">
                 <div className="flex items-start gap-3">
                   <span
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${f.gradient} text-white shadow-lg`}
@@ -117,10 +150,46 @@ export default function NewAIFeatures() {
                 </div>
                 <h3 className="mt-5 text-lg font-bold text-white">{f.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-300">{f.description}</p>
-                <p className="mt-4 rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-xs italic leading-relaxed text-blue-200">
+                <p className="mt-4 rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-xs italic leading-relaxed text-gold-200">
                   {f.example}
                 </p>
               </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Real screenshots: Draft with AI (Compose Email) + Describe your event */}
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          {writingShots.map((w, i) => (
+            <Reveal key={w.title} delay={i * 0.1}>
+              <figure className="flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+                <div className="bg-white p-2 sm:p-3">
+                  <img
+                    src={screenshotSrc(w.shot)}
+                    srcSet={screenshotSrcSet(w.shot)}
+                    sizes="(min-width: 1024px) 560px, 92vw"
+                    width={w.shot.sizes[w.shot.sizes.length - 1].w}
+                    height={w.shot.sizes[w.shot.sizes.length - 1].h}
+                    alt={`${w.shot.title} — ${w.shot.caption}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="block h-auto w-full rounded-xl"
+                  />
+                </div>
+                <figcaption className="flex flex-1 flex-col p-6">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gold-300">{w.where}</p>
+                  <h3 className="mt-1 text-xl font-bold text-white">{w.title}</h3>
+                  <ul className="mt-4 space-y-2 text-sm text-slate-200">
+                    {w.points.map((p) => (
+                      <li key={p} className="flex items-start gap-2">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" aria-hidden="true" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-xs italic text-slate-400">{w.note}</p>
+                </figcaption>
+              </figure>
             </Reveal>
           ))}
         </div>
@@ -148,7 +217,7 @@ export default function NewAIFeatures() {
             </Link>
             <Link
               to="/pricing"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
             >
               See the Pro plan
             </Link>

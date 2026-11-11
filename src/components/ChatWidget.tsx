@@ -83,7 +83,7 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
         aria-expanded={open}
-        className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-xl shadow-blue-600/30 transition hover:scale-105"
+        className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-xl shadow-brand-600/30 transition hover:scale-105"
       >
         {open ? <X className="h-6 w-6" aria-hidden="true" /> : <MessageCircle className="h-6 w-6" aria-hidden="true" />}
       </button>
@@ -101,13 +101,13 @@ export default function ChatWidget() {
             aria-label="ChurchGeniusPro chat assistant"
           >
             {/* Header */}
-            <div className="flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-4 text-white">
+            <div className="flex items-center gap-3 bg-gradient-to-r from-brand-600 to-plum-600 px-5 py-4 text-white">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
                 <Sparkles className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
                 <p className="text-sm font-bold">ChurchGeniusPro Assistant</p>
-                <p className="text-xs text-blue-100">AI-powered · answers in seconds</p>
+                <p className="text-xs text-brand-100">AI-powered · answers in seconds</p>
               </div>
             </div>
 
@@ -118,7 +118,7 @@ export default function ChatWidget() {
                   <div
                     className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                       m.role === 'user'
-                        ? 'rounded-br-md bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                        ? 'rounded-br-md bg-gradient-to-r from-brand-600 to-plum-600 text-white'
                         : 'rounded-bl-md bg-slate-100 text-slate-800'
                     }`}
                   >
@@ -146,7 +146,7 @@ export default function ChatWidget() {
                       key={s}
                       type="button"
                       onClick={() => void send(s)}
-                      className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition hover:bg-blue-100"
+                      className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1.5 text-xs font-medium text-brand-700 transition hover:bg-brand-100"
                     >
                       {s}
                     </button>
@@ -172,13 +172,13 @@ export default function ChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about ChurchGeniusPro…"
                 autoComplete="off"
-                className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-brand-500 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={busy || !input.trim()}
                 aria-label="Send message"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white transition hover:opacity-90 disabled:opacity-40"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-brand-600 to-plum-600 text-white transition hover:opacity-90 disabled:opacity-40"
               >
                 <Send className="h-4 w-4" aria-hidden="true" />
               </button>

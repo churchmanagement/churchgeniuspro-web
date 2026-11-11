@@ -74,11 +74,11 @@ export default function Admin() {
 
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pt-40">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
       <div className="container-page">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
               <BarChart3 className="h-3.5 w-3.5" aria-hidden="true" /> Admin · Video Analytics
             </span>
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -130,7 +130,7 @@ export default function Admin() {
               {tiles.map((t) => (
                 <div key={t.label} className="card">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white">
                       <t.icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <div>
@@ -170,7 +170,7 @@ export default function Admin() {
                           href={`https://www.youtube.com/watch?v=${v.videoId}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-semibold text-slate-900 hover:text-blue-600"
+                          className="font-semibold text-slate-900 hover:text-brand-600"
                         >
                           {knownTitles.get(v.videoId) ?? v.title ?? v.videoId}
                         </a>

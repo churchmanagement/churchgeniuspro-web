@@ -107,7 +107,7 @@ function ScrollToTop() {
 function PageLoader() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label="Loading page">
-      <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+      <div className="h-10 w-10 animate-spin rounded-full border-4 border-brand-600 border-t-transparent" />
     </div>
   );
 }
@@ -135,7 +135,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
     <div className="flex min-h-screen flex-col">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
       >
         Skip to main content
       </a>

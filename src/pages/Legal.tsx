@@ -248,7 +248,7 @@ export default function Legal({ page }: { page: LegalPage }) {
                           href={l.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-semibold text-blue-700 hover:text-blue-800"
+                          className="font-semibold text-brand-700 hover:text-brand-800"
                         >
                           {l.label}
                           <span className="sr-only"> (opens in a new tab)</span>
@@ -263,7 +263,7 @@ export default function Legal({ page }: { page: LegalPage }) {
           {page === 'sms' && <SmsOptInExample />}
           <p className="mt-12 rounded-2xl bg-slate-50 p-6 text-sm text-slate-500">
             Questions about this policy? Contact us at{' '}
-            <a href="mailto:legal@churchgeniuspro.com" className="font-semibold text-blue-600">
+            <a href="mailto:legal@churchgeniuspro.com" className="font-semibold text-brand-600">
               legal@churchgeniuspro.com
             </a>
             .

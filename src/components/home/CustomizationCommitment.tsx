@@ -30,17 +30,17 @@ export default function CustomizationCommitment() {
     <section id="your-needs" className="section">
       <div className="container-page">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1px] shadow-xl shadow-blue-600/10">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-600 to-plum-600 p-[1px] shadow-xl shadow-brand-600/10">
             <div className="rounded-[calc(1.5rem-1px)] bg-white px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
               <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
                 <div>
-                  <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+                  <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600/10 to-plum-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600">
                     <HeartHandshake className="h-4 w-4" aria-hidden="true" />
                     Built around your church
                   </span>
                   <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                     Your Church. Your Needs.{' '}
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-brand-600 to-plum-600 bg-clip-text text-transparent">
                       Our Commitment.
                     </span>
                   </h2>
@@ -75,7 +75,7 @@ export default function CustomizationCommitment() {
                       key={s.title}
                       className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-5"
                     >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/20">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600 to-plum-600 text-white shadow-lg shadow-brand-600/20">
                         <s.icon className="h-5 w-5" aria-hidden="true" />
                       </span>
                       <div>
@@ -95,7 +95,7 @@ export default function CustomizationCommitment() {
                 requests may involve an additional fee. Please contact{' '}
                 <a
                   href="mailto:support@churchgeniuspro.com"
-                  className="font-semibold text-blue-600 underline-offset-4 hover:text-blue-700 hover:underline"
+                  className="font-semibold text-brand-600 underline-offset-4 hover:text-brand-700 hover:underline"
                 >
                   support@churchgeniuspro.com
                 </a>{' '}

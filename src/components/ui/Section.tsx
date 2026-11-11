@@ -21,7 +21,7 @@ export function SectionHeading({
       className="mx-auto max-w-3xl text-center"
     >
       {eyebrow && (
-        <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-600">
+        <span className={`eyebrow mb-4 ${dark ? '!border-white/15 !bg-white/10 !text-gold-300' : ''}`}>
           {eyebrow}
         </span>
       )}

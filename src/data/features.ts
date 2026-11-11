@@ -69,7 +69,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Know & care for your people',
     description:
       'Everything in your church starts with people. Keep every member, family, and visitor organized in one living directory — and make sure no one is forgotten.',
-    gradient: 'from-blue-500 to-cyan-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: Users,
@@ -110,7 +110,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Made effortless',
     description:
       'Make giving simple for your congregation and painless for you to manage — with a clear view of every gift and pledge, updated in real time.',
-    gradient: 'from-rose-500 to-pink-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: Heart,
@@ -145,7 +145,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Without the headache',
     description:
       "You don't need an accounting degree to keep clean books. Proper financial tools, supercharged with AI that reads your documents and takes dictation.",
-    gradient: 'from-emerald-500 to-teal-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: Landmark,
@@ -204,7 +204,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Like a staff member living inside your software',
     description:
       'Instead of hunting through menus and filling out forms, search in plain English, give one-word commands, or simply talk — and the assistant does the work.',
-    gradient: 'from-purple-500 to-violet-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: Search,
@@ -245,7 +245,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'The heartbeat of community',
     description:
       'Keep your congregation informed, encouraged, and remembered — automatically. Email, SMS, reminders, daily verses, and certificates all in one place.',
-    gradient: 'from-sky-500 to-blue-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: Mail,
@@ -280,7 +280,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Perfectly in sync',
     description:
       'From a single shared calendar to a fully planned worship service, keep your church schedule and teams aligned.',
-    gradient: 'from-amber-500 to-orange-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: CalendarDays,
@@ -315,7 +315,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Ministries that practically run themselves',
     description:
       'Your most people-intensive ministries get purpose-built tools that save volunteers time and keep families safe and cared for.',
-    gradient: 'from-green-500 to-emerald-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: GraduationCap,
@@ -350,7 +350,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Exactly the access everyone needs',
     description:
       'Staff, members, and children each get tailored experiences across web, mobile, and campus screens — with smart security protecting sensitive pages.',
-    gradient: 'from-indigo-500 to-purple-500',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: KeyRound,
@@ -410,7 +410,7 @@ export const featureCategories: FeatureCategory[] = [
     tagline: 'Help whenever you need it',
     description:
       'Board-ready reports, engagement analytics, and a step-by-step Help Center that turns first-time users into confident pros.',
-    gradient: 'from-slate-500 to-slate-700',
+    gradient: 'from-brand-600 to-plum-600',
     features: [
       {
         icon: PieChart,

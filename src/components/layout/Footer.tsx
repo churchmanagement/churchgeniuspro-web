@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import BrandMark from '../ui/BrandMark';
 import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { FaYoutube } from 'react-icons/fa6';
 import { submitContactForm } from '../../lib/contact';
@@ -79,21 +80,7 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block" aria-label="ChurchGeniusPro home">
-              <span className="inline-block rounded-2xl bg-white px-4 py-2.5">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet="/logo-96.webp 1x, /logo-192.webp 2x, /logo-288.webp 3x"
-                  />
-                  <img
-                    src="/logo.png"
-                    alt="ChurchGeniusPro"
-                    width={84}
-                    height={56}
-                    className="h-14 w-auto"
-                  />
-                </picture>
-              </span>
+              <BrandMark dark size="lg" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
               One platform for every part of church life — people, giving, accounting, events,
@@ -139,12 +126,12 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@church.org"
-                  className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-brand-500 focus:outline-none"
                 />
                 <button
                   type="submit"
                   disabled={sending}
-                  className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2.5 text-white transition hover:opacity-90 disabled:opacity-60"
+                  className="rounded-xl bg-gradient-to-r from-brand-600 to-plum-600 px-4 py-2.5 text-white transition hover:opacity-90 disabled:opacity-60"
                   aria-label="Subscribe"
                 >
                   <Send className="h-4 w-4" aria-hidden="true" />
@@ -179,13 +166,13 @@ export default function Footer() {
         <div className="mt-12 flex flex-col gap-6 border-t border-slate-800 pt-8 md:flex-row md:items-center md:justify-between">
           <ul className="flex flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:gap-6">
             <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-blue-400" aria-hidden="true" />
+              <Mail className="h-4 w-4 text-brand-400" aria-hidden="true" />
               <a href="mailto:support@churchgeniuspro.com" className="hover:text-white">
                 support@churchgeniuspro.com
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-blue-400" aria-hidden="true" />
+              <MapPin className="h-4 w-4 text-brand-400" aria-hidden="true" />
               <span>Serving churches worldwide</span>
             </li>
           </ul>
@@ -197,7 +184,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-slate-400 transition hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-slate-400 transition hover:bg-gradient-to-br hover:from-brand-600 hover:to-plum-600 hover:text-white"
               >
                 <s.icon className="h-4 w-4" aria-hidden="true" />
               </a>

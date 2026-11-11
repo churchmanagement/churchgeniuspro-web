@@ -17,7 +17,7 @@ export default function DemoSection() {
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
           background:
-            'radial-gradient(60% 50% at 20% 10%, rgba(37,99,235,0.45), transparent 60%), radial-gradient(50% 45% at 85% 90%, rgba(147,51,234,0.4), transparent 60%)',
+            'radial-gradient(60% 50% at 20% 10%, rgba(164,85,124,0.45), transparent 60%), radial-gradient(50% 45% at 85% 90%, rgba(233,162,59,0.16), transparent 60%)',
         }}
         aria-hidden="true"
       />
@@ -34,7 +34,7 @@ export default function DemoSection() {
           <Reveal>
             <Link
               to="/demo"
-              className="group relative block overflow-hidden rounded-3xl bg-black shadow-2xl shadow-black/50 ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="group relative block overflow-hidden rounded-3xl bg-black shadow-2xl shadow-black/50 ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
               aria-label="Watch the 5-minute ChurchGeniusPro tour (sign in or register first)"
             >
               <img
@@ -55,7 +55,7 @@ export default function DemoSection() {
                 </span>
               </span>
               <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold backdrop-blur">
-                <Clock3 className="h-3.5 w-3.5 text-blue-300" aria-hidden="true" /> 5-minute tour
+                <Clock3 className="h-3.5 w-3.5 text-brand-300" aria-hidden="true" /> 5-minute tour
               </span>
               <span className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                 <span className="block text-lg font-bold leading-snug sm:text-xl">{demoTour.title}</span>
@@ -73,7 +73,7 @@ export default function DemoSection() {
                 { icon: Lock, title: 'One quick sign-in', text: 'Continue with Google or register with your email. No password, no credit card.' },
               ].map(({ icon: Icon, title, text }) => (
                 <li key={title} className="flex gap-4">
-                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-blue-300 ring-1 ring-white/10">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-brand-300 ring-1 ring-white/10">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
@@ -104,7 +104,7 @@ export default function DemoSection() {
               <Link
                 key={v.id}
                 to="/demo"
-                className="group overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="group overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                 aria-label={`${v.title} demo — opens the demo page`}
               >
                 <span className="relative block aspect-video overflow-hidden bg-black">
@@ -122,7 +122,7 @@ export default function DemoSection() {
                   </span>
                 </span>
                 <span className="block px-3 py-2.5">
-                  <span className="block text-[11px] font-semibold uppercase tracking-wide text-blue-300">{v.category}</span>
+                  <span className="block text-[11px] font-semibold uppercase tracking-wide text-brand-300">{v.category}</span>
                   <span className="block truncate text-sm font-semibold text-white">{v.title}</span>
                 </span>
               </Link>
@@ -130,7 +130,7 @@ export default function DemoSection() {
           </div>
           <p className="mt-6 text-center text-sm text-slate-400">
             {demoLibrary.length + 1} videos in all —{' '}
-            <Link to="/demo" className="font-semibold text-blue-300 hover:text-white">
+            <Link to="/demo" className="font-semibold text-brand-300 hover:text-white">
               open the demo library <ArrowRight className="inline h-4 w-4" aria-hidden="true" />
             </Link>
           </p>

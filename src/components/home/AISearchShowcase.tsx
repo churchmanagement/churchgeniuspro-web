@@ -49,8 +49,8 @@ interface Example {
 
 const kindStyle: Record<Kind, { text: string; chip: string; verb: string }> = {
   Care: { text: 'text-rose-700', chip: 'bg-rose-50 text-rose-700 ring-rose-100', verb: 'Insight' },
-  Find: { text: 'text-blue-700', chip: 'bg-blue-50 text-blue-700 ring-blue-100', verb: 'Answer' },
-  Do: { text: 'text-purple-700', chip: 'bg-purple-50 text-purple-700 ring-purple-100', verb: 'Done' },
+  Find: { text: 'text-brand-700', chip: 'bg-brand-50 text-brand-700 ring-brand-100', verb: 'Answer' },
+  Do: { text: 'text-plum-700', chip: 'bg-plum-50 text-plum-700 ring-plum-100', verb: 'Done' },
   Go: { text: 'text-emerald-700', chip: 'bg-emerald-50 text-emerald-700 ring-emerald-100', verb: 'Navigating' },
   Help: { text: 'text-amber-700', chip: 'bg-amber-50 text-amber-700 ring-amber-100', verb: 'Guide' },
 };
@@ -73,7 +73,7 @@ function Pill({ children, tone = 'slate' }: { children: ReactNode; tone?: 'slate
     slate: 'bg-slate-100 text-slate-600',
     amber: 'bg-amber-100 text-amber-800',
     emerald: 'bg-emerald-100 text-emerald-800',
-    blue: 'bg-blue-100 text-blue-800',
+    blue: 'bg-brand-100 text-brand-800',
   };
   return <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${tones[tone]}`}>{children}</span>;
 }
@@ -221,7 +221,7 @@ const examples: Example[] = [
         <p className="mt-1 text-sm text-slate-600">Across 14 expense entries</p>
         <div className="mt-4 flex h-16 items-end gap-1.5" aria-hidden="true">
           {[30, 45, 25, 60, 40, 55, 35, 70, 50, 65].map((h, i) => (
-            <span key={i} className="flex-1 rounded-t bg-gradient-to-t from-blue-600 to-purple-500 opacity-80" style={{ height: `${h}%` }} />
+            <span key={i} className="flex-1 rounded-t bg-gradient-to-t from-brand-600 to-plum-500 opacity-80" style={{ height: `${h}%` }} />
           ))}
         </div>
       </div>
@@ -239,7 +239,7 @@ const examples: Example[] = [
           {[
             ['Income', '$18,420', 'text-emerald-700'],
             ['Expenses', '$12,935', 'text-rose-700'],
-            ['Net', '$5,485', 'text-blue-700'],
+            ['Net', '$5,485', 'text-brand-700'],
           ].map(([k, v, c]) => (
             <div key={k} className="rounded-xl border border-slate-100 bg-slate-50 p-3 text-center">
               <p className="text-[11px] font-medium text-slate-500">{k}</p>
@@ -247,7 +247,7 @@ const examples: Example[] = [
             </div>
           ))}
         </div>
-        <span className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white">
+        <span className="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white">
           Open report <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </span>
       </ActionDone>
@@ -329,7 +329,7 @@ const examples: Example[] = [
         </p>
         <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-100">
           <motion.div
-            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-blue-600"
+            className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-brand-600"
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
@@ -374,13 +374,13 @@ const pillars = [
     icon: Search,
     title: 'Ask for answers',
     text: 'Who’s drifting, who needs follow-up, giving trends, spending, meetings — answered in seconds.',
-    gradient: 'from-blue-600 to-cyan-500',
+    gradient: 'from-brand-600 to-brand-500',
   },
   {
     icon: Zap,
     title: 'Tell it what to do',
     text: 'Create meetings and reports with one sentence. No forms.',
-    gradient: 'from-purple-600 to-blue-600',
+    gradient: 'from-plum-600 to-brand-600',
   },
   {
     icon: Compass,
@@ -499,22 +499,22 @@ export default function AISearchShowcase() {
 
   return (
     <section id="ai-search" className="section relative scroll-mt-20 overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-blue-50/60 to-white" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-brand-50/60 to-white" aria-hidden="true" />
       <div
         className="absolute -right-40 top-20 -z-10 h-[520px] w-[520px] rounded-full opacity-30 blur-3xl"
-        style={{ background: 'radial-gradient(closest-side, rgba(147,51,234,0.55), transparent)' }}
+        style={{ background: 'radial-gradient(closest-side, rgba(233,162,59,0.16), transparent)' }}
         aria-hidden="true"
       />
       <div
         className="absolute -left-40 bottom-10 -z-10 h-[480px] w-[480px] rounded-full opacity-25 blur-3xl"
-        style={{ background: 'radial-gradient(closest-side, rgba(37,99,235,0.55), transparent)' }}
+        style={{ background: 'radial-gradient(closest-side, rgba(164,85,124,0.55), transparent)' }}
         aria-hidden="true"
       />
 
       <div className="container-page">
         {/* Heading */}
         <Reveal className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-purple-600/25">
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-plum-600 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-plum-600/25">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" /> New · ChurchGeniusPro AI Search
           </span>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl md:leading-[1.1]">
@@ -547,7 +547,7 @@ export default function AISearchShowcase() {
                   <button
                     type="button"
                     onClick={togglePlay}
-                    className="ml-auto inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-xs font-semibold text-slate-500 transition hover:bg-white hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="ml-auto inline-flex h-8 items-center gap-1.5 rounded-lg px-2.5 text-xs font-semibold text-slate-500 transition hover:bg-white hover:text-brand-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
                     aria-label={playing ? 'Pause the AI Search demo' : 'Play the AI Search demo'}
                   >
                     {playing ? <Pause className="h-3.5 w-3.5" aria-hidden="true" /> : <Play className="h-3.5 w-3.5" aria-hidden="true" />}
@@ -557,8 +557,8 @@ export default function AISearchShowcase() {
 
                 <div className="p-4 sm:p-6">
                   {/* Search bar */}
-                  <div className="flex items-center gap-3 rounded-2xl border-2 border-transparent bg-[linear-gradient(white,white),linear-gradient(90deg,#2563eb,#9333ea,#10b981)] px-4 py-3.5 shadow-lg shadow-blue-600/10 [background-clip:padding-box,border-box] [background-origin:border-box]">
-                    <Sparkles className="h-5 w-5 shrink-0 text-purple-600" aria-hidden="true" />
+                  <div className="flex items-center gap-3 rounded-2xl border-2 border-transparent bg-[linear-gradient(white,white),linear-gradient(90deg,#7c3a57,#a4557c,#e9a23b)] px-4 py-3.5 shadow-lg shadow-brand-600/10 [background-clip:padding-box,border-box] [background-origin:border-box]">
+                    <Sparkles className="h-5 w-5 shrink-0 text-plum-600" aria-hidden="true" />
                     <p className="grid min-h-[1.5rem] min-w-0 flex-1 grid-cols-[minmax(0,1fr)] text-[15px] font-medium text-slate-800 sm:text-base" aria-label={`Example question: ${current.question}`}>
                       {/* Invisible copies of every question reserve the tallest one's height, so the
                           window (and the content below it) never changes size as examples rotate. */}
@@ -571,7 +571,7 @@ export default function AISearchShowcase() {
                       <span className="self-center [grid-area:1/1]" aria-hidden="true">
                         {current.question.slice(0, typed)}
                         {phase === 'typing' && (
-                          <span className="ml-0.5 inline-block h-5 w-0.5 translate-y-1 animate-pulse bg-blue-600" />
+                          <span className="ml-0.5 inline-block h-5 w-0.5 translate-y-1 animate-pulse bg-brand-600" />
                         )}
                       </span>
                     </p>
@@ -583,7 +583,7 @@ export default function AISearchShowcase() {
                   {/* Response */}
                   <div className="mt-5 min-h-[260px] rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-5">
                     <div className="mb-3 flex items-center gap-2">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-plum-600 text-white">
                         <Sparkles className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <span className="text-sm font-bold text-slate-900">AI Search</span>
@@ -632,7 +632,7 @@ export default function AISearchShowcase() {
                                 {[0, 1, 2].map((d) => (
                                   <motion.span
                                     key={d}
-                                    className="h-2 w-2 rounded-full bg-purple-500"
+                                    className="h-2 w-2 rounded-full bg-plum-500"
                                     animate={{ opacity: [0.3, 1, 0.3] }}
                                     transition={{ repeat: Infinity, duration: 0.9, delay: d * 0.15 }}
                                   />
@@ -713,15 +713,15 @@ export default function AISearchShowcase() {
                         }}
                         aria-pressed={active}
                         style={{ height: 'calc(var(--slot) - 8px)' }}
-                        className={`group flex w-full items-center gap-3 overflow-hidden rounded-xl border px-3.5 py-2 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                        className={`group flex w-full items-center gap-3 overflow-hidden rounded-xl border px-3.5 py-2 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 ${
                           active
-                            ? 'border-transparent bg-white shadow-md shadow-purple-600/10 ring-2 ring-purple-500/60'
-                            : 'border-slate-200/80 bg-white/70 hover:border-blue-300 hover:bg-white'
+                            ? 'border-transparent bg-white shadow-md shadow-plum-600/10 ring-2 ring-plum-500/60'
+                            : 'border-slate-200/80 bg-white/70 hover:border-brand-300 hover:bg-white'
                         }`}
                       >
                         <span
                           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition ${
-                            active ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white' : `${ks.chip} ring-1`
+                            active ? 'bg-gradient-to-br from-brand-600 to-plum-600 text-white' : `${ks.chip} ring-1`
                           }`}
                         >
                           <ex.icon className="h-4 w-4" aria-hidden="true" />
@@ -761,14 +761,14 @@ export default function AISearchShowcase() {
               className="pointer-events-none absolute inset-0 opacity-50"
               style={{
                 background:
-                  'radial-gradient(50% 60% at 15% 20%, rgba(37,99,235,0.5), transparent 60%), radial-gradient(50% 60% at 85% 80%, rgba(147,51,234,0.5), transparent 60%)',
+                  'radial-gradient(50% 60% at 15% 20%, rgba(164,85,124,0.5), transparent 60%), radial-gradient(50% 60% at 85% 80%, rgba(233,162,59,0.16), transparent 60%)',
               }}
               aria-hidden="true"
             />
             <div className="relative">
               <p className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
                 Just Ask.{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-400 via-plum-400 to-gold-400 bg-clip-text text-transparent">
                   ChurchGeniusPro AI Search Understands.
                 </span>
               </p>
@@ -782,9 +782,9 @@ export default function AISearchShowcase() {
                 </Link>
                 <Link
                   to="/demo"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                 >
-                  <PlayCircle className="h-5 w-5 text-blue-300" aria-hidden="true" /> Watch AI Search in Action
+                  <PlayCircle className="h-5 w-5 text-brand-300" aria-hidden="true" /> Watch AI Search in Action
                 </Link>
               </div>
               <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-slate-400">

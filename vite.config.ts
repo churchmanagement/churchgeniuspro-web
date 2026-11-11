@@ -12,13 +12,13 @@ export default defineConfig(({ isSsrBuild }) => ({
     // throwaway bundle used by scripts/prerender.mjs at build time.
     ...(isSsrBuild ? [] : [VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'logo.png', 'robots.txt'],
+      includeAssets: ['favicon.ico', 'favicon.png', 'apple-touch-icon.png', 'robots.txt'],
       manifest: {
         name: 'ChurchGeniusPro — AI Church Management & Accounting',
         short_name: 'ChurchGeniusPro',
         description:
           'The AI-powered all-in-one platform for church management, accounting, giving, events, and ministries.',
-        theme_color: '#2563eb',
+        theme_color: '#7c3a57',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: '/',
@@ -29,7 +29,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}'],
         navigateFallback: '/index.html',
         // Standalone demo sites under /demo/ are plain static pages; the SPA
         // shell must never be served in their place.

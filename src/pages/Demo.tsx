@@ -62,16 +62,16 @@ export default function Demo() {
     <>
       {/* Page header */}
       <section className="relative overflow-hidden pb-10 pt-32 md:pt-40">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white" aria-hidden="true" />
         <div
           className="absolute -top-40 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
-          style={{ background: 'radial-gradient(closest-side, rgba(59,130,246,0.5), rgba(147,51,234,0.3), transparent)' }}
+          style={{ background: 'radial-gradient(closest-side, rgba(164,85,124,0.5), rgba(233,162,59,0.16), transparent)' }}
           aria-hidden="true"
         />
         <div className="container-page">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-1.5 text-xs font-semibold text-blue-700 shadow-sm backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-purple-600" aria-hidden="true" /> Product demo
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-4 py-1.5 text-xs font-semibold text-brand-700 shadow-sm backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5 text-plum-600" aria-hidden="true" /> Product demo
             </span>
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
               See <span className="gradient-text">ChurchGeniusPro</span> in action
@@ -106,10 +106,10 @@ export default function Demo() {
                     <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur ring-1 ring-white/30 sm:h-20 sm:w-20">
                       <Lock className="h-6 w-6 sm:h-8 sm:w-8" aria-hidden="true" />
                     </span>
-                    <p className="mt-3 hidden text-sm font-semibold uppercase tracking-wider text-blue-200 sm:block">Sign in to play</p>
+                    <p className="mt-3 hidden text-sm font-semibold uppercase tracking-wider text-brand-200 sm:block">Sign in to play</p>
                   </div>
                   <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">Primary demo · 5 min · sign in to play</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-200">Primary demo · 5 min · sign in to play</p>
                     <p className="mt-1 text-base font-bold leading-snug sm:text-lg">{demoTour.title}</p>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function Demo() {
                 <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                   {whatYouGet.map(({ icon: Icon, text }) => (
                     <li key={text} className="flex items-start gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
-                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600/10 to-purple-600/10 text-blue-600">
+                      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-600/10 to-plum-600/10 text-brand-600">
                         <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
                       </span>
                       <span className="text-sm font-medium text-slate-700">{text}</span>

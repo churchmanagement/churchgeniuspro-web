@@ -25,14 +25,14 @@ function Breadcrumbs({ guide }: { guide?: Guide }) {
     <nav aria-label="Breadcrumb" className="text-sm text-slate-600">
       <ol className="flex flex-wrap items-center gap-1.5">
         <li>
-          <Link to="/" className="hover:text-blue-700">
+          <Link to="/" className="hover:text-brand-700">
             Home
           </Link>
         </li>
         <li aria-hidden="true">/</li>
         <li>
           {guide ? (
-            <Link to="/guides" className="hover:text-blue-700">
+            <Link to="/guides" className="hover:text-brand-700">
               Guides
             </Link>
           ) : (
@@ -84,7 +84,7 @@ function GuidesIndex() {
             {guides.map((g) => (
               <li key={g.slug}>
                 <Link to={`/guides/${g.slug}`} className="card group block">
-                  <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-700">
+                  <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand-700">
                     {g.h1}
                   </h2>
                   <p className="mt-2 leading-relaxed text-slate-600">{g.summary}</p>
@@ -93,7 +93,7 @@ function GuidesIndex() {
                       <Clock className="h-4 w-4" aria-hidden="true" /> {g.readingMinutes} min read
                     </span>
                     <span>Updated {formatDate(g.dateModified)}</span>
-                    <span className="inline-flex items-center gap-1 font-semibold text-blue-600">
+                    <span className="inline-flex items-center gap-1 font-semibold text-brand-600">
                       Read the guide <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </span>
                   </span>
@@ -181,7 +181,7 @@ function GuideArticle({ guide }: { guide: Guide }) {
                   </p>
                 ))}
                 {s.bullets && (
-                  <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-slate-700 marker:text-blue-600">
+                  <ul className="mt-4 list-disc space-y-2 pl-6 leading-relaxed text-slate-700 marker:text-brand-600">
                     {s.bullets.map((b) => (
                       <li key={b}>{b}</li>
                     ))}
@@ -199,7 +199,7 @@ function GuideArticle({ guide }: { guide: Guide }) {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-start gap-1.5 text-blue-700 hover:text-blue-800"
+                      className="inline-flex items-start gap-1.5 text-brand-700 hover:text-brand-800"
                     >
                       {s.name}
                       <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
@@ -216,7 +216,7 @@ function GuideArticle({ guide }: { guide: Guide }) {
                 {guide.related.map((r) => (
                   <li key={r.to}>
                     <Link to={r.to} className="card group block h-full !p-5">
-                      <span className="font-semibold text-slate-900 group-hover:text-blue-700">
+                      <span className="font-semibold text-slate-900 group-hover:text-brand-700">
                         {r.name}
                       </span>
                       <span className="mt-1 block text-sm text-slate-600">{r.description}</span>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, PlayCircle, Sparkles, Mic, Camera, Check } from 'lucide-react';
+import { ArrowRight, PlayCircle, Sparkles, Camera, Check } from 'lucide-react';
+import { dashboardShot, screenshotSrc, screenshotSrcSet } from '../../data/screens';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -12,14 +13,14 @@ export default function Hero() {
     <section className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-44">
       {/* Background */}
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-white"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
         aria-hidden="true"
       />
       <div
-        className="absolute -top-40 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-3xl"
+        className="absolute -top-48 left-1/2 -z-10 h-[640px] w-[1100px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
         style={{
           background:
-            'radial-gradient(closest-side, rgba(59,130,246,0.5), rgba(147,51,234,0.3), transparent)',
+            'radial-gradient(closest-side, rgba(164,85,124,0.45), rgba(233,162,59,0.18), transparent)',
         }}
         aria-hidden="true"
       />
@@ -33,13 +34,13 @@ export default function Hero() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.6 }}>
             <a
-              href="#ai-search"
-              className="group inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 py-1.5 pl-1.5 pr-4 text-xs font-semibold text-blue-700 shadow-sm backdrop-blur transition hover:border-purple-200 hover:text-purple-700"
+              href="#genius-assistant"
+              className="group inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/90 py-1.5 pl-1.5 pr-4 text-xs font-semibold text-brand-800 shadow-sm backdrop-blur transition hover:border-brand-400"
             >
-              <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
-                <Sparkles className="h-3 w-3" aria-hidden="true" /> New
+              <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-br from-brand-600 to-plum-600 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
+                <Sparkles className="h-3 w-3 text-gold-300" aria-hidden="true" /> New
               </span>
-              AI Search — Just Ask. It Understands.
+              Meet Genius Assistant — type, speak, or converse
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
           </motion.div>
@@ -80,7 +81,7 @@ export default function Hero() {
               Start 2-Month Free Trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
             <Link to="/demo" className="btn-secondary !px-8 !py-4 !text-base">
-              <PlayCircle className="h-5 w-5 text-blue-600" aria-hidden="true" /> Watch Demo
+              <PlayCircle className="h-5 w-5 text-brand-600" aria-hidden="true" /> Watch Demo
             </Link>
           </motion.div>
 
@@ -103,115 +104,56 @@ export default function Hero() {
           </motion.ul>
         </motion.div>
 
-        {/* Animated dashboard mockup */}
+        {/* Real dashboard screenshot */}
         <motion.div
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative mx-auto mt-16 max-w-5xl"
+          className="relative mx-auto mt-16 max-w-6xl"
         >
-          <div className="glass overflow-hidden rounded-3xl p-2 sm:p-3">
-            <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white">
-              {/* Chrome */}
-              <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50/80 px-4 py-3">
-                <span className="h-3 w-3 rounded-full bg-rose-400" />
-                <span className="h-3 w-3 rounded-full bg-amber-400" />
-                <span className="h-3 w-3 rounded-full bg-emerald-400" />
-              </div>
-              {/* Dashboard body */}
-              <div className="grid gap-4 p-4 sm:grid-cols-3 sm:p-6">
-                {[
-                  {
-                    label: 'Total Members',
-                    value: '1,248',
-                    delta: '+12 this week',
-                    color: 'from-blue-500 to-cyan-500',
-                  },
-                  {
-                    label: 'Giving This Month',
-                    value: '$42,850',
-                    delta: '+8.4%',
-                    color: 'from-emerald-500 to-teal-500',
-                  },
-                  {
-                    label: 'Sunday Attendance',
-                    value: '731',
-                    delta: '+5.2%',
-                    color: 'from-purple-500 to-violet-500',
-                  },
-                ].map((kpi, i) => (
-                  <motion.div
-                    key={kpi.label}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9 + i * 0.15 }}
-                    className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm"
-                  >
-                    <div className={`h-1.5 w-10 rounded-full bg-gradient-to-r ${kpi.color}`} />
-                    <p className="mt-3 text-xs font-medium text-slate-500">{kpi.label}</p>
-                    <p className="mt-1 text-2xl font-bold text-slate-900">{kpi.value}</p>
-                    <p className="mt-1 text-xs font-medium text-emerald-700">{kpi.delta}</p>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4 }}
-                  className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:col-span-2"
-                >
-                  <p className="text-xs font-medium text-slate-500">Giving by Fund</p>
-                  <div className="mt-3 flex h-28 items-end gap-2">
-                    {[60, 85, 45, 70, 95, 55, 75, 65, 88, 50, 72, 92].map((h, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ height: 0 }}
-                        animate={{ height: `${h}%` }}
-                        transition={{ delay: 1.6 + i * 0.05, duration: 0.5 }}
-                        className="flex-1 rounded-t-md bg-gradient-to-t from-blue-600 to-purple-500 opacity-80"
-                      />
-                    ))}
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.5 }}
-                  className="rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 p-4 text-white shadow-lg"
-                >
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide">
-                    <Sparkles className="h-3 w-3" aria-hidden="true" /> AI Assistant
-                  </span>
-                  <p className="mt-3 text-sm font-medium text-blue-50">
-                    “Show last month's giving”
-                  </p>
-                  <div className="mt-3 flex items-center gap-2 text-xs text-blue-100">
-                    <Mic className="h-3.5 w-3.5" aria-hidden="true" /> Voice
-                    <Camera className="ml-2 h-3.5 w-3.5" aria-hidden="true" /> Scan
-                  </div>
-                </motion.div>
-              </div>
+          <div
+            className="absolute -inset-x-6 -bottom-6 top-10 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-600 to-plum-600 opacity-95"
+            aria-hidden="true"
+          />
+          <div className="shot-frame">
+            {/* Chrome */}
+            <div className="flex items-center gap-1.5 border-b border-brand-100 bg-brand-50/70 px-4 py-3">
+              <span className="h-3 w-3 rounded-full bg-rose-400" />
+              <span className="h-3 w-3 rounded-full bg-amber-400" />
+              <span className="h-3 w-3 rounded-full bg-emerald-400" />
             </div>
+            <img
+              src={screenshotSrc(dashboardShot)}
+              srcSet={screenshotSrcSet(dashboardShot)}
+              sizes="(min-width: 1280px) 1150px, 94vw"
+              width={1280}
+              height={681}
+              alt="ChurchGeniusPro dashboard showing members, families, groups, church growth, calendar, and income and expense statistics"
+              fetchPriority="high"
+              decoding="async"
+              className="block h-auto w-full"
+            />
           </div>
 
           {/* Floating chips */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-            className="glass absolute -left-4 top-16 hidden rounded-2xl px-4 py-3 lg:block"
+            className="glass absolute -top-6 left-10 hidden rounded-2xl px-4 py-3 xl:block"
           >
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-800">
-              <Camera className="h-4 w-4 text-purple-600" aria-hidden="true" /> Check scanned →
+              <Camera className="h-4 w-4 text-plum-600" aria-hidden="true" /> Check scanned →
               entry filled
             </p>
           </motion.div>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-            className="glass absolute -right-4 bottom-16 hidden rounded-2xl px-4 py-3 lg:block"
+            className="glass absolute -bottom-5 right-12 hidden rounded-2xl px-4 py-3 xl:block"
           >
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-800">
-              <Check className="h-4 w-4 text-emerald-500" aria-hidden="true" /> 34 kids checked in
-              safely
+              <Sparkles className="h-4 w-4 text-gold-600" aria-hidden="true" /> “Record an income of $500
+              for Sunday offerings”
             </p>
           </motion.div>
         </motion.div>

@@ -14,7 +14,7 @@ export default function FAQAccordion({ items }: { items: FAQ[] }) {
           <div
             key={faq.question}
             className={`overflow-hidden rounded-2xl border transition-colors ${
-              isOpen ? 'border-blue-200 bg-blue-50/50' : 'border-slate-100 bg-white'
+              isOpen ? 'border-brand-200 bg-brand-50/50' : 'border-slate-100 bg-white'
             }`}
           >
             <button
@@ -25,7 +25,7 @@ export default function FAQAccordion({ items }: { items: FAQ[] }) {
             >
               <span className="font-semibold text-slate-900">{faq.question}</span>
               <ChevronDown
-                className={`h-5 w-5 shrink-0 text-blue-600 transition-transform duration-300 ${
+                className={`h-5 w-5 shrink-0 text-brand-600 transition-transform duration-300 ${
                   isOpen ? 'rotate-180' : ''
                 }`}
                 aria-hidden="true"
