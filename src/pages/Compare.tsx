@@ -33,7 +33,8 @@ const keys: (keyof Omit<CompareRow, 'feature'>)[] = [
 ];
 
 const strengths = [
-  'AI assistant on the Pro plan — type or speak everyday language to find records and complete tasks',
+  'Genius Assistant — type, speak or converse in everyday language to enter income, find members and complete tasks',
+  'Advanced AI: AI Search, AI people filters & saved lists, member insights, Draft with AI for emails & texts, and an AI event form builder',
   'Accounting included in Standard and Pro, with payroll and check scanning on Pro — connected to your member and giving records',
   'Sunday School tools with automatic exams and grading',
   'Members, events, worship planning, kids check-in & giving managed in one system with one login',
@@ -154,7 +155,7 @@ export default function Compare() {
               </li>
               <li>
                 <span className="font-semibold text-amber-600">Text notes</span> (for example
-                &ldquo;Add-on,&rdquo; &ldquo;Pro plan,&rdquo; &ldquo;Checks (beta)&rdquo;) — the
+                &ldquo;Worship tools add-on,&rdquo; &ldquo;Checks (beta)&rdquo;) — the
                 capability is available in a partial form, at extra cost, on a specific plan, or
                 with the scope described.
               </li>
