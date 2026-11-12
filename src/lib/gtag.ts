@@ -13,12 +13,12 @@ export const GTAG_ID = 'AW-18428227347';
  * (Goals → Conversions → the action → Tag setup → "Use Google tag" → the part
  * after the slash in send_to 'AW-18428227347/XXXXXXXX').
  *
- * Leave empty until the conversion action exists — trackTrialConversion() is a
- * no-op while this is blank. Can also be set at build time with
- * VITE_GADS_TRIAL_LABEL.
+ * Created 2026-11-12 in Google Ads account 981-995-9642 (Goals → Sign-up →
+ * "Trial request"). Can be overridden at build time with VITE_GADS_TRIAL_LABEL;
+ * trackTrialConversion() is a no-op if this is ever blank.
  */
 export const TRIAL_CONVERSION_LABEL: string =
-  (import.meta.env.VITE_GADS_TRIAL_LABEL as string | undefined) ?? '';
+  (import.meta.env.VITE_GADS_TRIAL_LABEL as string | undefined) || 'vdqKCM_-m7cdEJPeodNE';
 
 declare global {
   interface Window {
