@@ -413,7 +413,7 @@ export const landingPages: LandingPageData[] = [
         eyebrow: 'Where to find it',
         title: 'Which plans include AI?',
         body: [
-          'Advanced AI — type search, auto-filling screens by voice, conversation, scanning checks and documents, file uploads, AI people filters, member insights and Ministry Report, AI writing, form builder, action agent, automations, and MCP connections — plus AI-assisted accounting are included in the Pro plan at $40/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
+          'The Standard plan ($20/month) includes Genius Assistant\'s Type option: type a request in plain English and Genius completes it after you confirm. Advanced AI — Genius Assistant\'s Speak and Converse options, type search, auto-filling screens by voice, conversation, scanning checks and documents, file uploads, AI people filters, member insights and Ministry Report, AI writing, form builder, action agent, automations, and MCP connections — plus AI-assisted accounting are included in the Pro plan at $40/month. For a limited time you can try every feature free for 2 months, so you can measure the time savings before paying anything.',
         ],
       },
     ],
@@ -426,7 +426,7 @@ export const landingPages: LandingPageData[] = [
       {
         question: 'Which plan includes the AI features?',
         answer:
-          'The Pro plan ($40/month) includes advanced AI — type search, voice auto-fill, conversation, and check and document scanning — plus AI-assisted accounting.',
+          'The Standard plan ($20/month) includes Genius Assistant\'s Type option (text requests). The Pro plan ($40/month) adds advanced AI — Genius Assistant\'s Speak and Converse options, type search, voice auto-fill, conversation, and check and document scanning — plus AI-assisted accounting.',
       },
       {
         question: 'Do we need technical skills to use the AI?',

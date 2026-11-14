@@ -305,7 +305,7 @@ export default function GeniusAssistant() {
             </Link>
           </div>
           <p className="mt-5 text-xs text-slate-500">
-            Part of Advanced AI on the Pro plan — included in every 2-month free trial.
+            Type (text) is included in Standard and Pro; Speak and Converse are on Pro — all three are in every 2-month free trial.
           </p>
         </Reveal>
       </div>

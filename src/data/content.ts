@@ -100,6 +100,7 @@ export const pricingPlans: PricingPlan[] = [
       'Volunteer Scheduling',
       'Worship Planning',
       'Kids Ministry',
+      { label: 'Advanced AI, including', items: ['Genius Assistant — Type (text requests)'] },
       { label: 'Android App (Google Play) & Desktop Web App with Notifications', href: googlePlayUrl },
       'Customer Service',
       'Assistance',
@@ -138,6 +139,7 @@ export const pricingPlans: PricingPlan[] = [
       {
         label: 'Advanced AI',
         items: [
+          'Genius Assistant — Speak & Converse',
           'Type Search',
           'Auto-fill screens using Voice',
           'Converse',
@@ -341,6 +343,8 @@ export const planComparison: PlanComparisonGroup[] = [
   {
     group: 'Advanced AI',
     rows: [
+      { feature: 'Genius Assistant — Type (text requests)', ...paidPlans },
+      { feature: 'Genius Assistant — Speak & Converse', ...proOnly },
       { feature: 'Type Search', ...proOnly },
       { feature: 'Auto-fill Screens Using Voice', ...proOnly },
       { feature: 'Converse', ...proOnly },
