@@ -3,7 +3,7 @@ import { ArrowRight, Check, Clock } from 'lucide-react';
 import { blackFriday, useOfferName } from '../../data/promo';
 import { PromoCodePill } from './BlackFridayBanner';
 
-/** Black Friday deal block for the Pricing page (above the regular plan cards). */
+/** Holiday Special deal block for the Pricing page (above the regular plan cards). */
 export default function BlackFridayPricing() {
   const name = useOfferName();
   return (

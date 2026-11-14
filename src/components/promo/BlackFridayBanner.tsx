@@ -40,7 +40,7 @@ export function PromoCodePill({ dark = false }: { dark?: boolean }) {
   );
 }
 
-/** Black Friday banner shown at the very top of the home page while the offer is live. */
+/** Holiday Special banner shown at the very top of the home page while the offer is live. */
 export default function BlackFridayBanner() {
   const name = useOfferName();
   return (

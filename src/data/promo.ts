@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Black Friday 2026 offer — single source for the home banner, the Pricing
+ * Holiday Special 2026 offer (code HOLIDAY50) — single source for the home banner, the Pricing
  * page section and the /signup promo field.
  *
  * The code is validated server-side by /api/promo (api/src/lib/promoCodes.js),
@@ -36,7 +36,7 @@ export const blackFriday = {
     'Applies to new Standard and Pro subscriptions requested with code HOLIDAY50 by December 31, 2026. The 50% discount starts when paid billing begins after your 2-month free trial and lasts 2 years; after that the regular plan price applies. Not applicable to the Free plan.',
 } as const;
 
-/** True while the Black Friday offer should be shown on the website. */
+/** True while the Holiday Special offer should be shown on the website. */
 export function isBlackFridayLive(now: Date = new Date()): boolean {
   if (!blackFriday.enabled) return false;
   return now >= new Date(blackFriday.startsAt) && now <= new Date(blackFriday.endsAt);
@@ -54,17 +54,13 @@ export function useBlackFridayLive(): boolean {
   return live;
 }
 
-/** From this moment the offer is presented as the "Holiday Special". */
-const HOLIDAY_FROM = '2026-12-01T00:00:00-06:00';
 
-/** Offer name for the given date: "Black Friday" through Nov 30, "Holiday" from Dec 1. */
-export function offerName(now: Date = new Date()): 'Black Friday' | 'Holiday' {
-  return now >= new Date(HOLIDAY_FROM) ? 'Holiday' : 'Black Friday';
+/** Offer name shown on the website. */
+export function offerName(): 'Holiday' {
+  return 'Holiday';
 }
 
-/** Hydration-safe offer name (prerendered as "Black Friday", corrected after mount). */
-export function useOfferName(): 'Black Friday' | 'Holiday' {
-  const [name, setName] = useState<'Black Friday' | 'Holiday'>('Black Friday');
-  useEffect(() => setName(offerName()), []);
-  return name;
+/** Offer name for components. */
+export function useOfferName(): 'Holiday' {
+  return offerName();
 }

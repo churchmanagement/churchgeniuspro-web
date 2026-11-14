@@ -16,7 +16,7 @@
 const DEFAULT_CODES = [
   {
     code: 'HOLIDAY50',
-    label: 'Black Friday / Holiday Special — 50% off for 2 years',
+    label: 'Holiday Special — 50% off for 2 years',
     percentOff: 50,
     durationMonths: 24,
     // Applies to paid plans only, after the 2-month free trial.
