@@ -8,9 +8,11 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 };
 
-export default function Hero() {
+export default function Hero({ compactTop = false }: { compactTop?: boolean }) {
   return (
-    <section className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-44">
+    <section
+      className={`relative overflow-hidden pb-20 md:pb-28 ${compactTop ? 'pt-12 md:pt-16' : 'pt-32 md:pt-44'}`}
+    >
       {/* Background */}
       <div
         className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"
