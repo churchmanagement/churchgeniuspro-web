@@ -17,10 +17,10 @@ test('valid code during the window (case and spaces ignored)', () => {
 test('blank code', () => assert.deepEqual(checkPromoCode('', during), { valid: false, reason: 'empty' }));
 test('unknown code', () => assert.equal(checkPromoCode('FREE100', during).reason, 'invalid'));
 test('junk input', () => assert.equal(checkPromoCode('<script>', during).reason, 'invalid'));
-test('expired after Nov 30 CT', () =>
-  assert.equal(checkPromoCode('BLACK50', new Date('2026-12-01T00:00:01-06:00')).reason, 'expired'));
+test('expired after Dec 31 CT', () =>
+  assert.equal(checkPromoCode('BLACK50', new Date('2027-01-01T00:00:01-06:00')).reason, 'expired'));
 test('last minute still valid', () =>
-  assert.equal(checkPromoCode('BLACK50', new Date('2026-11-30T23:59:00-06:00')).valid, true));
+  assert.equal(checkPromoCode('BLACK50', new Date('2026-12-31T23:59:00-06:00')).valid, true));
 test('not started before Nov 14', () =>
   assert.equal(checkPromoCode('BLACK50', new Date('2026-11-13T12:00:00-06:00')).reason, 'not_started'));
 test('env override replaces defaults', () => {

@@ -16,9 +16,9 @@ export const blackFriday = {
   percentOff: 50,
   durationLabel: '2 years',
   startsAt: '2026-11-14T00:00:00-06:00',
-  endsAt: '2026-11-30T23:59:59-06:00',
+  endsAt: '2026-12-31T23:59:59-06:00',
   /** Human-readable end date shown in the fine print. */
-  endsLabel: 'November 30, 2026',
+  endsLabel: 'December 31, 2026',
   plans: [
     { name: 'Standard', regular: 20, promo: 10 },
     { name: 'Pro', regular: 40, promo: 20 },
@@ -33,7 +33,7 @@ export const blackFriday = {
   ],
   /** Plain-language terms, repeated wherever the offer appears. */
   terms:
-    'Applies to new Standard and Pro subscriptions requested with code BLACK50 by November 30, 2026. The 50% discount starts when paid billing begins after your 2-month free trial and lasts 2 years; after that the regular plan price applies. Not applicable to the Free plan.',
+    'Applies to new Standard and Pro subscriptions requested with code BLACK50 by December 31, 2026. The 50% discount starts when paid billing begins after your 2-month free trial and lasts 2 years; after that the regular plan price applies. Not applicable to the Free plan.',
 } as const;
 
 /** True while the Black Friday offer should be shown on the website. */

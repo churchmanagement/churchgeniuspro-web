@@ -22,7 +22,7 @@ const DEFAULT_CODES = [
     // Applies to paid plans only, after the 2-month free trial.
     plans: ['Standard', 'Pro'],
     startsAt: '2026-11-14T00:00:00-06:00',
-    endsAt: '2026-11-30T23:59:59-06:00',
+    endsAt: '2026-12-31T23:59:59-06:00',
   },
 ];
 
