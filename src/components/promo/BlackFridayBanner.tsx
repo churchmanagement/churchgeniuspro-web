@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Copy, Tag } from 'lucide-react';
-import { blackFriday } from '../../data/promo';
+import { blackFriday, useOfferName } from '../../data/promo';
 
 /** Copy-to-clipboard pill for the promo code. */
 export function PromoCodePill({ dark = false }: { dark?: boolean }) {
@@ -42,8 +42,9 @@ export function PromoCodePill({ dark = false }: { dark?: boolean }) {
 
 /** Black Friday banner shown at the very top of the home page while the offer is live. */
 export default function BlackFridayBanner() {
+  const name = useOfferName();
   return (
-    <section aria-label="Black Friday special offer" className="pt-20 md:pt-24">
+    <section aria-label={`${name} special offer`} className="pt-20 md:pt-24">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-plum-900 to-brand-900 px-6 py-8 text-white shadow-2xl shadow-plum-900/30 sm:px-10 sm:py-10">
           <div
@@ -58,7 +59,7 @@ export default function BlackFridayBanner() {
           <div className="relative grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-slate-950">
-                Black Friday Special · Limited time
+                {name} Special · Limited time
               </span>
               <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 <span className="bg-gradient-to-r from-amber-200 via-amber-300 to-orange-300 bg-clip-text text-transparent">

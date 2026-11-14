@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Clock } from 'lucide-react';
-import { blackFriday } from '../../data/promo';
+import { blackFriday, useOfferName } from '../../data/promo';
 import { PromoCodePill } from './BlackFridayBanner';
 
 /** Black Friday deal block for the Pricing page (above the regular plan cards). */
 export default function BlackFridayPricing() {
+  const name = useOfferName();
   return (
     <section aria-labelledby="black-friday-pricing" className="pb-14">
       <div className="container-page">
@@ -15,7 +16,7 @@ export default function BlackFridayPricing() {
           />
           <div className="relative text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-slate-950">
-              <Clock className="h-3.5 w-3.5" aria-hidden="true" /> Limited-time Black Friday deal
+              <Clock className="h-3.5 w-3.5" aria-hidden="true" /> Limited-time {name} deal
             </span>
             <h2 id="black-friday-pricing" className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
               <span className="bg-gradient-to-r from-amber-200 to-orange-300 bg-clip-text text-transparent">
@@ -29,12 +30,12 @@ export default function BlackFridayPricing() {
 
           <div className="relative mx-auto mt-8 max-w-xl overflow-hidden rounded-2xl bg-white text-slate-900 shadow-lg">
             <table className="w-full text-left">
-              <caption className="sr-only">Black Friday prices for paid plans</caption>
+              <caption className="sr-only">{name} prices for paid plans</caption>
               <thead className="bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
                 <tr>
                   <th scope="col" className="px-5 py-3">Plan</th>
                   <th scope="col" className="px-5 py-3 text-right">Original price</th>
-                  <th scope="col" className="px-5 py-3 text-right">Black Friday price</th>
+                  <th scope="col" className="px-5 py-3 text-right">{name} price</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
@@ -74,7 +75,7 @@ export default function BlackFridayPricing() {
               to={`/signup?promo=${blackFriday.code}`}
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3.5 text-base font-bold text-slate-950 shadow-lg shadow-orange-500/30 transition hover:brightness-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/50"
             >
-              Claim Black Friday Deal <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              Claim {name} Deal <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </Link>
           </div>
 

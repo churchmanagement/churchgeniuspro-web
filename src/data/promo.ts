@@ -53,3 +53,18 @@ export function useBlackFridayLive(): boolean {
   useEffect(() => setLive(isBlackFridayLive()), []);
   return live;
 }
+
+/** From this moment the offer is presented as the "Holiday Special". */
+const HOLIDAY_FROM = '2026-12-01T00:00:00-06:00';
+
+/** Offer name for the given date: "Black Friday" through Nov 30, "Holiday" from Dec 1. */
+export function offerName(now: Date = new Date()): 'Black Friday' | 'Holiday' {
+  return now >= new Date(HOLIDAY_FROM) ? 'Holiday' : 'Black Friday';
+}
+
+/** Hydration-safe offer name (prerendered as "Black Friday", corrected after mount). */
+export function useOfferName(): 'Black Friday' | 'Holiday' {
+  const [name, setName] = useState<'Black Friday' | 'Holiday'>('Black Friday');
+  useEffect(() => setName(offerName()), []);
+  return name;
+}
