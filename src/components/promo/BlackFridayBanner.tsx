@@ -97,7 +97,6 @@ export default function BlackFridayBanner() {
               >
                 Get This Deal <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
-              <p className="text-xs text-white/60">Ends {blackFriday.endsLabel}</p>
             </div>
           </div>
 

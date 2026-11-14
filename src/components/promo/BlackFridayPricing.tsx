@@ -80,7 +80,7 @@ export default function BlackFridayPricing() {
           </div>
 
           <p className="relative mt-6 text-center text-xs leading-relaxed text-white/55">
-            Offer ends {blackFriday.endsLabel}. {blackFriday.terms}
+            {blackFriday.terms}
           </p>
         </div>
       </div>

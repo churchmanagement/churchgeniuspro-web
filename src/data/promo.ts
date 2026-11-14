@@ -33,7 +33,7 @@ export const blackFriday = {
   ],
   /** Plain-language terms, repeated wherever the offer appears. */
   terms:
-    'Applies to new Standard and Pro subscriptions requested with code HOLIDAY50 by December 31, 2026. The 50% discount starts when paid billing begins after your 2-month free trial and lasts 2 years; after that the regular plan price applies. Not applicable to the Free plan.',
+    'Applies to new Standard and Pro subscriptions requested with code HOLIDAY50 while the offer lasts. The 50% discount starts when paid billing begins after your 2-month free trial and lasts 2 years; after that the regular plan price applies. Not applicable to the Free plan.',
 } as const;
 
 /** True while the Holiday Special offer should be shown on the website. */
