@@ -12,6 +12,8 @@ import {
   Info,
 } from 'lucide-react';
 import PricingCards from '../components/ui/PricingCards';
+import BlackFridayPricing from '../components/promo/BlackFridayPricing';
+import { useBlackFridayLive } from '../data/promo';
 import FAQAccordion from '../components/ui/FAQAccordion';
 import CTASection from '../components/ui/CTASection';
 import { SectionHeading, Reveal } from '../components/ui/Section';
@@ -65,6 +67,7 @@ const assurances = [
 ];
 
 export default function Pricing() {
+  const showBlackFriday = useBlackFridayLive();
   return (
     <>
       <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
@@ -110,6 +113,8 @@ export default function Pricing() {
           </motion.div>
         </div>
       </section>
+
+      {showBlackFriday && <BlackFridayPricing />}
 
       <section className="pb-20">
         <div className="container-page">

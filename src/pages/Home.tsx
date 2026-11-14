@@ -12,6 +12,8 @@ import {
   Smile,
 } from 'lucide-react';
 import Hero from '../components/home/Hero';
+import BlackFridayBanner from '../components/promo/BlackFridayBanner';
+import { useBlackFridayLive } from '../data/promo';
 import DemoSection from '../components/home/DemoSection';
 import GeniusAssistant from '../components/home/GeniusAssistant';
 import AISearchShowcase from '../components/home/AISearchShowcase';
@@ -86,10 +88,12 @@ const benefits = [
 ];
 
 export default function Home() {
+  const showBlackFriday = useBlackFridayLive();
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: homeJsonLd }} />
-      <Hero />
+      {showBlackFriday && <BlackFridayBanner />}
+      <Hero compactTop={showBlackFriday} />
 
       {/* Genius Assistant — new, right under the hero */}
       <GeniusAssistant />

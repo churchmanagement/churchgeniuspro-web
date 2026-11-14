@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Check, CheckCircle2, Mail, Send, Sparkles, Clock, HeartHandshake } from 'lucide-react';
+import { Check, CheckCircle2, Mail, Send, Sparkles, Clock, HeartHandshake, Tag, AlertCircle, Loader2 } from 'lucide-react';
 import { submitContactForm, type ContactMessage } from '../lib/contact';
 import { pricingOffer } from '../data/content';
 import { trackTrialConversion } from '../lib/gtag';
+import { checkPromoCode } from '../lib/promo';
 
 /**
  * Trial Version request page (served at /signup).
@@ -24,6 +25,7 @@ type TrialFormFields = Omit<ContactMessage, 'subject' | 'heardAbout' | 'heardAbo
   friendName: string;
   socialNetwork: string;
   otherSource: string;
+  promoCode: string;
 };
 
 /** "How did you hear about ChurchGeniusPro?" — required; Friend / Social network / Others ask an optional detail. */
@@ -67,14 +69,58 @@ export default function TrialRequest() {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<TrialFormFields>();
   const heardAbout = watch('heardAbout');
 
+  // Promotional code: validated by /api/promo on blur, on "Apply", and again on submit.
+  type PromoUi = { state: 'idle' | 'checking' | 'valid' | 'invalid'; message?: string; code?: string };
+  const [promo, setPromo] = useState<PromoUi>({ state: 'idle' });
+  const [appliedPromo, setAppliedPromo] = useState<string | null>(null);
+
+  const validatePromo = async (raw: string): Promise<string | null | false> => {
+    const code = raw.trim();
+    if (!code) {
+      setPromo({ state: 'idle' });
+      return null; // blank = regular free trial
+    }
+    setPromo({ state: 'checking' });
+    const r = await checkPromoCode(code);
+    if (r.valid) {
+      setValue('promoCode', r.code);
+      setPromo({
+        state: 'valid',
+        code: r.code,
+        message: `Code ${r.code} applied: ${r.percentOff}% off ${r.plans.join(' or ')} for ${r.durationMonths / 12} years, starting after your 2-month free trial.`,
+      });
+      return r.code;
+    }
+    setPromo({ state: 'invalid', message: r.message });
+    return false;
+  };
+
+  // Prefill from links like /signup?promo=BLACK50 (home banner and pricing page).
+  useEffect(() => {
+    const fromUrl = new URLSearchParams(window.location.search).get('promo');
+    if (fromUrl) {
+      setValue('promoCode', fromUrl.toUpperCase());
+      void validatePromo(fromUrl);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const onSubmit = handleSubmit(async (data) => {
     setSending(true);
     setServerError(null);
-    const { friendName, socialNetwork, otherSource, ...rest } = data;
+    // Re-check the code on the server at submit time; never send an unverified code.
+    const promoResult = await validatePromo(data.promoCode ?? '');
+    if (promoResult === false) {
+      setSending(false);
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { friendName, socialNetwork, otherSource, promoCode, ...rest } = data;
     const heardAboutDetail =
       data.heardAbout === 'Friend'
         ? friendName
@@ -83,9 +129,15 @@ export default function TrialRequest() {
           : data.heardAbout === 'Others'
             ? otherSource
             : '';
-    const result = await submitContactForm({ ...rest, heardAboutDetail, subject: TRIAL_SUBJECT });
+    const result = await submitContactForm({
+      ...rest,
+      heardAboutDetail,
+      ...(promoResult ? { promoCode: promoResult } : {}),
+      subject: promoResult ? `${TRIAL_SUBJECT} (promo ${promoResult})` : TRIAL_SUBJECT,
+    });
     setSending(false);
     if (result.ok) {
+      setAppliedPromo(promoResult || null);
       setSent(true);
       trackTrialConversion();
     } else setServerError(result.error ?? 'Something went wrong. Please try again.');
@@ -154,6 +206,12 @@ export default function TrialRequest() {
                   Thank you for your interest in our application. We will review your request and send the
                   trial version details very soon.
                 </p>
+                {appliedPromo && (
+                  <p className="mx-auto mt-4 max-w-md rounded-xl bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">
+                    Promotional code {appliedPromo} is saved with your request. The discount starts when paid
+                    billing begins after your free trial.
+                  </p>
+                )}
                 <Link to="/" className="btn-primary mt-8">
                   Back to Home
                 </Link>
@@ -281,6 +339,61 @@ export default function TrialRequest() {
                     })}
                   />
                   {errors.message && <p className="mt-1 text-xs text-rose-600">{errors.message.message}</p>}
+                </div>
+                <div>
+                  <label htmlFor="promoCode" className="label">
+                    Promotional Code (Optional)
+                  </label>
+                  <div className="flex gap-2">
+                    <div className="relative flex-1">
+                      <Tag
+                        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+                        aria-hidden="true"
+                      />
+                      <input
+                        id="promoCode"
+                        className="input !pl-9 font-mono uppercase tracking-wider"
+                        maxLength={32}
+                        autoComplete="off"
+                        spellCheck={false}
+                        placeholder="e.g. BLACK50"
+                        aria-invalid={promo.state === 'invalid'}
+                        aria-describedby="promoCode-status"
+                        {...register('promoCode', {
+                          onChange: () => promo.state !== 'idle' && setPromo({ state: 'idle' }),
+                          onBlur: (e) => void validatePromo(e.target.value),
+                        })}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => void validatePromo(watch('promoCode') ?? '')}
+                      className="btn-secondary shrink-0 !px-4"
+                      disabled={promo.state === 'checking'}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  <div id="promoCode-status" aria-live="polite" className="mt-1.5 min-h-[1rem] text-xs">
+                    {promo.state === 'checking' && (
+                      <span className="inline-flex items-center gap-1 text-slate-500">
+                        <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" /> Checking code…
+                      </span>
+                    )}
+                    {promo.state === 'valid' && (
+                      <span className="inline-flex items-start gap-1 font-medium text-emerald-700">
+                        <CheckCircle2 className="mt-px h-3.5 w-3.5 shrink-0" aria-hidden="true" /> {promo.message}
+                      </span>
+                    )}
+                    {promo.state === 'invalid' && (
+                      <span className="inline-flex items-start gap-1 text-rose-600">
+                        <AlertCircle className="mt-px h-3.5 w-3.5 shrink-0" aria-hidden="true" /> {promo.message}
+                      </span>
+                    )}
+                    {promo.state === 'idle' && (
+                      <span className="text-slate-500">Leave blank for the regular 2-month free trial.</span>
+                    )}
+                  </div>
                 </div>
                 {serverError && (
                   <p role="alert" className="rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700">

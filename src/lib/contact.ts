@@ -32,6 +32,8 @@ export interface ContactMessage {
   heardAbout?: string;
   /** Optional detail: friend's name, which social network, or where (Others). */
   heardAboutDetail?: string;
+  /** Trial request: server-validated promotional code (e.g. BLACK50), if any. */
+  promoCode?: string;
 }
 
 export async function submitContactForm(data: ContactMessage): Promise<{ ok: boolean; error?: string }> {
@@ -55,6 +57,7 @@ export async function submitContactForm(data: ContactMessage): Promise<{ ok: boo
                 : data.heardAbout,
             }
           : {}),
+        ...(data.promoCode ? { promo_code: data.promoCode } : {}),
         botcheck: '',
       }),
     });
