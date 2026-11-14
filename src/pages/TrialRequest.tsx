@@ -100,7 +100,7 @@ export default function TrialRequest() {
     return false;
   };
 
-  // Prefill from links like /signup?promo=BLACK50 (home banner and pricing page).
+  // Prefill from links like /signup?promo=HOLIDAY50 (home banner and pricing page).
   useEffect(() => {
     const fromUrl = new URLSearchParams(window.location.search).get('promo');
     if (fromUrl) {
@@ -356,7 +356,7 @@ export default function TrialRequest() {
                         maxLength={32}
                         autoComplete="off"
                         spellCheck={false}
-                        placeholder="e.g. BLACK50"
+                        placeholder="e.g. HOLIDAY50"
                         aria-invalid={promo.state === 'invalid'}
                         aria-describedby="promoCode-status"
                         {...register('promoCode', {

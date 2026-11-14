@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * GET /api/promo?code=BLACK50 — validates a promotional code server-side.
+ * GET /api/promo?code=HOLIDAY50 — validates a promotional code server-side.
  *
  * Used by the /signup trial request form. Responds 200 with
  *   { valid: true, code, label, percentOff, durationMonths, plans, endsAt }

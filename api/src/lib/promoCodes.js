@@ -15,7 +15,7 @@
  */
 const DEFAULT_CODES = [
   {
-    code: 'BLACK50',
+    code: 'HOLIDAY50',
     label: 'Black Friday / Holiday Special — 50% off for 2 years',
     percentOff: 50,
     durationMonths: 24,

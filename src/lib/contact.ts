@@ -32,7 +32,7 @@ export interface ContactMessage {
   heardAbout?: string;
   /** Optional detail: friend's name, which social network, or where (Others). */
   heardAboutDetail?: string;
-  /** Trial request: server-validated promotional code (e.g. BLACK50), if any. */
+  /** Trial request: server-validated promotional code (e.g. HOLIDAY50), if any. */
   promoCode?: string;
 }
 
