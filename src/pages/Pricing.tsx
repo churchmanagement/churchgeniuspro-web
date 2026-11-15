@@ -8,7 +8,6 @@ import {
   RefreshCcw,
   HeartHandshake,
   Check,
-  Zap,
   Info,
 } from 'lucide-react';
 import PricingCards from '../components/ui/PricingCards';
@@ -22,7 +21,6 @@ import {
   addOns,
   planComparison,
   pricingPlans,
-  pricingOffer,
   moneyBackGuarantee,
 } from '../data/content';
 import { SITE } from '../data/seo';
@@ -93,23 +91,6 @@ export default function Pricing() {
               free for 2 months, with free setup, free migration, and a 30-day money-back guarantee
               on paid plans.
             </p>
-            <motion.div
-              initial={false}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.25, duration: 0.5 }}
-              className="mx-auto mt-8 inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3 shadow-lg shadow-orange-500/25"
-            >
-              <Zap className="h-5 w-5 text-white" aria-hidden="true" />
-              <span className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
-                {pricingOffer.label}
-              </span>
-              <span className="rounded-full bg-white/20 px-3 py-0.5 text-xs font-semibold text-white sm:text-sm">
-                {pricingOffer.summary}
-              </span>
-              <span className="rounded-full bg-white/20 px-3 py-0.5 text-xs font-semibold text-white sm:text-sm">
-                {pricingOffer.trialLength} free trial
-              </span>
-            </motion.div>
           </motion.div>
         </div>
       </section>
