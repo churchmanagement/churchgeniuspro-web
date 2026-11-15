@@ -190,16 +190,6 @@ export default function About() {
                   our own church, and out of a desire to use the skills God has given me to serve His church.
                 </p>
               </div>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {['20+ years in software', 'Former church treasurer', 'Olathe, Kansas'].map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
             </div>
           </Reveal>
         </div>
