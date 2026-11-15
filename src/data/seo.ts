@@ -65,6 +65,13 @@ const staticRoutes: RouteMeta[] = [
       'How ChurchGeniusPro protects your church: enterprise-grade technology, role-based access, encrypted data, and software developed in the USA.',
   },
   {
+    path: '/about',
+    title: 'Our Story — Meet the Founder | ChurchGeniusPro',
+    description:
+      'Meet Anson Mathew, founder of ChurchGenius LLC: a software engineer of 20+ years and former church treasurer who built ChurchGeniusPro to serve churches.',
+    ogImage: '/og/about.jpg',
+  },
+  {
     path: '/support',
     title: 'Support, Tutorials & Video Guides | ChurchGeniusPro',
     description:

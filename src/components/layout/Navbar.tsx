@@ -33,13 +33,13 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {navLinks.map((link) => (
             <li key={link.path}>
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  `whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors xl:px-4 ${
                     isActive ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:text-brand-800'
                   }`
                 }
@@ -51,7 +51,7 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link to="/contact" className="btn-primary !px-5 !py-2.5">
+          <Link to="/contact" className="btn-primary whitespace-nowrap !px-5 !py-2.5">
             Contact Us
           </Link>
         </div>

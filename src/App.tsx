@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, type ComponentType } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ChatWidget from './components/ChatWidget';
@@ -16,6 +16,7 @@ export interface PageComponents {
   Pricing: ComponentType;
   Compare: ComponentType;
   Security: ComponentType;
+  About: ComponentType;
   Support: ComponentType;
   Contact: ComponentType;
   TrialRequest: ComponentType;
@@ -40,6 +41,7 @@ const lazyPages: PageComponents = {
   Pricing: lazy(() => import('./pages/Pricing')),
   Compare: lazy(() => import('./pages/Compare')),
   Security: lazy(() => import('./pages/Security')),
+  About: lazy(() => import('./pages/About')),
   Support: lazy(() => import('./pages/Support')),
   Contact: lazy(() => import('./pages/SignUp')),
   TrialRequest: lazy(() => import('./pages/TrialRequest')),
@@ -119,6 +121,7 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
     Pricing,
     Compare,
     Security,
+    About,
     Support,
     Contact,
     TrialRequest,
@@ -154,6 +157,8 @@ export default function App({ pages = lazyPages }: { pages?: PageComponents }) {
               <Route key={p.slug} path={`/compare/${p.slug}`} element={<CompareVs slug={p.slug} />} />
             ))}
             <Route path="/security" element={<Security />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/our-story" element={<Navigate to="/about" replace />} />
             <Route path="/support" element={<Support />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<TrialRequest />} />
