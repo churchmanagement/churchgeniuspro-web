@@ -16,10 +16,13 @@ const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 // plain-HTML integration); they can only cause mail to be sent to your own inbox.
 // The env var, when set at build time, overrides this default.
 const ACCESS_KEY =
-  (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) ?? '610387cd-198f-437e-8e27-f169516b8c44';
-// NOTE: Web3Forms' `ccemail` field is Pro-only. The copy to
-// churchgeniuspro@gmail.com is instead handled by a forwarding rule in the
-// support@churchgeniuspro.com mailbox (or upgrade Web3Forms to use ccemail).
+  (import.meta.env.VITE_WEB3FORMS_KEY as string | undefined) || '610387cd-198f-437e-8e27-f169516b8c44';
+// Backup copy: a second Web3Forms access key registered to
+// churchgeniuspro@gmail.com. Web3Forms' `ccemail` field is Pro-only, so every
+// form is sent twice — once per key — and counts as delivered if either works.
+// Leave blank to disable. VITE_WEB3FORMS_BACKUP_KEY overrides at build time.
+const BACKUP_ACCESS_KEY =
+  (import.meta.env.VITE_WEB3FORMS_BACKUP_KEY as string | undefined) || '';
 
 export interface ContactMessage {
   name: string;
@@ -36,13 +39,16 @@ export interface ContactMessage {
   promoCode?: string;
 }
 
-export async function submitContactForm(data: ContactMessage): Promise<{ ok: boolean; error?: string }> {
+async function sendWithKey(
+  accessKey: string,
+  data: ContactMessage,
+): Promise<{ ok: boolean; error?: string }> {
   try {
     const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        access_key: ACCESS_KEY,
+        access_key: accessKey,
         subject: `[ChurchGeniusPro] ${data.subject}`,
         from_name: data.name,
         email: data.email,
@@ -67,4 +73,14 @@ export async function submitContactForm(data: ContactMessage): Promise<{ ok: boo
   } catch {
     return { ok: false, error: 'Network error. Please check your connection and try again.' };
   }
+}
+
+/**
+ * Sends the form to support@churchgeniuspro.com and, when a backup key is set,
+ * also to churchgeniuspro@gmail.com. Succeeds if at least one copy is accepted.
+ */
+export async function submitContactForm(data: ContactMessage): Promise<{ ok: boolean; error?: string }> {
+  const keys = [ACCESS_KEY, BACKUP_ACCESS_KEY].filter((k, i, all) => k && all.indexOf(k) === i);
+  const results = await Promise.all(keys.map((k) => sendWithKey(k, data)));
+  return results.find((r) => r.ok) ?? results[0];
 }
