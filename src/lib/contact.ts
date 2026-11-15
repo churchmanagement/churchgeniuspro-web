@@ -22,7 +22,7 @@ const ACCESS_KEY =
 // form is sent twice — once per key — and counts as delivered if either works.
 // Leave blank to disable. VITE_WEB3FORMS_BACKUP_KEY overrides at build time.
 const BACKUP_ACCESS_KEY =
-  (import.meta.env.VITE_WEB3FORMS_BACKUP_KEY as string | undefined) || '';
+  (import.meta.env.VITE_WEB3FORMS_BACKUP_KEY as string | undefined) || '0cecc4b8-e678-4cc6-89b3-d62e3e5f0900';
 
 export interface ContactMessage {
   name: string;
